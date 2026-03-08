@@ -1,0 +1,67 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{Dedicatoria}{\es@scroman {i}}{chapter*.1}%
+\contentsline {chapter}{Índice de Anexos}{\es@scroman {viii}}{chapter*.5}%
+\contentsline {chapter}{Glosario}{\es@scroman {ix}}{chapter*.6}%
+\contentsline {chapter}{Lista de Abreviaturas y Siglas}{\es@scroman {x}}{chapter*.7}%
+\contentsline {chapter}{Resumen}{\es@scroman {xi}}{chapter*.8}%
+\contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Presentación de la Empresa}{3}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Planteamiento del problema en la Empresa}{4}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Justificación}{6}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Objetivos}{8}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Objetivo General}{8}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Objetivos específicos}{8}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Marco de referencia}{9}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Antecedentes}{9}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Diseño e implementación de una estrategia avanzada de control}{9}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Otros proyectos relevantes}{9}{subsection.6.1.2}%
+\contentsline {section}{\numberline {6.2}Marco teórico}{10}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}La Bicicleta}{10}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Dinámica de la Bicicleta}{11}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Movimiento Giroscópico}{11}{subsection.6.2.3}%
+\contentsline {subsubsection}{Efecto Giroscópico}{12}{subsubsection*.12}%
+\contentsline {subsection}{\numberline {6.2.4}Estimación de Orientación mediante Filtros Complementarios}{13}{subsection.6.2.4}%
+\contentsline {subsubsection}{El Acelerómetro y la Medición de Inclinación}{13}{subsubsection*.13}%
+\contentsline {subsubsection}{El Giroscopio y la Velocidad Angular}{13}{subsubsection*.14}%
+\contentsline {subsubsection}{Filtro Complementario}{13}{subsubsection*.15}%
+\contentsline {subsection}{\numberline {6.2.5}Controlador PID}{14}{subsection.6.2.5}%
+\contentsline {subsubsection}{La Ecuación General del PID}{14}{subsubsection*.16}%
+\contentsline {subsection}{\numberline {6.2.6}Microcontrolador ESP32}{14}{subsection.6.2.6}%
+\contentsline {subsubsection}{Arquitectura Xtensa Dual-Core de 32 bits}{14}{subsubsection*.17}%
+\contentsline {subsubsection}{Sensor de Movimiento Integral (MPU9250)}{14}{subsubsection*.18}%
+\contentsline {section}{\numberline {6.3}Marco Legal}{15}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Normativa de Control y Programación}{15}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Normativa de Representación Gráfica y Diseño Mecánico}{15}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Normativa de Seguridad en Baterías y Sistemas de Potencia}{15}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Estándares de Ingeniería de Control y Software}{15}{subsection.6.3.4}%
+\contentsline {chapter}{\numberline {7}Actividades realizadas durante la pasantía}{16}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Investigación de sistemas similares para la obtención de criterios de diseño}{16}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Diseño Del Volante}{16}{subsection.7.1.1}%
+\contentsline {section}{\numberline {7.2}Análisis del modelo matemático del sistema y Diseño tridimensional (3D)}{18}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Mecanizado y ensamble de la planta física}{21}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Control sistema de dirección}{26}{subsection.7.3.1}%
+\contentsline {section}{\numberline {7.4}Implementación del sistema de comunicación}{29}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Sensado de la posición de la bicicleta}{29}{subsection.7.4.1}%
+\contentsline {subsubsection}{MMA7361}{29}{subsubsection*.35}%
+\contentsline {subsubsection}{MPU9250}{30}{subsubsection*.38}%
+\contentsline {section}{\numberline {7.5}Implementación del sistema de control}{35}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}Modificaciones estructurales}{35}{subsection.7.5.1}%
+\contentsline {subsection}{\numberline {7.5.2}Adquisición de datos y tratamiento de la señal}{39}{subsection.7.5.2}%
+\contentsline {subsection}{\numberline {7.5.3}Sistema de dirección y actuador}{43}{subsection.7.5.3}%
+\contentsline {subsection}{\numberline {7.5.4}Integración de los componentes electrónicos en la planta}{52}{subsection.7.5.4}%
+\contentsline {subsection}{\numberline {7.5.5}Diseño del sistema de baterías de alimentación}{54}{subsection.7.5.5}%
+\contentsline {subsection}{\numberline {7.5.6}Implementación del control PID y verificación de la señal}{58}{subsection.7.5.6}%
+\contentsline {chapter}{\numberline {8}Resultados}{61}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Fase 1: Diseño y Construcción Mecánica de la Planta}{61}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Diseño del volante de inercia}{61}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Sistema de dirección vertical}{61}{subsection.8.1.2}%
+\contentsline {section}{\numberline {8.2}Fase 2: Instrumentación y Procesamiento de Señales}{62}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Implementación de la Unidad de Medición Inercial (IMU)}{62}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Estrategia de Fusión de Datos: Filtro Complementario}{62}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}Montaje e Integración del Microcontrolador}{62}{subsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.2.4}Interfaz de Actuación y Acople de Potencia}{62}{subsection.8.2.4}%
+\contentsline {section}{\numberline {8.3}Fase 3: Construcción y Sintonización del Controlador PID}{62}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Fase 4: Adaptación y Construcción del Sistema de Alimentación}{62}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Conclusiones y Recomendaciones}{64}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Referencias}{65}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Anexos}{66}{chapter.11}%

@@ -1,0 +1,464 @@
+\documentclass[12pt,letterpaper]{report}
+
+% ============================================
+% PAQUETES NECESARIOS
+% ============================================
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{mathptmx}  % Times New Roman
+\usepackage[left=3cm, right=3cm, top=3cm, bottom=3cm]{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[numbers]{natbib}
+\usepackage{caption}
+
+% ============================================
+% CONFIGURACIÓN DE FORMATO
+% ============================================
+
+% Interlineado sencillo
+\singlespacing
+
+% Configuración de párrafos: justificado con espaciado 12pt antes y después
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{12pt}
+
+% Configuración de títulos según especificaciones
+% Título 1 (Capítulo): Times New Roman Negrita 14
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries\fontsize{14}{16}\selectfont}
+  {\thechapter.}{10pt}{}
+\titlespacing*{\chapter}{0pt}{0pt}{12pt}
+
+% Título 2 (Sección): Times New Roman Negrita 13
+\titleformat{\section}
+  {\normalfont\bfseries\fontsize{13}{15}\selectfont}
+  {\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{12pt}{12pt}
+
+% Título 3 (Subsección): Times New Roman Negrita 12
+\titleformat{\subsection}
+  {\normalfont\bfseries\fontsize{12}{14}\selectfont}
+  {\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{12pt}{12pt}
+
+% Configuración de numeración de páginas
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% Configuración de figuras y tablas
+\captionsetup[figure]{font=small,labelfont=bf}
+\captionsetup[table]{font=small,labelfont=bf,position=below}
+
+% ============================================
+% INICIO DEL DOCUMENTO
+% ============================================
+\begin{document}
+
+% Numeración romana para preliminares
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+% ============================================
+% PORTADA
+% ============================================
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\fontsize{14}{16}\selectfont\bfseries TÍTULO DE LA PASANTÍA\par}
+\vspace{0.5cm}
+{\fontsize{12}{14}\selectfont Nombre\_Empresa\par}
+
+\vfill
+
+{\fontsize{12}{14}\selectfont\bfseries Autor\par}
+\vspace{0.3cm}
+{\fontsize{12}{14}\selectfont Estudiantes\par}
+
+\vfill
+
+{\fontsize{12}{14}\selectfont\bfseries UNIVERSIDAD DISTRITAL FRANCISCO JOSÉ DE CALDAS\par}
+\vspace{0.3cm}
+{\fontsize{12}{14}\selectfont Facultad Tecnológica\par}
+\vspace{0.2cm}
+{\fontsize{12}{14}\selectfont Ingeniería en (Control/ Telecomunicaciones)\par}
+
+\vfill
+
+{\fontsize{12}{14}\selectfont Bogotá D.C. Mes, Año\par}
+
+\end{titlepage}
+
+% ============================================
+% CONTRAPORTADA
+% ============================================
+\newpage
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\fontsize{14}{16}\selectfont\bfseries TÍTULO DE LA PASANTÍA\par}
+\vspace{0.5cm}
+{\fontsize{12}{14}\selectfont Nombre\_Empresa\par}
+
+\vfill
+
+{\fontsize{12}{14}\selectfont\bfseries Autor\par}
+\vspace{0.3cm}
+{\fontsize{12}{14}\selectfont Estudiante (nombre, código, email)\par}
+
+\vspace{1cm}
+
+{\fontsize{12}{14}\selectfont\bfseries INFORME FINAL DE PASANTÍA\par}
+
+\vspace{1cm}
+
+{\fontsize{12}{14}\selectfont Presentado para optar al título de: Ingeniero(a) en (Control y Automatización/Telecomunicaciones)\par}
+
+\vfill
+
+{\fontsize{12}{14}\selectfont\bfseries Director Interno\par}
+\vspace{0.2cm}
+{\fontsize{12}{14}\selectfont Nombre del profesor\par}
+
+\vspace{1cm}
+
+{\fontsize{12}{14}\selectfont\bfseries Director Externo\par}
+\vspace{0.2cm}
+{\fontsize{12}{14}\selectfont Nombre y cargo del asesor en la empresa\par}
+
+\vfill
+
+{\fontsize{12}{14}\selectfont\bfseries UNIVERSIDAD DISTRITAL FRANCISCO JOSÉ DE CALDAS\par}
+\vspace{0.3cm}
+{\fontsize{12}{14}\selectfont Facultad Tecnológica\par}
+\vspace{0.2cm}
+{\fontsize{12}{14}\selectfont Ingeniería en (Control/ Telecomunicaciones)\par}
+{\fontsize{12}{14}\selectfont Bogotá D.C. Mes, Año\par}
+
+\end{titlepage}
+
+% ============================================
+% DEDICATORIA
+% ============================================
+\newpage
+\chapter*{Dedicatoria}
+\addcontentsline{toc}{chapter}{Dedicatoria}
+
+Esta parte del informe solo es válida para los trabajos de título o los de grado. Se localiza inmediatamente después de la portada y en una página separada, se sugiere que sea breve y de carácter formal. No se debe incluir en el índice.
+
+% ============================================
+% ÍNDICE DE CONTENIDOS
+% ============================================
+\newpage
+\tableofcontents
+
+% ============================================
+% ÍNDICE DE FIGURAS
+% ============================================
+\newpage
+\listoffigures
+
+% ============================================
+% ÍNDICE DE TABLAS
+% ============================================
+\newpage
+\listoftables
+
+% ============================================
+% ÍNDICE DE ANEXOS
+% ============================================
+\newpage
+\chapter*{Índice de Anexos}
+\addcontentsline{toc}{chapter}{Índice de Anexos}
+
+Los Anexos se incorporan como textos al final del documento o hipervínculos dentro del texto.
+
+\noindent Anexo 1\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots 15
+
+% ============================================
+% GLOSARIO
+% ============================================
+\newpage
+\chapter*{Glosario}
+\addcontentsline{toc}{chapter}{Glosario}
+
+Se entiende como la especificación de los conceptos claves del trabajo que deben ser detallados para la facilitación de la comprensión del texto. Esta sección solo es útil cuando se están trabajando con conceptos pocos conocidos y no muy divulgados, deben tener espaciado de 6 puntos entre cada uno de los conceptos e interlineado simple.
+
+\vspace{6pt}
+\noindent\textbf{Concepto:} Explicación breve y detallada del concepto
+
+\vspace{6pt}
+\noindent\textbf{accesibilidad:} La condición de ser accesible. Por ejemplo, una carretera transitable todo el año proporciona mejor accesibilidad que una vía transitable en tiempo seco.
+
+\vspace{6pt}
+\noindent\textbf{aceleración:} Incremento de la velocidad en la unidad de tiempo.
+
+\vspace{6pt}
+\noindent\textbf{divergencia:} Proceso de desdoblamiento de una corriente vehicular en dos corrientes independientes.
+
+% ============================================
+% LISTA DE ABREVIATURAS Y SIGLAS
+% ============================================
+\newpage
+\chapter*{Lista de Abreviaturas y Siglas}
+\addcontentsline{toc}{chapter}{Lista de Abreviaturas y Siglas}
+
+El uso de abreviaturas y siglas es muy común en la disciplina por lo que todas aquellas abreviaturas y siglas que serán usadas en el texto deben ser detalladas en esta sección especificando su significado, deben tener espaciado de 6 puntos entre cada una de las siglas e interlineado simple.
+
+\vspace{6pt}
+\begin{tabular}{ll}
+\textbf{Sigla/Abreviatura} & \textbf{Significado} \\[6pt]
+INE & Instituto Nacional de Estadística \\[6pt]
+BM & Banco Mundial \\[6pt]
+BRT & Bus Rapid Transit \\
+\end{tabular}
+
+% ============================================
+% RESUMEN
+% ============================================
+\newpage
+\chapter*{Resumen}
+\addcontentsline{toc}{chapter}{Resumen}
+
+El objetivo de esta parte del informe es contextualizar al lector de una manera clara y precisa sobre los aspectos más relevantes del trabajo que se está presentando, entregando una idea general del documento. El resumen es el primer contacto del lector con su trabajo por lo que éste debe ser de calidad.
+
+El contenido debe ser una secuencia de párrafos interrelacionados con oraciones lógicamente relacionados (no es una enumeración). El primer párrafo debe describir el contexto en el cual se desarrolla la pasantía. El segundo párrafo se orienta a una descripción y planteamiento del problema. El tercer párrafo presenta la solución desarrollada mientras que en el cuarto párrafo se analizan los resultados obtenidos. Por último, las conclusiones obtenidas por el trabajo.
+
+En un resumen no deben aparecer ni figuras, tablas o fórmulas matemáticas.
+
+Recordar que el tamaño máximo del Resumen es el de una página.
+
+\textbf{Palabras claves:} Ciberataque, Control inteligente, Modem,...
+
+Las palabras claves son máximo de 6 palabras reservadas, tomar la taxonomía de IEEE, UNESCO.
+
+% ============================================
+% INICIO DE NUMERACIÓN ARÁBIGA
+% ============================================
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% ============================================
+% CAPÍTULO 1: INTRODUCCIÓN
+% ============================================
+\chapter{Introducción}
+
+La introducción de un trabajo es una de las partes fundamentales de cualquier informe que realice. En la misma se detallan los principales aspectos del trabajo y se cierra con una descripción de las siguientes secciones.
+
+Es importante prestar atención a la forma en la que se escribe y se presenta un documento.
+
+% ============================================
+% CAPÍTULO 2: PRESENTACIÓN DE LA EMPRESA
+% ============================================
+\chapter{Presentación de la Empresa}
+
+En esta sección se debe presentar la empresa, describiendo por lo menos los siguientes elementos:
+
+\begin{itemize}
+    \setlength\itemsep{6pt}
+    \item Razón Social
+    \item Actividad a la que se dedica
+    \item Reseña Histórica
+    \item Misión
+    \item Visión
+    \item Estructura organizacional
+    \item Área o grupo de trabajo en el cual el estudiante desarrolló su pasantía.
+\end{itemize}
+
+% ============================================
+% CAPÍTULO 3: PLANTEAMIENTO DEL PROBLEMA
+% ============================================
+\chapter{Planteamiento del problema en la Empresa}
+
+El planteamiento de un problema de investigación se asemeja a un ``diagnóstico'', cuyo objetivo es poner en evidencia cuál o cuáles son las necesidades (económicas, técnicas, organizacionales, humanas, tecnológicas, entre otras) a las que se requiere dar respuesta en la Organización en la cual desarrolló su pasantía. Dichas necesidades constituyen el problema, a cuya solución se pretende llegar con el desarrollo de las actividades de la pasantía. Entonces, plantear un problema implica describir una situación, y analizar su incidencia en las organizaciones.
+
+% ============================================
+% CAPÍTULO 4: JUSTIFICACIÓN
+% ============================================
+\chapter{Justificación}
+
+La justificación puede considerar aspectos diversos, por ejemplo, apoyarse en determinados planes de desarrollo (local o nacional) o en los resultados del estado del arte para argumentar que, no existe una solución para la problemática anunciada y que, por lo tanto, se requiere de un abordaje específico para la consecución de una solución. En otras palabras, la justificación es la demostración juiciosa de que existe un problema que requiere ser solucionado.
+
+% ============================================
+% CAPÍTULO 5: OBJETIVOS
+% ============================================
+\chapter{Objetivos}
+
+\section{Objetivo General}
+
+Presentación en forma infinitiva de los objetivos general (1 objetivo) y específicos (2-5 objetivos) del proyecto. En general, esta sección es una transcripción directa de los objetivos y requerimientos de la solución aprobados en la propuesta de pasantía.
+
+\section{Objetivos específicos}
+
+\begin{itemize}
+    \setlength\itemsep{6pt}
+    \item Objetivo específico 1
+    \item Objetivo específico 2
+    \item Objetivo específico 3
+\end{itemize}
+
+% ============================================
+% CAPÍTULO 6: MARCO DE REFERENCIA
+% ============================================
+\chapter{Marco de referencia}
+
+\section{Antecedentes}
+
+El estado del arte da cuenta del avance del conocimiento en relación con la problemática que, abordará el proyecto. Por ello, para el investigador, constituye un punto de partida en relación con lo que se ha hecho y lo que falta por hacer. El estado del arte da cuenta de dónde buscamos, con ayuda de qué palabras claves, qué se encontró en términos de producción académica y científica (tesis, informes de investigación, artículos resultados de la investigación), entre otros aspectos relevantes. La escritura puede considerar el uso de citas textuales y una estructura que dé cuenta, cuando menos, de los problemas que preocupan a los investigadores, en cada momento de tiempo y espacio geográfico, las diferentes maneras de abordar la solución de una problemática y los resultados de las investigaciones.
+
+Debe ser presentado en formato narrativo (es decir, no es válido simplemente listar y resumir los trabajos encontrados) buscando comparar y complementar la información existente; dejando claro qué aspectos son aportes nuevos del proyecto propuesto (máximo 3000 palabras a partir de la consulta de mínimo 15 fuentes bibliográficas; preferiblemente artículos resultado de investigación publicados en revistas especializadas nacionales e internacionales, publicadas en los últimos 8 años).
+
+\section{Marco teórico}
+
+El marco teórico implica exponer aquellas teorías, leyes, etc., en las cuales se apoyará el investigador para materializar los objetivos de investigación, es decir, para la concreción de la solución al problema. En otras palabras, el Marco Teórico es el lente a través del cual el investigador observa, analiza y actúa sobre un problema. (máximo 3000 palabras).
+
+\section{Marco Legal}
+
+Las normas (leyes, decretos resoluciones de carácter nacional e internacional), promulgadas por países, asociaciones, instituciones u organismos debidamente conformados, aprobados y legalizados, que intervienen en el desarrollo del proyecto de investigación (por ejemplo, regulaciones en relación con el diseño de tecnologías limpias).
+
+% ============================================
+% CAPÍTULO 7: ACTIVIDADES REALIZADAS
+% ============================================
+\chapter{Actividades realizadas durante la pasantía}
+
+Presentación del cómo se llevó a cabo la pasantía. Se deben presentar las actividades organizadas por fases en un diagrama de Gantt de acuerdo con la propuesta aprobada. Se debe incluir una descripción y análisis de cada una de las actividades que incluya los métodos, técnicas, estándares y normas empleadas.
+
+% ============================================
+% CAPÍTULO 8: RESULTADOS
+% ============================================
+\chapter{Resultados}
+
+Se deben documentar detalladamente los resultados obtenidos, producto de las actividades desarrolladas durante la pasantía. Incluir soportes como fotografías, diagramas de flujo y todas aquellas evidencias que el estudiante considere relevantes.
+
+% Ejemplo de figura
+% \begin{figure}[h]
+% \centering
+% \includegraphics[width=0.8\textwidth]{ruta/imagen.png}
+% \caption{Ciclograma para analizar la marcha. a) Contacto inicial; b) Respuesta de carga; c) Apoyo media; d) Apoyo terminal; e) Prebalanceo f) Balanceo inicial; g) Balanceo medio; h) Balanceo terminal.}
+% \label{fig:ciclograma}
+% \end{figure}
+
+% Ejemplo de tabla
+% \begin{table}[h]
+% \centering
+% \begin{tabular}{|c|c|}
+% \hline
+% \textbf{Grados de Libertad} & \textbf{Nivel de confidencia} \\
+% \hline
+% 2 & 4.303 \\
+% \hline
+% 4 & 2.776 \\
+% \hline
+% 6 & 2.447 \\
+% \hline
+% \end{tabular}
+% \caption{Variables de medición. Fuente: El Autor}
+% \label{tab:variables}
+% \end{table}
+
+% Ejemplo de ecuación
+% La curva de frecuencia de los valores medios $\bar{x}$ está centrada alrededor del valor límite medio $m$ y tiene un factor de escala $s/\sqrt{n}$
+%
+% \begin{equation}
+% t=\frac{\bar{x}-m}{s/\sqrt{n}}
+% \label{eq:curva}
+% \end{equation}
+
+% ============================================
+% CAPÍTULO 9: CONCLUSIONES Y RECOMENDACIONES
+% ============================================
+\chapter{Conclusiones y Recomendaciones}
+
+Esta sección se nutre de las implicaciones de la pasantía en la práctica, de las lecciones metodológicas aprendidas, de las limitaciones de la pasantía, de los aspectos no resueltos y nuevas preguntas o necesidades creadas a partir del mismo, propuestas de nuevos proyectos a partir de los resultados actuales.
+
+% ============================================
+% CAPÍTULO 10: REFERENCIAS
+% ============================================
+\chapter{Referencias}
+
+Las referencias deben estar en normas APA, se recomienda utilizar un gestor de referencias.
+
+\subsection*{Ejemplos de referencias:}
+
+\textbf{Referencias de libros:}
+
+Hacyan, S., (2004), \textit{Física y metafísica en el espacio y el tiempo. La filosofía en el laboratorio}, México DF, México: Fondo nacional de cultura económica.
+
+\vspace{6pt}
+\textbf{Referencia de páginas web:}
+
+Argosy Medical Animation. (2007-2009). \textit{Visible body: Discover human anatomy}. New York, EU.: Argosy Publishing. Recuperado de http://www.visiblebody.com.
+
+\vspace{6pt}
+\textbf{Referencia revistas científicas:}
+
+Coruminas, M., Ronecro, C., Bruguca, E., y Casas, M. (2007). Sistema dopaminérgico y adicciones, \textit{Rev Mukuel}, 44(1), 23-31.
+
+Arshinder, K., Kanda, A., y Deshmukh, S. G. (2011). A Review on Supply Chain Coordination: Coordination Mechanisms, Managing Uncertainty and Research Directions. In T.-M. Choi \& T. C. E. Cheng (Eds.), \textit{Supply Chain Coordination under Uncertainty SE - 3} (pp. 39–82). Springer Berlin Heidelberg. doi:10.1007/978-3-642-19257-9\_3.
+
+\vspace{6pt}
+\textbf{Referencias congresos y seminarios:}
+
+Rojas, C., y Vera, N. (2013). ABMS Automatic BLAST for Massive Sequencing), \textit{2° Congreso Colombiano de Biologia Computacional y Bioinformática CCBCOL}. Congreso llevado a cabo en Manizales, Colombia.
+
+% ============================================
+% CAPÍTULO 11: ANEXOS
+% ============================================
+\chapter{Anexos}
+
+De ser necesario, se pueden preparar Anexos en orden alfabético (Anexo 1, Anexo 2, etc.). Pueden ser utilizados para presentar mayor detalle sobre algún aspecto del documento sin romper el hilo conductor del texto principal. Por ejemplo, se puede usar para presentar el formato de encuesta que se espera usar en el proyecto, o un protocolo de observación, etc.
+
+% ============================================
+% APÉNDICE: PAUTAS PARA LA REDACCIÓN
+% ============================================
+\newpage
+\chapter*{PAUTAS PARA LA REDACCIÓN DEL DOCUMENTO}
+\addcontentsline{toc}{chapter}{Pautas para la redacción del documento}
+
+Se propone el seguimiento de las normas de la APA. En general se espera que la ortografía sea impecable (no confiarse del corrector de MS Word). Las propuestas deben estar bien presentadas; se debe cuidar: la unidad del estilo del texto, títulos y sub-títulos a lo largo del documento.
+
+Cada capítulo debe comenzar en una nueva página. El fin de una sección y el encabezado de la próxima no deben ser separados por espacios adicionales. Cuándo una sección comienza al final de la página, ésta debe ser trasladada a la página siguiente si el primer párrafo de la sección no alcanza a tener dos líneas de texto.
+
+La extensión del documento no debe superar las 60 páginas sugerido (70 páginas máximo) sin incluir los preliminares (portada, contraportada, índices, dedicatoria, glosario, siglas); Listado de referencias bibliográficas ni Anexos.
+
+\section*{Estilo y formato:}
+
+\textbf{Redacción:} La propuesta debe ser redactada en tercera persona.
+
+\textbf{Texto y formato de los párrafos:} La letra del documento es Times New Roman tamaño 12 o equivalente, el interlineado es sencillo. Además, se deben parametrizar el párrafo con los siguientes valores:
+
+\begin{itemize}
+    \setlength\itemsep{6pt}
+    \item Alineación: Justificada.
+    \item Espaciado: Anterior: 12 pto, Posterior: 12 pto, Interlineado: 1,0
+    \item Viñetas y significado de variables y parámetros de fórmulas: Espaciado (Anterior: 6 pto, Posterior: 6 pto)
+\end{itemize}
+
+\textbf{Títulos:} A continuación, una descripción de los tipos de títulos y sus características:
+
+\begin{itemize}
+    \setlength\itemsep{6pt}
+    \item Título 1 (Sección primaria o Capítulo): Times New Roman Negrita tamaño 14
+    \item Titulo 2 (sección secundaria o Sub-capítulo): Times New Roman Negrita tamaño 13.
+    \item Título 3 (sección terciaria): Times New Roman Negrita tamaño 12
+\end{itemize}
+
+\textbf{Número de Página:} Todas las páginas deben estar numeradas excepto la portada. Las páginas previas al capítulo de introducción deben ser numeradas en números romanos (i, ii, iii, iv, v,…) en minúsculas, mientras que a partir de la introducción debe ser arábiga (1,2,3…).
+
+\textbf{Notas al pie de página:} Las notas al pie de página tienen por finalidad brindar una información extra o aclarar un concepto dentro del cuerpo principal. Son una herramienta útil para agregar contenido que para un lector lego puede ser de utilidad para interpretar o entender lo que se está presentando. Las notas al pie de página deberán ser referenciadas utilizando un superíndice y la nota al pie de página deberán tener un tamaño de letra entre 10 a 8. Utilizar la funcionalidad pie de página para esta parte del texto.
+
+\textbf{Figuras y Tablas en el texto:} La resolución adecuada de fotos y figuras que permitan leer y entender el mensaje que se desea entregar. Toda tabla y figura debe tener un título. Además, toda tabla y figura debe ser anunciada en el texto del documento antes de aparecer en el mismo, no olvide referenciarla.
+
+\end{document}
