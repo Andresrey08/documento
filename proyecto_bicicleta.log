@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.7)  7 MAR 2026 23:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.7)  8 MAR 2026 00:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -473,15 +473,55 @@ Package caption Info: longtable package is loaded.
 (C:\Users\AndresR\AppData\Roaming\MiKTeX\tex/latex/caption\ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 ))
+(C:\Users\AndresR\AppData\Roaming\MiKTeX\tex/latex/tocloft\tocloft.sty
+Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
+Package tocloft Info: The document has chapter divisions on input line 51.
+\cftparskip=\skip79
+\cftbeforetoctitleskip=\skip80
+\cftaftertoctitleskip=\skip81
+\cftbeforepartskip=\skip82
+\cftpartnumwidth=\skip83
+\cftpartindent=\skip84
+\cftbeforechapskip=\skip85
+\cftchapindent=\skip86
+\cftchapnumwidth=\skip87
+\cftbeforesecskip=\skip88
+\cftsecindent=\skip89
+\cftsecnumwidth=\skip90
+\cftbeforesubsecskip=\skip91
+\cftsubsecindent=\skip92
+\cftsubsecnumwidth=\skip93
+\cftbeforesubsubsecskip=\skip94
+\cftsubsubsecindent=\skip95
+\cftsubsubsecnumwidth=\skip96
+\cftbeforeparaskip=\skip97
+\cftparaindent=\skip98
+\cftparanumwidth=\skip99
+\cftbeforesubparaskip=\skip100
+\cftsubparaindent=\skip101
+\cftsubparanumwidth=\skip102
+\cftbeforeloftitleskip=\skip103
+\cftafterloftitleskip=\skip104
+\cftbeforefigskip=\skip105
+\cftfigindent=\skip106
+\cftfignumwidth=\skip107
+\c@lofdepth=\count323
+\c@lotdepth=\count324
+\cftbeforelottitleskip=\skip108
+\cftafterlottitleskip=\skip109
+\cftbeforetabskip=\skip110
+\cfttabindent=\skip111
+\cfttabnumwidth=\skip112
+)
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 6
-7.
+9.
 
 (C:\Users\AndresR\AppData\Roaming\MiKTeX\tex/latex/psnfss\ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 (C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count323
+\l__color_backend_stack_int=\count325
 )
 (proyecto_bicicleta.aux
 LaTeX Info: Redefining \. on input line 11.
@@ -491,26 +531,26 @@ Package babel Info: 'spanish' activates 'spanish' shorthands.
 )
 \openout1 = `proyecto_bicicleta.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Info: Redefining \. on input line 67.
-LaTeX Info: Redefining \% on input line 67.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Info: Redefining \. on input line 69.
+LaTeX Info: Redefining \% on input line 69.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -548,16 +588,16 @@ LaTeX Info: Redefining \% on input line 67.
 
 (C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count324
+\scratchcounter=\count326
 \scratchdimen=\dimen189
 \scratchbox=\box65
-\nofMPsegments=\count325
-\nofMParguments=\count326
+\nofMPsegments=\count327
+\nofMParguments=\count328
 \everyMPshowfont=\toks33
-\MPscratchCnt=\count327
+\MPscratchCnt=\count329
 \MPscratchDim=\dimen190
-\MPnumerator=\count328
-\makeMPintoPDFobject=\count329
+\MPnumerator=\count330
+\makeMPintoPDFobject=\count331
 \everyMPtoPDFconversion=\toks34
 ) (C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -567,7 +607,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (C:\Program Files\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 67.
+Package hyperref Info: Link coloring OFF on input line 69.
 
 (proyecto_bicicleta.out) (proyecto_bicicleta.out)
 \@outlinefile=\write3
@@ -578,7 +618,7 @@ Package caption Info: End \AtBeginDocument code.
 <img/image1.jpeg, id=231, 152.7525pt x 146.8395pt>
 File: img/image1.jpeg Graphic file (type jpg)
 <use img/image1.jpeg>
-Package pdftex.def Info: img/image1.jpeg  used on input line 82.
+Package pdftex.def Info: img/image1.jpeg  used on input line 84.
 (pdftex.def)             Requested size: 155.25517pt x 149.24551pt.
  [1
 
@@ -586,111 +626,69 @@ Package pdftex.def Info: img/image1.jpeg  used on input line 82.
 Files/MiKTeX/fonts/enc/dvips/base/8r.enc} <./img/image1.jpeg>]
 File: img/image1.jpeg Graphic file (type jpg)
 <use img/image1.jpeg>
-Package pdftex.def Info: img/image1.jpeg  used on input line 110.
+Package pdftex.def Info: img/image1.jpeg  used on input line 112.
 (pdftex.def)             Requested size: 155.25517pt x 149.24551pt.
 
-
-c:/Users/AndresR/Desktop/test doc/proyecto_bicicleta.tex:112: LaTeX Error: \beg
-in{titlepage} on input line 104 ended by \end{center}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.112 \end{center}
-                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.144 \end{titlepage}
+l.146 \end{titlepage}
                       [1]
-
-c:/Users/AndresR/Desktop/test doc/proyecto_bicicleta.tex:144: LaTeX Error: \beg
-in{document} ended by \end{titlepage}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.144 \end{titlepage}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-c:/Users/AndresR/Desktop/test doc/proyecto_bicicleta.tex:144: Extra \endgroup.
-\end  ...end#1\endcsname \@checkend {#1}\endgroup 
-                                                  \UseHook {env/#1/after}\if...
-l.144 \end{titlepage}
-                     
-Things are pretty mixed up, but I think the worst is over.
-
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.158 \newpage
+l.160 \newpage
                [1
 
 ] (proyecto_bicicleta.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
- 12.
+ 2.
 
 (C:\Users\AndresR\AppData\Roaming\MiKTeX\tex/latex/psnfss\ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
- 12.
+ 2.
 
 (C:\Users\AndresR\AppData\Roaming\MiKTeX\tex/latex/psnfss\omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
- 12.
+ 2.
 
 (C:\Users\AndresR\AppData\Roaming\MiKTeX\tex/latex/psnfss\omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
- 12.
+ 2.
 
 (C:\Users\AndresR\AppData\Roaming\MiKTeX\tex/latex/psnfss\omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 12.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 12.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 12.
- [2
-
-]
-[3])
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
+ [2])
 \tf@toc=\write4
 \openout4 = `proyecto_bicicleta.toc'.
 
- [4] (proyecto_bicicleta.lof
+
+[3] (proyecto_bicicleta.lof
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [5
-
-]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 4
 1.
 
 (C:\Users\AndresR\AppData\Roaming\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
+) [4]
 
 proyecto_bicicleta.lof:58: LaTeX Error: Unicode character ₄ (U+2084)
                not set up for use with LaTeX.
@@ -699,7 +697,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.58 ...6 celdas en serie}}{55}{figure.caption.67}
+l.58 ...6 celdas en serie}}{55}{figure.caption.64}
                                                   %
 You may provide a definition with
 \DeclareUnicodeCharacter 
@@ -712,7 +710,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.59 ...ividuales de 3.2V}}{55}{figure.caption.68}
+l.59 ...ividuales de 3.2V}}{55}{figure.caption.65}
                                                   %
 You may provide a definition with
 \DeclareUnicodeCharacter 
@@ -721,33 +719,31 @@ You may provide a definition with
 \tf@lof=\write5
 \openout5 = `proyecto_bicicleta.lof'.
 
- [6] (proyecto_bicicleta.lot
+ [5] (proyecto_bicicleta.lot
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 )
 \tf@lot=\write6
 \openout6 = `proyecto_bicicleta.lot'.
 
- [7
+ [6] [7
 
 ] [8
 
-] [9
-
 ]
-Overfull \hbox (2.72108pt too wide) in alignment at lines 229--250
+Overfull \hbox (2.72108pt too wide) in alignment at lines 231--252
  [] [] 
  []
 
-[10
+[9
 
 ]
-Overfull \hbox (10.41806pt too wide) in paragraph at lines 265--266
+Overfull \hbox (10.41806pt too wide) in paragraph at lines 267--268
 []\OT1/ptm/b/n/12 Palabras cla-ves: \OT1/ptm/m/n/12 Con-trol PID, Es-ta-bi-li-z
 a-ci[]on, Vo-lan-te de Iner-cia, Gi-ros-co-pio, Bi-ci-cle-ta, ESP32,
  []
 
-[11
+[10
 
 ]
 Cap\'{\i }tulo 1.
@@ -774,307 +770,307 @@ Cap\'{\i }tulo 6.
 [9
 
 ]
-<img/image2.png, id=502, 321.2pt x 282.05376pt>
+<img/image2.png, id=496, 321.2pt x 282.05376pt>
 File: img/image2.png Graphic file (type png)
 <use img/image2.png>
-Package pdftex.def Info: img/image2.png  used on input line 394.
+Package pdftex.def Info: img/image2.png  used on input line 396.
 (pdftex.def)             Requested size: 266.14978pt x 233.71721pt.
-<img/image3.png, id=503, 288.07625pt x 227.85126pt>
+<img/image3.png, id=497, 288.07625pt x 227.85126pt>
 File: img/image3.png Graphic file (type png)
 <use img/image3.png>
-Package pdftex.def Info: img/image3.png  used on input line 401.
+Package pdftex.def Info: img/image3.png  used on input line 403.
 (pdftex.def)             Requested size: 266.14978pt x 210.51573pt.
  [10 <./img/image2.png>]
 File: img/image3.png Graphic file (type png)
 <use img/image3.png>
-Package pdftex.def Info: img/image3.png  used on input line 416.
+Package pdftex.def Info: img/image3.png  used on input line 418.
 (pdftex.def)             Requested size: 310.50357pt x 245.59937pt.
  [11 <./img/image3.png>] [12] [13] [14] [15]
 Cap\'{\i }tulo 7.
-<img/image4.png, id=550, 305.14pt x 211.79124pt>
+<img/image4.png, id=543, 305.14pt x 211.79124pt>
 File: img/image4.png Graphic file (type png)
 <use img/image4.png>
-Package pdftex.def Info: img/image4.png  used on input line 544.
+Package pdftex.def Info: img/image4.png  used on input line 546.
 (pdftex.def)             Requested size: 310.50357pt x 215.5233pt.
 [16
 
 ]
-<img/image5.jpeg, id=555, 158.994pt x 122.5305pt>
+<img/image5.jpeg, id=548, 158.994pt x 122.5305pt>
 File: img/image5.jpeg Graphic file (type jpg)
 <use img/image5.jpeg>
-Package pdftex.def Info: img/image5.jpeg  used on input line 551.
+Package pdftex.def Info: img/image5.jpeg  used on input line 553.
 (pdftex.def)             Requested size: 310.50357pt x 239.32986pt.
  [17 <./img/image4.png> <./img/image5.jpeg>]
-<img/image6.jpeg, id=560, 334.24875pt x 216.05719pt>
+<img/image6.jpeg, id=553, 334.24875pt x 216.05719pt>
 File: img/image6.jpeg Graphic file (type jpg)
 <use img/image6.jpeg>
-Package pdftex.def Info: img/image6.jpeg  used on input line 566.
+Package pdftex.def Info: img/image6.jpeg  used on input line 568.
 (pdftex.def)             Requested size: 310.50357pt x 200.72339pt.
-<img/image7.png, id=562, 904.1278pt x 782.17218pt>
+<img/image7.png, id=555, 904.1278pt x 782.17218pt>
 File: img/image7.png Graphic file (type png)
 <use img/image7.png>
-Package pdftex.def Info: img/image7.png  used on input line 577.
+Package pdftex.def Info: img/image7.png  used on input line 579.
 (pdftex.def)             Requested size: 266.14978pt x 230.24945pt.
  [18 <./img/image6.jpeg>]
-<img/image8.png, id=569, 1069.74657pt x 886.81313pt>
+<img/image8.png, id=561, 1069.74657pt x 886.81313pt>
 File: img/image8.png Graphic file (type png)
 <use img/image8.png>
-Package pdftex.def Info: img/image8.png  used on input line 584.
+Package pdftex.def Info: img/image8.png  used on input line 586.
 (pdftex.def)             Requested size: 310.50357pt x 257.39926pt.
 
 [19 <./img/image7.png> <./img/image8.png>]
-<img/image9.png, id=576, 380.42125pt x 405.515pt>
+<img/image9.png, id=569, 380.42125pt x 405.515pt>
 File: img/image9.png Graphic file (type png)
 <use img/image9.png>
-Package pdftex.def Info: img/image9.png  used on input line 600.
+Package pdftex.def Info: img/image9.png  used on input line 602.
 (pdftex.def)             Requested size: 332.68385pt x 354.6391pt.
-<img/image10.png, id=577, 294.09875pt x 287.0725pt>
+<img/image10.png, id=570, 294.09875pt x 287.0725pt>
 File: img/image10.png Graphic file (type png)
 <use img/image10.png>
-Package pdftex.def Info: img/image10.png  used on input line 607.
+Package pdftex.def Info: img/image10.png  used on input line 609.
 (pdftex.def)             Requested size: 332.68385pt x 324.73857pt.
  [20 <./img/image9.png>]
-<img/image11.jpeg, id=582, 139.6125pt x 174.762pt>
+<img/image11.jpeg, id=575, 139.6125pt x 174.762pt>
 File: img/image11.jpeg Graphic file (type jpg)
 <use img/image11.jpeg>
-Package pdftex.def Info: img/image11.jpeg  used on input line 620.
+Package pdftex.def Info: img/image11.jpeg  used on input line 622.
 (pdftex.def)             Requested size: 310.50357pt x 388.72818pt.
  [21 <./img/image10.png>]
-<img/image12.jpeg, id=587, 137.6415pt x 170.163pt>
+<img/image12.jpeg, id=580, 137.6415pt x 170.163pt>
 File: img/image12.jpeg Graphic file (type jpg)
 <use img/image12.jpeg>
-Package pdftex.def Info: img/image12.jpeg  used on input line 627.
+Package pdftex.def Info: img/image12.jpeg  used on input line 629.
 (pdftex.def)             Requested size: 310.50357pt x 383.91216pt.
  [22 <./img/image11.jpeg>]
-<img/image13.jpeg, id=592, 135.0135pt x 131.0715pt>
+<img/image13.jpeg, id=585, 135.0135pt x 131.0715pt>
 File: img/image13.jpeg Graphic file (type jpg)
 <use img/image13.jpeg>
-Package pdftex.def Info: img/image13.jpeg  used on input line 636.
+Package pdftex.def Info: img/image13.jpeg  used on input line 638.
 (pdftex.def)             Requested size: 266.14978pt x 258.40234pt.
  [23 <./img/image12.jpeg>]
-<img/image14.jpeg, id=597, 134.685pt x 131.4pt>
+<img/image14.jpeg, id=590, 134.685pt x 131.4pt>
 File: img/image14.jpeg Graphic file (type jpg)
 <use img/image14.jpeg>
-Package pdftex.def Info: img/image14.jpeg  used on input line 645.
+Package pdftex.def Info: img/image14.jpeg  used on input line 647.
 (pdftex.def)             Requested size: 310.50357pt x 302.99358pt.
  [24 <./img/image13.jpeg>]
-<img/image15.jpeg, id=603, 154.0665pt x 120.5595pt>
+<img/image15.jpeg, id=595, 154.0665pt x 120.5595pt>
 File: img/image15.jpeg Graphic file (type jpg)
 <use img/image15.jpeg>
-Package pdftex.def Info: img/image15.jpeg  used on input line 654.
+Package pdftex.def Info: img/image15.jpeg  used on input line 656.
 (pdftex.def)             Requested size: 310.50357pt x 242.97816pt.
  [25 <./img/image14.jpeg>]
-<img/image16.jpeg, id=608, 155.3805pt x 120.888pt>
+<img/image16.jpeg, id=601, 155.3805pt x 120.888pt>
 File: img/image16.jpeg Graphic file (type jpg)
 <use img/image16.jpeg>
-Package pdftex.def Info: img/image16.jpeg  used on input line 665.
+Package pdftex.def Info: img/image16.jpeg  used on input line 667.
 (pdftex.def)             Requested size: 332.68385pt x 258.83978pt.
  [26 <./img/image15.jpeg>]
-<img/image17.png, id=613, 421.575pt x 248.93pt>
+<img/image17.png, id=606, 421.575pt x 248.93pt>
 File: img/image17.png Graphic file (type png)
 <use img/image17.png>
-Package pdftex.def Info: img/image17.png  used on input line 674.
+Package pdftex.def Info: img/image17.png  used on input line 676.
 (pdftex.def)             Requested size: 310.50357pt x 183.34688pt.
  [27 <./img/image16.jpeg> <./img/image17.png>]
-<img/image18.png, id=618, 343.2825pt x 287.0725pt>
+<img/image18.png, id=611, 343.2825pt x 287.0725pt>
 File: img/image18.png Graphic file (type png)
 <use img/image18.png>
-Package pdftex.def Info: img/image18.png  used on input line 683.
+Package pdftex.def Info: img/image18.png  used on input line 685.
 (pdftex.def)             Requested size: 310.50357pt x 259.65944pt.
-<img/image19.png, id=619, 352.31625pt x 234.8775pt>
+<img/image19.png, id=612, 352.31625pt x 234.8775pt>
 File: img/image19.png Graphic file (type png)
 <use img/image19.png>
-Package pdftex.def Info: img/image19.png  used on input line 692.
+Package pdftex.def Info: img/image19.png  used on input line 694.
 (pdftex.def)             Requested size: 266.14978pt x 177.43356pt.
  [28 <./img/image18.png> <./img/image19.png>]
-<img/image20.jpeg, id=624, 127.458pt x 84.753pt>
+<img/image20.jpeg, id=617, 127.458pt x 84.753pt>
 File: img/image20.jpeg Graphic file (type jpg)
 <use img/image20.jpeg>
-Package pdftex.def Info: img/image20.jpeg  used on input line 711.
+Package pdftex.def Info: img/image20.jpeg  used on input line 713.
 (pdftex.def)             Requested size: 266.14978pt x 177.0037pt.
-<img/image21.png, id=625, 445.665pt x 292.09125pt>
+<img/image21.png, id=618, 445.665pt x 292.09125pt>
 File: img/image21.png Graphic file (type png)
 <use img/image21.png>
-Package pdftex.def Info: img/image21.png  used on input line 720.
+Package pdftex.def Info: img/image21.png  used on input line 722.
 (pdftex.def)             Requested size: 332.68385pt x 218.04279pt.
 
 [29 <./img/image20.jpeg>]
-<img/image22.jpeg, id=631, 108.0765pt x 116.946pt>
+<img/image22.jpeg, id=624, 108.0765pt x 116.946pt>
 File: img/image22.jpeg Graphic file (type jpg)
 <use img/image22.jpeg>
-Package pdftex.def Info: img/image22.jpeg  used on input line 733.
+Package pdftex.def Info: img/image22.jpeg  used on input line 735.
 (pdftex.def)             Requested size: 266.14978pt x 288.02805pt.
  [30 <./img/image21.png>]
-<img/image23.jpeg, id=638, 112.6755pt x 115.632pt>
+<img/image23.jpeg, id=630, 112.6755pt x 115.632pt>
 File: img/image23.jpeg Graphic file (type jpg)
 <use img/image23.jpeg>
-Package pdftex.def Info: img/image23.jpeg  used on input line 740.
+Package pdftex.def Info: img/image23.jpeg  used on input line 742.
 (pdftex.def)             Requested size: 310.50357pt x 318.70355pt.
  [31 <./img/image22.jpeg>]
-<img/image24.png, id=643, 119.9025pt x 121.2165pt>
+<img/image24.png, id=636, 119.9025pt x 121.2165pt>
 File: img/image24.png Graphic file (type png)
 <use img/image24.png>
-Package pdftex.def Info: img/image24.png  used on input line 749.
+Package pdftex.def Info: img/image24.png  used on input line 751.
 (pdftex.def)             Requested size: 332.68385pt x 336.40561pt.
 
 [32 <./img/image23.jpeg>]
-<img/image25.png, id=648, 385.44pt x 248.93pt>
+<img/image25.png, id=641, 385.44pt x 248.93pt>
 File: img/image25.png Graphic file (type png)
 <use img/image25.png>
-Package pdftex.def Info: img/image25.png  used on input line 756.
+Package pdftex.def Info: img/image25.png  used on input line 758.
 (pdftex.def)             Requested size: 332.68385pt x 214.85808pt.
-<img/image26.png, id=649, 119.9025pt x 121.2165pt>
+<img/image26.png, id=642, 119.9025pt x 121.2165pt>
 File: img/image26.png Graphic file (type png)
 <use img/image26.png>
-Package pdftex.def Info: img/image26.png  used on input line 763.
+Package pdftex.def Info: img/image26.png  used on input line 765.
 (pdftex.def)             Requested size: 332.68385pt x 336.40561pt.
  [33 <./img/image24.png> <./img/image25.png>]
-<img/image27.png, id=654, 385.44pt x 248.93pt>
+<img/image27.png, id=647, 385.44pt x 248.93pt>
 File: img/image27.png Graphic file (type png)
 <use img/image27.png>
-Package pdftex.def Info: img/image27.png  used on input line 770.
+Package pdftex.def Info: img/image27.png  used on input line 772.
 (pdftex.def)             Requested size: 332.68385pt x 214.85808pt.
  [34 <./img/image26.png> <./img/image27.png>]
-<img/image28.png, id=659, 253.9305pt x 156.0375pt>
+<img/image28.png, id=652, 253.9305pt x 156.0375pt>
 File: img/image28.png Graphic file (type png)
 <use img/image28.png>
-Package pdftex.def Info: img/image28.png  used on input line 789.
+Package pdftex.def Info: img/image28.png  used on input line 791.
 (pdftex.def)             Requested size: 332.68385pt x 204.4487pt.
-<img/image29.png, id=660, 253.9305pt x 156.0375pt>
+<img/image29.png, id=653, 253.9305pt x 156.0375pt>
 File: img/image29.png Graphic file (type png)
 <use img/image29.png>
-Package pdftex.def Info: img/image29.png  used on input line 796.
+Package pdftex.def Info: img/image29.png  used on input line 798.
 (pdftex.def)             Requested size: 332.68385pt x 204.4487pt.
  [35 <./img/image28.png>]
-<img/image30.jpeg, id=666, 111.3615pt x 103.149pt>
+<img/image30.jpeg, id=659, 111.3615pt x 103.149pt>
 File: img/image30.jpeg Graphic file (type jpg)
 <use img/image30.jpeg>
-Package pdftex.def Info: img/image30.jpeg  used on input line 805.
+Package pdftex.def Info: img/image30.jpeg  used on input line 807.
 (pdftex.def)             Requested size: 310.50357pt x 287.64894pt.
  [36 <./img/image29.png>]
-<img/image31.png, id=672, 317.185pt x 276.03125pt>
+<img/image31.png, id=664, 317.185pt x 276.03125pt>
 File: img/image31.png Graphic file (type png)
 <use img/image31.png>
-Package pdftex.def Info: img/image31.png  used on input line 812.
+Package pdftex.def Info: img/image31.png  used on input line 814.
 (pdftex.def)             Requested size: 310.50357pt x 270.2392pt.
  [37 <./img/image30.jpeg>]
-<img/image32.jpeg, id=677, 111.3615pt x 103.149pt>
+<img/image32.jpeg, id=670, 111.3615pt x 103.149pt>
 File: img/image32.jpeg Graphic file (type jpg)
 <use img/image32.jpeg>
-Package pdftex.def Info: img/image32.jpeg  used on input line 819.
+Package pdftex.def Info: img/image32.jpeg  used on input line 821.
 (pdftex.def)             Requested size: 310.50357pt x 287.64894pt.
  [38 <./img/image31.png>]
-<img/image33.png, id=682, 317.185pt x 276.03125pt>
+<img/image33.png, id=675, 317.185pt x 276.03125pt>
 File: img/image33.png Graphic file (type png)
 <use img/image33.png>
-Package pdftex.def Info: img/image33.png  used on input line 830.
+Package pdftex.def Info: img/image33.png  used on input line 832.
 (pdftex.def)             Requested size: 354.86412pt x 308.84541pt.
  [39 <./img/image32.jpeg>]
-<img/image34.png, id=687, 324.21124pt x 246.9225pt>
+<img/image34.png, id=680, 324.21124pt x 246.9225pt>
 File: img/image34.png Graphic file (type png)
 <use img/image34.png>
-Package pdftex.def Info: img/image34.png  used on input line 837.
+Package pdftex.def Info: img/image34.png  used on input line 839.
 (pdftex.def)             Requested size: 310.50357pt x 236.49657pt.
  [40 <./img/image33.png> <./img/image34.png>]
-<img/image35.png, id=692, 426.59375pt x 360.34625pt>
+<img/image35.png, id=685, 426.59375pt x 360.34625pt>
 File: img/image35.png Graphic file (type png)
 <use img/image35.png>
-Package pdftex.def Info: img/image35.png  used on input line 846.
+Package pdftex.def Info: img/image35.png  used on input line 848.
 (pdftex.def)             Requested size: 354.86412pt x 299.77461pt.
-<img/image36.png, id=693, 270.00874pt x 416.55624pt>
+<img/image36.png, id=686, 270.00874pt x 416.55624pt>
 File: img/image36.png Graphic file (type png)
 <use img/image36.png>
-Package pdftex.def Info: img/image36.png  used on input line 853.
+Package pdftex.def Info: img/image36.png  used on input line 855.
 (pdftex.def)             Requested size: 332.68385pt x 513.25735pt.
  [41 <./img/image35.png>]
-<img/image37.png, id=698, 324.21124pt x 246.9225pt>
+<img/image37.png, id=691, 324.21124pt x 246.9225pt>
 File: img/image37.png Graphic file (type png)
 <use img/image37.png>
-Package pdftex.def Info: img/image37.png  used on input line 862.
+Package pdftex.def Info: img/image37.png  used on input line 864.
 (pdftex.def)             Requested size: 354.86412pt x 270.28555pt.
 
 [42 <./img/image36.png>]
-<img/image38.png, id=704, 426.59375pt x 360.34625pt>
+<img/image38.png, id=696, 426.59375pt x 360.34625pt>
 File: img/image38.png Graphic file (type png)
 <use img/image38.png>
-Package pdftex.def Info: img/image38.png  used on input line 875.
+Package pdftex.def Info: img/image38.png  used on input line 877.
 (pdftex.def)             Requested size: 310.50357pt x 262.29729pt.
  [43 <./img/image37.png>]
-<img/image39.png, id=709, 270.00874pt x 416.55624pt>
+<img/image39.png, id=702, 270.00874pt x 416.55624pt>
 File: img/image39.png Graphic file (type png)
 <use img/image39.png>
-Package pdftex.def Info: img/image39.png  used on input line 882.
+Package pdftex.def Info: img/image39.png  used on input line 884.
 (pdftex.def)             Requested size: 310.50357pt x 479.04231pt.
  [44 <./img/image38.png>]
-<img/image40.png, id=714, 301.125pt x 230.8625pt>
+<img/image40.png, id=707, 301.125pt x 230.8625pt>
 File: img/image40.png Graphic file (type png)
 <use img/image40.png>
-Package pdftex.def Info: img/image40.png  used on input line 889.
+Package pdftex.def Info: img/image40.png  used on input line 891.
 (pdftex.def)             Requested size: 310.50357pt x 238.07635pt.
 
 [45 <./img/image39.png>]
-<img/image41.png, id=719, 301.125pt x 230.8625pt>
+<img/image41.png, id=712, 301.125pt x 230.8625pt>
 File: img/image41.png Graphic file (type png)
 <use img/image41.png>
-Package pdftex.def Info: img/image41.png  used on input line 896.
+Package pdftex.def Info: img/image41.png  used on input line 898.
 (pdftex.def)             Requested size: 266.14978pt x 204.06847pt.
-<img/image42.png, id=720, 143.53625pt x 461.725pt>
+<img/image42.png, id=713, 143.53625pt x 461.725pt>
 File: img/image42.png Graphic file (type png)
 <use img/image42.png>
-Package pdftex.def Info: img/image42.png  used on input line 905.
+Package pdftex.def Info: img/image42.png  used on input line 907.
 (pdftex.def)             Requested size: 266.14978pt x 856.17172pt.
  [46 <./img/image40.png> <./img/image41.png>]
 Overfull \vbox (255.51825pt too high) has occurred while \output is active []
 
 
 [47 <./img/image42.png>]
-<img/image43.png, id=729, 213.79875pt x 168.63pt>
+<img/image43.png, id=722, 213.79875pt x 168.63pt>
 File: img/image43.png Graphic file (type png)
 <use img/image43.png>
-Package pdftex.def Info: img/image43.png  used on input line 914.
+Package pdftex.def Info: img/image43.png  used on input line 916.
 (pdftex.def)             Requested size: 310.50357pt x 244.92148pt.
-<img/image44.png, id=730, 308.15125pt x 370.38374pt>
+<img/image44.png, id=723, 308.15125pt x 370.38374pt>
 File: img/image44.png Graphic file (type png)
 <use img/image44.png>
-Package pdftex.def Info: img/image44.png  used on input line 921.
+Package pdftex.def Info: img/image44.png  used on input line 923.
 (pdftex.def)             Requested size: 266.14978pt x 319.9254pt.
  [48 <./img/image43.png>]
-<img/image45.png, id=736, 143.53625pt x 461.725pt>
+<img/image45.png, id=728, 143.53625pt x 461.725pt>
 File: img/image45.png Graphic file (type png)
 <use img/image45.png>
-Package pdftex.def Info: img/image45.png  used on input line 930.
+Package pdftex.def Info: img/image45.png  used on input line 932.
 (pdftex.def)             Requested size: 266.14978pt x 856.17172pt.
  [49 <./img/image44.png>]
 Overfull \vbox (255.51825pt too high) has occurred while \output is active []
 
 
 [50 <./img/image45.png>]
-<img/image46.png, id=745, 213.79875pt x 168.63pt>
+<img/image46.png, id=738, 213.79875pt x 168.63pt>
 File: img/image46.png Graphic file (type png)
 <use img/image46.png>
-Package pdftex.def Info: img/image46.png  used on input line 937.
+Package pdftex.def Info: img/image46.png  used on input line 939.
 (pdftex.def)             Requested size: 310.50357pt x 244.92148pt.
-<img/image47.png, id=746, 308.15125pt x 370.38374pt>
+<img/image47.png, id=739, 308.15125pt x 370.38374pt>
 File: img/image47.png Graphic file (type png)
 <use img/image47.png>
-Package pdftex.def Info: img/image47.png  used on input line 944.
+Package pdftex.def Info: img/image47.png  used on input line 946.
 (pdftex.def)             Requested size: 310.50357pt x 373.23688pt.
  [51 <./img/image46.png>]
-<img/image48.png, id=751, 247.92625pt x 240.9pt>
+<img/image48.png, id=744, 247.92625pt x 240.9pt>
 File: img/image48.png Graphic file (type png)
 <use img/image48.png>
-Package pdftex.def Info: img/image48.png  used on input line 955.
+Package pdftex.def Info: img/image48.png  used on input line 957.
 (pdftex.def)             Requested size: 310.50357pt x 301.72708pt.
  [52 <./img/image47.png>]
-<img/image49.png, id=756, 178.6675pt x 154.5775pt>
+<img/image49.png, id=749, 178.6675pt x 154.5775pt>
 File: img/image49.png Graphic file (type png)
 <use img/image49.png>
-Package pdftex.def Info: img/image49.png  used on input line 962.
+Package pdftex.def Info: img/image49.png  used on input line 964.
 (pdftex.def)             Requested size: 310.50357pt x 268.65366pt.
 
 [53 <./img/image48.png>]
 
-c:/Users/AndresR/Desktop/test doc/proyecto_bicicleta.tex:969: LaTeX Error: Unic
+c:/Users/AndresR/Desktop/test doc/proyecto_bicicleta.tex:971: LaTeX Error: Unic
 ode character ₄ (U+2084)
                not set up for use with LaTeX.
 
@@ -1082,19 +1078,19 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.969 ...das de fosfato de hierro-litio (LiFePO₄
+l.971 ...das de fosfato de hierro-litio (LiFePO₄
                                                   ), cada una con un voltaje...
 
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-<img/image50.png, id=761, 167.62625pt x 139.52126pt>
+<img/image50.png, id=754, 167.62625pt x 139.52126pt>
 File: img/image50.png Graphic file (type png)
 <use img/image50.png>
-Package pdftex.def Info: img/image50.png  used on input line 973.
+Package pdftex.def Info: img/image50.png  used on input line 975.
 (pdftex.def)             Requested size: 266.14978pt x 221.5269pt.
 
-c:/Users/AndresR/Desktop/test doc/proyecto_bicicleta.tex:974: LaTeX Error: Unic
+c:/Users/AndresR/Desktop/test doc/proyecto_bicicleta.tex:976: LaTeX Error: Unic
 ode character ₄ (U+2084)
                not set up for use with LaTeX.
 
@@ -1102,13 +1098,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.974 ...baterías LiFePO₄ de 6 celdas en serie}
+l.976 ...baterías LiFePO₄ de 6 celdas en serie}
                                                   
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/AndresR/Desktop/test doc/proyecto_bicicleta.tex:974: LaTeX Error: Unic
+c:/Users/AndresR/Desktop/test doc/proyecto_bicicleta.tex:976: LaTeX Error: Unic
 ode character ₄ (U+2084)
                not set up for use with LaTeX.
 
@@ -1116,20 +1112,20 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.974 ...baterías LiFePO₄ de 6 celdas en serie}
+l.976 ...baterías LiFePO₄ de 6 celdas en serie}
                                                   
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 [54 <./img/image49.png>]
-<img/image51.png, id=767, 247.92625pt x 240.9pt>
+<img/image51.png, id=759, 247.92625pt x 240.9pt>
 File: img/image51.png Graphic file (type png)
 <use img/image51.png>
-Package pdftex.def Info: img/image51.png  used on input line 980.
+Package pdftex.def Info: img/image51.png  used on input line 982.
 (pdftex.def)             Requested size: 310.50357pt x 301.72708pt.
 
 
-c:/Users/AndresR/Desktop/test doc/proyecto_bicicleta.tex:981: LaTeX Error: Unic
+c:/Users/AndresR/Desktop/test doc/proyecto_bicicleta.tex:983: LaTeX Error: Unic
 ode character ₄ (U+2084)
                not set up for use with LaTeX.
 
@@ -1137,13 +1133,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.981 ...on{Celdas LiFePO₄ individuales de 3.2V}
+l.983 ...on{Celdas LiFePO₄ individuales de 3.2V}
                                                   
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/AndresR/Desktop/test doc/proyecto_bicicleta.tex:981: LaTeX Error: Unic
+c:/Users/AndresR/Desktop/test doc/proyecto_bicicleta.tex:983: LaTeX Error: Unic
 ode character ₄ (U+2084)
                not set up for use with LaTeX.
 
@@ -1151,48 +1147,48 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.981 ...on{Celdas LiFePO₄ individuales de 3.2V}
+l.983 ...on{Celdas LiFePO₄ individuales de 3.2V}
                                                   
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-<img/image52.png, id=768, 178.6675pt x 154.5775pt>
+<img/image52.png, id=760, 178.6675pt x 154.5775pt>
 File: img/image52.png Graphic file (type png)
 <use img/image52.png>
-Package pdftex.def Info: img/image52.png  used on input line 987.
+Package pdftex.def Info: img/image52.png  used on input line 989.
 (pdftex.def)             Requested size: 310.50357pt x 268.65366pt.
 [55 <./img/image50.png> <./img/image51.png>]
-<img/image53.png, id=773, 167.62625pt x 139.52126pt>
+<img/image53.png, id=766, 167.62625pt x 139.52126pt>
 File: img/image53.png Graphic file (type png)
 <use img/image53.png>
-Package pdftex.def Info: img/image53.png  used on input line 994.
+Package pdftex.def Info: img/image53.png  used on input line 996.
 (pdftex.def)             Requested size: 266.14978pt x 221.5269pt.
-<img/image54.png, id=774, 84.315pt x 154.5775pt>
+<img/image54.png, id=767, 84.315pt x 154.5775pt>
 File: img/image54.png Graphic file (type png)
 <use img/image54.png>
-Package pdftex.def Info: img/image54.png  used on input line 1003.
+Package pdftex.def Info: img/image54.png  used on input line 1005.
 (pdftex.def)             Requested size: 310.50357pt x 569.27188pt.
  [56 <./img/image52.png> <./img/image53.png>]
-<img/image55.png, id=779, 686.565pt x 389.95688pt>
+<img/image55.png, id=772, 686.565pt x 389.95688pt>
 File: img/image55.png Graphic file (type png)
 <use img/image55.png>
-Package pdftex.def Info: img/image55.png  used on input line 1010.
+Package pdftex.def Info: img/image55.png  used on input line 1012.
 (pdftex.def)             Requested size: 310.50357pt x 176.3596pt.
  [57 <./img/image54.png>]
-<img/image56.png, id=784, 175.0905pt x 311.0895pt>
+<img/image56.png, id=777, 175.0905pt x 311.0895pt>
 File: img/image56.png Graphic file (type png)
 <use img/image56.png>
-Package pdftex.def Info: img/image56.png  used on input line 1021.
+Package pdftex.def Info: img/image56.png  used on input line 1023.
 (pdftex.def)             Requested size: 354.86412pt x 630.59834pt.
  [58 <./img/image55.png>]
 Overfull \vbox (29.94487pt too high) has occurred while \output is active []
 
 
 [59 <./img/image56.png>]
-<img/image57.png, id=795, 1927.2pt x 1084.05pt>
+<img/image57.png, id=788, 1927.2pt x 1084.05pt>
 File: img/image57.png Graphic file (type png)
 <use img/image57.png>
-Package pdftex.def Info: img/image57.png  used on input line 1030.
+Package pdftex.def Info: img/image57.png  used on input line 1032.
 (pdftex.def)             Requested size: 354.86412pt x 199.60326pt.
  [60 <./img/image57.png>]
 Cap\'{\i }tulo 8.
@@ -1205,7 +1201,7 @@ Cap\'{\i }tulo 9.
 ]
 Cap\'{\i }tulo 10.
 
-Overfull \hbox (278.994pt too wide) in paragraph at lines 1139--1140
+Overfull \hbox (278.994pt too wide) in paragraph at lines 1141--1142
 []\OT1/ptm/m/n/12 Espressif Sys-tems. (2024). ESP32 Se-ries Da-tasheet. Re-cu-p
 e-ra-do de https://www.espressif.com/sites/default/files/documentation/esp32[]d
 atasheet[]en.pdf 
@@ -1216,7 +1212,7 @@ atasheet[]en.pdf
 ]
 Cap\'{\i }tulo 11.
 
-Package caption Warning: Unused \captionsetup[table] on input line 62.
+Package caption Warning: Unused \captionsetup[table] on input line 64.
 See the caption package documentation for explanation.
 
 [66
@@ -1230,16 +1226,16 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `proyecto_bicicleta.out' has not changed.
-(rerunfilecheck)             Checksum: 968825B7C8FBBCAFCAB0F7AE43189FC3;13343.
+(rerunfilecheck)             Checksum: 9DA3CA7C7D9B60A88E37CC2962885F9A;13343.
  ) 
 Here is how much of TeX's memory you used:
- 15275 strings out of 467871
- 243013 string characters out of 5428438
- 673467 words of memory out of 5000000
- 43728 multiletter control sequences out of 15000+600000
- 660540 words of font info for 102 fonts, out of 8000000 for 9000
+ 15557 strings out of 467871
+ 247444 string characters out of 5428438
+ 679470 words of memory out of 5000000
+ 44009 multiletter control sequences out of 15000+600000
+ 662673 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,79p,925b,801s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,79p,925b,815s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Progra
 m Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKT
 eX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type
@@ -1248,9 +1244,9 @@ eX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type
 Files/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX/fonts/ty
 pe1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmri8a
 .pfb>
-Output written on proyecto_bicicleta.pdf (79 pages, 7130466 bytes).
+Output written on proyecto_bicicleta.pdf (78 pages, 7131093 bytes).
 PDF statistics:
- 913 PDF objects out of 1000 (max. 8388607)
- 214 named destinations out of 1000 (max. 500000)
+ 904 PDF objects out of 1000 (max. 8388607)
+ 210 named destinations out of 1000 (max. 500000)
  742 words of extra memory for PDF output out of 10000 (max. 10000000)
 

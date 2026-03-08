@@ -1,9 +1,9 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {chapter}{Dedicatoria}{\es@scroman {i}}{chapter*.1}%
-\contentsline {chapter}{Índice de Anexos}{\es@scroman {viii}}{chapter*.5}%
-\contentsline {chapter}{Glosario}{\es@scroman {ix}}{chapter*.6}%
-\contentsline {chapter}{Lista de Abreviaturas y Siglas}{\es@scroman {x}}{chapter*.7}%
-\contentsline {chapter}{Resumen}{\es@scroman {xi}}{chapter*.8}%
+\contentsline {chapter}{Índice de Anexos}{\es@scroman {vii}}{chapter*.2}%
+\contentsline {chapter}{Glosario}{\es@scroman {viii}}{chapter*.3}%
+\contentsline {chapter}{Lista de Abreviaturas y Siglas}{\es@scroman {ix}}{chapter*.4}%
+\contentsline {chapter}{Resumen}{\es@scroman {x}}{chapter*.5}%
 \contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Presentación de la Empresa}{3}{chapter.2}%
 \contentsline {chapter}{\numberline {3}Planteamiento del problema en la Empresa}{4}{chapter.3}%
@@ -19,16 +19,16 @@
 \contentsline {subsection}{\numberline {6.2.1}La Bicicleta}{10}{subsection.6.2.1}%
 \contentsline {subsection}{\numberline {6.2.2}Dinámica de la Bicicleta}{11}{subsection.6.2.2}%
 \contentsline {subsection}{\numberline {6.2.3}Movimiento Giroscópico}{11}{subsection.6.2.3}%
-\contentsline {subsubsection}{Efecto Giroscópico}{12}{subsubsection*.12}%
+\contentsline {subsubsection}{Efecto Giroscópico}{12}{subsubsection*.9}%
 \contentsline {subsection}{\numberline {6.2.4}Estimación de Orientación mediante Filtros Complementarios}{13}{subsection.6.2.4}%
-\contentsline {subsubsection}{El Acelerómetro y la Medición de Inclinación}{13}{subsubsection*.13}%
-\contentsline {subsubsection}{El Giroscopio y la Velocidad Angular}{13}{subsubsection*.14}%
-\contentsline {subsubsection}{Filtro Complementario}{13}{subsubsection*.15}%
+\contentsline {subsubsection}{El Acelerómetro y la Medición de Inclinación}{13}{subsubsection*.10}%
+\contentsline {subsubsection}{El Giroscopio y la Velocidad Angular}{13}{subsubsection*.11}%
+\contentsline {subsubsection}{Filtro Complementario}{13}{subsubsection*.12}%
 \contentsline {subsection}{\numberline {6.2.5}Controlador PID}{14}{subsection.6.2.5}%
-\contentsline {subsubsection}{La Ecuación General del PID}{14}{subsubsection*.16}%
+\contentsline {subsubsection}{La Ecuación General del PID}{14}{subsubsection*.13}%
 \contentsline {subsection}{\numberline {6.2.6}Microcontrolador ESP32}{14}{subsection.6.2.6}%
-\contentsline {subsubsection}{Arquitectura Xtensa Dual-Core de 32 bits}{14}{subsubsection*.17}%
-\contentsline {subsubsection}{Sensor de Movimiento Integral (MPU9250)}{14}{subsubsection*.18}%
+\contentsline {subsubsection}{Arquitectura Xtensa Dual-Core de 32 bits}{14}{subsubsection*.14}%
+\contentsline {subsubsection}{Sensor de Movimiento Integral (MPU9250)}{14}{subsubsection*.15}%
 \contentsline {section}{\numberline {6.3}Marco Legal}{15}{section.6.3}%
 \contentsline {subsection}{\numberline {6.3.1}Normativa de Control y Programación}{15}{subsection.6.3.1}%
 \contentsline {subsection}{\numberline {6.3.2}Normativa de Representación Gráfica y Diseño Mecánico}{15}{subsection.6.3.2}%
@@ -42,8 +42,8 @@
 \contentsline {subsection}{\numberline {7.3.1}Control sistema de dirección}{26}{subsection.7.3.1}%
 \contentsline {section}{\numberline {7.4}Implementación del sistema de comunicación}{29}{section.7.4}%
 \contentsline {subsection}{\numberline {7.4.1}Sensado de la posición de la bicicleta}{29}{subsection.7.4.1}%
-\contentsline {subsubsection}{MMA7361}{29}{subsubsection*.35}%
-\contentsline {subsubsection}{MPU9250}{30}{subsubsection*.38}%
+\contentsline {subsubsection}{MMA7361}{29}{subsubsection*.32}%
+\contentsline {subsubsection}{MPU9250}{30}{subsubsection*.35}%
 \contentsline {section}{\numberline {7.5}Implementación del sistema de control}{35}{section.7.5}%
 \contentsline {subsection}{\numberline {7.5.1}Modificaciones estructurales}{35}{subsection.7.5.1}%
 \contentsline {subsection}{\numberline {7.5.2}Adquisición de datos y tratamiento de la señal}{39}{subsection.7.5.2}%
