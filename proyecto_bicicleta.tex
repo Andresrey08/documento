@@ -18,7 +18,7 @@
 \usepackage{longtable}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage[numbers]{natbib}
+\usepackage[authoryear]{natbib}
 \usepackage{caption}
 \usepackage{tocloft} % Paquete para personalizar índices
 
@@ -36,7 +36,7 @@
 
 % Configuración de títulos según especificaciones
 % Título 1 (Capítulo): Times New Roman Negrita 14
-\titleformat{\chapter}[display]
+\titleformat{\chapter}[block]
   {\normalfont\bfseries\fontsize{14}{16}\selectfont}
   {\thechapter.}{10pt}{}
 \titlespacing*{\chapter}{0pt}{0pt}{12pt}
@@ -278,19 +278,17 @@ Como solución a esta necesidad, se desarrolló el modelo de un volante el cual 
 % ============================================
 \chapter{Introducción}
 
-En un mundo en constante evolución, la búsqueda de soluciones innovadoras y eficientes ha impulsado el desarrollo de tecnologías disruptivas que transforman diversas áreas de la vida cotidiana. Uno de los campos que ha experimentado una revolución constante es el diseño de vehículos de transporte personal, con la bicicleta como uno de los pilares fundamentales de la movilidad sostenible. En este contexto, surge un proyecto visionario: el diseño de una bicicleta autónoma y estable, capaz de recorrer distancias cortas sin intervención humana.
+En un mundo en constante evolución, la búsqueda de soluciones tecnológicas aplicadas a la movilidad ha impulsado el desarrollo de sistemas que desafían las leyes de la física dinámica. Uno de los campos de mayor interés es el control de vehículos de dos ruedas en condiciones de baja velocidad, donde la estabilidad pasiva desaparece. En este contexto, surge el presente proyecto enfocado en el diseño y desarrollo de una plataforma mecánica de estabilización activa aplicada a una estructura de bicicleta.
 
-El objetivo principal de este proyecto es desarrollar una bicicleta que aproveche principios de física y tecnología avanzada para garantizar su estabilidad y autonomía en recorridos cortos. Para lograrlo, se ha implementado un sistema ingenioso basado en un volante de inercia en constante rotación, este juega un papel esencial en el mantenimiento de la estabilidad de la bicicleta. Este volante de inercia genera una fuerza angular significativa, que se aprovecha para contrarrestar los desequilibrios y mantener la estabilidad de la bicicleta durante su movimiento.
+El propósito central de este trabajo es desarrollar una plataforma que aproveche principios físicos de conservación del momento angular para gestionar el equilibrio de la estructura en estado de reposo o bajas velocidades. Para lograrlo, se ha diseñado un sistema basado en un volante de inercia (flywheel) en rotación, el cual juega un papel esencial al generar el par motor necesario para contrarrestar las perturbaciones laterales. Este volante no solo aporta inercia al sistema, sino que, mediante su manipulación controlada, permite validar el comportamiento dinámico del conjunto frente a variaciones en su ángulo de inclinación.
 
-Un componente crucial en este diseño es el conjunto formado por sensores de movimiento, aceleración y velocidad, que trabajan en conjunto para recopilar información sobre la posición y el ángulo de inclinación de la bicicleta. Estos sensores permiten una monitorización constante y precisa de la bicicleta, lo que es esencial para ajustar el sistema y mantenerla en posición vertical durante el trayecto.
+Un componente crucial en esta plataforma es el conjunto de sensores de movimiento (IMU), que integran acelerometría y giroscopía para recopilar información precisa sobre la posición y la velocidad angular de la estructura. Estos sensores permiten una monitorización constante, suministrando los datos necesarios para que el sistema de control actúe de manera oportuna sobre el eje de precesión del volante.
 
-La información recopilada por los sensores se utiliza para controlar el giroscopio, un mecanismo que regula la rotación constante del volante de inercia. El giroscopio es esencialmente el encargado de la autonomía de la bicicleta, ya que ajusta la velocidad y la dirección de rotación del volante para contrarrestar los movimientos no deseados de la bicicleta. Esta interacción precisa entre los sensores y el giroscopio permite una respuesta rápida y fluida a los cambios en el terreno y las condiciones de movimiento.
+La interacción entre la lectura de los sensores y la respuesta mecánica se gestiona a través de un mecanismo de precesión controlado. Este mecanismo es el encargado de inclinar el volante de inercia para generar torques de reacción que compensen el efecto de la gravedad sobre la bicicleta. La precisión de esta respuesta depende directamente del sistema de control, el cual se basa en un algoritmo Proporcional-Integral-Derivativo (PID). Este controlador procesa el error de inclinación y regula la acción del actuador para mantener la plataforma en su punto de equilibrio vertical.
 
-El sistema de control que gobierna esta interacción se basa en un controlador Proporcional-Integral-Derivativo (PID). Este controlador calcula y ajusta continuamente las señales de control necesarias para mantener la bicicleta en equilibrio y en la dirección correcta. El microcontrolador juega un papel central en este proceso, ya que utiliza el ángulo de inclinación detectado para regular la acción del giroscopio a través del controlador PID.
+A medida que avanzamos en este documento, se explorarán en detalle los componentes clave que integran esta plataforma de estabilización. Se analizará cómo el volante de inercia, los sensores y el controlador PID interactúan para lograr una respuesta dinámica efectiva. Además, se examinarán los desafíos técnicos encontrados durante el diseño, las soluciones de ingeniería implementadas y los resultados obtenidos en las pruebas de validación de estabilidad.
 
-A medida que avanzamos en este documento, exploraremos en detalle los componentes clave de este diseño innovador de bicicleta autónoma. Analizaremos cómo el volante de inercia, los sensores de movimiento, el giroscopio y el controlador PID interactúan en armonía para lograr un equilibrio excepcional y una autonomía confiable en recorridos cortos. Además, examinaremos los desafíos técnicos, las soluciones implementadas y las posibles aplicaciones futuras de esta tecnología.
-
-En resumen, este proyecto representa un paso audaz hacia la transformación de la movilidad personal. La combinación de principios físicos, tecnología avanzada y un diseño ingenioso da como resultado una bicicleta autónoma capaz de mantenerse estable y seguir recorriendo distancias cortas sin intervención humana. Este documento se sumerge en los aspectos técnicos y conceptuales de esta innovación, explorando su funcionamiento interno y su potencial para revolucionar la forma en que concebimos el transporte personal y sostenible.
+En resumen, este proyecto representa un avance en el estudio de sistemas de control aplicados a estructuras inestables. La combinación de principios físicos y tecnología de automatización da como resultado una plataforma capaz de oponerse activamente a las perturbaciones, sentando las bases para futuras investigaciones en el área de la robótica y el transporte personal sostenible.
 
 % ============================================
 % CAPÍTULO 2: PRESENTACIÓN DE LA EMPRESA
@@ -315,34 +313,32 @@ En esta sección se debe presentar la empresa, describiendo por lo menos los sig
 % ============================================
 \chapter{Planteamiento del problema en la Empresa}
 
-En el complejo entramado urbano de Bogotá, el auge de la movilidad ha dado origen a desafíos de envergadura que afectan la calidad de vida de sus ciudadanos y la sostenibilidad del entorno. La proliferación de vehículos, la congestión del tráfico y la preocupación por la salud ambiental han encendido las alarmas, creando un llamado urgente para encontrar soluciones innovadoras y efectivas. Entre las alternativas que han surgido para mitigar estos problemas, la bicicleta se presenta como una opción atractiva, pero su adopción no está exenta de obstáculos.
+En el complejo entramado urbano de Bogotá, el auge de la movilidad ha dado origen a desafíos de gran envergadura que afectan la calidad de vida de sus ciudadanos. La proliferación de vehículos y la congestión del tráfico han posicionado a la bicicleta como una de las alternativas más atractivas para la movilidad sostenible. Sin embargo, su adopción masiva enfrenta un obstáculo crítico: la seguridad y la estabilidad del usuario en escenarios de baja velocidad.
 
-A pesar de las innegables ventajas que ofrece, el uso de la bicicleta en el contexto urbano plantea retos sustanciales en lo que respecta a la seguridad y la estabilidad de los ciclistas. La interacción con otros vehículos, las condiciones cambiantes de las vías y los imprevistos del entorno pueden dar lugar a situaciones peligrosas y a la pérdida de equilibrio, resultando en accidentes y lesiones. La falta de seguridad en el desplazamiento en bicicleta no solo pone en riesgo la integridad física de los usuarios, sino que también puede disuadir a una parte de la población de adoptar este medio de transporte.
+A diferencia de los vehículos de cuatro ruedas, la bicicleta es un sistema intrínsecamente inestable que depende de la velocidad de avance para mantener el equilibrio mediante efectos geométricos y giroscópicos pasivos. En el entorno bogotano, donde las constantes detenciones, el tráfico denso y las irregularidades de la vía obligan a desplazamientos a velocidades mínimas, el riesgo de pérdida de equilibrio aumenta significativamente. Esta vulnerabilidad no solo pone en riesgo la integridad física de los ciclistas ante posibles caídas, sino que también actúa como un factor disuasivo para aquellos ciudadanos que no poseen una destreza física avanzada en el manejo del vehículo.
 
-Este planteamiento del problema se centra en la necesidad apremiante de abordar los desafíos de seguridad y estabilidad que enfrentan los biciusuarios en Bogotá. La idea central consiste en desarrollar una bicicleta autónoma que, mediante tecnologías avanzadas y un sistema de control inteligente, pueda mantenerse estable sin requerir la intervención constante del ciclista. Este enfoque de diseño tiene como objetivo principal ofrecer una solución que responda directamente a las problemáticas actuales, proporcionando a los usuarios un medio de transporte seguro y confiable.
+El presente planteamiento del problema se centra en la necesidad de desarrollar tecnologías de asistencia que mitiguen estos riesgos de inestabilidad. Actualmente, existe un vacío tecnológico en soluciones locales que permitan dotar a las estructuras de dos ruedas de una capacidad de auto-equilibrio activa. Por ello, surge la necesidad de investigar y desarrollar una plataforma mecánica basada en control giroscópico, capaz de generar fuerzas de corrección automáticas que mantengan la verticalidad de la estructura sin depender exclusivamente de la habilidad del operario o de la velocidad de traslación.
 
-La investigación propuesta se enfocará en la creación y el desarrollo de esta bicicleta autónoma. Esto involucra aspectos técnicos de vanguardia, como la integración de sensores de alta precisión para monitorear el movimiento, la aceleración y la velocidad. Asimismo, se explorará la implementación de un sistema de control autónomo que se adapte en tiempo real a las condiciones variables del entorno. El objetivo final es concebir una bicicleta que no solo brinde estabilidad, sino que también colabore activamente con el usuario para prevenir accidentes y mejorar la experiencia de viaje.
+La investigación propuesta se enfoca en la creación de un prototipo funcional que integre sensores de alta precisión (IMU) y actuadores de alta velocidad para monitorear y corregir la inclinación en tiempo real. En lugar de buscar un vehículo que reemplace la intervención humana, el enfoque se dirige a la validación de un sistema de soporte a la estabilidad que pueda adaptarse a las condiciones variables del entorno urbano.
 
-El impacto deseado de esta investigación es doble: por un lado, se busca fomentar la seguridad y la confianza de los biciusuarios en las calles de Bogotá, incentivando su participación activa en una movilidad sostenible. Por otro lado, se aspira a establecer un precedente para el desarrollo de tecnologías que aborden problemáticas urbanas complejas, utilizando la bicicleta autónoma como una solución piloto.
-
-En resumen, este estudio tiene como objetivo el diseño y desarrollo de una bicicleta autónoma que aborde los desafíos de seguridad y estabilidad de los biciusuarios en Bogotá. La creación de esta bicicleta no solo pretende ofrecer una solución concreta, sino también sentar las bases para una movilidad urbana más segura, sostenible e inteligente en la ciudad.
+El impacto deseado de este estudio es técnico y social: por un lado, se busca establecer un precedente en el diseño de sistemas de control robustos aplicados a la micro-movilidad en Colombia. Por otro lado, se aspira a demostrar la viabilidad de plataformas de estabilización que, en el futuro, puedan integrarse como sistemas de seguridad activa, fomentando una movilidad más inclusiva, segura y tecnológicamente avanzada en la ciudad de Bogotá.
 
 % ============================================
 % CAPÍTULO 4: JUSTIFICACIÓN
 % ============================================
 \chapter{Justificación}
 
-La problemática de la frecuencia de los accidentes y la mortalidad entre los biciusuarios en la ciudad de Bogotá es un desafío inaplazable que requiere una solución efectiva y específica. A pesar de la creciente adopción de la bicicleta como medio de transporte alternativo, persisten obstáculos significativos que afectan la seguridad y la confianza de quienes optan por este modo de movilidad. En respuesta a esta problemática, se propone llevar a cabo un estudio que aborde de manera integral la inestabilidad de las bicicletas en situaciones de pérdida de equilibrio, presentando una solución innovadora a través de un sistema de asistencia y estabilización.
+La problemática de la frecuencia de los accidentes y la mortalidad entre los biciusuarios en la ciudad de Bogotá es un desafío inaplazable que requiere una solución efectiva y específica. A pesar de la creciente adopción de la bicicleta como medio de transporte alternativo, persisten obstáculos significativos que afectan la seguridad y la confianza de quienes optan por este modo de movilidad. De acuerdo con reportes de la Secretaría Distrital de Movilidad y el Observatorio de Movilidad de Bogotá, los ciclistas hacen parte de los actores viales más vulnerables, evidenciándose un incremento en su uso acompañado de una mayor exposición a siniestros viales (Secretaría Distrital de Movilidad, 2023; Observatorio de Movilidad de Bogotá, 2022). En respuesta a esta problemática, se propone llevar a cabo un estudio que aborde de manera integral la inestabilidad de las bicicletas en situaciones de pérdida de equilibrio, presentando una solución innovadora a través de un sistema de asistencia y estabilización.
 
-La justificación de esta investigación se basa en la evidencia proporcionada por los resultados del estado del arte, los cuales revelan la ausencia de una solución integral para la problemática planteada. A pesar de los esfuerzos realizados, los estudios actuales no han logrado implementar un sistema que proporcione una asistencia adecuada a los biciusuarios en momentos críticos de inestabilidad. Esta falta de una solución efectiva demuestra la necesidad imperante de desarrollar un enfoque específico para abordar esta problemática.
+La justificación de esta investigación se basa en la evidencia proporcionada por el estado del arte en el área de dinámica y control de bicicletas. Diversos estudios han abordado este problema utilizando modelos como el péndulo invertido y técnicas de control no lineal, logrando avances importantes en la comprensión del equilibrio dinámico (Schwab et al., 2007; Getz, 1995; Yavin, 2010). Sin embargo, estos desarrollos se han mantenido principalmente en entornos experimentales o de simulación, sin lograr una implementación práctica que proporcione una asistencia efectiva a los biciusuarios en condiciones reales de operación. Esta limitación evidencia la necesidad de desarrollar un enfoque aplicado que permita trasladar estos avances teóricos a soluciones funcionales en contextos urbanos.
 
-Además de la falta de una solución viable, otro argumento sustancial para justificar esta investigación es la creciente preocupación por el medio ambiente en la ciudad de Bogotá. El aumento de emisiones de gases y la contaminación generada por vehículos a combustión han exacerbado la calidad del aire y amenazan la salud de los ciudadanos. En este sentido, la promoción del uso de bicicletas eléctricas como una alternativa más amigable con el medio ambiente se convierte en un motivo adicional para desarrollar un sistema de estabilización que incentive la adopción masiva de este medio de transporte.
+Además de la falta de una solución viable a nivel práctico, otro argumento sustancial para justificar esta investigación es la creciente preocupación por el medio ambiente en la ciudad de Bogotá. El aumento de emisiones de gases contaminantes, asociado principalmente al uso de vehículos a combustión, ha deteriorado la calidad del aire y representa un riesgo para la salud pública. Organismos como la Organización Mundial de la Salud y el Ministerio de Ambiente y Desarrollo Sostenible han señalado la necesidad de promover alternativas de movilidad sostenibles (Organización Mundial de la Salud, 2021; Ministerio de Ambiente y Desarrollo Sostenible, 2022). En este sentido, la promoción del uso de bicicletas, especialmente eléctricas, se convierte en una estrategia relevante para mitigar estos impactos.
 
-Esta investigación también tiene el potencial de transformar la movilidad en la ciudad y mejorar el tráfico vehicular. La naturaleza versátil y ágil de la bicicleta ofrece la posibilidad de reducir la congestión, mejorar los tiempos de desplazamiento y contribuir a la optimización de los recursos de infraestructura urbana. La implementación exitosa de sistemas de estabilidad para bicicletas podría conducir a un cambio cultural en la elección de medios de transporte, alentando a más ciudadanos a adoptar la bicicleta como una opción confiable y segura.
+Esta investigación también tiene el potencial de transformar la movilidad en la ciudad y mejorar el tráfico vehicular. La naturaleza versátil y ágil de la bicicleta ofrece la posibilidad de reducir la congestión, mejorar los tiempos de desplazamiento y contribuir a la optimización de los recursos de infraestructura urbana. La implementación de sistemas de estabilización podría aumentar la confianza de los usuarios, incentivando una mayor adopción de este medio de transporte y generando un impacto positivo en la movilidad urbana.
 
-Es importante destacar que esta investigación no solo busca ofrecer una solución práctica a un problema crítico de la ciudad, sino que también busca llenar un vacío académico y tecnológico. A nivel nacional, no existen desarrollos con el mismo tipo de actuador propuesto en esta investigación. La oportunidad de llevar a cabo un estudio académico en profundidad y lograr una implementación efectiva de un sistema de estabilización para bicicletas podría tener un impacto significativo tanto en el ámbito científico como en el tecnológico.
+Finalmente, es importante destacar que esta investigación busca también contribuir al desarrollo académico y tecnológico a nivel nacional. Aunque existen estudios relacionados con movilidad y sistemas de control en instituciones como la Universidad Nacional de Colombia y la Universidad de los Andes, no se encontraron desarrollos documentados que integren el tipo de actuador propuesto en esta investigación para la estabilización activa de bicicletas en condiciones reales. Esto representa una oportunidad para generar conocimiento aplicado y aportar al avance tecnológico en el contexto colombiano.
 
-En resumen, la justificación de esta investigación se basa en la necesidad demostrada de abordar la inestabilidad de las bicicletas en situaciones críticas, la falta de soluciones efectivas actuales, la urgencia de promover alternativas amigables con el medio ambiente, el potencial de transformar la movilidad urbana y la oportunidad de contribuir a la academia y la tecnología nacional. Este estudio no solo responde a una problemática real y actual, sino que también ofrece perspectivas innovadoras para mejorar la calidad de vida en la ciudad de Bogotá.
+En resumen, la justificación de esta investigación se fundamenta en la necesidad de abordar la inestabilidad de las bicicletas en situaciones críticas, la limitada aplicación práctica de las soluciones existentes, la urgencia de promover alternativas sostenibles de movilidad, el potencial de mejorar las condiciones de tráfico urbano y la oportunidad de contribuir al desarrollo científico y tecnológico nacional.
 
 % ============================================
 % CAPÍTULO 5: OBJETIVOS
@@ -375,32 +371,55 @@ A continuación, vamos a presentar el estado del arte en particular del control 
 
 A nivel nacional se encuentran trabajos muy buenos los cuales brindan una solución a la auto estabilización de una bicicleta, un ejemplo de ello es en la universidad Nacional de Colombia en el cual se realizó un proyecto en donde se propone una técnica avanzada de control para estabilizar la inclinación de una bicicleta que se desplaza libremente a una velocidad constante mínima. Se analizaron varios modelos matemáticos de la dinámica del sistema y luego desarrollaron un prototipo. En el cual lo expusieron ante las posibles perturbaciones e incertidumbres más relevantes que afectarían a la planta. A partir del comportamiento inestable y no lineal en la posición vertical de la bicicleta, dedujeron que puede ser modelado como un sistema lineal de parámetros variantes en el tiempo (LPV) que depende de la velocidad de avance.
 
-Con esta información obtenida a través del análisis se enfocaron en el Control por Rechazo Activo de Perturbaciones (ADRC) y optaron por un control basado en observador GPI este controlador con una estructura robusta permitió minimizar el error de seguimiento y rechazo de perturbaciones ante las incertidumbres y dinámicas no modeladas. Este controlador básicamente gira hacia la derecha o izquierda la dirección de la bicicleta para contrarrestar su inclinación de forma similar a un péndulo invertido, pero con un desplazamiento sobre el suelo.
+Con esta información obtenida a través del análisis se enfocaron en el Control por Rechazo Activo de Perturbaciones (ADRC) y optaron por un control basado en observador GPI este controlador con una estructura robusta permitió minimizar el error de seguimiento y rechazo de perturbaciones ante las incertidumbres y dinámicas no modeladas. Este controlador básicamente gira hacia la derecha o izquierda la dirección de la bicicleta para contrarrestar su inclinación de forma similar a un péndulo invertido, pero con un desplazamiento sobre el suelo. Los resultados que obtuvieron al adoptar la estrategia de control basada en observador GPI mostró mediante las simulaciones y los resultados experimentales, su contundencia a la solución del problema de estabilización de la bicicleta, con un desempeño superior a otras estrategias de control que también se implementaron, las cuales fueron, PID, con compensador en atraso, compensador en adelanto y realimentación por variables de estado (Baquero-Su et al., 2014).
 
-\subsection{Otros proyectos relevantes}
+\subsection{Control por rechazo activo de perturbaciones empleando un CMG}
 
-Para el año 2018 en la Universidad de San Buenaventura sede Bogotá, se plantea una de las maneras para abordar el problema de estabilizar una bicicleta en reposo. A través del análisis de la dinámica no lineal e inherentemente inestable del sistema, se aborda solucionar este problema por medio de la utilización de un sistema del rechazo activo de perturbaciones (ADR) sobre la base del control convencional en cascada usando observadores de estados extendidos (ESO) y sintonización óptima, con el método regulación cuadrática lineal (LQR).
+Para el año 2018 en la Universidad de San Buenaventura sede Bogotá, se plantea una de las maneras para abordar el problema de estabilización de una bicicleta en reposo. A través del análisis de la dinámica no lineal e inherentemente inestable del sistema, se aborda solucionar este problema por medio de la utilización de un sistema del rechazo activo de perturbaciones (ADR) sobre la base del control convencional en cascada usando observadores de estados extendidos (ESO) y sintonización óptima, con el método regulación cuadrática lineal (LQR). Además del método de control se realiza un giroscopio de control de momento (CMG) como actuador. En este documento se obtuvo como resultado un control robusto que fue capaz de auto estabilizar la bicicleta en el entorno de simulación ADAMS, así como también se evidenció que la filosofía ADR mostró ser efectiva, debido a que dotó al sistema de control con la habilidad de rechazar en línea, de manera aproximada, las incertidumbres, no linealidades y perturbaciones, por medio de la inyección de su estimación en la ley de control (Tamayo \& Programa, 2018).
+
+\subsection{Diseño de una plataforma didáctica mediante técnicas de control}
+
+Por otra parte, en Latinoamérica uno de los trabajos importantes que vale la pena mencionar se realizó en la Universidad del Valle de Guatemala, el cual consiste en analizar los efectos de distintos controladores que actúan sobre una bicicleta por medio de simulaciones gráficas. Fue implementado un programa con secciones editables por el usuario en donde pueden modificarse los parámetros que definen una bicicleta como, por ejemplo, su geometría, sus parámetros físicos y condiciones iniciales; adicionalmente se incluyó una sección en donde pueden seleccionarse distintos controladores a utilizar para luego ser modificados individualmente, permitiendo observar el comportamiento de cada uno en el sistema de la bicicleta mediante una simulación 3D y gráficas representativas (Palma, s.f.).
+
+\subsection{Control Moment Gyroscope Stabilization and Maneuverability}
+
+En la Universidad de Ohio State se propone diseñar y fabricar vehículos todo terreno semiautónomos. Esta tesis está dedicada a demostrar una prueba de concepto para la tecnología de estabilización giroscópica y validar su capacidad para equilibrar de forma autónoma una bicicleta estática no tripulada. Se analiza el diseño de un sistema giroscópico capaz de inducir y mantener temporalmente un movimiento de tipo ``caballito''. Desarrollan la teoría detrás de la tecnología de giroscopio de control de momento (CMG) de un solo eje accionado y presentan la metodología utilizada para diseñar el hardware y los componentes de la plataforma (Kalouche, 2014).
+
+\subsection{Self-stabilization of a riderless bicycle with model-based ADRC}
+
+En este artículo publicado en 2017 en la revista IEEE se analiza el problema de la auto estabilización a velocidad cero de una bicicleta sin tripulante con un CMG. Proponen un modelo de rechazo activo de perturbaciones de dos lazos de enfoque de control (ADR), compuesto principalmente por dos observadores estatales y dos leyes estatales de control de retroalimentación. El esquema proporciona estimación y rechazo en línea de perturbaciones que afecten al bucle de control interno y externo, demostrando ser robusto y eficaz (Tamayo-Leon et al., 2018).
+
+\subsection{Gyroscopic stabilization of an unmanned bicycle (SMC)}
+
+En la American Control Conference (ACC) de 2014, se presentó un artículo que analiza la estabilización mediante CMG y estabilización dinámica. Propone un controlador de modo deslizante (SMC) para controlar el CMG y estabilizar una bicicleta a velocidad de avance cero. El estudio compara el método SMC con un controlador PID, validando las ventajas del SMC al ofrecer un sobre impulso reducido y tiempos de asentamiento más cortos para la dinámica de un sistema no lineal (Yetkin et al., 2014).
+
+\subsection{Gyroscopic stabilization of a kid-size bicycle}
+
+En este trabajo se logra el auto equilibrio de una pequeña bicicleta equipada con sensores para detectar el ángulo de balanceo y actuadores CMG. El sistema se analiza como un péndulo invertido con más de dos grados de libertad. Se presenta un controlador derivativo proporcional (PD) como solución a la inestabilidad no lineal. Los resultados experimentales muestran la eficiencia del controlador PD frente a un PID, el cual disminuiría drásticamente el margen de fase volviendo el sistema inestable (Lam \& Sin, 2011).
+
+\subsection{A gyroscope-based inverted pendulum for posture stabilization}
+
+Este artículo presenta un sistema de péndulo invertido basado en el efecto de precesión giroscópica. El sistema obtiene el equilibrio mediante el control de la aceleración del rotor. El efecto de precesión proporciona un gran par para realizar el equilibrio estable. Los resultados validaron que el dispositivo estabilizador posee una fuerte capacidad anti-interferente y buena aplicabilidad para la estabilización de la postura de una bicicleta (Jin et al., 2015).
 
 \section{Marco teórico}
 
 \subsection{La Bicicleta}
 
-Estudios históricos relatan la importancia científica y el impacto social que ha tenido este medio de transporte. La primera invención de la bicicleta, apodada ``Draisiana'', fue en 1817 por el investigador alemán Baron Karl von Drais, inspirado por la idea ``deslizarse sin nieve'' y de buscar una solución más sencilla para transportarse, sin necesidad de vehículos pesados de cuatro ruedas potenciados por caballos, viento, o vapor. El 12 de Enero de 1818, Von Drais recibió su primera patente en el estado de Baden por tal invención y solución a la movilidad de las personas en ese entonces.
+Estudios históricos relatan la importancia científica y el impacto social que ha tenido este medio de transporte. La primera invención de la bicicleta, apodada ``Draisiana'', fue en 1817 por el investigador alemán Baron Karl von Drais, inspirado por la idea ``deslizarse sin nieve'' y de buscar una solución más sencilla para transportarse, sin necesidad de vehículos pesados de cuatro ruedas potenciados por caballos, viento, o vapor. El 12 de Enero de 1818, Von Drais recibió su primera patente en el estado de Baden por tal invención y solución a la movilidad de las personas en ese entonces (Sáenz-García, 2013).
 
-
-
-Esta primera invención, encaminó a muchos personajes históricos reconocidos por sus investigaciones para que comenzaran a innovar sobre este mecanismo, buscando comodidad, eficiencia y seguridad para su conductor. Se pueden destacar algunos diseños de impacto al público en su historia, tales como, la primera bicicleta de pedal creada en 1840 por el escocés Kirkpatrick Macmillan. También, la creación de Pierre Michaux en 1861 llamada ``Velocípedo'', que fue una de las más populares bicicletas de la historia con pedales en la rueda frontal, cuya localización ocasionaba que las piernas del conductor se atascaran en la rueda cuando se cruzaba a altas velocidades.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth]{image2.png}
+\includegraphics[width=0.4\textwidth]{image2.png}
 \caption{Primera bicicleta (Draisiana)}
 \label{fig:draisiana}
 \end{figure}
+Esta primera invención, encaminó a muchos personajes históricos reconocidos por sus investigaciones para que comenzaran a innovar sobre este mecanismo, buscando comodidad, eficiencia y seguridad para su conductor. Se pueden destacar algunos diseños de impacto al público en su historia, tales como, la primera bicicleta de pedal creada en 1840 por el escocés Kirkpatrick Macmillan. También, la creación de Pierre Michaux en 1861 llamada ``Velocípedo'', que fue una de las más populares bicicletas de la historia con pedales en la rueda frontal, cuya localización ocasionaba que las piernas del conductor se atascaran en la rueda cuando se cruzaba a altas velocidades (Meollo, s.f.).
+
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth]{image3.png}
+\includegraphics[width=0.4\textwidth]{image3.png}
 \caption{Bicicleta Penny Farthing}
 \label{fig:pennyfarthing}
 \end{figure}
@@ -411,11 +430,13 @@ La dinámica de montar y equilibrar una bicicleta implica un complejo proceso de
 
 \subsection{Movimiento Giroscópico}
 
-El giróscopo o giroscopio es un dispositivo mecánico formado esencialmente por un cuerpo con simetría de rotación que gira alrededor de su eje de simetría y cuyo eje de giro no es fijo, sino que puede cambiar de orientación en el espacio. Cuando se somete el giroscopio a un momento de fuerza que tiende a cambiar la orientación del eje de rotación su comportamiento es aparentemente paradójico ya que el eje de rotación, en lugar de cambiar de dirección como lo haría un cuerpo que no girase, cambia de orientación en una dirección perpendicular a la dirección ``intuitiva''.
+El giróscopo o giroscopio es un dispositivo mecánico formado esencialmente por un cuerpo con simetría de rotación que gira alrededor de su eje de simetría y cuyo eje de giro no es fijo, sino que puede cambiar de orientación en el espacio. Cuando se somete el giroscopio a un momento de fuerza que tiende a cambiar la orientación del eje de rotación su comportamiento es aparentemente paradójico ya que el eje de rotación, en lugar de cambiar de dirección como lo haría un cuerpo que no girase, cambia de orientación en una dirección perpendicular a la dirección ``intuitiva''. Este principio se ha utilizado en diversas aplicaciones, particularmente en relación con el control y guía de aeroplanos, sistema de navegación avanzado, proyectiles, etc. 
+
+Los giróscopos son objetos muy interesantes debido a que parecen desafiar la gravedad; Además, en ellos actúan diversos fenómenos físicos a causa de que el eje de rotación cambia de dirección en todo momento (Aballay \& Avilés, 2002; Rita et al., 2007). Un ejemplo es como se muestra en la figura \ref{fig:volante_horizontal}:
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{image3.png}
+\includegraphics[width=0.4\textwidth]{image4.png}
 \caption{Ejemplo de un volante con eje horizontal}
 \label{fig:volante_horizontal}
 \end{figure}
@@ -480,6 +501,10 @@ Donde $W$ es un peso (típicamente cercano a 0.99) que permite que el sistema ig
 
 De acuerdo con National Instruments (2025), el algoritmo PID es el controlador más utilizado en la industria debido a su robustez y simplicidad. Su funcionamiento se basa en un mecanismo de retroalimentación que calcula continuamente el valor de un ``error'' como la diferencia entre una variable de proceso medida y un punto de consigna deseado. El controlador intenta minimizar este error ajustando las entradas de control del sistema a través de la suma de tres parámetros: el proporcional, que determina la reacción al error actual; el integral, que permite eliminar el error de estado estacionario acumulado; y el derivativo, que actúa como un amortiguador al predecir el comportamiento futuro del error basado en su tasa de cambio.
 
+Asimismo, la implementación de este controlador requiere una sintonización precisa para equilibrar la velocidad de respuesta con la estabilidad del sistema. Un ajuste excesivo de la ganancia proporcional o integral puede provocar que el sistema se vuelva inestable y oscile, mientras que una acción derivativa muy alta puede hacer que el sistema sea excesivamente sensible al ruido de los sensores. Por ello, el uso de herramientas de simulación y métodos de ajuste es fundamental para garantizar que el controlador PID mantenga el sistema en su punto óptimo de operación, permitiendo que el proceso regrese a su estado deseado de forma rápida y eficiente tras una perturbación (National Instruments, 2025).
+
+Para completar el marco teórico, se presenta la expresión matemática estándar de un controlador PID y la explicación detallada de cada uno de sus componentes, basándose en la literatura técnica de National Instruments.
+
 \subsubsection{La Ecuación General del PID}
 
 En el dominio del tiempo, la señal de control se define mediante la siguiente ecuación:
@@ -487,6 +512,18 @@ En el dominio del tiempo, la señal de control se define mediante la siguiente e
 \begin{equation}
 u(t) = K_p e(t) + K_i \int_{0}^{t} e(\tau)d\tau + K_d \frac{de(t)}{dt}
 \end{equation}
+
+\subsubsection{Análisis de los Componentes}
+
+La ecuación representa la suma de tres formas de procesar el error $e(t)$, que es la diferencia entre el valor deseado y el valor medido por los sensores:
+
+\begin{enumerate}
+    \item \textbf{Término Proporcional ($K_p e(t)$):} Es el componente principal del control. La salida es simplemente el error multiplicado por una ganancia ($K_p$). Su función es proporcionar una respuesta inmediata: si el error es grande, la corrección es fuerte. Sin embargo, si se usa solo, el sistema suele presentar un error de estado estacionario porque a medida que el error se hace pequeño, la fuerza de corrección también desaparece.
+    
+    \item \textbf{Término Integral ($K_i \int_{0}^{t} e(\tau)d\tau$):} Este término suma (integra) el error a lo largo del tiempo. Su objetivo es eliminar el error residual que el término proporcional no pudo corregir. Incluso si el error es muy pequeño, al sumarse continuamente en el tiempo, la parte integral crecerá lo suficiente para empujar el sistema hasta el punto exacto deseado, logrando que el error final sea cero.
+    
+    \item \textbf{Término Derivativo ($K_d \frac{de(t)}{dt}$):} Este término calcula la velocidad a la que cambia el error (su derivada). Actúa como un ``freno''; si el error está disminuyendo muy rápido, la derivada será negativa y restará fuerza a la ecuación. Esto evita que el sistema se pase de largo (overshoot) y reduce las oscilaciones, permitiendo una estabilidad mucho más suave.
+\end{enumerate}
 
 \subsection{Microcontrolador ESP32}
 
@@ -531,28 +568,21 @@ El desarrollo del presente proyecto de investigación se encuentra enmarcado baj
 % ============================================
 \chapter{Actividades realizadas durante la pasantía}
 
-Presentación del cómo se llevó a cabo la pasantía. Se deben presentar las actividades organizadas por fases en un diagrama de Gantt de acuerdo con la propuesta aprobada. Se debe incluir una descripción y análisis de cada una de las actividades que incluya los métodos, técnicas, estándares y normas empleadas.
-
 \section{Investigación de sistemas similares para la obtención de criterios de diseño}
 
 A partir del estudio de los diferentes proyectos implementados, los cuales se mencionan en el presente documento en el Capítulo 6 (Marco de Referencia), se optó por tomar como base dos modelos de diseño mecánico diferentes. En esta sección se describe el procedimiento y el paso a paso seguido para la implementación de cada uno de estos diseños. La selección del diseño más adecuado se definió de manera progresiva, con base en las pruebas realizadas a lo largo del desarrollo del proyecto, permitiendo identificar aquel que ofrecía mejores condiciones de eficiencia y un comportamiento más estable del sistema.
 
 \subsection{Diseño Del Volante}
 
-Para este diseño en primera instancia se decidió usar una bicicleta tipo carreras la cual tiene como dimensiones las mencionadas en la figura \ref{fig:bici_dimensiones}, tomando en cuenta estas dimensiones, se realiza un análisis y se determina que como primera muestra de datos bajo el comportamiento de la planta se podría adecuar, un soporte vertical en el cual se podría adecuar un motor que en primera instancia se encargó de mover un volante de inercia con un peso aproximado de 2 kilogramos.
+Para este diseño en primera instancia se decidió usar una bicicleta tipo carreras la cual tiene como dimensiones las mencionadas en la figura \ref{fig:proceso_diseno}, tomando en cuenta estas dimensiones, se realiza un análisis y se determina que como primera muestra de datos bajo el comportamiento de la planta se podría adecuar, un soporte vertical en el cual se podría adecuar un motor que en primera instancia se encargó de mover un volante de inercia con un peso aproximado de 2 kilogramos.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{image4.png}
-\caption{Dimensiones de la bicicleta tipo carreras utilizada}
-\label{fig:bici_dimensiones}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{image5.jpeg}
-\caption{Primer diseño del volante de inercia con soporte vertical}
-\label{fig:primer_diseno}
+\begin{tabular}{ccccccc}
+\includegraphics[width=0.2\textwidth]{image6.jpeg} & $\rightarrow$ & \includegraphics[width=0.2\textwidth]{image7.png} & $\rightarrow$ & \includegraphics[width=0.2\textwidth]{image8.png} & $\rightarrow$ & \includegraphics[width=0.2\textwidth]{image5.jpeg}
+\end{tabular}
+\caption{Secuencia del proceso de diseño del volante de inercia (Diseño 3D e implementación)}
+\label{fig:proceso_diseno}
 \end{figure}
 
 Para este modelo inicial se lograron identificar varias falencias con el modelo, el cual por el peso del volante y las dimensiones de la bicicleta, no contaba con el torque necesario, para realizar el control o la estabilidad deseada en la bicicleta.
@@ -561,31 +591,126 @@ Esta primera prueba de la planta fue indispensable ya que se lograron identifica
 
 \section{Análisis del modelo matemático del sistema y Diseño tridimensional (3D)}
 
-A partir de los resultados obtenidos en la primera planta, se optó por construir un segundo modelo el cual su diseño se caracterizó ubicar el volante en la parte superior de la bicicleta, este diseño a diferencia del anterior acoplaba el movimiento de giro del volante a través de un motor DC, el cual solo giraba en un solo sentido.
+\subsection{Definición de Parámetros y Nomenclatura}
+
+
+Definimos los componentes del sistema de la siguiente manera:
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{image6.jpeg}
-\caption{Segundo diseño con volante en la parte superior}
-\label{fig:segundo_diseno}
+\includegraphics[width=0.5\textwidth]{image70.png}
+\caption{Diagrama de Cuerpo Libre para el análisis de inercia del sistema}
+\label{fig:cuerpo_libre}
 \end{figure}
 
-Como se observa en la figura \ref{fig:segundo_diseno}, el motor DC está acoplado directamente al volante de inercia, este a través de su eje. La intención en esta segunda etapa fue verificar el cambio del comportamiento de la estabilidad de la bicicleta, ya que el volante fue remplazado con otro de mayor peso este cuenta con un peso estimado de 10 kilogramos, a diferencia del volante anterior este cuenta con un diseño totalmente diferente y su material es de hierro.
+
+\begin{itemize}
+    \item \textbf{Bicicleta ($b$):} Estructura principal que deseamos equilibrar.
+    \item \textbf{Gimbal ($g$):} Marco o soporte motorizado que inclina el giróscopo (eje de precesión).
+    \item \textbf{Flywheel ($f$):} Disco de inercia que gira a alta velocidad constante $\Omega$.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Parámetro} & \textbf{Descripción} \\ \hline
+$\theta, \dot{\theta}$ & Ángulo de inclinación de la bicicleta y su velocidad angular. \\ \hline
+$\alpha, \dot{\alpha}$ & Ángulo de precesión del gimbal y su velocidad angular. \\ \hline
+$m_b, m_g, m_f$ & Masas de la bicicleta, el gimbal y el flywheel. \\ \hline
+$h_b, h_g, h_f$ & Altura de los centros de masa desde el punto de contacto con el suelo. \\ \hline
+$I_b, I_g, I_f$ & Momentos de inercia de cada componente respecto a sus ejes principales. \\ \hline
+$H = I_{fy} \Omega$ & Momento angular neto del flywheel. \\ \hline
+\end{tabular}
+\caption{Parámetros del sistema dinámico}
+\label{tab:parametros}
+\end{table}
+
+\subsection{Energías del Sistema}
+
+\textbf{Energía Cinética Total ($T$):}
+Sumamos las contribuciones de rotación y traslación (usando el Teorema de Steiner para referenciar todo al suelo):
+\begin{equation}
+    T = \underbrace{\frac{1}{2}(I_b + m_b h_b^2)\dot{\theta}^2}_{T_{Bike}} + \underbrace{\frac{1}{2}I_{gz}\dot{\alpha}^2}_{T_{Gimbal}} + \underbrace{\frac{1}{2}[m_f h_f^2 \dot{\theta}^2 + I_{fx}\dot{\theta}^2 \cos^2\alpha + I_{fy}(\Omega + \dot{\theta} \sin\alpha)^2 + I_{fz}\dot{\alpha}^2]}_{T_{Flywheel}}
+\end{equation}
+
+\textbf{Energía Potencial Total ($V$):}
+Considerando la gravedad para un péndulo invertido:
+\begin{equation}
+    V = (m_b h_b + m_g h_g + m_f h_f) g \cos\theta
+\end{equation}
+
+\subsection{El Lagrangiano ($L$)}
+\begin{equation}
+    L = T - V
+\end{equation}
+
+Para simplificar el análisis de control, definimos las constantes globales:
+\begin{itemize}
+    \item $J_{eq} = I_b + m_b h_b^2 + m_f h_f^2$ (Inercia efectiva de balanceo).
+    \item $M_{eq}L_{eq} = m_b h_b + m_g h_g + m_f h_f$ (Momento estático total).
+    \item $I_\alpha = I_{gz} + I_{fz}$ (Inercia total del eje de precesión).
+\end{itemize}
+
+\subsection{Ecuaciones de Movimiento (Euler-Lagrange)}
+
+Aplicando $\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}_i}\right) - \frac{\partial L}{\partial q_i} = Q_i$:
+
+\textbf{Para la inclinación $\theta$:}
+\begin{equation}
+    \frac{d}{dt}(J_{eq}\dot{\theta} + I_{fy}(\Omega + \dot{\theta}\sin\alpha)\sin\alpha) - \frac{\partial L}{\partial \theta} = 0
+\end{equation}
+
+Linealizando cerca de $\theta \approx 0$ y $\alpha \approx 0$, y asumiendo $\Omega$ constante y muy grande:
+\begin{equation}
+    J_{eq}\ddot{\theta} - (M_{eq}L_{eq}g)\theta + H\dot{\alpha} = 0
+\end{equation}
+
+\textbf{Para la precesión $\alpha$:}
+\begin{equation}
+    \frac{d}{dt}(I_\alpha \dot{\alpha}) - \frac{\partial L}{\partial \alpha} = \tau_\alpha
+\end{equation}
+
+Linealizando (donde el término dominante es el acoplamiento giroscópico):
+\begin{equation}
+    I_\alpha \ddot{\alpha} - H\dot{\theta} = \tau_\alpha
+\end{equation}
+
+\subsection{Representación en Espacio de Estados Final}
+
+El modelo linealizado que se utiliza para programar el controlador es:
+\begin{equation}
+    \begin{bmatrix} \dot{\theta} \\ \ddot{\theta} \\ \dot{\alpha} \\ \ddot{\alpha} \end{bmatrix} = 
+    \begin{bmatrix} 0 & 1 & 0 & 0 \\ \frac{M_{eq}L_{eq}g}{J_{eq}} & 0 & 0 & -\frac{H}{J_{eq}} \\ 0 & 0 & 0 & 1 \\ 0 & \frac{H}{I_\alpha} & 0 & 0 \end{bmatrix}
+    \begin{bmatrix} \theta \\ \dot{\theta} \\ \alpha \\ \dot{\alpha} \end{bmatrix} + 
+    \begin{bmatrix} 0 \\ 0 \\ 0 \\ \frac{1}{I_\alpha} \end{bmatrix} \tau_\alpha
+\end{equation}
+
+\subsection{Función de Transferencia $G(s)$}
+
+Al aplicar la Transformada de Laplace y resolver para $\frac{\Theta(s)}{T_\alpha(s)}$, obtenemos una expresión de cuarto orden que relaciona la entrada de torque de precesión con el ángulo de inclinación:
+\begin{equation}
+    G(s) = \frac{-Hs}{J_{eq}I_\alpha s^4 + (H^2 - M_{eq}L_{eq}g I_\alpha)s^2 - M_{eq}L_{eq}g I_\alpha}
+\end{equation}
+
+A partir de los resultados obtenidos en la primera planta, se optó por construir un segundo modelo el cual su diseño se caracterizó ubicar el volante en la parte superior de la bicicleta, este diseño a diferencia del anterior acoplaba el movimiento de giro del volante a través de un motor DC, el cual solo giraba en un solo sentido.
+
+Como se observa en la figura \ref{fig:proceso_diseno}, el motor DC está acoplado directamente al volante de inercia, este a través de su eje. La intención en esta segunda etapa fue verificar el cambio del comportamiento de la estabilidad de la bicicleta, ya que el volante fue remplazado con otro de mayor peso este cuenta con un peso estimado de 10 kilogramos, a diferencia del volante anterior este cuenta con un diseño totalmente diferente y su material es de hierro.
 
 Este nuevo diseño está pensado en que el sistema pueda aprovechar al máximo el momento de inercia, cuyo diseño se compone de un volante tipo anillo, el cual cuenta con un anillo exterior mayor al resto del volante que en su parte interior tiene un anillo de menor grosor en comparación al exterior.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth]{image7.png}
-\caption{Volante de inercia tipo anillo optimizado}
-\label{fig:volante_anillo}
+\includegraphics[width=0.45\textwidth]{image9.png}
+\caption{Cálculo del momento de inercia del volante - Parte 1}
+\label{fig:calculo_inercia1}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{image8.png}
-\caption{Diseño detallado del volante de inercia}
-\label{fig:volante_detalle}
+\includegraphics[width=0.45\textwidth]{image10.png}
+\caption{Cálculo del momento de inercia del volante - Parte 2}
+\label{fig:calculo_inercia2}
 \end{figure}
 
 Este diseño permite:
@@ -599,14 +724,14 @@ Con este nuevo diseño del volante de inercia es indispensable disponer y calcul
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\textwidth]{image9.png}
+\includegraphics[width=0.45\textwidth]{image58.png}
 \caption{Cálculo del momento de inercia del volante - Parte 1}
 \label{fig:calculo_inercia1}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\textwidth]{image10.png}
+\includegraphics[width=0.45\textwidth]{image59.png}
 \caption{Cálculo del momento de inercia del volante - Parte 2}
 \label{fig:calculo_inercia2}
 \end{figure}
@@ -617,84 +742,81 @@ Al realizar los cálculos corroboramos que el nuevo volante de inercia al tener 
 
 En esta segunda etapa se realizó un diseño mecánico el cual permite acoplar directamente la bicicleta a la estructura que asegura el volante y motor. En esta etapa la estructura inicialmente se instala en la parte superior de la bicicleta, adicionalmente la estructura acopla directamente el motor de tracción del volante.
 
+
+
+Por otra parte esta estructura es la que directamente se encargó de realizar el movimiento de todo el conjunto, esto se logró a través de un eje de dirección vertical con rodamientos, tipo chumacera, este instalado directamente sobre el marco de la bicicleta, manteniendo las mismas dimensiones estructurales iniciales de la bicicleta y solo se modifica su centro de masa para así  estabilizar la bicicleta de una mejor manera , con ello se logra identificar un mejor desempeño en la planta.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{image11.jpeg}
-\caption{Estructura de soporte del motor y volante instalada en la bicicleta}
-\label{fig:estructura_instalada}
-\end{figure}
-
-\begin{figure}[H]
+\begin{minipage}{0.48\textwidth}
 \centering
-\includegraphics[width=0.7\textwidth]{image12.jpeg}
-\caption{Vista detallada del acople del motor al volante}
-\label{fig:acople_motor}
-\end{figure}
-
-Por otra parte esta estructura es la que directamente se encargó de realizar el movimiento de todo el conjunto, esto se logró a través de un eje de dirección vertical con rodamientos, tipo chumacera, este instalado directamente sobre el marco de la bicicleta.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.6\textwidth]{image13.jpeg}
+\includegraphics[width=\textwidth]{image13.jpeg}
 \caption{Sistema de eje vertical con rodamientos tipo chumacera}
 \label{fig:eje_vertical}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{image14.jpeg}
+\caption{Sistema de piñón y cadena para control de dirección}
+\label{fig:pinon_cadena}
+\end{minipage}
 \end{figure}
 
-Para esta etapa también fue incluido un motor reductor, el cual cumple como función principal controlar la dirección de la estructura motor-volante, este cambia el sentido de giro de la estructura a través de un piñón ubicado en el eje del motor de control y otro en el eje de dirección instalado, estos dos se comunican entre sí por medio de una cadena, que transmite el movimiento del motor reductor al eje de dirección.
+Para esta etapa tambien fue incluido un motor reductor, el cual cumple como función principal controlar la dirección de la estructura motor- volante , este cambia el sentido de girto de la estructura a través de un piñon ubicado en el eje del motor de control y otro en el eje de dirección instalado, estos dos se comunican entre si por medio de una cadena, que transmite el movimiento del motor reductor al eje de dirección.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{image14.jpeg}
-\caption{Sistema de piñón y cadena para control de dirección}
-\label{fig:pinon_cadena}
+\begin{minipage}{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{image15.jpeg}
+\caption{Mecanismo tipo polea con correa de arrastre}
+\label{fig:polea_correa}
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{image16.jpeg}
+\caption{Mecanismo tipo polea con correa de arrastre}
+\label{fig:psoc_driver}
+\end{minipage}
+\label{fig:mecanismos_control}
 \end{figure}
 
 En esta etapa del proyecto se realizan varias modificaciones significativas ya que el mecanismo implementado para la dirección, carecía de las condiciones necesarias para poder ejercer el movimiento a todo el conjunto, a partir de ello se realizó el cambio del mecanismo por un mecanismo tipo polea en el cual se realizó el cambio de los piñones y se remplazó la cadena por una correa de arrastre.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{image15.jpeg}
-\caption{Mecanismo tipo polea con correa de arrastre}
-\label{fig:polea_correa}
-\end{figure}
-
 \subsection{Control sistema de dirección}
 
-A partir de esta, comenzaron los primeros pasos para controlar la dirección de la estructura motor-volante, para ello se realizó un control de dirección del motor por medio de un controlador PSoC y un driver BTS7960.
+A partir de esta, comenzaron los primeros pasos para controlar la dirección de la estructura motor-volante, para ello se realizó un control de dirección del motor por medio de un controlador PSoC y un driver BTS7960, en esta prueba el controlador de potencia en conjunto con micro controlador PSoC, tuvieron un comportamiento bastante aceptable de la misma manera que el conjunto piñón polea a través de la correa.
+
+Para esta etapa inicialmente se realizaron pruebas para verificar el funcionamiento del control de giro cuando el volante estaba en movimiento, esta se realizó con las siguientes condiciones:
+\begin{itemize}
+    \item Control de giro mediante PWM con el microcontrolador PSoC.
+    \item Motor de volante con velocidad constante.
+    \item Alimentación directa al sistema con una fuente de alimentación de 12 a 24 voltios variables.
+\end{itemize}
+
+Para esta prueba se obtuvieron los siguientes resultados:
+Se evidenció una carencia de agarre en el sistema piñón-correa. El peso y la fuerza ejercida por la estructura resultaron ser superiores a la capacidad de arrastre de la polea y la correa acopladas al motor. Al realizar cambios bruscos en la dirección del motor de control, la correa patinaba, perdía sujeción y no generaba la fuerza de arrastre necesaria para mover la estructura del anclaje del motor.
+
+Estos resultados nos obligaron al realizar un cambio en el diseño del sistema de rotación del conjunto de motor polea. Además de implementar un nuevo sistema que permita facilitar el cambio de sentido de la estructura.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\textwidth]{image16.jpeg}
-\caption{Controlador PSoC y driver BTS7960 para control del motor}
-\label{fig:psoc_driver}
-\end{figure}
-
-Para esta etapa inicialmente se realizaron pruebas para verificar el funcionamiento del control de giro cuando el volante estaba en movimiento. Se evidenció una carencia de agarre en el sistema piñón-correa. El peso y la fuerza ejercida por la estructura resultaron ser superiores a la capacidad de arrastre de la polea y la correa acopladas al motor.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{image17.png}
+\includegraphics[width=0.4\textwidth]{image17.png}
 \caption{Problemas identificados en el sistema de transmisión}
 \label{fig:problemas_transmision}
 \end{figure}
 
-En este diseño se realizaron cambios tanto en la estructura de soporte motor como en la versión de la bicicleta, para esta versión de la bicicleta se redujo el tamaño para lograr establecer la planta más estable, su diseño acopla una estructura de base motor más reducida y más liviana.
+En este diseño se realizaron cambios tanto en la estructura de soporte motor como en la versión de la bicicleta; para esta versión de la bicicleta se redujo el tamaño para lograr establecer la planta más estable, su diseño acopla una estructura de base motor más reducida y más liviana, logrando así un menor esfuerzo en el motor que cambia de dirección en la estructura motor.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{image18.png}
+\includegraphics[width=0.4\textwidth]{image18.png}
 \caption{Bicicleta de tamaño reducido con nueva estructura}
 \label{fig:bici_reducida}
 \end{figure}
 
-Por otra parte el diseño redujo pérdidas de energía en la transmisión de potencia, ya que en esta etapa se remplazó el sistema de polea y el motor reductor por un servomotor que se acopla directamente al eje vertical.
+Por otra parte el diseño redujo pérdidas de energía en la transmisión de potencia, ya que en esta etapa se remplazó el sistema de polea y el motor reductor por un servomotor que se acopla directamente al eje vertical, este permitió mejorar la eficiencia de la planta al mover la estructura.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.6\textwidth]{image19.png}
-\caption{Servomotor acoplado directamente al eje vertical}
-\label{fig:servomotor_eje}
-\end{figure}
 
 A continuación se logró poner a prueba el cambio de giro del motor de una manera más eficiente y con ello continuar con la siguiente etapa del proyecto la cual constaba en sensar la posición exacta de la bicicleta.
 
@@ -706,344 +828,269 @@ Para verificar la posición de la bicicleta se pusieron a prueba dos sensores ti
 
 \subsubsection{MMA7361}
 
-Inicialmente, se incorporó a la planta el sensor MMA7361, con el cual se realizaron las primeras mediciones de la inclinación en el eje Z. No obstante, durante la etapa de pruebas se determinó que el sensor analógico presentaba una alta susceptibilidad al ruido.
+Inicialmente, se incorporó a la planta el sensor MMA7361, con el cual se realizaron las primeras mediciones de la inclinación en el eje Z. Estas mediciones permitieron determinar la posición inicial del sistema y, a partir de dicha referencia, implementar el sistema de control encargado de mantener la estabilidad de la planta, estos datos a su vez fueron adquiridos e interpretados mediante el microcontrolador PSoC 5 LP. No obstante gracias a la incorporación de estos dos elementos, fue posible llevar a cabo las primeras pruebas del control de movimiento de la estructura volante–motor.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth]{image20.jpeg}
+\includegraphics[width=0.4\textwidth]{image20.jpeg}
 \caption{Sensor analógico MMA7361}
 \label{fig:mma7361}
 \end{figure}
 
-Como primera estrategia para mitigar este problema, se implementaron filtros digitales con el objetivo de atenuar las señales parásitas y permitir que el sistema trabajara únicamente con la señal útil proven Wendy del sensor.
+Como se mencionaba anteriormente en el documento la señal generada por el MMA7361 es una señal análoga, que fue procesada a través del módulo de conversión analográfica-digital (ADC) del microcontrolador, y posterior interpretada y tratada por este mismo para obtener la información del ángulo de la planta. 
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{image21.png}
-\caption{Señal del MMA7361 sin filtro - con ruido}
-\label{fig:mma7361_sin_filtro}
-\end{figure}
+A partir de la información del ángulo se realizaron las pruebas iniciales donde se determinó que el sensor analógico presentaba una alta susceptibilidad al ruido, ya que se filtraban múltiples señales parásitas que eran interpretadas erróneamente por el sistema como variaciones reales de inclinación. Este comportamiento afectaba directamente la eficiencia del control, generando respuestas imprecisas e inestabilidad en la planta. 
 
-A pesar de esta mejora, el sistema continuó presentando un comportamiento inestable durante su operación. Tras realizar un análisis más detallado del sistema y llevar a cabo nuevas pruebas experimentales, se concluyó que la principal fuente del problema era el uso de un sensor analógico.
+Como primera estrategia para mitigar este problema, se implementaron filtros digitales con el objetivo de atenuar las señales parásitas y permitir que el sistema trabajara únicamente con la señal útil proveniente del sensor. Esta etapa de filtrado mejoró considerablemente la eficiencia del microcontrolador en la lectura de los datos. Sin embargo, a pesar de esta mejora, el sistema continuó presentando un comportamiento inestable durante su operación. 
+
+Tras realizar un análisis más detallado del sistema y llevar a cabo nuevas pruebas experimentales, se concluyó que la principal fuente del problema era el uso de un sensor analógico. Por esta razón, se decidió reemplazarlo por un sensor digital, el cual transmite la información mediante comunicación I²C directamente al microcontrolador. Esta modificación permitió reducir significativamente la influencia del ruido y mejorar la confiabilidad de las mediciones, contribuyendo a un desempeño más estable del sistema de control.
 
 \subsubsection{MPU9250}
 
-Para esta etapa del proyecto se implementó el sensor digital MPU9250, el cual integra un acelerómetro y un giroscopio en los tres ejes (x,y,z), permitiendo la medición de aceleraciones lineales y velocidades angulares en los tres ejes.
+Para esta etapa del proyecto se implementó el sensor digital MPU9250, el cual integra un acelerómetro y un giroscopio en los tres ejes (x,y,z), permitiendo la medición de aceleraciones lineales y velocidades angulares en los tres ejes. A través de la información proporcionada por estos sensores, es posible estimar la orientación y la inclinación de la bicicleta.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth]{image22.jpeg}
+\includegraphics[width=0.4\textwidth]{image60.jpg}
 \caption{Sensor digital MPU9250}
 \label{fig:mpu9250}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{image23.jpeg}
-\caption{MPU9250 montado en la planta}
-\label{fig:mpu9250_montado}
-\end{figure}
 
-El MPU9250 y el microcontrolador realizan e intercambian información mediante el protocolo I²C, lo cual permite una transmisión digital de los datos, reduciendo significativamente la susceptibilidad al ruido eléctrico en comparación con el sensor MMA7361.
+
+Como se mencionaba anteriormente El MPU9250 y el microcontrolador, realizan e intercambian información mediante el protocolo I²C, lo cual permite una transmisión digital de los datos, reduciendo significativamente la susceptibilidad al ruido eléctrico en comparación con el sensor MMA7361. Al realizar la lectura de datos de manera digital mejora considerable en la calidad y estabilidad de las mediciones utilizadas por el controlador.
+
+A continuación en la figuras \ref{fig:comparacion_sensores1}, se realiza una comparación de la adquisición de la señal de ángulo con los dos sensores, en la cual se puede apreciar la diferencia entre la calidad de las dos señales, además de observar el comportamiento de la señal antes de aplicar el filtro y posteriormente a aplicar el filtro.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\textwidth]{image24.png}
+\includegraphics[width=0.45\textwidth]{image61.jpeg}
 \caption{Comparación de señales MMA7361 vs MPU9250 - sin filtro}
 \label{fig:comparacion_sensores1}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{image25.png}
-\caption{Comparación de señales MMA7361 vs MPU9250 - con filtro}
-\label{fig:comparacion_sensores2}
-\end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{image26.png}
-\caption{Señal filtrada del MPU9250 mostrando mejor calidad}
-\label{fig:mpu9250_filtrada}
-\end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{image27.png}
-\caption{Detalle de la reducción de ruido después del filtrado}
-\label{fig:reduccion_ruido}
-\end{figure}
 
-A partir del análisis anterior y como revelan las gráficas de la señal de ángulo, la calidad de la señal emitida por el sensor digital es mucho más limpia y presenta una mejor condición para que el microcontrolador pueda interpretarla de una mejor manera.
+
+A partir del análisis anterior y como revelan las gráficas de la señal de ángulo, la calidad de la señal emitida por el sensor digital es mucho más limpia y presenta una mejor condición para que el microcontrolador pueda interpretarla de una mejor manera. Sin embargo, con la implementación de este sensor, se logró identificar que gran parte del ruido presente en las mediciones no provenía del sistema de adquisición ni de la comunicación digital, sino de las vibraciones mecánicas generadas por el volante de inercia durante su operación. Dichas vibraciones afectaban principalmente las lecturas del acelerómetro, introduciendo componentes de alta frecuencia que interferían con la estimación precisa de la inclinación del sistema. 
+
+Con el fin de mitigar estos efectos, se implementó nuevamente un filtro digital orientado a atenuar las señales parásitas generadas por las vibraciones mecánicas de la planta. Sin embargo, se observó que las vibraciones constantes producidas durante el movimiento del volante de inercia generaban un margen de error significativo en las mediciones, lo que continuaba afectando la estimación del ángulo proporcionada por el sensor. Debido a esto, se determinó la necesidad de realizar una modificación mecánica en la planta, que a su vez se orienta a minimizar al máximo las vibraciones transmitidas por el volante de inercia hacia la estructura y, en consecuencia, hacia el sistema de sensado.
 
 \section{Implementación del sistema de control}
 
-Con base en los resultados obtenidos anteriormente, y ante la necesidad de implementar un sistema de control eficiente, se determinó en una primera instancia realizar diversas modificaciones en la planta física.
+Con base en los resultados obtenidos en el apartado 7.4, y ante la necesidad de implementar un sistema de control eficiente, se determinó en una primera instancia realizar diversas modificaciones en la planta física. Esto se debe a que el desempeño del sistema de control depende en gran medida de que la planta se encuentre en condiciones óptimas de operación. En consecuencia, a continuación, se describen las modificaciones necesarias implementadas, con el objetivo de garantizar un funcionamiento adecuado y estable del sistema.
 
 \subsection{Modificaciones estructurales}
 
-Se llevó a cabo un análisis estructural de carácter experimental y de observación, basado en la inspección visual del sistema durante su operación, así como en la evaluación del comportamiento dinámico de la planta ante diferentes condiciones de funcionamiento.
+Tal como se mencionó anteriormente en el apartado 7.3, se realizaron diversas modificaciones en el diseño mecánico de la planta. No obstante, durante la etapa de pruebas experimentales se identificó que, desde el punto de vista estructural, la planta presentaba una transmisión significativa de vibraciones mecánicas, las cuales afectaban directamente el desempeño del sistema de sensado y contribuían a un comportamiento inestable del sistema de control.
 
-A partir de la identificación de los puntos críticos, se procedió a realizar modificaciones en la estructura mecánica utilizando el software de diseño SolidWorks.
+Con el objetivo de abordar esta problemática, se llevó a cabo un análisis estructural de carácter experimental y de observación, basado en la inspección visual del sistema durante su operación, así como en la evaluación del comportamiento dinámico de la planta ante diferentes condiciones de funcionamiento. Este análisis permitió identificar los componentes mecánicos y los puntos críticos de la estructura que presentaban mayor susceptibilidad a vibraciones y deformaciones, afectando la estabilidad general del sistema.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{image28.png}
-\caption{Diseño en SolidWorks de la nueva estructura optimizada}
-\label{fig:solidworks_estructura}
-\end{figure}
+A partir del análisis se revelaron y se determinó que los principales puntos de inestabilidad se encontraban en las zonas de sujeción y los puntos de acople de la estructura de dirección y la estructura de motor - volante con el marco de la bicicleta. Como se hace mención en el apartado 7.3 dicho acople se realiza mediante un rodamiento tipo chumacera, en cuyo eje de rotación se fijaban tanto la estructura motor de dirección, como la estructura motor - volante. Sin embargo, se evidenció que estos componentes no contaban con una base de sujeción suficientemente robusta, lo que facilitaba la transmisión y amplificación de las vibraciones generadas durante el giro del volante.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{image29.png}
-\caption{Vista isométrica del nuevo diseño estructural}
-\label{fig:estructura_isometrica}
-\end{figure}
+Debido a esto, las vibraciones producidas por el movimiento del volante de inercia se propagaban fácilmente hacia el resto de la estructura, afectando tanto la estabilidad mecánica de la planta como la calidad de las mediciones obtenidas por el sistema de sensado.
 
-En la figura \ref{fig:estructura_mejorada} se presentan los resultados del nuevo diseño estructural, en el cual se observa que el soporte del conjunto motor–volante se vuelve más compacto y ligero. Este diseño incorpora tres soportes estructurales que se anclan entre sí mediante múltiples puntos de fijación, conformando una estructura más robusta y rígida.
+A partir de la identificación de estos puntos críticos, se procedió a realizar modificaciones en la estructura mecánica utilizando el software de diseño SolidWorks. En esta etapa se plantearon nuevos planos estructurales y se realizaron ajustes en el diseño del soporte del conjunto motor–volante, con el objetivo de mejorar la rigidez estructural y aumentar el número de puntos de sujeción.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{image30.jpeg}
-\caption{Estructura mejorada más compacta y robusta}
-\label{fig:estructura_mejorada}
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{image22.jpeg}
+\caption{Nuevo diseño estructural del soporte del conjunto motor-volante}
+\label{fig:mpu9250_1}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{image23.jpeg}
+\caption{Nuevo diseño estructural del soporte del conjunto motor-volante}
+\label{fig:mpu9250_montado_1}
+\end{minipage}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{image31.png}
-\caption{Detalle de los soportes estructurales y puntos de anclaje}
-\label{fig:soportes_detalle}
-\end{figure}
+En la figura anteriror se presentan los resultados del nuevo diseño estructural, en el cual se observa que el soporte del conjunto motor–volante se vuelve más compacto y ligero. Este diseño incorpora tres soportes estructurales que se anclan entre sí mediante múltiples puntos de fijación, conformando una estructura más robusta y rígida. Adicionalmente, se mejoró un eje solidario del volante de inercia, el cual se encuentra acoplado mediante un sistema de cuña con pinado y tornillo tipo prisionero, evitando el desplazamiento del eje con respecto al volante durante la operación.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{image32.jpeg}
-\caption{Eje solidario del volante con sistema de cuña}
-\label{fig:eje_solidario}
-\end{figure}
+
+
+Por otra parte, la nueva estructura fue diseñada considerando la facilidad de ensamble y desensamble, lo que permite un mantenimiento más eficiente tanto de los rodamientos del eje como del motor. En conjunto, estas modificaciones estructurales permiten reducir de manera significativa las vibraciones transmitidas a la planta, contribuyendo a un comportamiento más estable del sistema y a una mejora en la calidad de las señales adquiridas por los sensores.
 
 \subsection{Adquisición de datos y tratamiento de la señal}
 
-Dado que el MPU9250 transmite la información mediante el protocolo de comunicación I²C, fue necesario incorporar en la programación del microcontrolador el correspondiente bloque de comunicación I²C.
+Como se mencionó anteriormente, en una etapa inicial la adquisición de la señal de inclinación se realizaba mediante el sensor analógico MMA7361. Sin embargo, debido a limitaciones en la eficiencia y confiabilidad de la adquisición de la señal, se decidió migrar hacia el uso del sensor digital MPU9250. Este sensor proporciona la información en formato digital, lo que permitió mejorar la calidad de los datos adquiridos y facilitar su procesamiento por parte del microcontrolador PSoC 5 LP.
+
+Dado que el MPU9250 transmite la información mediante el protocolo de comunicación I²C, fue necesario incorporar en la programación del microcontrolador el correspondiente bloque de comunicación I²C (ver Figura \ref{fig:i2c_psoc}), el cual, en sincronía con el sensor, permitía la recepción de los datos asociados al ángulo de inclinación de la bicicleta. En esta etapa se garantizó una correcta adquisición e interpretación de la señal digital proveniente del sistema de sensado.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{image33.png}
+\includegraphics[width=0.8\textwidth]{image62.jpeg}
 \caption{Diagrama de bloques de comunicación I²C en PSoC}
 \label{fig:i2c_psoc}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{image34.png}
-\caption{Configuración del bloque I²C para el MPU9250}
-\label{fig:config_i2c}
-\end{figure}
 
-Adicionalmente, con el propósito de visualizar y analizar los datos adquiridos, se implementó un bloque de comunicación RS-232, mediante el cual se enviaban los valores de inclinación al computador.
+Adicionalmente, con el propósito de visualizar y analizar los datos adquiridos, se implementó un bloque de comunicación RS-232, mediante el cual se enviaban los valores de inclinación al computador. Esto permitió graficar y verificar el comportamiento de la señal del sensor, asegurando que los datos recibidos correspondieran adecuadamente a las variaciones reales de la inclinación de la bicicleta.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{image35.png}
+\includegraphics[width=0.8\textwidth]{image63.jpeg}
 \caption{Diagrama de bloques de comunicación RS-232}
 \label{fig:rs232}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{image36.png}
-\caption{Visualización de datos del sensor en el computador}
-\label{fig:visualizacion_datos}
-\end{figure}
 
-Una vez verificada la correcta adquisición e interpretación de la señal del sensor, los valores fueron utilizados para el cálculo de las señales de salida destinadas al actuador del sistema.
+Una vez verificada la correcta adquisición e interpretación de la señal del sensor, los valores fueron utilizados para el cálculo de las señales de salida destinadas al actuador del sistema, el cual corresponde al motor de dirección del conjunto volante–motor. Las señales de control generadas fueron entregadas a través de uno de los bloques de salida PWM del microcontrolador, lo que permitió regular de manera adecuada la señal de control y, en consecuencia, obtener un manejo más preciso de la corriente aplicada al actuador.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{image37.png}
-\caption{Bloque PWM de salida del microcontrolador}
-\label{fig:pwm_salida}
-\end{figure}
+
 
 \subsection{Sistema de dirección y actuador}
 
-En contraste a las limitaciones evidenciadas, se determinó la necesidad de reemplazar el motor reductor por un servomotor, el cual ofrecía una mejor respuesta dinámica, mayor precisión en el control de posición y una integración más adecuada con el sistema de control implementado.
-
-Para lograr implementar el servomotor, fue necesario diseñar un soporte para el servomotor, en forma de L con un ajuste de distancia con respecto al marco de la bicicleta.
+El primer actuador incorporado en la planta fue un motor reductor, el cual se acoplaba en su eje un piñón, que a su vez transmitía el movimiento por medio de una cadenilla hacia un segundo piñón acoplado a una estructura tipo chumacera. Esta estructura hacía parte del conjunto del sistema de dirección que soporta el mecanismo motor–volante (ver Figura \ref{fig:pinon_cadena}).
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{image38.png}
+\includegraphics[width=1\textwidth]{image64.jpeg}
 \caption{Diseño del soporte en L para el servomotor}
 \label{fig:soporte_servo1}
 \end{figure}
+A partir de la señal emitida por el microcontrolador, al accionar el motor reductor, se evidenció un comportamiento limitado y poco eficiente del sistema. En particular, el tiempo de respuesta ante la inversión del sentido de giro resultaba demasiado lento para los requerimientos del control, lo que afectaba negativamente la capacidad de estabilización de la planta. Durante esta etapa el sistema de transmisión mediante cadenilla fue reemplazado por un sistema de polea–correa, en un intento por mejorar el desempeño mecánico del actuador.
+
+Sin embargo, tanto el sistema de transmisión por cadenilla como el sistema de polea–correa presentaron dificultades similares, ya que en ambos casos se perdía la correcta sujeción entre la transmisión mecánica y el eje giratorio, lo que ocasionaba deslizamientos y reducía la precisión del control.
+
+En contraste a esta limitaciones evidenciadas, se determinó la necesidad de reemplazar el motor reductor por un servomotor, el cual ofrecía una mejor respuesta dinámica, mayor precisión en el control de posición y una integración más adecuada con el sistema de control implementado.
+
+Para lograr implementar el servomotor, fue necesario diseñar un soporte para el servomotor, en forma de L con un ajuste de distancia con respecto al marco de la bicicleta, a su vez el soporte se asegura a la base del marco de la bicicleta. Además estar acoplado a un soporte en el cual se asegura el eje del servomotor al mismo tiempo alinea el centro del eje de la chumacera y el servomotor. A continuación, en las figuras \ref{fig:soporte_servo1}, \ref{fig:acople_servo} y \ref{fig:sistema_direccion} se ilustra el diseño y cada uno de los componentes los cuales hacen parte del sistema de dirección y acople del servomotor.
+
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{image39.png}
+\includegraphics[width=0.8\textwidth]{image65.jpeg}
 \caption{Vista detallada del acople del servomotor al eje}
 \label{fig:acople_servo}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{image40.png}
-\caption{Sistema de dirección completo con servomotor instalado}
-\label{fig:sistema_direccion}
-\end{figure}
+
+
+Inicialmente se implementó un servomotor con un ángulo de giro de 270° y una capacidad de carga aproximada de 10 kg, lo cual representaba una ventaja significativa debido al amplio rango de movimiento disponible y a que el actuador contaba con la fuerza suficiente para accionar el sistema de dirección de la planta. Estas características permitieron realizar las primeras pruebas de control del conjunto motor–volante de manera satisfactoria.
+
+No obstante, durante las pruebas realizadas con la señal de salida generada por el microcontrolador, se evidenció un desgaste prematuro en el sistema interno de engranajes del servomotor. Este fenómeno se presentó debido a los cambios bruscos en el sentido de giro, los cuales generaban esfuerzos mecánicos superiores a la capacidad de diseño del servomotor, tal como se ilustra en las Figuras \ref{fig:desgaste_servo} y \ref{fig:comparacion_desgaste}.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth]{image41.png}
-\caption{Componentes del sistema de dirección}
-\label{fig:componentes_direccion}
-\end{figure}
-
-Inicialmente se implementó un servomotor con un ángulo de giro de 270° y una capacidad de carga aproximada de 10 kg.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.6\textwidth]{image42.png}
+\includegraphics[width=0.4\textwidth]{image66.jpeg}
 \caption{Servomotor de 10 kg instalado}
-\label{fig:servo_10kg}
-\end{figure}
-
-No obstante, durante las pruebas realizadas con la señal de salida generada por el microcontrolador, se evidenció un desgaste prematuro en el sistema interno de engranajes del servomotor.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{image43.png}
-\caption{Desgaste evidenciado en el servomotor}
 \label{fig:desgaste_servo}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.6\textwidth]{image44.png}
-\caption{Comparación del servomotor antes y después del desgaste}
-\label{fig:comparacion_desgaste}
-\end{figure}
 
-Como consecuencia, se decidió aumentar la capacidad de carga del actuador, reemplazando el servomotor inicial por un servomotor con una capacidad de carga de 20 kg (modelo DS5180).
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.6\textwidth]{image45.png}
-\caption{Servomotor DS5180 de 20 kg - engranajes metálicos}
-\label{fig:servo_20kg}
-\end{figure}
+Como consecuencia, se decidió aumentar la capacidad de carga del actuador, reemplazando el servomotor inicial por un servomotor con una capacidad de carga de 20 kg (modelo DS5180), el cual ofrecía una mayor resistencia mecánica y un mejor desempeño ante las exigencias del control.
+
+
+En comparación con el motor reductor utilizado en la etapa inicial del proyecto, el servomotor presentó ventajas significativas en términos de tiempo de respuesta, precisión en el control del ángulo y facilidad de integración con el sistema de control basado en señales PWM. Mientras que el motor reductor mostraba una respuesta lenta ante la inversión del sentido de giro y dificultades en la transmisión mecánica, el servomotor permitió un control más directo y preciso del sistema de dirección. Sin embargo, estas ventajas también implicaron mayores exigencias mecánicas sobre el actuador, lo que hizo necesario seleccionar un servomotor con mayor capacidad de carga y robustez estructural.
+
+Finalmente, el diseño de la estructura del sistema de dirección se ilustra en la figura \ref{fig:diseno_final_direccion}.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{image46.png}
+\includegraphics[width=0.8\textwidth]{image67.jpeg}
 \caption{Servomotor de 80 kg-cm instalado en la planta final}
-\label{fig:servo_80kg}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{image47.png}
-\caption{Diseño final del sistema de dirección}
 \label{fig:diseno_final_direccion}
 \end{figure}
 
+
+
+Este nuevo diseño del sistema de dirección fue acoplado directamente a la planta, de tal manera que su implementación no afectara de forma significativa el confort ni la maniobrabilidad de la bicicleta. Una vez finalizado el proceso de ensamblaje y adaptación de las nuevas modificaciones estructurales, se procedió a realizar las pruebas de funcionamiento de la planta junto con el sistema de control.
+
+Al iniciar las pruebas del sistema de control con las nuevas modificaciones implementadas en el actuador y en los soportes mecánicos, se evidenció una mejora significativa en la estabilidad de la planta, ya que su comportamiento fue más estable y permitió cumplir de manera adecuada con los objetivos de diseño establecidos para el sistema.
+
 \subsection{Integración de los componentes electrónicos en la planta}
 
-Una vez alcanzados los objetivos de diseño y confort de la planta, se procedió al montaje de todos los componentes electrónicos del sistema.
+Una vez alcanzados los objetivos de diseño y confort de la planta, se procedió al montaje de todos los componentes electrónicos del sistema. Entre estos se encuentra el sensor de ángulo de dirección, el cual fue ubicado en la parte trasera de la bicicleta, tomando como punto de referencia la posición de la silla del operador, con el fin de garantizar una medición adecuada de la inclinación y orientación del sistema.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{image48.png}
-\caption{Platina de soporte para componentes electrónicos}
-\label{fig:platina_electronica}
-\end{figure}
+Adicionalmente, se diseñó una platina de soporte destinada a alojar los principales componentes electrónicos de la planta, tales como el microcontrolador, los convertidores DC-DC y otros elementos de acondicionamiento de señal. En una etapa inicial, la planta fue probada utilizando una fuente de alimentación externa, la cual proporcionaba un voltaje de salida de 24 V, correspondiente al voltaje máximo de operación del motor del volante de inercia.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{image49.png}
-\caption{Microcontrolador ESP32 y componentes montados}
-\label{fig:esp32_montado}
-\end{figure}
+
+
+Una vez integrados todos los componentes electrónicos en la planta, se realizaron las adecuaciones necesarias para el diseño e implementación del controlador, considerando además la posibilidad de incorporar mejoras y ampliaciones en una segunda etapa del proyecto.
 
 \subsection{Diseño del sistema de baterías de alimentación}
 
-El  sistema de baterías fue diseñado utilizando celdas de fosfato de hierro-litio (LiFePO₄), cada una con un voltaje nominal aproximado de 3,2 V. Para este diseño, se conectaron seis celdas en serie, obteniendo un voltaje total cercano a 20 V.
+Como se mencionó anteriormente, durante las primeras pruebas todos los circuitos electrónicos eran alimentados mediante una fuente externa, lo cual generaba la presencia de ruido eléctrico y requería que el sistema permaneciera conectado de manera permanente a la red eléctrica. Debido a estas limitaciones, se procedió al diseño e implementación de un sistema de alimentación basado en baterías.
+
+El sistema de baterías fue diseñado utilizando celdas de fosfato de hierro-litio (LiFePO4), cada una con un voltaje nominal aproximado de 3,2 V. Para este diseño, se conectaron seis celdas en serie, obteniendo un voltaje total cercano a 20 V, valor suficiente para alimentar el sistema electrónico y proporcionar la energía necesaria al controlador para mantener la estabilidad de la planta.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth]{image50.png}
-\caption{Pack de baterías LiFePO₄ de 6 celdas en serie}
+\includegraphics[width=0.7\textwidth]{image69.jpeg}
+\caption{Pack de baterías LiFePO$_4$ de 6 celdas en serie}
 \label{fig:pack_baterias}
 \end{figure}
 
+
+
+Además, el conjunto de baterías incorpora un sistema de gestión de baterías (BMS), el cual permite supervisar y proteger cada celda de manera individual, garantizando un proceso de carga balanceada y segura, y prolongando la vida útil de las baterías sin comprometer su desempeño.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{image51.png}
-\caption{Celdas LiFePO₄ individuales de 3.2V}
+\includegraphics[width=0.5\textwidth]{image68.jpeg}
+\caption{Celdas LiFePO$_4$ individuales de 3.2V}
 \label{fig:celdas_lifepo4}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{image52.png}
-\caption{Configuración del pack de baterías}
-\label{fig:config_baterias}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.6\textwidth]{image53.png}
-\caption{Sistema BMS (Battery Management System)}
-\label{fig:bms}
-\end{figure}
-
-Además, el conjunto de baterías incorpora un sistema de gestión de baterías (BMS), el cual permite supervisar y proteger cada celda de manera individual, garantizando un proceso de carga balanceada y segura.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{image54.png}
-\caption{Convertidores DC-DC para regulación de voltaje}
-\label{fig:dcdc_convertidores}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{image55.png}
-\caption{Sistema de alimentación completo instalado en la bicicleta}
-\label{fig:sistema_alimentacion}
-\end{figure}
 
 \subsection{Implementación del control PID y verificación de la señal}
 
+La incorporación del sistema de baterías proporcionó un mejor desempeño general de la planta, ya que permitió eliminar el exceso de cableado y hacer el sistema más compacto y portátil. A pesar de que la planta cumplía con el objetivo de diseño, aún carecía de un control óptimo y robusto, lo que motivó la implementación de un sistema de control adicional a los objetivos inicialmente propuestos, esto como para dar un valor agregado al proyecto.
+
 En consecuencia, se iniciaron diferentes pruebas en el circuito de control, lo que condujo a la implementación de un controlador (PID), cuyo objetivo principal fue mejorar la estabilidad del sistema y ampliar el alcance funcional del proyecto.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{image56.png}
-\caption{Diagrama del sistema de control PID implementado}
-\label{fig:diagrama_pid}
-\end{figure}
 
-La salida del controlador, generada en forma de una señal PWM, fue inyectada directamente a la entrada de control del servomotor. Dentro del control se tomó como referencia una posición de 140° del motor, definida como el punto medio del rango de operación del sistema de dirección.
+A continuación, se describe el procedimiento utilizado para la sintonización de los parámetros P I D del controlador.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{image57.png}
-\caption{Respuesta del sistema con control PID - gráfica de estabilización}
-\label{fig:respuesta_pid}
-\end{figure}
+\subsubsection{Verificación de la señal y control de corriente en la salida de control}
 
-Al obtener los primeros resultados con el controlador PID, se logró una mejora significativa en la estabilidad de la planta, permitiendo mantener el ángulo de inclinación cercano a 0° durante periodos prolongados. El sistema de control demostró capacidad para rechazar perturbaciones externas y mantener el equilibrio dinámico de la bicicleta.
+Una vez obtenidos los valores de la señal del sensor de ángulo dentro del microcontrolador, se procedió a implementar el control PID, con el cual se buscaba regular tanto la corriente aplicada al motor del sistema de dirección como la posición del motor del sistema de dirección.
+
+La salida del controlador, generada en forma de una señal PWM, fue inyectada directamente a la entrada de control del servomotor. Por la parte para la alimentación, se implementó un convertidor DC-DC de 5 A, el cual, en principio, resultaba adecuado para suministrar la corriente de trabajo requerida por el servomotor.
+
+Dentro del control se tomó como referencia una posición de 140° del motor, definida como el punto medio del rango de operación del sistema de dirección. Este punto de referencia se estableció interpretando los valores de la salida de control en porcentajes de grados de giro del motor. Por ejemplo, cuando la salida del controlador era positiva, los grados de giro se incrementaban a partir de los 140°, y cuando la salida era negativa, los grados disminuían desde los 140° hacia atrás, manteniendo así los 140° como posición central del servomotor.
+
+Con el control de posicionamiento del servo motor, básicamente, se buscaba que el controlador mantuviera la planta con un ángulo de inclinación cercano a 0°, el cual fue definido como el set point del sistema.
 
 % ============================================
 % CAPÍTULO 8: RESULTADOS
 % ============================================
 \chapter{Resultados}
 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{image71.png}
+    \caption{Diagrama de bloques del sistema}
+    \label{fig:diagrama_bloques_img}
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{image72.png}
+    \caption{Diagrama de bloques }
+    \label{fig:diagrama_bloques_img}
+\end{figure}
+
+
+
 El desarrollo del proyecto se ejecutó de manera secuencial mediante cuatro fases fundamentales, integrando la ingeniería mecánica con la electrónica de potencia y control.
 
 \section{Fase 1: Diseño y Construcción Mecánica de la Planta}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{image55.png}
+\caption{Marco de la bicicleta}
+\label{fig:marco_bicicleta}
+\end{figure}
 
 Como resultado de la primera fase, se logró una planta mecánica eficiente mediante las siguientes intervenciones:
 
@@ -1058,13 +1105,78 @@ Como resultado de la primera fase, se logró una planta mecánica eficiente medi
 \subsection{Diseño del volante de inercia}
 
 El diseño del volante de inercia se centró en optimizar la distribución de masa para maximizar el efecto giroscópico:
-
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{image56.png}
+\caption{Diseño del volante de inercia}
+\label{fig:diseno_volante_inercia}
+\end{figure}
 \begin{itemize}
     \setlength\itemsep{6pt}
     \item \textbf{Optimización de la Distribución de Masa:} Se diseñó un volante con geometría tipo anillo.
     \item \textbf{Proceso de Fabricación y Ajuste Mecánico:} Partiendo de un bloque sólido de acero, se utilizó un proceso de torneado de precisión.
-    \item \textbf{Soporte y Alineación Estructural:} El eje del volante está soportado por dos piezas de acero mecanizadas a medida.
 \end{itemize}
+
+\subsection{Cálculo de la masa del volante de inercia}
+
+Para el dimensionamiento y construcción del volante de inercia, se realizaron los cálculos de masa basados en su geometría volumétrica y la densidad del material empleado (acero).
+
+\subsubsection{Datos geométricos del volante}
+
+\begin{itemize}
+    \item \textbf{Diámetro exterior ($D_e$):} $160 \, mm = 0.16 \, m$
+    \item \textbf{Radio exterior ($R_e$):} $R_e = \frac{D_e}{2} = 0.08 \, m$
+    \item \textbf{Diámetro del rebaje interior ($D_i$):} $120 \, mm = 0.12 \, m$
+    \item \textbf{Radio del rebaje interior ($R_i$):} $R_i = \frac{D_i}{2} = 0.06 \, m$
+    \item \textbf{Espesor total del volante ($h$):} $36 \, mm = 0.036 \, m$
+    \item \textbf{Profundidad del rebaje ($h_r$):} $20 \, mm = 0.02 \, m$
+    \item \textbf{Diámetro del agujero central ($D_a$):} $20 \, mm = 0.02 \, m$
+    \item \textbf{Radio del agujero ($R_a$):} $0.01 \, m$
+    \item \textbf{Densidad del acero ($\rho$):} $7850 \, kg/m^3$
+\end{itemize}
+
+\subsubsection{Cálculo del volumen}
+
+El volumen de un cilindro se define como:
+\begin{equation}
+    V = \pi r^2 h
+\end{equation}
+
+\textbf{Volumen del disco exterior ($V_1$):}
+\begin{equation}
+    V_1 = \pi R_e^2 h = \pi (0.08)^2 (0.036) \approx 7.24 \times 10^{-4} \, m^3
+\end{equation}
+
+\textbf{Volumen del rebaje interior ($V_2$):}
+El rebaje corresponde a un cilindro que se resta del volumen total.
+\begin{equation}
+    V_2 = \pi R_i^2 h_r = \pi (0.06)^2 (0.02) \approx 2.26 \times 10^{-4} \, m^3
+\end{equation}
+
+\textbf{Volumen del agujero central ($V_3$):}
+\begin{equation}
+    V_3 = \pi R_a^2 h = \pi (0.01)^2 (0.036) \approx 1.13 \times 10^{-5} \, m^3
+\end{equation}
+
+\subsubsection{Volumen total y masa del volante}
+
+El volumen total se obtiene restando los vaciados del volumen total del disco:
+\begin{equation}
+    V_t = V_1 - V_2 - V_3
+\end{equation}
+\begin{equation}
+    V_t = 7.24\times10^{-4} - 2.26\times10^{-4} - 1.13\times10^{-5} = 4.87 \times 10^{-4} \, m^3
+\end{equation}
+
+La masa se calcula mediante la densidad:
+\begin{equation}
+    m = \rho V_t
+\end{equation}
+\begin{equation}
+    m = 7850 \times 4.87\times10^{-4} \approx 3.8 \, kg
+\end{equation}
+
+\textbf{Resultado final:} La masa aproximada del volante de inercia fabricado en acero es de $3.8 \, kg$.
 
 \subsection{Sistema de dirección vertical}
 
@@ -1117,12 +1229,71 @@ Para garantizar la portabilidad (operación unplugged), se desarrolló un sistem
 % ============================================
 \chapter{Conclusiones y Recomendaciones}
 
-Esta sección se nutre de las implicaciones de la pasantía en la práctica, de las lecciones metodológicas aprendidas, de las limitaciones de la pasantía, de los aspectos no resueltos y nuevas preguntas o necesidades creadas a partir del mismo, propuestas de nuevos proyectos a partir de los resultados actuales.
+\section{Conclusiones}
+
+\begin{enumerate}
+    \item \textbf{Optimización del Centro de Masa ($CoM$):} La estabilidad pasiva del sistema depende directamente de la ubicación del centro de masa total ($CoM$). Se determinó que para minimizar el torque de volcado provocado por la gravedad ($\tau_g$), es imperativo que el centro de masa se mantenga lo más bajo posible y alineado con el eje vertical de la bicicleta. Un bajo $CoM$ reduce la magnitud de la inestabilidad natural (el autovalor positivo en el plano $s$), permitiendo que el sistema de control actúe con menor esfuerzo de torque.
+
+    \item \textbf{Integridad Mecánica y Balanceo Dinámico:} En sistemas de alta velocidad angular ($\omega$), cualquier asimetría se traduce en fuerzas centrífugas destructivas. El diseño y fabricación de las piezas, especialmente el Flywheel, deben garantizar un balanceo dinámico preciso. La presencia de "juegos" mecánicos o vibraciones parásitas introduce ruido de alta frecuencia en los sensores (IMU), lo que degradada la señal de retroalimentación y puede llevar al sistema a la resonancia o al fallo estructural.
+
+    \item \textbf{Influencia del Momento Angular ($L$):} La eficacia del par giroscópico de restauración está ligada a la velocidad de rotación del disco. Se confirmó mediante el modelo matemático que el momento angular ($L = I\omega$) es el parámetro crítico de ganancia física. A mayor velocidad angular del volante, mayor es la magnitud del torque de reacción generado ante un cambio en el ángulo de precesión ($\alpha$), lo que incrementa la autoridad de control sobre la inclinación de la bicicleta.
+
+    \item \textbf{Estrategia de Control Robusto (Cascada):} Un solo lazo de control no es suficiente para la operación continua debido a la deriva del giróscopo. Para lograr un control robusto, es necesaria la implementación de una arquitectura en cascada. Mientras que el lazo principal estabiliza el ángulo $\theta$, un lazo secundario (tipo PI) debe gestionar la posición del giróscopo ($\alpha$). Esto asegura que el soporte del giróscopo siempre regrese a su punto neutro, evitando la saturación mecánica y garantizando que el sistema siempre tenga margen de maniobra para corregir perturbaciones.
+
+    \item \textbf{Fusión de Sensores mediante Filtro Complementario:} La implementación del Filtro Complementario resultó ser la estrategia óptima para la estimación de la inclinación en tiempo real. Esta técnica permite mitigar las deficiencias individuales del acelerómetro y el giroscopio presentes en la IMU (como el MPU6050 o MPU9250). Se determinó que un factor de peso de $W=0.99$ es el punto crítico para maximizar el rendimiento:
+    \begin{itemize}
+        \item \textbf{Dominio del Giroscopio (99\%):} El sistema adquiere una respuesta inmediata ante cambios rápidos, fundamental para reaccionar a perturbaciones de alta frecuencia.
+        \item \textbf{Corrección de Deriva (1\%):} Vital para eliminar el drift intrínseco del giroscopio a largo plazo mediante la referencia gravitacional del acelerómetro.
+        \item \textbf{Inmunidad al Ruido Mecánico:} Actúa como un filtro pasa-bajas efectivo contra el "jitter" generado por las vibraciones del flywheel.
+    \end{itemize}
+\end{enumerate}
+
+\section{Recomendaciones}
+
+
 
 % ============================================
 % CAPÍTULO 10: REFERENCIAS
 % ============================================
 \chapter{Referencias}
+
+\section*{Referencias de artículos y proyectos}
+
+Baquero-Su, M., Cort, J., Arcos-Legarda, J., Coral-Enríquez, H., \& Buenaventura, S. (2014). Estabilización de una Bicicleta sin Conductor mediante el Enfoque de Control por Rechazo Activo de Perturbaciones. \textit{Revista Iberoamericana de Automática e Informática Industrial RIAI}, 15, 86–100.
+
+Getz, N. H. (1995). Control of balance for a nonlinear nonholonomic nonminimum phase model of a bicycle. \textit{IEEE Transactions on Automatic Control}, 40(3), 553–557. https://doi.org/10.1109/9.376053
+
+Schwab, A. L., Meijaard, J. P., \& Papadopoulos, J. M. (2007). A benchmark on bicycle dynamics. \textit{Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences}, 463(2084), 1955–1982. https://doi.org/10.1098/rspa.2007.1857
+
+Yavin, Y. (2010). Stabilization and control of the motion of a bicycle. \textit{Applied Mathematical Modelling}, 34(10), 3081–3092. https://doi.org/10.1016/j.apm.2010.01.006
+
+Tamayo, S. A., \& Programa, L. (2018). \textit{Control por rechazo activo de perturbaciones para estabilizar una bicicleta empleando un giroscopio de control de momento de un eje}. Universidad de San Buenaventura. http://biblioteca.usbbog.edu.co:8080/Biblioteca/BDigital/166912.pdf
+
+Palma, S. C. (s.f.). \textit{Diseño de una plataforma didáctica para el estudio del equilibrio de una bicicleta a través de técnicas de control}. Universidad del Valle de Guatemala.
+
+Kalouche, S. R. (2014). \textit{Control Moment Gyroscope Stabilization and Maneuverability of Inherently Unstable Vehicles and Mobile Robots}. The Ohio State University.
+
+Tamayo-Leon, S., Pulido-Guerrero, S., \& Coral-Enriquez, H. (2018). Self-Stabilization of a riderless bicycle with a control moment gyroscope via model-based active disturbance rejection control. \textit{2017 IEEE 3rd Colombian Conference on Automatic Control (CCAC)}. doi: 10.1109/CCAC.2017.8276434
+
+Yetkin, H., Kalouche, S., Vernier, M., Colvin, G., Redmill, K., \& Ozguner, U. (2014). Gyroscopic stabilization of an unmanned bicycle. \textit{Proceedings of the American Control Conference}, 4549–4554. doi: 10.1109/ACC.2014.6859392
+
+Lam, P. Y., \& Sin, T. K. (2011). Gyroscopic stabilization of a self-balancing robot bicycle. \textit{International Journal of Automation Technology}, 5(6), 916–923. doi: 10.20965/ijat.2011.p0916
+
+Jin, H., Yang, D., Liu, Z., Xang, X., Li, G., \& Zhu, Y. (2015). A gyroscope-based inverted pendulum with application to posture stabilization of bicycle vehicle. \textit{2015 IEEE International Conference on Robotics and Biomimetics (ROBIO)}, 2103–2108. doi: 10.1109/ROBIO.2015.7419084
+
+\section*{Referencias institucionales y gubernamentales}
+
+Ministerio de Ambiente y Desarrollo Sostenible. (2022). \textit{Informe de calidad del aire en Colombia}. Gobierno de Colombia.
+
+Observatorio de Movilidad de Bogotá. (2022). \textit{Reporte anual de movilidad 2022}. Alcaldía Mayor de Bogotá.
+
+Organización Mundial de la Salud. (2021). \textit{Global air quality guidelines}. World Health Organization.
+
+Secretaría Distrital de Movilidad. (2023). \textit{Informe de siniestralidad vial en Bogotá}. Alcaldía Mayor de Bogotá.
+
+Universidad de los Andes. (2021). \textit{Estudios sobre transporte urbano y movilidad sostenible}. Universidad de los Andes.
+
+Universidad Nacional de Colombia. (2020). \textit{Investigaciones en movilidad sostenible en Colombia}. Universidad Nacional de Colombia.
 
 \section*{Referencias de libros}
 
@@ -1135,6 +1306,14 @@ Serway, R. A., \& Jewett, J. W. (2015). \textit{Física para ciencias e ingenier
 Cain, S. (2016). The mysterious biomechanics of riding – and balancing – a bicycle. University of Michigan Mechanical Engineering. Recuperado de https://me.engin.umich.edu/news-events/news/mysterious-biomechanics-riding-and-balancing-bicycle/
 
 Adams, V. H. (s.f.). Complementary filters. Van Hunter Adams - Cornell University. Recuperado de https://vanhunteradams.com/Pico/ReactionWheel/Complementary\_Filters.html
+
+Sáenz-García, R. M. (2013). La Bicicleta Y Sus Orígenes En Europa. \textit{The Sketch}, 85. Recuperado de http://bibliotecavirtualsenior.es/wp-content/uploads/2016/06/La-Bicicleta-y-sus-Ori--genes-en-Europa.pdf
+
+Meollo. (s.f.). \textit{Historia de la bicicleta}. Recuperado de https://www.meollo.net/es/historia-de-la-bicicleta/
+
+Aballay, E., \& Avilés, E. (2002). \textit{Estudio del movimiento giroscópico}.
+
+Rita, M., Chini, L., \& Guillermo, E. (2007). \textit{El Efecto Giroscópico}. Recuperado de http://www2.ib.edu.ar/becaib/cd-ib/trabajos/Chini.pdf
 
 National Instruments. (2025). Explicación sobre el controlador PID y la teoría. Recuperado de https://www.ni.com/es/shop/labview/pid-theory-explained.html
 
