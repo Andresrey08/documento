@@ -570,24 +570,50 @@ El desarrollo del presente proyecto de investigación se encuentra enmarcado baj
 
 \section{Investigación de sistemas similares para la obtención de criterios de diseño}
 
-A partir del estudio de los diferentes proyectos implementados, los cuales se mencionan en el presente documento en el Capítulo 6 (Marco de Referencia), se optó por tomar como base dos modelos de diseño mecánico diferentes. En esta sección se describe el procedimiento y el paso a paso seguido para la implementación de cada uno de estos diseños. La selección del diseño más adecuado se definió de manera progresiva, con base en las pruebas realizadas a lo largo del desarrollo del proyecto, permitiendo identificar aquel que ofrecía mejores condiciones de eficiencia y un comportamiento más estable del sistema.
+Como parte fundamental del proceso de diseño, se realizó un análisis exhaustivo de los proyectos y desarrollos previos en el área de estabilización de bicicletas mediante sistemas giroscópicos, los cuales fueron presentados en el Capítulo 6 (Marco de Referencia). Este análisis permitió identificar las principales estrategias de control, configuraciones mecánicas y actuadores empleados en la literatura especializada, con el fin de establecer los criterios de diseño más adecuados para el presente proyecto.
 
-\subsection{Diseño Del Volante}
+\subsection{Análisis de Proyectos Nacionales}
 
-Para este diseño en primera instancia se decidió usar una bicicleta tipo carreras la cual tiene como dimensiones las mencionadas en la figura \ref{fig:proceso_diseno}, tomando en cuenta estas dimensiones, se realiza un análisis y se determina que como primera muestra de datos bajo el comportamiento de la planta se podría adecuar, un soporte vertical en el cual se podría adecuar un motor que en primera instancia se encargó de mover un volante de inercia con un peso aproximado de 2 kilogramos.
+En el contexto colombiano, destacan dos desarrollos fundamentales que sirvieron como referencia para este proyecto:
 
-\begin{figure}[H]
-\centering
-\begin{tabular}{ccccccc}
-\includegraphics[width=0.2\textwidth]{image6.jpeg} & $\rightarrow$ & \includegraphics[width=0.2\textwidth]{image7.png} & $\rightarrow$ & \includegraphics[width=0.2\textwidth]{image8.png} & $\rightarrow$ & \includegraphics[width=0.2\textwidth]{image5.jpeg}
-\end{tabular}
-\caption{Secuencia del proceso de diseño del volante de inercia (Diseño 3D e implementación)}
-\label{fig:proceso_diseno}
-\end{figure}
+\textbf{Universidad Nacional de Colombia (Baquero-Su et al., 2014):} Este trabajo propone una técnica avanzada de control basada en el Control por Rechazo Activo de Perturbaciones (ADRC) para estabilizar la inclinación de una bicicleta que se desplaza a velocidad constante. La estrategia de control actúa sobre el manubrio (dirección) para contrarrestar la inclinación, de forma similar a un péndulo invertido con desplazamiento.
 
-Para este modelo inicial se lograron identificar varias falencias con el modelo, el cual por el peso del volante y las dimensiones de la bicicleta, no contaba con el torque necesario, para realizar el control o la estabilidad deseada en la bicicleta.
+\textit{Ventajas:} Control robusto ante perturbaciones, desempeño superior a controladores PID convencionales, y validación experimental exitosa.
 
-Esta primera prueba de la planta fue indispensable ya que se lograron identificar grandes falencias en el modelo, una de las grandes falencias que se identificó que al ubicar el volante de inercia en esta posición, no ayudaba mucho a la estabilidad de la bicicleta ya que su centro de gravedad se veía afectado e interfería con la estabilidad, además que por su diseño el controlador debería ser más robusto y capaz de controlar movimientos bruscos solo con el cambio de sentido de giro del motor.
+\textit{Desventajas:} Requiere que la bicicleta esté en movimiento (velocidad mínima), no funciona en reposo, y la complejidad del control ADRC dificulta su implementación práctica.
+
+\textbf{Universidad de San Buenaventura Bogotá (Tamayo \& Programa, 2018):} Propone la estabilización de una bicicleta en reposo mediante un Giroscopio de Control de Momento (CMG) como actuador, utilizando un sistema de control ADR con observadores de estados extendidos (ESO) y sintonización LQR. Los resultados en simulación ADAMS mostraron capacidad para auto-estabilizar la bicicleta.
+
+\textit{Ventajas:} Estabilización a velocidad cero, uso de actuador CMG que genera torques de corrección sin necesidad de movimiento, y filosofía ADR que dota al sistema de robustez ante incertidumbres.
+
+\textit{Desventajas:} Desarrollo limitado al entorno de simulación, sin validación experimental física, y alta complejidad en la implementación del hardware.
+
+\subsection{Análisis de Proyectos Internacionales}
+
+\textbf{Ohio State University (Kalouche, 2014):} Esta tesis desarrolla una plataforma experimental de estabilización giroscópica mediante CMG de un solo eje. El trabajo demuestra la viabilidad de la tecnología CMG para equilibrar de forma autónoma una bicicleta estática no tripulada, e incluso logra inducir un movimiento de tipo ``caballito''.
+
+\textit{Ventajas:} Validación experimental completa, diseño mecánico robusto, y metodología clara para el dimensionamiento del hardware.
+
+\textit{Desventajas:} Sistema de gran tamaño y peso, limitado a aplicaciones de investigación.
+
+\textbf{American Control Conference (Yetkin et al., 2014):} Propone un controlador de modo deslizante (SMC) para controlar el CMG y estabilizar una bicicleta a velocidad de avance cero. El estudio compara el método SMC con un controlador PID, validando las ventajas del SMC en reducción de sobrepaso y tiempos de asentamiento.
+
+\textit{Ventajas:} Control no lineal robusto, respuesta rápida ante perturbaciones externas.
+
+\textit{Desventajas:} Fenómeno de chattering (oscilaciones de alta frecuencia) que puede afectar los actuadores.
+
+\subsection{Decisión de Diseño}
+
+Con base en el análisis de los proyectos revisados, se decidió tomar como punto de partida la configuración de CMG (Giroscopio de Control de Momento) por las siguientes razones:
+
+\begin{enumerate}
+    \item \textbf{Operación a velocidad cero:} A diferencia de los sistemas que controlan el manubrio, el CMG permite la estabilización en reposo, cumpliendo con el objetivo del proyecto.
+    \item \textbf{Validación experimental documentada:} Proyectos como el de Kalouche (2014) y Tamayo (2018) han demostrado la viabilidad técnica de esta configuración.
+    \item \textbf{Simplicidad conceptual:} El efecto giroscópico es predecible y permite un modelado matemático claro, facilitando el diseño del controlador.
+    \item \textbf{Control mediante PID:} Se optó por un controlador PID en lugar de técnicas avanzadas (ADRC, SMC) debido a su facilidad de sintonización, menor costo computacional, y suficiente efectividad para el objetivo de corto periodo de estabilización planteado.
+\end{enumerate}
+
+Esta decisión condujo al desarrollo de dos prototipos mecánicos iterativos, cuyo diseño y construcción se detallan en las secciones subsiguientes.
 
 \section{Análisis del modelo matemático del sistema y Diseño tridimensional (3D)}
 
@@ -693,50 +719,90 @@ Al aplicar la Transformada de Laplace y resolver para $\frac{\Theta(s)}{T_\alpha
     G(s) = \frac{-Hs}{J_{eq}I_\alpha s^4 + (H^2 - M_{eq}L_{eq}g I_\alpha)s^2 - M_{eq}L_{eq}g I_\alpha}
 \end{equation}
 
-A partir de los resultados obtenidos en la primera planta, se optó por construir un segundo modelo el cual su diseño se caracterizó ubicar el volante en la parte superior de la bicicleta, este diseño a diferencia del anterior acoplaba el movimiento de giro del volante a través de un motor DC, el cual solo giraba en un solo sentido.
+\section{Diseño y construcción del volante de inercia}
 
-Como se observa en la figura \ref{fig:proceso_diseno}, el motor DC está acoplado directamente al volante de inercia, este a través de su eje. La intención en esta segunda etapa fue verificar el cambio del comportamiento de la estabilidad de la bicicleta, ya que el volante fue remplazado con otro de mayor peso este cuenta con un peso estimado de 10 kilogramos, a diferencia del volante anterior este cuenta con un diseño totalmente diferente y su material es de hierro.
+\subsection{Prototipo Inicial - Volante de 2 kg}
 
-Este nuevo diseño está pensado en que el sistema pueda aprovechar al máximo el momento de inercia, cuyo diseño se compone de un volante tipo anillo, el cual cuenta con un anillo exterior mayor al resto del volante que en su parte interior tiene un anillo de menor grosor en comparación al exterior.
+Para el primer prototipo se decidió usar una bicicleta tipo carreras, tomando en cuenta sus dimensiones originales. Se realizó un análisis preliminar y se determinó que como primera aproximación al comportamiento de la planta se podría adecuar un soporte vertical en el cual se montaría un motor encargado de mover un volante de inercia con un peso aproximado de 2 kilogramos.
+
+\begin{figure}[H]
+\centering
+\begin{tabular}{ccccccc}
+\includegraphics[width=0.2\textwidth]{image6.jpeg} & $\rightarrow$ & \includegraphics[width=0.2\textwidth]{image7.png} & $\rightarrow$ & \includegraphics[width=0.2\textwidth]{image8.png} & $\rightarrow$ & \includegraphics[width=0.2\textwidth]{image5.jpeg}
+\end{tabular}
+\caption{Secuencia del proceso de diseño del primer prototipo de volante de inercia (Diseño 3D e implementación)}
+\label{fig:proceso_diseno}
+\end{figure}
+
+Para este modelo inicial se lograron identificar varias falencias significativas:
+
+\begin{itemize}
+    \item \textbf{Torque insuficiente:} El peso del volante (2 kg) y las dimensiones de la bicicleta no generaban el torque giroscópico necesario para lograr el control o la estabilidad deseada.
+    \item \textbf{Centro de gravedad inadecuado:} Al ubicar el volante de inercia en posición vertical lateral, el centro de gravedad del sistema se veía afectado negativamente, interfiriendo con la estabilidad natural de la bicicleta.
+    \item \textbf{Control complejo:} El diseño requería un controlador muy robusto capaz de gestionar movimientos bruscos únicamente mediante el cambio de sentido de giro del motor, lo cual resultaba poco práctico.
+\end{itemize}
+
+Esta primera prueba fue indispensable para identificar los parámetros críticos del diseño y condujo a una reconfiguración completa del sistema.
+
+\subsection{Prototipo Mejorado - Volante tipo Anillo de 10 kg}
+
+A partir de los resultados obtenidos en la primera planta, se optó por construir un segundo modelo cuyo diseño se caracterizó por ubicar el volante en la parte superior de la bicicleta. Este diseño, a diferencia del anterior, acoplaba el movimiento de giro del volante a través de un motor DC que giraba en un solo sentido a velocidad constante.
+
+Como se observa en la figura \ref{fig:proceso_diseno}, el motor DC está acoplado directamente al volante de inercia a través de su eje. La intención en esta segunda etapa fue verificar el cambio del comportamiento de la estabilidad de la bicicleta al emplear un volante de mayor peso. El nuevo volante cuenta con un peso estimado de 10 kilogramos y, a diferencia del anterior, su diseño y material (hierro) están optimizados para maximizar el momento de inercia.
+
+\subsubsection{Diseño Optimizado del Volante}
+
+Este nuevo diseño está pensado para que el sistema pueda aprovechar al máximo el momento de inercia generado. Su configuración se compone de un volante tipo anillo con las siguientes características:
+
+\begin{itemize}
+    \item \textbf{Anillo exterior de mayor masa:} Concentra la mayor parte del peso en el perímetro exterior, maximizando el momento de inercia según la relación $I = mr^2$.
+    \item \textbf{Anillo interior de menor grosor:} Reduce el peso innecesario cerca del eje de rotación, donde su contribución al momento de inercia es mínima.
+    \item \textbf{Material de hierro:} Proporciona la densidad necesaria para lograr una alta masa en un volumen compacto.
+\end{itemize}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.45\textwidth]{image9.png}
-\caption{Cálculo del momento de inercia del volante - Parte 1}
-\label{fig:calculo_inercia1}
+\caption{Diseño CAD del volante tipo anillo - Vista isométrica}
+\label{fig:diseno_volante_cad1}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.45\textwidth]{image10.png}
-\caption{Cálculo del momento de inercia del volante - Parte 2}
-\label{fig:calculo_inercia2}
+\caption{Diseño CAD del volante tipo anillo - Corte transversal}
+\label{fig:diseno_volante_cad2}
 \end{figure}
 
+\subsubsection{Ventajas del Diseño tipo Anillo}
+
 Este diseño permite:
+
 \begin{itemize}
-\item \textbf{Mayor Momento Angular:} El momento angular es la cantidad de rotación almacenada y el factor fundamental para la estabilidad, proporcionando mayor resistencia del volante a ser inclinado o perturbado.
+\item \textbf{Mayor Momento Angular ($L = I\omega$):} El momento angular es la cantidad de rotación almacenada y el factor fundamental para la estabilidad, proporcionando mayor resistencia del volante a ser inclinado o perturbado.
 \item \textbf{Mayor Torque Giroscópico de Estabilización:} Esto significa que puede contrarrestar fuerzas externas (como un viento lateral o una inclinación rápida) con mayor eficacia, logrando una estabilización más robusta.
 \item \textbf{Mayor Almacenamiento de Energía Cinética:} Esto le da al sistema una mayor reserva de energía para mantener la velocidad durante los picos de demanda de torque de corrección.
 \end{itemize}
 
-Con este nuevo diseño del volante de inercia es indispensable disponer y calcular el momento de inercia generado por este mismo.
+\subsubsection{Cálculo del Momento de Inercia}
+
+Con este nuevo diseño del volante de inercia es indispensable calcular con precisión el momento de inercia generado. Para ello, se realizó un análisis geométrico considerando el volante como un sistema de anillos concéntricos.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.45\textwidth]{image58.png}
-\caption{Cálculo del momento de inercia del volante - Parte 1}
-\label{fig:calculo_inercia1}
+\caption{Cálculo del momento de inercia del volante - Dimensiones y parámetros}
+\label{fig:calculo_inercia_dim}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.45\textwidth]{image59.png}
-\caption{Cálculo del momento de inercia del volante - Parte 2}
-\label{fig:calculo_inercia2}
+\caption{Cálculo del momento de inercia del volante - Resultado numérico}
+\label{fig:calculo_inercia_resultado}
 \end{figure}
 
-Al realizar los cálculos corroboramos que el nuevo volante de inercia al tener un giro aproximado de 3000 RPM podría suministrar un momento de inercia de 25.36 kgm²/s, este parámetro es super indispensable, ya se depende de él, directamente para aplicar el giro de la estructura de donde está aplicado para aplicar la precesión giroscópica y realizar el control de esta directamente.
+Al realizar los cálculos se corroboró que el nuevo volante de inercia, al tener un giro aproximado de 3000 RPM, puede suministrar un momento angular de 25.36 kg·m²/s. Este parámetro es fundamental ya que de él depende directamente la magnitud del torque giroscópico generado al aplicar la precesión (inclinación del eje de giro), lo cual constituye el principio de funcionamiento del sistema de control de estabilidad.
 
 \section{Mecanizado y ensamble de la planta física}
 
