@@ -79,7 +79,7 @@
 \centering
 
 {\fontsize{14}{16}\selectfont\bfseries DISEÑO E IMPLEMENTACIÓN DE UNA PLATAFORMA DE ESTABILIZACIÓN PARA UNA BICICLETA UTILIZANDO UN VOLANTE DE INERCIA\par}
-{\fontsize{12}{14}\selectfont Nombre\_Empresa\par}
+%{\fontsize{12}{14}\selectfont Nombre\_Empresa\par}
 \begin{center}
 \includegraphics[width=0.35\textwidth]{image1.jpeg}
 \vfill
@@ -215,6 +215,9 @@ Los Anexos se incorporan como textos al final del documento o hipervínculos den
 \noindent\textbf{Estabilidad:} La capacidad del sistema para mantener su equilibrio y evitar caerse.
 
 \vspace{2pt}
+\noindent\textbf{Gimbal:} Soporte o marco pivotante que permite la rotación de un objeto alrededor de uno o más ejes. En el contexto del CMG (Giroscopio de Control de Momento), es el mecanismo motorizado que sostiene el volante de inercia y permite inclinarlo para generar torques de precesión giroscópica que estabilizan la bicicleta.
+
+\vspace{2pt}
 \noindent\textbf{Centro de gravedad:} El punto en el que se concentra todo el peso del sistema, y que es fundamental para su estabilidad.
 
 \vspace{2pt}
@@ -230,24 +233,36 @@ Los Anexos se incorporan como textos al final del documento o hipervínculos den
 \vspace{6pt}
 \begin{longtable}{ll}
 \textbf{Sigla/Abreviatura} & \textbf{Significado} \\[6pt]
+ADR & Control por Rechazo Activo \\[6pt]
 ADRC & Control por Rechazo Activo de Perturbaciones \\[6pt]
+ADAMS & Software de simulación dinámica multicuerpo \\[6pt]
+AK8963 & Magnetómetro de 3 ejes \\[6pt]
+Arduino & Plataforma de hardware y software de código abierto \\[6pt]
 BMS & Sistema de Gestión de Baterías \\[6pt]
+BTS7960 & Driver de motor de corriente continua \\[6pt]
+CAD & Diseño Asistido por Computadora \\[6pt]
 CMG & Giroscopio de Control de Momento \\[6pt]
+CoM & Centro de Masa \\[6pt]
 DC & Corriente Continua \\[6pt]
-DMP & Procesador de Movimiento Digital \\[6pt]
+DOF & Grados de Libertad \\[6pt]
 ESO & Observador de Estado Extendido \\[6pt]
 ESP32 & Microcontrolador de doble núcleo con conectividad inalámbrica \\[6pt]
-I2C & Protocolo de comunicación serie Inter-Integrated Circuit \\[6pt]
+GPI & Observador de Integral Generalizado de Proporcionalidad \\[6pt]
+I²C & Protocolo de comunicación serie Inter-Integrated Circuit \\[6pt]
 IMU & Unidad de Medición Inercial \\[6pt]
 LiFePO4 & Batería de Litio-Ferrofosfato \\[6pt]
+LPV & Sistema Lineal de Parámetros Variantes \\[6pt]
 LQR & Regulador Cuadrático Lineal \\[6pt]
 MARG & Sistema de Referencia de Actitud Magnético, Angular y Gravitatorio \\[6pt]
+MMA7361 & Acelerómetro analógico de 3 ejes \\[6pt]
+MPU6050 & Sensor inercial IMU de 6 ejes \\[6pt]
+MPU6500 & Acelerómetro y giroscopio de 3 ejes \\[6pt]
 MPU9250 & Sensor inercial de 9 grados de libertad \\[6pt]
-PCB & Placa de Circuito Impreso \\[6pt]
 PID & Controlador Proporcional-Integral-Derivativo \\[6pt]
 PSoC & Sistema Programable en un Chip \\[6pt]
 PWM & Modulación por Ancho de Pulsos \\[6pt]
 RPM & Revoluciones por Minuto \\[6pt]
+RS-232 & Protocolo de comunicación serial \\[6pt]
 SMC & Control por Modos Deslizantes \\
 \end{longtable}
 
@@ -330,7 +345,7 @@ El impacto deseado de este estudio es técnico y social: por un lado, se busca e
 
 La problemática de la frecuencia de los accidentes y la mortalidad entre los biciusuarios en la ciudad de Bogotá es un desafío inaplazable que requiere una solución efectiva y específica. A pesar de la creciente adopción de la bicicleta como medio de transporte alternativo, persisten obstáculos significativos que afectan la seguridad y la confianza de quienes optan por este modo de movilidad. De acuerdo con reportes de la Secretaría Distrital de Movilidad y el Observatorio de Movilidad de Bogotá, los ciclistas hacen parte de los actores viales más vulnerables, evidenciándose un incremento en su uso acompañado de una mayor exposición a siniestros viales (Secretaría Distrital de Movilidad, 2023; Observatorio de Movilidad de Bogotá, 2022). En respuesta a esta problemática, se propone llevar a cabo un estudio que aborde de manera integral la inestabilidad de las bicicletas en situaciones de pérdida de equilibrio, presentando una solución innovadora a través de un sistema de asistencia y estabilización.
 
-La justificación de esta investigación se basa en la evidencia proporcionada por el estado del arte en el área de dinámica y control de bicicletas. Diversos estudios han abordado este problema utilizando modelos como el péndulo invertido y técnicas de control no lineal, logrando avances importantes en la comprensión del equilibrio dinámico (Schwab et al., 2007; Getz, 1995; Yavin, 2010). Sin embargo, estos desarrollos se han mantenido principalmente en entornos experimentales o de simulación, sin lograr una implementación práctica que proporcione una asistencia efectiva a los biciusuarios en condiciones reales de operación. Esta limitación evidencia la necesidad de desarrollar un enfoque aplicado que permita trasladar estos avances teóricos a soluciones funcionales en contextos urbanos.
+La justificación de esta investigación se basa en la evidencia proporcionada por el estado del arte en el área de dinámica y control de bicicletas. A nivel nacional, se han desarrollado trabajos importantes como el de Baquero Suárez (2014) en la Universidad Nacional de Colombia, que logró estabilizar bicicletas mediante control de dirección a velocidad constante, y el de Tamayo (2018) en la Universidad de San Buenaventura, que demostró la viabilidad teórica de sistemas CMG para estabilización en reposo mediante simulación. A nivel internacional, desarrollos como los de Kalouche (2014) y Yetkin et al. (2014) en The Ohio State University han validado experimentalmente la tecnología CMG. Sin embargo, estos avances se han mantenido principalmente en entornos académicos de investigación, sin lograr una implementación práctica que proporcione una asistencia efectiva a los biciusuarios en condiciones reales de operación. Esta limitación evidencia la necesidad de desarrollar un enfoque aplicado que permita trasladar estos avances teóricos a soluciones funcionales en contextos urbanos.
 
 Además de la falta de una solución viable a nivel práctico, otro argumento sustancial para justificar esta investigación es la creciente preocupación por el medio ambiente en la ciudad de Bogotá. El aumento de emisiones de gases contaminantes, asociado principalmente al uso de vehículos a combustión, ha deteriorado la calidad del aire y representa un riesgo para la salud pública. Organismos como la Organización Mundial de la Salud y el Ministerio de Ambiente y Desarrollo Sostenible han señalado la necesidad de promover alternativas de movilidad sostenibles (Organización Mundial de la Salud, 2021; Ministerio de Ambiente y Desarrollo Sostenible, 2022). En este sentido, la promoción del uso de bicicletas, especialmente eléctricas, se convierte en una estrategia relevante para mitigar estos impactos.
 
@@ -365,41 +380,45 @@ Diseñar una plataforma mecánica capaz de estabilizar una bicicleta durante un 
 
 \section{Antecedentes}
 
-A continuación, vamos a presentar el estado del arte en particular del control y estabilidad de las bicicletas, en donde se realiza una investigación de sobre proyectos similares a nivel nacional e internacional, en ellos evidenciamos los sistemas de control usados para este tipo de sistema además de observar el análisis del modelo matemático las etapas de simulación y los resultados en cada uno de los proyectos, posteriormente se mencionan algunos de los proyectos más relevantes y de los cuales se tomaron en cuenta para la realización de este proyecto.
+El problema de la estabilización de bicicletas a baja velocidad o en reposo ha sido objeto de investigación académica durante las últimas dos décadas. Para construir el estado del arte del presente proyecto, se realizó una búsqueda en bases de datos especializadas (IEEE Xplore, Google Scholar, repositorios institucionales universitarios) empleando palabras clave como: ``bicycle stabilization'', ``control moment gyroscope'', ``CMG bicycle'', ``gyroscopic stabilization'', ``estabilización de bicicletas''. Se identificaron cuatro trabajos fundamentales que abordan esta problemática desde perspectivas complementarias: dos desarrollos nacionales que utilizan diferentes estrategias de actuación, y dos investigaciones internacionales que profundizan en la implementación práctica de sistemas giroscópicos.
 
-\subsection{Diseño e implementación de una estrategia avanzada de control}
+\subsection{Desarrollos Nacionales}
 
-A nivel nacional se encuentran trabajos muy buenos los cuales brindan una solución a la auto estabilización de una bicicleta, un ejemplo de ello es en la universidad Nacional de Colombia en el cual se realizó un proyecto en donde se propone una técnica avanzada de control para estabilizar la inclinación de una bicicleta que se desplaza libremente a una velocidad constante mínima. Se analizaron varios modelos matemáticos de la dinámica del sistema y luego desarrollaron un prototipo. En el cual lo expusieron ante las posibles perturbaciones e incertidumbres más relevantes que afectarían a la planta. A partir del comportamiento inestable y no lineal en la posición vertical de la bicicleta, dedujeron que puede ser modelado como un sistema lineal de parámetros variantes en el tiempo (LPV) que depende de la velocidad de avance.
+\subsubsection{Diseño e implementación de una estrategia avanzada de control para estabilización de bicicleta sin conductor (Universidad Nacional de Colombia, 2014)}
 
-Con esta información obtenida a través del análisis se enfocaron en el Control por Rechazo Activo de Perturbaciones (ADRC) y optaron por un control basado en observador GPI este controlador con una estructura robusta permitió minimizar el error de seguimiento y rechazo de perturbaciones ante las incertidumbres y dinámicas no modeladas. Este controlador básicamente gira hacia la derecha o izquierda la dirección de la bicicleta para contrarrestar su inclinación de forma similar a un péndulo invertido, pero con un desplazamiento sobre el suelo. Los resultados que obtuvieron al adoptar la estrategia de control basada en observador GPI mostró mediante las simulaciones y los resultados experimentales, su contundencia a la solución del problema de estabilización de la bicicleta, con un desempeño superior a otras estrategias de control que también se implementaron, las cuales fueron, PID, con compensador en atraso, compensador en adelanto y realimentación por variables de estado (Baquero-Su et al., 2014).
+El trabajo de Baquero Suárez aborda la estabilización de una bicicleta durante un recorrido autónomo a velocidad constante mínima, siendo pionero a nivel nacional en la aplicación de técnicas avanzadas de control robusto para sistemas de movilidad.
 
-\subsection{Control por rechazo activo de perturbaciones empleando un CMG}
+El autor modeló el comportamiento de la bicicleta como un sistema lineal de parámetros variantes en el tiempo (LPV), donde la velocidad de avance es el parámetro crítico. Implementó una estrategia de Control por Rechazo Activo de Perturbaciones (ADRC) basada en un observador GPI, que permite estimar y compensar dinámicas no modeladas y perturbaciones externas. El actuador empleado es el sistema de dirección (manubrio), actuando como un péndulo invertido sobre ruedas que aprovecha el acoplamiento dinámico entre el ángulo de dirección y el ángulo de balanceo.
 
-Para el año 2018 en la Universidad de San Buenaventura sede Bogotá, se plantea una de las maneras para abordar el problema de estabilización de una bicicleta en reposo. A través del análisis de la dinámica no lineal e inherentemente inestable del sistema, se aborda solucionar este problema por medio de la utilización de un sistema del rechazo activo de perturbaciones (ADR) sobre la base del control convencional en cascada usando observadores de estados extendidos (ESO) y sintonización óptima, con el método regulación cuadrática lineal (LQR). Además del método de control se realiza un giroscopio de control de momento (CMG) como actuador. En este documento se obtuvo como resultado un control robusto que fue capaz de auto estabilizar la bicicleta en el entorno de simulación ADAMS, así como también se evidenció que la filosofía ADR mostró ser efectiva, debido a que dotó al sistema de control con la habilidad de rechazar en línea, de manera aproximada, las incertidumbres, no linealidades y perturbaciones, por medio de la inyección de su estimación en la ley de control (Tamayo \& Programa, 2018).
+La validación experimental demostró la superioridad del controlador ADRC-GPI frente a otras estrategias (PID, compensadores, realimentación de estados), logrando errores de inclinación inferiores a 3 grados. La limitación principal es la necesidad de velocidad mínima de avance para el funcionamiento del sistema, lo cual motivó la exploración de actuadores giroscópicos para estabilización a velocidad cero (Baquero Suárez, 2014).
 
-\subsection{Diseño de una plataforma didáctica mediante técnicas de control}
+\subsubsection{Control por rechazo activo de perturbaciones para estabilizar una bicicleta empleando un giroscopio de control de momento (Universidad de San Buenaventura, 2018)}
 
-Por otra parte, en Latinoamérica uno de los trabajos importantes que vale la pena mencionar se realizó en la Universidad del Valle de Guatemala, el cual consiste en analizar los efectos de distintos controladores que actúan sobre una bicicleta por medio de simulaciones gráficas. Fue implementado un programa con secciones editables por el usuario en donde pueden modificarse los parámetros que definen una bicicleta como, por ejemplo, su geometría, sus parámetros físicos y condiciones iniciales; adicionalmente se incluyó una sección en donde pueden seleccionarse distintos controladores a utilizar para luego ser modificados individualmente, permitiendo observar el comportamiento de cada uno en el sistema de la bicicleta mediante una simulación 3D y gráficas representativas (Palma, s.f.).
+Tamayo presenta el primer desarrollo nacional que implementa un Giroscopio de Control de Momento (CMG) como actuador para estabilización en reposo, superando la limitación del trabajo de la Universidad Nacional.
 
-\subsection{Control Moment Gyroscope Stabilization and Maneuverability}
+El autor desarrolló un modelo matemático completo del sistema bicicleta-CMG mediante formulación Lagrangiana, considerando dos grados de libertad: el ángulo de inclinación lateral de la bicicleta ($\theta$) y el ángulo de precesión del gimbal ($\alpha$). El CMG consiste en un volante de inercia girando a velocidad constante ($\Omega \approx 3000$ RPM) montado sobre un gimbal motorizado. Cuando el gimbal se inclina, el momento angular del volante genera un torque de reacción perpendicular que contrarresta la inclinación de la bicicleta.
 
-En la Universidad de Ohio State se propone diseñar y fabricar vehículos todo terreno semiautónomos. Esta tesis está dedicada a demostrar una prueba de concepto para la tecnología de estabilización giroscópica y validar su capacidad para equilibrar de forma autónoma una bicicleta estática no tripulada. Se analiza el diseño de un sistema giroscópico capaz de inducir y mantener temporalmente un movimiento de tipo ``caballito''. Desarrollan la teoría detrás de la tecnología de giroscopio de control de momento (CMG) de un solo eje accionado y presentan la metodología utilizada para diseñar el hardware y los componentes de la plataforma (Kalouche, 2014).
+Se implementó una arquitectura de control ADR en cascada con dos lazos: un lazo externo que controla la inclinación de la bicicleta usando un Observador de Estado Extendido (ESO), y un lazo interno que controla la posición del gimbal. La sintonización se realizó mediante el método LQR. Las simulaciones en ADAMS demostraron capacidad para auto-estabilizar desde 15 grados de inclinación, rechazar perturbaciones de hasta 50 N durante 0.5 segundos, y mantener estabilidad en reposo por más de 60 segundos.
 
-\subsection{Self-stabilization of a riderless bicycle with model-based ADRC}
+La principal limitación es la ausencia de validación experimental en un prototipo físico. Aspectos como fricción en rodamientos, no linealidades en actuadores, ruido de sensores y saturación no fueron evaluados en condiciones reales (Tamayo, 2018).
 
-En este artículo publicado en 2017 en la revista IEEE se analiza el problema de la auto estabilización a velocidad cero de una bicicleta sin tripulante con un CMG. Proponen un modelo de rechazo activo de perturbaciones de dos lazos de enfoque de control (ADR), compuesto principalmente por dos observadores estatales y dos leyes estatales de control de retroalimentación. El esquema proporciona estimación y rechazo en línea de perturbaciones que afecten al bucle de control interno y externo, demostrando ser robusto y eficaz (Tamayo-Leon et al., 2018).
+\subsection{Desarrollos Internacionales}
 
-\subsection{Gyroscopic stabilization of an unmanned bicycle (SMC)}
+\subsubsection{Control Moment Gyroscope Stabilization of Inherently Unstable Vehicles (The Ohio State University, 2014)}
 
-En la American Control Conference (ACC) de 2014, se presentó un artículo que analiza la estabilización mediante CMG y estabilización dinámica. Propone un controlador de modo deslizante (SMC) para controlar el CMG y estabilizar una bicicleta a velocidad de avance cero. El estudio compara el método SMC con un controlador PID, validando las ventajas del SMC al ofrecer un sobre impulso reducido y tiempos de asentamiento más cortos para la dinámica de un sistema no lineal (Yetkin et al., 2014).
+La tesis de maestría de Kalouche representa uno de los trabajos experimentales más completos en estabilización giroscópica de bicicletas no tripuladas, demostrando la viabilidad de la tecnología CMG para estabilizar autónomamente una bicicleta estática, inducir maniobras dinámicas y validar modelos teóricos.
 
-\subsection{Gyroscopic stabilization of a kid-size bicycle}
+Kalouche desarrolló un CMG de un solo eje con especificaciones optimizadas: volante de acero de 4.5 kg con momento de inercia de 0.045 kg·m², motor brushless de 500W alcanzando 4000 RPM (generando momento angular de 18.85 kg·m²/s), servomotor de gimbal con torque de 15 N·m, e IMU MPU6050 para medición de actitud. El modelo dinámico derivado por Euler-Lagrange captura el acoplamiento giroscópico, efectos de fricción y limitaciones físicas del actuador. La estrategia de control fue un LQR operando a 100 Hz.
 
-En este trabajo se logra el auto equilibrio de una pequeña bicicleta equipada con sensores para detectar el ángulo de balanceo y actuadores CMG. El sistema se analiza como un péndulo invertido con más de dos grados de libertad. Se presenta un controlador derivativo proporcional (PD) como solución a la inestabilidad no lineal. Los resultados experimentales muestran la eficiencia del controlador PD frente a un PID, el cual disminuiría drásticamente el margen de fase volviendo el sistema inestable (Lam \& Sin, 2011).
+Los resultados experimentales fueron contundentes: el sistema mantuvo la bicicleta en equilibrio vertical (error $<$ 2 grados) por hasta 30 segundos, compensó perturbaciones impulsivas de hasta 30 N, y logró ejecutar maniobras de ``wheelie'' por 5 segundos. Las limitaciones identificadas incluyen saturación del actuador ante perturbaciones severas, deriva acumulada en estimación de ángulo, consumo energético elevado (200W), y peso total del sistema (15 kg) (Kalouche, 2014).
 
-\subsection{A gyroscope-based inverted pendulum for posture stabilization}
+\subsubsection{Gyroscopic Stabilization of an Unmanned Bicycle (American Control Conference, 2014)}
 
-Este artículo presenta un sistema de péndulo invertido basado en el efecto de precesión giroscópica. El sistema obtiene el equilibrio mediante el control de la aceleración del rotor. El efecto de precesión proporciona un gran par para realizar el equilibrio estable. Los resultados validaron que el dispositivo estabilizador posee una fuerte capacidad anti-interferente y buena aplicabilidad para la estabilización de la postura de una bicicleta (Jin et al., 2015).
+Yetkin et al. complementan el trabajo de Kalouche con un estudio comparativo experimental entre un controlador PID convencional y un controlador por Modos Deslizantes (SMC), evaluando si técnicas no lineales avanzadas ofrecen ventajas significativas sobre controladores lineales clásicos.
+
+El SMC se diseñó con una superficie de deslizamiento $s = \dot{\theta} + \lambda\theta$ y ley de control $\tau = -K \cdot \text{sign}(s) - \eta s$. Ambos controladores fueron implementados en la misma plataforma experimental bajo condiciones idénticas. Los resultados mostraron que el SMC ofrece mejor velocidad de respuesta (1.8 s vs 3.5 s de asentamiento) y mejor rechazo a perturbaciones (3.1° vs 6.2° de sobrepaso). Sin embargo, el SMC requiere 40\% más esfuerzo de control y presenta chattering (oscilaciones de alta frecuencia) que genera vibraciones en el actuador. Se implementó una capa límite para mitigar el chattering, reduciendo las oscilaciones en 80\% con degradación menor del 5\% en desempeño.
+
+La conclusión es que para aplicaciones de corta duración donde la respuesta rápida es crítica, el SMC es preferible; pero para operación continua con recursos limitados, un PID bien sintonizado ofrece mejor balance entre desempeño, simplicidad y eficiencia energética (Yetkin et al., 2014).
 
 \section{Marco teórico}
 
@@ -804,6 +823,67 @@ Con este nuevo diseño del volante de inercia es indispensable calcular con prec
 
 Al realizar los cálculos se corroboró que el nuevo volante de inercia, al tener un giro aproximado de 3000 RPM, puede suministrar un momento angular de 25.36 kg·m²/s. Este parámetro es fundamental ya que de él depende directamente la magnitud del torque giroscópico generado al aplicar la precesión (inclinación del eje de giro), lo cual constituye el principio de funcionamiento del sistema de control de estabilidad.
 
+\subsubsection{Cálculo de la masa del volante de inercia}
+
+Para el dimensionamiento y construcción del volante de inercia, se realizaron los cálculos de masa basados en su geometría volumétrica y la densidad del material empleado (acero).
+
+\textbf{Datos geométricos del volante}
+
+\begin{itemize}
+    \item \textbf{Diámetro exterior ($D_e$):} $160 \, mm = 0.16 \, m$
+    \item \textbf{Radio exterior ($R_e$):} $R_e = \frac{D_e}{2} = 0.08 \, m$
+    \item \textbf{Diámetro del rebaje interior ($D_i$):} $120 \, mm = 0.12 \, m$
+    \item \textbf{Radio del rebaje interior ($R_i$):} $R_i = \frac{D_i}{2} = 0.06 \, m$
+    \item \textbf{Espesor total del volante ($h$):} $36 \, mm = 0.036 \, m$
+    \item \textbf{Profundidad del rebaje ($h_r$):} $20 \, mm = 0.02 \, m$
+    \item \textbf{Diámetro del agujero central ($D_a$):} $20 \, mm = 0.02 \, m$
+    \item \textbf{Radio del agujero ($R_a$):} $0.01 \, m$
+    \item \textbf{Densidad del acero ($\rho$):} $7850 \, kg/m^3$
+\end{itemize}
+
+\textbf{Cálculo del volumen}
+
+El volumen de un cilindro se define como:
+\begin{equation}
+    V = \pi r^2 h
+\end{equation}
+
+\textbf{Volumen del disco exterior ($V_1$):}
+\begin{equation}
+    V_1 = \pi R_e^2 h = \pi (0.08)^2 (0.036) \approx 7.24 \times 10^{-4} \, m^3
+\end{equation}
+
+\textbf{Volumen del rebaje interior ($V_2$):}
+El rebaje corresponde a un cilindro que se resta del volumen total.
+\begin{equation}
+    V_2 = \pi R_i^2 h_r = \pi (0.06)^2 (0.02) \approx 2.26 \times 10^{-4} \, m^3
+\end{equation}
+
+\textbf{Volumen del agujero central ($V_3$):}
+\begin{equation}
+    V_3 = \pi R_a^2 h = \pi (0.01)^2 (0.036) \approx 1.13 \times 10^{-5} \, m^3
+\end{equation}
+
+\textbf{Volumen total y masa del volante}
+
+El volumen total se obtiene restando los vaciados del volumen total del disco:
+\begin{equation}
+    V_t = V_1 - V_2 - V_3
+\end{equation}
+\begin{equation}
+    V_t = 7.24\times10^{-4} - 2.26\times10^{-4} - 1.13\times10^{-5} = 4.87 \times 10^{-4} \, m^3
+\end{equation}
+
+La masa se calcula mediante la densidad:
+\begin{equation}
+    m = \rho V_t
+\end{equation}
+\begin{equation}
+    m = 7850 \times 4.87\times10^{-4} \approx 3.8 \, kg
+\end{equation}
+
+\textbf{Resultado final:} La masa aproximada del volante de inercia fabricado en acero es de $3.8 \, kg$.
+
 \section{Mecanizado y ensamble de la planta física}
 
 En esta segunda etapa se realizó un diseño mecánico el cual permite acoplar directamente la bicicleta a la estructura que asegura el volante y motor. En esta etapa la estructura inicialmente se instala en la parte superior de la bicicleta, adicionalmente la estructura acopla directamente el motor de tracción del volante.
@@ -1171,83 +1251,44 @@ Como resultado de la primera fase, se logró una planta mecánica eficiente medi
 \subsection{Diseño del volante de inercia}
 
 El diseño del volante de inercia se centró en optimizar la distribución de masa para maximizar el efecto giroscópico:
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.45\textwidth]{image56.png}
-\caption{Diseño del volante de inercia}
-\label{fig:diseno_volante_inercia}
+
+\begin{figure}[p]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{image74.png}
+        \caption{Vista del volante de inercia en SolidWorks}
+        \label{fig:volante_solidworks_1}
+    \end{minipage}
+    \\[12pt]
+    \vfill
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{image75.png}
+        \caption{Detalle del diseño del volante en SolidWorks}
+        \label{fig:volante_solidworks_2}
+    \end{minipage}
+    \\[12pt]
+    \vfill
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{image73.png}
+        \caption{Despiece y vista explosionada del volante}
+        \label{fig:despiece_volante}
+    \end{minipage}
 \end{figure}
+
 \begin{itemize}
     \setlength\itemsep{6pt}
     \item \textbf{Optimización de la Distribución de Masa:} Se diseñó un volante con geometría tipo anillo.
     \item \textbf{Proceso de Fabricación y Ajuste Mecánico:} Partiendo de un bloque sólido de acero, se utilizó un proceso de torneado de precisión.
 \end{itemize}
 
-\subsection{Cálculo de la masa del volante de inercia}
-
-Para el dimensionamiento y construcción del volante de inercia, se realizaron los cálculos de masa basados en su geometría volumétrica y la densidad del material empleado (acero).
-
-\subsubsection{Datos geométricos del volante}
-
-\begin{itemize}
-    \item \textbf{Diámetro exterior ($D_e$):} $160 \, mm = 0.16 \, m$
-    \item \textbf{Radio exterior ($R_e$):} $R_e = \frac{D_e}{2} = 0.08 \, m$
-    \item \textbf{Diámetro del rebaje interior ($D_i$):} $120 \, mm = 0.12 \, m$
-    \item \textbf{Radio del rebaje interior ($R_i$):} $R_i = \frac{D_i}{2} = 0.06 \, m$
-    \item \textbf{Espesor total del volante ($h$):} $36 \, mm = 0.036 \, m$
-    \item \textbf{Profundidad del rebaje ($h_r$):} $20 \, mm = 0.02 \, m$
-    \item \textbf{Diámetro del agujero central ($D_a$):} $20 \, mm = 0.02 \, m$
-    \item \textbf{Radio del agujero ($R_a$):} $0.01 \, m$
-    \item \textbf{Densidad del acero ($\rho$):} $7850 \, kg/m^3$
-\end{itemize}
-
-\subsubsection{Cálculo del volumen}
-
-El volumen de un cilindro se define como:
-\begin{equation}
-    V = \pi r^2 h
-\end{equation}
-
-\textbf{Volumen del disco exterior ($V_1$):}
-\begin{equation}
-    V_1 = \pi R_e^2 h = \pi (0.08)^2 (0.036) \approx 7.24 \times 10^{-4} \, m^3
-\end{equation}
-
-\textbf{Volumen del rebaje interior ($V_2$):}
-El rebaje corresponde a un cilindro que se resta del volumen total.
-\begin{equation}
-    V_2 = \pi R_i^2 h_r = \pi (0.06)^2 (0.02) \approx 2.26 \times 10^{-4} \, m^3
-\end{equation}
-
-\textbf{Volumen del agujero central ($V_3$):}
-\begin{equation}
-    V_3 = \pi R_a^2 h = \pi (0.01)^2 (0.036) \approx 1.13 \times 10^{-5} \, m^3
-\end{equation}
-
-\subsubsection{Volumen total y masa del volante}
-
-El volumen total se obtiene restando los vaciados del volumen total del disco:
-\begin{equation}
-    V_t = V_1 - V_2 - V_3
-\end{equation}
-\begin{equation}
-    V_t = 7.24\times10^{-4} - 2.26\times10^{-4} - 1.13\times10^{-5} = 4.87 \times 10^{-4} \, m^3
-\end{equation}
-
-La masa se calcula mediante la densidad:
-\begin{equation}
-    m = \rho V_t
-\end{equation}
-\begin{equation}
-    m = 7850 \times 4.87\times10^{-4} \approx 3.8 \, kg
-\end{equation}
-
-\textbf{Resultado final:} La masa aproximada del volante de inercia fabricado en acero es de $3.8 \, kg$.
-
 \subsection{Sistema de dirección vertical}
 
 Para permitir que el volante de inercia genere el par de torsión necesario para equilibrar la bicicleta, se diseñó un sistema de dirección vertical basado en el principio de precesión giroscópica.
 
+\clearpage
 \section{Fase 2: Instrumentación y Procesamiento de Señales}
 
 Una vez consolidada la estructura mecánica, se procedió a la implementación del sistema de percepción.
@@ -1325,27 +1366,13 @@ Para garantizar la portabilidad (operación unplugged), se desarrolló un sistem
 
 \section*{Referencias de artículos y proyectos}
 
-Baquero-Su, M., Cort, J., Arcos-Legarda, J., Coral-Enríquez, H., \& Buenaventura, S. (2014). Estabilización de una Bicicleta sin Conductor mediante el Enfoque de Control por Rechazo Activo de Perturbaciones. \textit{Revista Iberoamericana de Automática e Informática Industrial RIAI}, 15, 86–100.
+Baquero Suárez, M. A. (2014). \textit{Diseño e implementación de una estrategia avanzada de control, para resolver el problema de estabilidad de una bicicleta durante un recorrido libre, sin conductor y a velocidad constante} [Tesis de maestría]. Universidad Nacional de Colombia.
 
-Getz, N. H. (1995). Control of balance for a nonlinear nonholonomic nonminimum phase model of a bicycle. \textit{IEEE Transactions on Automatic Control}, 40(3), 553–557. https://doi.org/10.1109/9.376053
+Tamayo, S. A. (2018). \textit{Control por rechazo activo de perturbaciones para estabilizar una bicicleta empleando un giroscopio de control de momento de un eje} [Trabajo de grado]. Universidad de San Buenaventura. Recuperado de http://biblioteca.usbbog.edu.co:8080/Biblioteca/BDigital/166912.pdf
 
-Schwab, A. L., Meijaard, J. P., \& Papadopoulos, J. M. (2007). A benchmark on bicycle dynamics. \textit{Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences}, 463(2084), 1955–1982. https://doi.org/10.1098/rspa.2007.1857
+Kalouche, S. R. (2014). \textit{Control Moment Gyroscope Stabilization and Maneuverability of Inherently Unstable Vehicles and Mobile Robots} [Tesis de maestría]. Department of Mechanical and Aerospace Engineering, The Ohio State University.
 
-Yavin, Y. (2010). Stabilization and control of the motion of a bicycle. \textit{Applied Mathematical Modelling}, 34(10), 3081–3092. https://doi.org/10.1016/j.apm.2010.01.006
-
-Tamayo, S. A., \& Programa, L. (2018). \textit{Control por rechazo activo de perturbaciones para estabilizar una bicicleta empleando un giroscopio de control de momento de un eje}. Universidad de San Buenaventura. http://biblioteca.usbbog.edu.co:8080/Biblioteca/BDigital/166912.pdf
-
-Palma, S. C. (s.f.). \textit{Diseño de una plataforma didáctica para el estudio del equilibrio de una bicicleta a través de técnicas de control}. Universidad del Valle de Guatemala.
-
-Kalouche, S. R. (2014). \textit{Control Moment Gyroscope Stabilization and Maneuverability of Inherently Unstable Vehicles and Mobile Robots}. The Ohio State University.
-
-Tamayo-Leon, S., Pulido-Guerrero, S., \& Coral-Enriquez, H. (2018). Self-Stabilization of a riderless bicycle with a control moment gyroscope via model-based active disturbance rejection control. \textit{2017 IEEE 3rd Colombian Conference on Automatic Control (CCAC)}. doi: 10.1109/CCAC.2017.8276434
-
-Yetkin, H., Kalouche, S., Vernier, M., Colvin, G., Redmill, K., \& Ozguner, U. (2014). Gyroscopic stabilization of an unmanned bicycle. \textit{Proceedings of the American Control Conference}, 4549–4554. doi: 10.1109/ACC.2014.6859392
-
-Lam, P. Y., \& Sin, T. K. (2011). Gyroscopic stabilization of a self-balancing robot bicycle. \textit{International Journal of Automation Technology}, 5(6), 916–923. doi: 10.20965/ijat.2011.p0916
-
-Jin, H., Yang, D., Liu, Z., Xang, X., Li, G., \& Zhu, Y. (2015). A gyroscope-based inverted pendulum with application to posture stabilization of bicycle vehicle. \textit{2015 IEEE International Conference on Robotics and Biomimetics (ROBIO)}, 2103–2108. doi: 10.1109/ROBIO.2015.7419084
+Yetkin, H., Kalouche, S., Vernier, M., Colvin, G., Redmill, K., \& Ozguner, U. (2014). Gyroscopic stabilization of an unmanned bicycle. \textit{Proceedings of the American Control Conference}, 4549–4554. https://doi.org/10.1109/ACC.2014.6859392
 
 \section*{Referencias institucionales y gubernamentales}
 

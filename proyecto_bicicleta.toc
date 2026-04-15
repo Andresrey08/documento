@@ -1,9 +1,9 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {chapter}{Dedicatoria}{\es@scroman {i}}{chapter*.1}%
-\contentsline {chapter}{Índice de Anexos}{\es@scroman {viii}}{chapter*.2}%
-\contentsline {chapter}{Glosario}{\es@scroman {ix}}{chapter*.3}%
-\contentsline {chapter}{Lista de Abreviaturas y Siglas}{\es@scroman {x}}{chapter*.4}%
-\contentsline {chapter}{Resumen}{\es@scroman {xi}}{chapter*.5}%
+\contentsline {chapter}{Índice de Anexos}{\es@scroman {v}}{chapter*.2}%
+\contentsline {chapter}{Glosario}{\es@scroman {vi}}{chapter*.3}%
+\contentsline {chapter}{Lista de Abreviaturas y Siglas}{\es@scroman {vii}}{chapter*.4}%
+\contentsline {chapter}{Resumen}{\es@scroman {ix}}{chapter*.5}%
 \contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Presentación de la Empresa}{2}{chapter.2}%
 \contentsline {chapter}{\numberline {3}Planteamiento del problema en la Empresa}{3}{chapter.3}%
@@ -13,37 +13,37 @@
 \contentsline {section}{\numberline {5.2}Objetivos específicos}{6}{section.5.2}%
 \contentsline {chapter}{\numberline {6}Marco de referencia}{7}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Antecedentes}{7}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Diseño e implementación de una estrategia avanzada de control}{7}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Control por rechazo activo de perturbaciones empleando un CMG}{8}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}Diseño de una plataforma didáctica mediante técnicas de control}{8}{subsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.1.4}Control Moment Gyroscope Stabilization and Maneuverability}{8}{subsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.1.5}Self-stabilization of a riderless bicycle with model-based ADRC}{9}{subsection.6.1.5}%
-\contentsline {subsection}{\numberline {6.1.6}Gyroscopic stabilization of an unmanned bicycle (SMC)}{9}{subsection.6.1.6}%
-\contentsline {subsection}{\numberline {6.1.7}Gyroscopic stabilization of a kid-size bicycle}{9}{subsection.6.1.7}%
-\contentsline {subsection}{\numberline {6.1.8}A gyroscope-based inverted pendulum for posture stabilization}{9}{subsection.6.1.8}%
-\contentsline {section}{\numberline {6.2}Marco teórico}{10}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}La Bicicleta}{10}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Dinámica de la Bicicleta}{11}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.1.1}Desarrollos Nacionales}{7}{subsection.6.1.1}%
+\contentsline {subsubsection}{Diseño e implementación de una estrategia avanzada de control para estabilización de bicicleta sin conductor (Universidad Nacional de Colombia, 2014)}{7}{subsubsection*.6}%
+\contentsline {subsubsection}{Control por rechazo activo de perturbaciones para estabilizar una bicicleta empleando un giroscopio de control de momento (Universidad de San Buenaventura, 2018)}{7}{subsubsection*.7}%
+\contentsline {subsection}{\numberline {6.1.2}Desarrollos Internacionales}{8}{subsection.6.1.2}%
+\contentsline {subsubsection}{Control Moment Gyroscope Stabilization of Inherently Unstable Vehicles (The Ohio State University, 2014)}{8}{subsubsection*.8}%
+\contentsline {subsubsection}{Gyroscopic Stabilization of an Unmanned Bicycle (American Control Conference, 2014)}{9}{subsubsection*.9}%
+\contentsline {section}{\numberline {6.2}Marco teórico}{9}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}La Bicicleta}{9}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Dinámica de la Bicicleta}{10}{subsection.6.2.2}%
 \contentsline {subsection}{\numberline {6.2.3}Movimiento Giroscópico}{11}{subsection.6.2.3}%
-\contentsline {subsubsection}{Efecto Giroscópico}{12}{subsubsection*.9}%
+\contentsline {subsubsection}{Efecto Giroscópico}{11}{subsubsection*.13}%
 \contentsline {subsection}{\numberline {6.2.4}Estimación de Orientación mediante Filtros Complementarios}{12}{subsection.6.2.4}%
-\contentsline {subsubsection}{El Acelerómetro y la Medición de Inclinación}{13}{subsubsection*.10}%
-\contentsline {subsubsection}{El Giroscopio y la Velocidad Angular}{13}{subsubsection*.11}%
-\contentsline {subsubsection}{Filtro Complementario}{13}{subsubsection*.12}%
+\contentsline {subsubsection}{El Acelerómetro y la Medición de Inclinación}{12}{subsubsection*.14}%
+\contentsline {subsubsection}{El Giroscopio y la Velocidad Angular}{12}{subsubsection*.15}%
+\contentsline {subsubsection}{Filtro Complementario}{12}{subsubsection*.16}%
 \contentsline {subsection}{\numberline {6.2.5}Controlador PID}{13}{subsection.6.2.5}%
-\contentsline {subsubsection}{La Ecuación General del PID}{14}{subsubsection*.13}%
-\contentsline {subsubsection}{Análisis de los Componentes}{14}{subsubsection*.14}%
-\contentsline {subsection}{\numberline {6.2.6}Microcontrolador ESP32}{15}{subsection.6.2.6}%
-\contentsline {subsubsection}{Arquitectura Xtensa Dual-Core de 32 bits}{15}{subsubsection*.15}%
-\contentsline {subsubsection}{Sensor de Movimiento Integral (MPU9250)}{15}{subsubsection*.16}%
-\contentsline {section}{\numberline {6.3}Marco Legal}{15}{section.6.3}%
+\contentsline {subsubsection}{La Ecuación General del PID}{13}{subsubsection*.17}%
+\contentsline {subsubsection}{Análisis de los Componentes}{13}{subsubsection*.18}%
+\contentsline {subsection}{\numberline {6.2.6}Microcontrolador ESP32}{14}{subsection.6.2.6}%
+\contentsline {subsubsection}{Arquitectura Xtensa Dual-Core de 32 bits}{14}{subsubsection*.19}%
+\contentsline {subsubsection}{Sensor de Movimiento Integral (MPU9250)}{14}{subsubsection*.20}%
+\contentsline {section}{\numberline {6.3}Marco Legal}{14}{section.6.3}%
 \contentsline {subsection}{\numberline {6.3.1}Normativa de Control y Programación}{15}{subsection.6.3.1}%
 \contentsline {subsection}{\numberline {6.3.2}Normativa de Representación Gráfica y Diseño Mecánico}{15}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Normativa de Seguridad en Baterías y Sistemas de Potencia}{16}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.3.4}Estándares de Ingeniería de Control y Software}{16}{subsection.6.3.4}%
-\contentsline {chapter}{\numberline {7}Actividades realizadas durante la pasantía}{17}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Investigación de sistemas similares para la obtención de criterios de diseño}{17}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Diseño Del Volante}{17}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {6.3.3}Normativa de Seguridad en Baterías y Sistemas de Potencia}{15}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Estándares de Ingeniería de Control y Software}{15}{subsection.6.3.4}%
+\contentsline {chapter}{\numberline {7}Actividades realizadas durante la pasantía}{16}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Investigación de sistemas similares para la obtención de criterios de diseño}{16}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Análisis de Proyectos Nacionales}{16}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Análisis de Proyectos Internacionales}{17}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}Decisión de Diseño}{17}{subsection.7.1.3}%
 \contentsline {section}{\numberline {7.2}Análisis del modelo matemático del sistema y Diseño tridimensional (3D)}{18}{section.7.2}%
 \contentsline {subsection}{\numberline {7.2.1}Definición de Parámetros y Nomenclatura}{18}{subsection.7.2.1}%
 \contentsline {subsection}{\numberline {7.2.2}Energías del Sistema}{18}{subsection.7.2.2}%
@@ -51,37 +51,40 @@
 \contentsline {subsection}{\numberline {7.2.4}Ecuaciones de Movimiento (Euler-Lagrange)}{19}{subsection.7.2.4}%
 \contentsline {subsection}{\numberline {7.2.5}Representación en Espacio de Estados Final}{20}{subsection.7.2.5}%
 \contentsline {subsection}{\numberline {7.2.6}Función de Transferencia $G(s)$}{20}{subsection.7.2.6}%
-\contentsline {section}{\numberline {7.3}Mecanizado y ensamble de la planta física}{23}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Control sistema de dirección}{24}{subsection.7.3.1}%
-\contentsline {section}{\numberline {7.4}Implementación del sistema de comunicación}{26}{section.7.4}%
-\contentsline {subsection}{\numberline {7.4.1}Sensado de la posición de la bicicleta}{26}{subsection.7.4.1}%
-\contentsline {subsubsection}{MMA7361}{26}{subsubsection*.28}%
-\contentsline {subsubsection}{MPU9250}{27}{subsubsection*.30}%
-\contentsline {section}{\numberline {7.5}Implementación del sistema de control}{28}{section.7.5}%
-\contentsline {subsection}{\numberline {7.5.1}Modificaciones estructurales}{28}{subsection.7.5.1}%
-\contentsline {subsection}{\numberline {7.5.2}Adquisición de datos y tratamiento de la señal}{30}{subsection.7.5.2}%
-\contentsline {subsection}{\numberline {7.5.3}Sistema de dirección y actuador}{31}{subsection.7.5.3}%
-\contentsline {subsection}{\numberline {7.5.4}Integración de los componentes electrónicos en la planta}{34}{subsection.7.5.4}%
-\contentsline {subsection}{\numberline {7.5.5}Diseño del sistema de baterías de alimentación}{35}{subsection.7.5.5}%
-\contentsline {subsection}{\numberline {7.5.6}Implementación del control PID y verificación de la señal}{36}{subsection.7.5.6}%
-\contentsline {subsubsection}{Verificación de la señal y control de corriente en la salida de control}{36}{subsubsection*.42}%
-\contentsline {chapter}{\numberline {8}Resultados}{37}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Fase 1: Diseño y Construcción Mecánica de la Planta}{37}{section.8.1}%
-\contentsline {subsection}{\numberline {8.1.1}Diseño del volante de inercia}{38}{subsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.1.2}Cálculo de la masa del volante de inercia}{39}{subsection.8.1.2}%
-\contentsline {subsubsection}{Datos geométricos del volante}{39}{subsubsection*.47}%
-\contentsline {subsubsection}{Cálculo del volumen}{40}{subsubsection*.48}%
-\contentsline {subsubsection}{Volumen total y masa del volante}{40}{subsubsection*.49}%
-\contentsline {subsection}{\numberline {8.1.3}Sistema de dirección vertical}{41}{subsection.8.1.3}%
-\contentsline {section}{\numberline {8.2}Fase 2: Instrumentación y Procesamiento de Señales}{41}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}Implementación de la Unidad de Medición Inercial (IMU)}{41}{subsection.8.2.1}%
-\contentsline {subsection}{\numberline {8.2.2}Estrategia de Fusión de Datos: Filtro Complementario}{41}{subsection.8.2.2}%
-\contentsline {subsection}{\numberline {8.2.3}Montaje e Integración del Microcontrolador}{41}{subsection.8.2.3}%
-\contentsline {subsection}{\numberline {8.2.4}Interfaz de Actuación y Acople de Potencia}{41}{subsection.8.2.4}%
-\contentsline {section}{\numberline {8.3}Fase 3: Construcción y Sintonización del Controlador PID}{41}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Fase 4: Adaptación y Construcción del Sistema de Alimentación}{42}{section.8.4}%
-\contentsline {chapter}{\numberline {9}Conclusiones y Recomendaciones}{43}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Conclusiones}{43}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Recomendaciones}{44}{section.9.2}%
-\contentsline {chapter}{\numberline {10}Referencias}{45}{chapter.10}%
-\contentsline {chapter}{\numberline {11}Anexos}{48}{chapter.11}%
+\contentsline {section}{\numberline {7.3}Diseño y construcción del volante de inercia}{20}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Prototipo Inicial - Volante de 2 kg}{20}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Prototipo Mejorado - Volante tipo Anillo de 10 kg}{21}{subsection.7.3.2}%
+\contentsline {subsubsection}{Diseño Optimizado del Volante}{21}{subsubsection*.24}%
+\contentsline {subsubsection}{Ventajas del Diseño tipo Anillo}{22}{subsubsection*.27}%
+\contentsline {subsubsection}{Cálculo del Momento de Inercia}{23}{subsubsection*.28}%
+\contentsline {subsubsection}{Cálculo de la masa del volante de inercia}{24}{subsubsection*.31}%
+\contentsline {section}{\numberline {7.4}Mecanizado y ensamble de la planta física}{25}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Control sistema de dirección}{27}{subsection.7.4.1}%
+\contentsline {section}{\numberline {7.5}Implementación del sistema de comunicación}{28}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}Sensado de la posición de la bicicleta}{28}{subsection.7.5.1}%
+\contentsline {subsubsection}{MMA7361}{28}{subsubsection*.36}%
+\contentsline {subsubsection}{MPU9250}{29}{subsubsection*.38}%
+\contentsline {section}{\numberline {7.6}Implementación del sistema de control}{31}{section.7.6}%
+\contentsline {subsection}{\numberline {7.6.1}Modificaciones estructurales}{31}{subsection.7.6.1}%
+\contentsline {subsection}{\numberline {7.6.2}Adquisición de datos y tratamiento de la señal}{32}{subsection.7.6.2}%
+\contentsline {subsection}{\numberline {7.6.3}Sistema de dirección y actuador}{34}{subsection.7.6.3}%
+\contentsline {subsection}{\numberline {7.6.4}Integración de los componentes electrónicos en la planta}{36}{subsection.7.6.4}%
+\contentsline {subsection}{\numberline {7.6.5}Diseño del sistema de baterías de alimentación}{37}{subsection.7.6.5}%
+\contentsline {subsection}{\numberline {7.6.6}Implementación del control PID y verificación de la señal}{38}{subsection.7.6.6}%
+\contentsline {subsubsection}{Verificación de la señal y control de corriente en la salida de control}{38}{subsubsection*.50}%
+\contentsline {chapter}{\numberline {8}Resultados}{40}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Fase 1: Diseño y Construcción Mecánica de la Planta}{40}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Diseño del volante de inercia}{41}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Sistema de dirección vertical}{41}{subsection.8.1.2}%
+\contentsline {section}{\numberline {8.2}Fase 2: Instrumentación y Procesamiento de Señales}{43}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Implementación de la Unidad de Medición Inercial (IMU)}{43}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Estrategia de Fusión de Datos: Filtro Complementario}{43}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}Montaje e Integración del Microcontrolador}{43}{subsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.2.4}Interfaz de Actuación y Acople de Potencia}{43}{subsection.8.2.4}%
+\contentsline {section}{\numberline {8.3}Fase 3: Construcción y Sintonización del Controlador PID}{43}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Fase 4: Adaptación y Construcción del Sistema de Alimentación}{43}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Conclusiones y Recomendaciones}{45}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Conclusiones}{45}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Recomendaciones}{46}{section.9.2}%
+\contentsline {chapter}{\numberline {10}Referencias}{47}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Anexos}{49}{chapter.11}%
