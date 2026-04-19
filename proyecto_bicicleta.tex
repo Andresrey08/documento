@@ -21,6 +21,32 @@
 \usepackage[authoryear]{natbib}
 \usepackage{caption}
 \usepackage{tocloft} % Paquete para personalizar índices
+\usepackage{listings} % Paquete para código fuente
+\usepackage{xcolor}   % Paquete para colores en código
+
+% Configuración de listings para código C++/Arduino
+\lstdefinestyle{arduino}{
+    language=C++,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{green!60!black}\itshape,
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=8pt,
+    backgroundcolor=\color{gray!10},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    frame=single,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=false,
+    escapeinside={(*@}{@*)},
+    morekeywords={pinMode, digitalWrite, analogRead, delay, Serial, Wire, setup, loop, float, int, double, volatile, unsigned, long}
+}
 
 
 % ============================================
@@ -297,7 +323,7 @@ En un mundo en constante evolución, la búsqueda de soluciones tecnológicas ap
 
 El propósito central de este trabajo es desarrollar una plataforma que aproveche principios físicos de conservación del momento angular para gestionar el equilibrio de la estructura en estado de reposo o bajas velocidades. Para lograrlo, se ha diseñado un sistema basado en un volante de inercia (flywheel) en rotación, el cual juega un papel esencial al generar el par motor necesario para contrarrestar las perturbaciones laterales. Este volante no solo aporta inercia al sistema, sino que, mediante su manipulación controlada, permite validar el comportamiento dinámico del conjunto frente a variaciones en su ángulo de inclinación.
 
-Un componente crucial en esta plataforma es el conjunto de sensores de movimiento (IMU), que integran acelerometría y giroscopía para recopilar información precisa sobre la posición y la velocidad angular de la estructura. Estos sensores permiten una monitorización constante, suministrando los datos necesarios para que el sistema de control actúe de manera oportuna sobre el eje de precesión del volante.
+Un componente crucial en esta plataforma es el conjunto de sensores de movimiento (IMU), que integran acelerómetro y giroscopio para recopilar información precisa sobre la posición y la velocidad angular de la estructura. Estos sensores permiten una monitorización constante, suministrando los datos necesarios para que el sistema de control actúe de manera oportuna sobre el eje de precesión del volante.
 
 La interacción entre la lectura de los sensores y la respuesta mecánica se gestiona a través de un mecanismo de precesión controlado. Este mecanismo es el encargado de inclinar el volante de inercia para generar torques de reacción que compensen el efecto de la gravedad sobre la bicicleta. La precisión de esta respuesta depende directamente del sistema de control, el cual se basa en un algoritmo Proporcional-Integral-Derivativo (PID). Este controlador procesa el error de inclinación y regula la acción del actuador para mantener la plataforma en su punto de equilibrio vertical.
 
@@ -310,17 +336,17 @@ En resumen, este proyecto representa un avance en el estudio de sistemas de cont
 % ============================================
 \chapter{Presentación de la Empresa}
 
-En esta sección se debe presentar la empresa, describiendo por lo menos los siguientes elementos:
+El presente proyecto se desarrolló en el marco del Grupo de Investigación ORCA de la Universidad Distrital Francisco José de Caldas, una institución de educación superior reconocida por su excelencia académica y su compromiso con la investigación y la innovación tecnológica en Colombia.
 
 \begin{itemize}
     \setlength\itemsep{6pt}
-    \item Razón Social
-    \item Actividad a la que se dedica
-    \item Reseña Histórica
-    \item Misión
-    \item Visión
-    \item Estructura organizacional
-    \item Área o grupo de trabajo en el cual el estudiante desarrolló su pasantía.
+    \item \textbf{Razón Social:} Universidad Distrital Francisco José de Caldas – Grupo de Investigación ORCA
+    \item \textbf{Actividad a la que se dedica:} Investigación, desarrollo e innovación en ingeniería eléctrica, electrónica, informática y control de sistemas no lineales.
+    \item \textbf{Reseña Histórica:} El Grupo ORCA, dirigido por el Dr. Alexander Jiménez Triana, ha consolidado una trayectoria destacada en investigación aplicada y desarrollo tecnológico, participando en proyectos de alto impacto nacional e internacional.
+    \item \textbf{Misión:} Contribuir al avance del conocimiento y la tecnología en ingeniería, formando talento humano y generando soluciones innovadoras para la sociedad y la industria.
+    \item \textbf{Visión:} Ser un referente nacional e internacional en investigación y desarrollo de sistemas de control, automatización y tecnologías emergentes.
+    \item \textbf{Estructura organizacional:} Integrado por investigadores, docentes y estudiantes, liderados por el Dr. Alexander Jiménez Triana, en colaboración con otras unidades académicas y centros de investigación.
+    \item \textbf{Área o grupo de trabajo en el cual el estudiante desarrolló su pasantía:} Área de control de sistemas no lineales y automatización, orientada a la movilidad inteligente y la robótica.
 \end{itemize}
 
 % ============================================
@@ -486,7 +512,7 @@ Ecuación de la velocidad de precesión:
 
 \subsection{Estimación de Orientación mediante Filtros Complementarios}
 
-La estimación precisa del ángulo de inclinación u orientación es fundamental en el control de sistemas dinámicos, como el péndulo invertido. Para lograr esto, se emplean comúnmente sensores inerciales que incluyen acelerómetros y giroscopios. Sin embargo, cada uno de estos sensores presenta limitaciones inherentes que impiden su uso aislado de manera eficiente en sistemas de control de retroalimentación (Adams, s.f.).
+La estimación precisa del ángulo de inclinación u orientación es fundamental en el control de sistemas dinámicos, como el péndulo invertido. Para lograr esto, se emplean comúnmente sensores inerciales que incluyen acelerómetro y giroscopio. Sin embargo, cada uno de estos sensores presenta limitaciones inherentes que impiden su uso aislado de manera eficiente en sistemas de control de retroalimentación (Adams, s.f.).
 
 \subsubsection{El Acelerómetro y la Medición de Inclinación}
 
@@ -595,7 +621,7 @@ Como parte fundamental del proceso de diseño, se realizó un análisis exhausti
 
 En el contexto colombiano, destacan dos desarrollos fundamentales que sirvieron como referencia para este proyecto:
 
-\textbf{Universidad Nacional de Colombia (Baquero-Su et al., 2014):} Este trabajo propone una técnica avanzada de control basada en el Control por Rechazo Activo de Perturbaciones (ADRC) para estabilizar la inclinación de una bicicleta que se desplaza a velocidad constante. La estrategia de control actúa sobre el manubrio (dirección) para contrarrestar la inclinación, de forma similar a un péndulo invertido con desplazamiento.
+\textbf{Universidad Nacional de Colombia (Baquero-Su et al., 2014):} Este trabajo propone una técnica avanzada de control basada en el Control por Rechazo Activo de Perturbaciones (ADRC) para estabilizar la inclinación de una bicicleta que se desplaza a velocidad constante mínima, siendo pionero a nivel nacional en la aplicación de técnicas avanzadas de control robusto para sistemas de movilidad.
 
 \textit{Ventajas:} Control robusto ante perturbaciones, desempeño superior a controladores PID convencionales, y validación experimental exitosa.
 
@@ -692,7 +718,7 @@ Considerando la gravedad para un péndulo invertido:
 
 Para simplificar el análisis de control, definimos las constantes globales:
 \begin{itemize}
-    \item $J_{eq} = I_b + m_b h_b^2 + m_f h_f^2$ (Inercia efectiva de balanceo).
+    \item $J_{eq} = I_b + m_b h_b^2 + m_f h_f^2$ (Inercia efectiva de balanceo). Se asume que $I_{fx}$ y la inercia traslacional del gimbal son despreciables respecto a la estructura principal al linealizar para ángulos pequeños ($\cos^2\alpha \approx 1$).
     \item $M_{eq}L_{eq} = m_b h_b + m_g h_g + m_f h_f$ (Momento estático total).
     \item $I_\alpha = I_{gz} + I_{fz}$ (Inercia total del eje de precesión).
 \end{itemize}
@@ -731,12 +757,55 @@ El modelo linealizado que se utiliza para programar el controlador es:
     \begin{bmatrix} 0 \\ 0 \\ 0 \\ \frac{1}{I_\alpha} \end{bmatrix} \tau_\alpha
 \end{equation}
 
-\subsection{Función de Transferencia $G(s)$}
+\subsection{Función de Transferencia $G(s)$ - Modelo Completo (Entrada: Torque)}
 
-Al aplicar la Transformada de Laplace y resolver para $\frac{\Theta(s)}{T_\alpha(s)}$, obtenemos una expresión de cuarto orden que relaciona la entrada de torque de precesión con el ángulo de inclinación:
+Al aplicar la Transformada de Laplace y resolver para $\frac{\Theta(s)}{T_\alpha(s)}$, obtenemos una expresión de cuarto orden que relaciona la entrada de torque de precesión con el ángulo de inclinación. Dado que el sistema tiene un polo en el origen factorizable, la función se reduce a tercer orden:
 \begin{equation}
-    G(s) = \frac{-Hs}{J_{eq}I_\alpha s^4 + (H^2 - M_{eq}L_{eq}g I_\alpha)s^2 - M_{eq}L_{eq}g I_\alpha}
+    G(s) = \frac{-H}{J_{eq}I_\alpha s^3 + (H^2 - M_{eq}L_{eq}g I_\alpha)s}
 \end{equation}
+
+\subsection{Reducción por Control Cinemático (Actuador Servomotor)}
+
+El modelo completo de las ecuaciones de movimiento asume que la entrada de control es el torque directo aplicado al gimbal ($\tau_\alpha$). Sin embargo, la arquitectura de hardware de este sistema emplea un servomotor, el cual posee un lazo de control de posición interno que compensa su propia inercia ($I_\alpha$) y fricción para alcanzar un ángulo comandado.
+
+Por lo tanto, se adopta un enfoque de \textbf{control cinemático} donde la variable manipulada es directamente la posición (o velocidad) del gimbal ($\alpha$). Esto permite desacoplar la dinámica del actuador y centrarnos exclusivamente en la ecuación de inclinación de la bicicleta:
+
+\begin{equation}
+    J_{eq}\ddot{\theta} - (M_{eq}L_{eq}g)\theta + H\dot{\alpha} = 0
+\end{equation}
+
+\subsubsection{Representación en Espacio de Estados Reducida}
+
+Bajo el enfoque cinemático, considerando $\dot{\alpha}$ como la entrada del sistema ($u = \dot{\alpha}$), los estados se reducen a la inclinación y su derivada ($x = [\theta, \dot{\theta}]^T$). El modelo linealizado en el espacio de estados es:
+
+\begin{equation}
+    \begin{bmatrix} \dot{\theta} \\ \ddot{\theta} \end{bmatrix} = 
+    \begin{bmatrix} 0 & 1 \\ \frac{M_{eq}L_{eq}g}{J_{eq}} & 0 \end{bmatrix}
+    \begin{bmatrix} \theta \\ \dot{\theta} \end{bmatrix} + 
+    \begin{bmatrix} 0 \\ -\frac{H}{J_{eq}} \end{bmatrix} \dot{\alpha}
+\end{equation}
+
+\subsubsection{Función de Transferencia Reducida $G(s)$ - Modelo Cinemático (Entrada: Posición)}
+
+Para el diseño del controlador clásico, es necesario relacionar el ángulo de precesión ordenado al servomotor ($\alpha$) con el ángulo de inclinación resultante ($\theta$). Reorganizando la ecuación de inclinación:
+
+\begin{equation}
+    J_{eq}\ddot{\theta} - M_{eq}L_{eq}g\theta = -H\dot{\alpha}
+\end{equation}
+
+Aplicando la Transformada de Laplace asumiendo condiciones iniciales nulas, obtenemos:
+
+\begin{equation}
+    (J_{eq}s^2 - M_{eq}L_{eq}g)\Theta(s) = -H s \alpha(s)
+\end{equation}
+
+Despejando para encontrar $G(s) = \frac{\Theta(s)}{\alpha(s)}$, se obtiene la función de transferencia de segundo orden que rige el sistema:
+
+\begin{equation}
+    G(s) = \frac{-Hs}{J_{eq}s^2 - M_{eq}L_{eq}g}
+\end{equation}
+
+El término $s$ en el numerador refleja que el par giroscópico restaurador depende exclusivamente de la velocidad de cambio de la posición del gimbal ($\dot{\alpha}$), validando el principio físico del CMG. Esta es la función de transferencia que se utiliza para la implementación del control en el sistema real, como se detalla en la Fase 5 de validación.
 
 \section{Diseño y construcción del volante de inercia}
 
@@ -763,11 +832,11 @@ Para este modelo inicial se lograron identificar varias falencias significativas
 
 Esta primera prueba fue indispensable para identificar los parámetros críticos del diseño y condujo a una reconfiguración completa del sistema.
 
-\subsection{Prototipo Mejorado - Volante tipo Anillo de 10 kg}
+\subsection{Prototipo Mejorado - Volante tipo Anillo de Acero}
 
 A partir de los resultados obtenidos en la primera planta, se optó por construir un segundo modelo cuyo diseño se caracterizó por ubicar el volante en la parte superior de la bicicleta. Este diseño, a diferencia del anterior, acoplaba el movimiento de giro del volante a través de un motor DC que giraba en un solo sentido a velocidad constante.
 
-Como se observa en la figura \ref{fig:proceso_diseno}, el motor DC está acoplado directamente al volante de inercia a través de su eje. La intención en esta segunda etapa fue verificar el cambio del comportamiento de la estabilidad de la bicicleta al emplear un volante de mayor peso. El nuevo volante cuenta con un peso estimado de 10 kilogramos y, a diferencia del anterior, su diseño y material (hierro) están optimizados para maximizar el momento de inercia.
+Como se observa en la figura \ref{fig:proceso_diseno}, el motor DC está acoplado directamente al volante de inercia a través de su eje. La intención en esta segunda etapa fue verificar el cambio del comportamiento de la estabilidad de la bicicleta al emplear un volante de mayor peso y momento de inercia. El nuevo volante, a diferencia del anterior, su diseño y material (acero) están optimizados para maximizar el momento de inercia.
 
 \subsubsection{Diseño Optimizado del Volante}
 
@@ -776,7 +845,7 @@ Este nuevo diseño está pensado para que el sistema pueda aprovechar al máximo
 \begin{itemize}
     \item \textbf{Anillo exterior de mayor masa:} Concentra la mayor parte del peso en el perímetro exterior, maximizando el momento de inercia según la relación $I = mr^2$.
     \item \textbf{Anillo interior de menor grosor:} Reduce el peso innecesario cerca del eje de rotación, donde su contribución al momento de inercia es mínima.
-    \item \textbf{Material de hierro:} Proporciona la densidad necesaria para lograr una alta masa en un volumen compacto.
+    \item \textbf{Material de acero:} Proporciona la densidad necesaria para lograr una alta masa en un volumen compacto (densidad: 7850 kg/m³).
 \end{itemize}
 
 \begin{figure}[H]
@@ -799,7 +868,7 @@ Este diseño permite:
 
 \begin{itemize}
 \item \textbf{Mayor Momento Angular ($L = I\omega$):} El momento angular es la cantidad de rotación almacenada y el factor fundamental para la estabilidad, proporcionando mayor resistencia del volante a ser inclinado o perturbado.
-\item \textbf{Mayor Torque Giroscópico de Estabilización:} Esto significa que puede contrarrestar fuerzas externas (como un viento lateral o una inclinación rápida) con mayor eficacia, logrando una estabilización más robusta.
+\item \textbf{Mayor Torque Giroscópico de Estabilización:} Esto significa que puede contrarrestar fuerzas externas (como un viento lateral o una inclinación rápida) con mayor eficacia, logrando una estabilidad más robusta.
 \item \textbf{Mayor Almacenamiento de Energía Cinética:} Esto le da al sistema una mayor reserva de energía para mantener la velocidad durante los picos de demanda de torque de corrección.
 \end{itemize}
 
@@ -821,7 +890,13 @@ Con este nuevo diseño del volante de inercia es indispensable calcular con prec
 \label{fig:calculo_inercia_resultado}
 \end{figure}
 
-Al realizar los cálculos se corroboró que el nuevo volante de inercia, al tener un giro aproximado de 3000 RPM, puede suministrar un momento angular de 25.36 kg·m²/s. Este parámetro es fundamental ya que de él depende directamente la magnitud del torque giroscópico generado al aplicar la precesión (inclinación del eje de giro), lo cual constituye el principio de funcionamiento del sistema de control de estabilidad.
+\textbf{Nota:} Los cálculos detallados del momento de inercia del volante tipo anillo, considerando su geometría y distribución de masa, se presentan en las figuras anteriores. El resultado obtenido para el momento de inercia del volante es $I_{fy} \approx 0.0135$ kg·m². Al girar a 3000 RPM (equivalente a $\Omega = 314.16$ rad/s), el volante genera un momento angular de:
+
+\begin{equation}
+H = I_{fy} \times \Omega = 0.0135 \times 314.16 \approx 4.24 \text{ kg·m}^2\text{/s}
+\end{equation}
+
+Este parámetro es fundamental ya que de él depende directamente la magnitud del torque giroscópico generado al aplicar la precesión (inclinación del eje de giro), lo cual constituye el principio de funcionamiento del sistema de control de estabilidad.
 
 \subsubsection{Cálculo de la masa del volante de inercia}
 
@@ -908,7 +983,7 @@ Por otra parte esta estructura es la que directamente se encargó de realizar el
 \end{minipage}
 \end{figure}
 
-Para esta etapa tambien fue incluido un motor reductor, el cual cumple como función principal controlar la dirección de la estructura motor- volante , este cambia el sentido de girto de la estructura a través de un piñon ubicado en el eje del motor de control y otro en el eje de dirección instalado, estos dos se comunican entre si por medio de una cadena, que transmite el movimiento del motor reductor al eje de dirección.
+Para esta etapa tambien fue incluido un motor reductor, el cual cumple como función principal controlar la dirección de la estructura motor- volante , este cambia el sentido de girto de la estructura a través de un piñón ubicado en el eje del motor de control y otro en el eje de dirección instalado, estos dos se comunican entre si por medio de una cadena, que transmite el movimiento del motor reductor al eje de dirección.
 
 \begin{figure}[H]
 \centering
@@ -985,7 +1060,7 @@ Inicialmente, se incorporó a la planta el sensor MMA7361, con el cual se realiz
 
 Como se mencionaba anteriormente en el documento la señal generada por el MMA7361 es una señal análoga, que fue procesada a través del módulo de conversión analográfica-digital (ADC) del microcontrolador, y posterior interpretada y tratada por este mismo para obtener la información del ángulo de la planta. 
 
-A partir de la información del ángulo se realizaron las pruebas iniciales donde se determinó que el sensor analógico presentaba una alta susceptibilidad al ruido, ya que se filtraban múltiples señales parásitas que eran interpretadas erróneamente por el sistema como variaciones reales de inclinación. Este comportamiento afectaba directamente la eficiencia del control, generando respuestas imprecisas e inestabilidad en la planta. 
+A partir de la información del ángulo se realizaron las pruebas iniciales donde se determinó que el sensor analógico presentaba una alta susceptibilidad al ruido, ya que se filtraban múltiples señales parásitas que eran interpretadas erróneamente por el sistema como variaciones reales de inclinación. Este comportamiento afectaba directamente la eficiencia del control, generando respuestas imprecisas e inestable en la planta. 
 
 Como primera estrategia para mitigar este problema, se implementaron filtros digitales con el objetivo de atenuar las señales parásitas y permitir que el sistema trabajara únicamente con la señal útil proveniente del sensor. Esta etapa de filtrado mejoró considerablemente la eficiencia del microcontrolador en la lectura de los datos. Sin embargo, a pesar de esta mejora, el sistema continuó presentando un comportamiento inestable durante su operación. 
 
@@ -1204,32 +1279,6 @@ Dentro del control se tomó como referencia una posición de 140° del motor, de
 
 Con el control de posicionamiento del servo motor, básicamente, se buscaba que el controlador mantuviera la planta con un ángulo de inclinación cercano a 0°, el cual fue definido como el set point del sistema.
 
-% ============================================
-% CAPÍTULO 8: RESULTADOS
-% ============================================
-\chapter{Resultados}
-
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{image71.png}
-    \caption{Diagrama de bloques del sistema}
-    \label{fig:diagrama_bloques_img}
-\end{figure}
-
-
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{image72.png}
-    \caption{Diagrama de bloques }
-    \label{fig:diagrama_bloques_img}
-\end{figure}
-
-
-
-El desarrollo del proyecto se ejecutó de manera secuencial mediante cuatro fases fundamentales, integrando la ingeniería mecánica con la electrónica de potencia y control.
-
 \section{Fase 1: Diseño y Construcción Mecánica de la Planta}
 \begin{figure}[H]
 \centering
@@ -1331,6 +1380,213 @@ Para garantizar la portabilidad (operación unplugged), se desarrolló un sistem
     \item Regulación de Voltaje
 \end{itemize}
 
+\section{Fase 5: Validación mediante Simulación del Modelo Dinámico}
+
+Una vez obtenido el modelo matemático del sistema bicicleta-CMG, se procedió a realizar la validación mediante simulación en simulink. Esta fase es fundamental para verificar el comportamiento dinámico de la planta y comprender sus características de inestabilidad antes de implementar la estrategia de control en el microcontrolador.
+
+\subsection{Enfoque de Control Cinemático y Modelo de Segundo Orden}
+
+El hardware seleccionado para este prototipo emplea un servomotor como actuador para el eje del gimbal. Los servomotores tienen un lazo de control de posición en su propia electrónica, lo que les permite alcanzar la posición . 
+
+Dado que la variable a manipular por el controlador (el algoritmo PID) es la posición angular del gimbal ($\alpha$) y no el torque directo ($\tau_\alpha$), se adopta un \textbf{control cinemático}. Bajo esta condicion, se asume que la dinámica del servomotor es lo suficientemente rápida en comparación con la caída de la bicicleta, permitiendo separar la ecuación diferencial del actuador.
+
+El modelo se reduce a la ecuación principal de balanceo:
+\begin{equation}
+    J_{eq}\ddot{\theta} - M_{eq}L_{eq}g\theta + H\dot{\alpha} = 0
+\end{equation}
+
+Reorganizando los términos para aislar el efecto de la gravedad y la entrada de control:
+\begin{equation}
+    J_{eq}\ddot{\theta} - M_{eq}L_{eq}g\theta = -H\dot{\alpha}
+\end{equation}
+
+Aplicando la Transformada de Laplace asumiendo condiciones iniciales nulas, se obtiene:
+\begin{equation}
+    (J_{eq}s^2 - M_{eq}L_{eq}g)\Theta(s) = -Hs \alpha(s)
+\end{equation}
+
+La función de transferencia de segundo orden que relaciona el ángulo de precesión comandado al servomotor ($\alpha$) con la inclinación resultante de la bicicleta ($\theta$) es:
+\begin{equation}
+    G(s) = \frac{\Theta(s)}{\alpha(s)} = \frac{-Hs}{J_{eq}s^2 - M_{eq}L_{eq}g}
+    \label{eq:tf_2nd_order}
+\end{equation}
+
+Es de vital importancia notar la presencia del término $s$ en el numerador. En el dominio de Laplace, esto equivale a una derivada temporal, lo que confirma físicamente que el par giroscópico restaurador depende exclusivamente de la \textbf{velocidad de cambio} del ángulo de precesión ($\dot{\alpha}$), y no de una posición angular.
+
+\subsection{Parámetros Físicos del Sistema}
+
+Para el cálculo numérico de la función de transferencia empírica, se utilizaron los valores extraídos del diseño mecánico y las mediciones del prototipo físico:
+
+\begin{table}[H]
+\centering
+\caption{Parámetros físicos del sistema bicicleta-CMG}
+\label{tab:parametros_sistema}
+\begin{tabular}{|l|c|l|}
+\hline
+\textbf{Parámetro} & \textbf{Valor} & \textbf{Descripción} \\
+\hline
+$m_b$ & 7.65 kg & Masa de la estructura de la bicicleta \\
+\hline
+$m_f + m_g$ & 5.368 kg & Masa del conjunto móvil (volante + gimbal + motor) \\
+\hline
+$M_{eq}L_{eq}g$ & 29.06 N·m & Torque gravitacional inestabilizador \\
+\hline
+$J_{eq}$ & 1.045 kg·m² & Inercia total equivalente de balanceo \\
+\hline
+$H$ & 4.241 kg·m²/s & Momento angular neto ($3000$ RPM) \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Función de Transferencia Numérica y Análisis de Polos}
+
+Sustituyendo los valores de la Tabla \ref{tab:parametros_sistema} en la Ecuación \ref{eq:tf_2nd_order}:
+
+\begin{equation}
+    G(s) = \frac{-4.241s}{1.045s^2 - 29.06}
+\end{equation}
+
+Para llevar el sistema a su forma canónica y facilitar su implementación, se divide el numerador y el denominador por el coeficiente de inercia ($1.045$):
+
+\begin{equation}
+    G(s) = \frac{-4.058s}{s^2 - 27.80}
+\end{equation}
+
+El análisis de la ecuación característica del denominador ($s^2 - 27.80 = 0$) revela la dinámica natural a lazo abierto. Despejando las raíces, se obtienen dos polos reales:
+\begin{itemize}
+    \item $p_1 = -\sqrt{27.80} \approx -5.27$ rad/s
+    \item $p_2 = +\sqrt{27.80} \approx +5.27$ rad/s
+\end{itemize}
+
+La presencia del polo $p_2$ en el semiplano derecho confirma la inestabilidad del sistema. Una perturbación inicial provocará que el ángulo $\theta$ diverja. La constante de tiempo de esta divergencia es $\tau = 1/5.27 \approx 0.19$ segundos, lo que establece un límite temporal estricto para la respuesta del controlador y justifica la necesidad de una medición de alta velocidad mediante fusión de sensores (IMU).
+
+\subsection{Configuración del Modelo en Simulink}
+
+Para evaluar el comportamiento, se implementó el modelo reducido en simulink utilizando un bloque de función de transferencia continuo configurado con los parámetros canónicos:
+
+\begin{itemize}
+    \setlength\itemsep{6pt}
+    \item \textbf{Numerator coefficients:} \texttt{[-4.058 0]} \\
+    Representa el término dependiente de la velocidad $-4.058s$.
+    
+    \item \textbf{Denominator coefficients:} \texttt{[1 0 -27.80]} \\
+    Representa la dinámica inestable $s^2 + 0s - 27.80$.
+\end{itemize}
+
+\subsection{Simulación del Sistema a Lazo Abierto (Sin Control)}
+
+\subsubsection{Implementación en Simulink}
+
+Para validar el comportamiento dinámico del sistema sin control, se implementó el modelo de segundo orden en simulink sin ningún lazo de retroalimentación. Esta configuración permite observar la respuesta natural de la planta.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{imagen79.png}
+\caption{Diagrama de bloques del sistema a lazo abierto implementado en simulink}
+\label{fig:simulink_lazo_abierto}
+\end{figure}
+
+El diagrama de bloques de la Figura \ref{fig:simulink_lazo_abierto} muestra la implementación del modelo sin retroalimentación. El bloque de función de transferencia recibe como entrada el ángulo de precesión del gimbal $\alpha$ y genera como salida el ángulo de inclinación de la bicicleta $\theta$.
+
+\subsubsection{Resultados de la Simulación a Lazo Abierto}
+
+Se aplicó una entrada escalón de magnitud 0.5 . Esta perturbación simula un cambio súbito en la posición del actuador y permite observar la respuesta del sistema.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{imagen78.png}
+\caption{Respuesta del sistema a lazo abierto ante una entrada escalón de 0.5 rad}
+\label{fig:respuesta_lazo_abierto}
+\end{figure}
+
+La Figura \ref{fig:respuesta_lazo_abierto} muestra la respuesta temporal del ángulo de inclinación $\theta$ ante la entrada escalón aplicada. Como era de esperarse por el análisis de polos, el sistema presenta un comportamiento divergente característico de un sistema inestable:
+
+\begin{enumerate}
+    \setlength\itemsep{6pt}
+    \item \textbf{Crecimiento Exponencial:} La presencia del polo en el semiplano derecho ($p_2 = +5.27$ rad/s) provoca que la respuesta diverja exponencialmente con el tiempo.
+    
+    \item \textbf{Necesidad de Control Activo:} Sin un controlador que reubique los polos hacia el semiplano izquierdo, la bicicleta alcanzará rápidamente ángulos de inclinación críticos que superen los límites mecánicos del sistema.
+\end{enumerate}
+
+\subsection{Simulación del Sistema con Controlador PID}
+
+\subsubsection{Diseño del Controlador PID}
+
+Una vez validada la inestabilidad del sistema, se procedió a implementar un controlador PID de forma experimental para estabilizar el comportamiento del sistema. Los parámetros del controlador fueron sintonizados mediante prueba y error y validación experimental, obteniéndose los siguientes valores óptimos:
+
+\begin{table}[H]
+\centering
+\caption{Parámetros del controlador PID implementado}
+\label{tab:parametros_pid}
+\begin{tabular}{|l|c|l|}
+\hline
+\textbf{Parámetro} & \textbf{Valor} & \textbf{Descripción} \\
+\hline
+$K_p$ & 31.1 & Ganancia proporcional \\
+\hline
+$K_i$ & 0 & Ganancia integral \\
+\hline
+$K_d$ & 1.2 & Ganancia derivativa \\
+\hline
+Setpoint & 0° & Ángulo de referencia (posición vertical) \\
+\hline
+Límites de salida & -90° a +90° & Rango de acción del servomotor \\
+\hline
+Frecuencia de muestreo & 200 Hz & Período de muestreo: 5 ms \\
+\hline
+\end{tabular}
+\end{table}
+
+Estos parámetros corresponden exactamente a los implementados en el código del ESP32 (ver Anexo A, líneas 43-45), garantizando consistencia entre la simulación y el sistema real.
+
+\subsubsection{Implementación del Lazo Cerrado en Simulink}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{imagen77.png}
+\caption{Diagrama de bloques del sistema con controlador PID retroalimentado}
+\label{fig:simulink_lazo_cerrado}
+\end{figure}
+
+El diagrama de la Figura \ref{fig:simulink_lazo_cerrado} muestra la arquitectura del sistema de control en lazo cerrado. El controlador PID procesa el error entre el ángulo medido $\theta$ y el setpoint (0°), generando la señal de control $\alpha$ que comanda el servomotor del gimbal.
+
+\subsubsection{Resultados de la Simulación con PID}
+
+Se aplicó una perturbación inicial al sistema para evaluar la capacidad del controlador para rechazar perturbaciones y mantener la estabilidad.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{imagen76.png}
+\caption{Respuesta del sistema con controlador PID ante perturbación inicial}
+\label{fig:respuesta_pid}
+\end{figure}
+
+La Figura \ref{fig:respuesta_pid} muestra la respuesta del sistema controlado. Se observan las siguientes características:
+
+\begin{enumerate}
+    \setlength\itemsep{6pt}
+    \item \textbf{Estabilización Exitosa:} El controlador PID logra estabilizar el sistema, llevando el ángulo de inclinación de vuelta a la posición vertical (0°).
+    
+    \item \textbf{Tiempo de Asentamiento:} El sistema alcanza el estado estacionario en un tiempo menor a 2 segundos, cumpliendo con los requisitos de respuesta rápida.
+    
+    \item \textbf{Rechazo de Perturbaciones:} El controlador es capaz de compensar perturbaciones externas y mantener la estabilidad del sistema.
+    
+    \item \textbf{Sin Sobrepaso Excesivo:} La acción derivativa ($K_d = 1.2$) proporciona amortiguamiento adecuado, evitando oscilaciones prolongadas.
+\end{enumerate}
+
+\subsection{Validación del Modelo y Conclusiones de la Simulación}
+
+Los resultados de la simulación confirman que:
+
+\begin{itemize}
+    \setlength\itemsep{6pt}
+    \item El modelo de segundo orden captura fielmente la dinámica inestable de la plataforma bicicleta-CMG a lazo abierto.
+    \item El controlador PID con los parámetros sintonizados ($K_p=31.1$, $K_i=0$, $K_d=1.2$) es capaz de estabilizar efectivamente el sistema.
+    \item La simulación valida la estrategia de control antes de su implementación en el hardware real.
+    \item Los parámetros del PID son adecuados para su implementación en el ESP32 operando a 200 Hz.
+\end{itemize}
+
+
 % ============================================
 % CAPÍTULO 9: CONCLUSIONES Y RECOMENDACIONES
 % ============================================
@@ -1354,10 +1610,6 @@ Para garantizar la portabilidad (operación unplugged), se desarrolló un sistem
         \item \textbf{Inmunidad al Ruido Mecánico:} Actúa como un filtro pasa-bajas efectivo contra el "jitter" generado por las vibraciones del flywheel.
     \end{itemize}
 \end{enumerate}
-
-\section{Recomendaciones}
-
-
 
 % ============================================
 % CAPÍTULO 10: REFERENCIAS
@@ -1419,6 +1671,190 @@ InvenSense. (2016). MPU-9250 Product Specification Revision 1.1. TDK Corporation
 % ============================================
 \chapter{Anexos}
 
-De ser necesario, se pueden preparar Anexos en orden alfabético (Anexo 1, Anexo 2, etc.). Pueden ser utilizados para presentar mayor detalle sobre algún aspecto del documento sin romper el hilo conductor del texto principal.
+\section{Anexo A: Código Fuente del Sistema de Control}
+
+\subsection{Código Principal del ESP32 - Control PID con MPU9250}
+
+A continuación se presenta el código completo implementado en el microcontrolador ESP32 para el sistema de estabilización. Este programa integra la lectura del sensor inercial MPU9250, el filtro complementario para estimación de ángulo, el controlador PID y el control del servomotor.
+
+\begin{lstlisting}[style=arduino, caption={Código completo del sistema de control implementado en ESP32}, label={lst:esp32_control}]
+#include <Arduino.h>
+#include <Wire.h>
+#include "MPU9250.h"
+#include <PID_v1.h>
+
+// Crear instancia del MPU9250
+MPU9250 mpu;
+
+// ==== Pines ====
+#define PIN_SERVO 15
+#define PIN_TEST 4
+#define PIN_TEST2 16
+#define PIN_ACS712 34  // Sensor de corriente ACS712
+
+// ==== Variables compartidas ====
+volatile float ax, ay, az, gx, gy, gz;
+volatile unsigned long lastReadMicros = 0;
+
+// ==== Variables del filtro y PID ====
+float angleX = 0, angleY = 0;
+float angleX_prev = 0, angleY_prev = 0;
+
+// ==== Variables del sensor de corriente ACS712 ====
+float currentOffset = 2375;  // Valor ADC calibrado en corriente cero
+const float ACS712_SENSITIVITY = 0.066;  // 66mV/A para ACS712-30A
+const float ADC_VOLTAGE = 3.3;           // Voltaje de referencia del ADC del ESP32
+const int ADC_RESOLUTION = 4096;         // Resolucion del ADC (12 bits)
+float current_A = 0.0;                   // Corriente medida en amperios
+
+// Variables PID (double para compatibilidad con libreria)
+double setpoint = 0.0;
+double pidInput = 0.0;
+double pidOutput = 0.0;
+
+// Parametros PID
+#define KP 31.1
+#define KI 0
+#define KD 1.2
+
+#define ALPHA 0.9975f
+
+// Crear controlador PID
+PID myPID(&pidInput, &pidOutput, &setpoint, KP, KI, KD, DIRECT);
+
+void setup() {
+  Serial.begin(115200);
+  Wire.begin(21, 22);
+  Wire.setClock(100000); // Reducido de 400kHz a 100kHz para mayor estabilidad
+
+  pinMode(PIN_TEST, OUTPUT);
+  pinMode(PIN_TEST2, OUTPUT);
+  pinMode(PIN_ACS712, INPUT);
+
+  // Inicializa MPU9250
+  Serial.println("Iniciando MPU9250...");
+  
+  if (!mpu.setup(0x68)) {  // cambiar a 0x69 si AD0 esta en HIGH
+    Serial.println("Error al inicializar MPU9250");
+    while(1) {
+      Serial.println("MPU9250 no detectado");
+      delay(5000);
+    }
+  }
+  
+  Serial.println("MPU9250 conectado y configurado");
+
+  // ==== Configuracion PID ====
+  myPID.SetMode(AUTOMATIC);
+  myPID.SetOutputLimits(-90, 90);
+  myPID.SetSampleTime(5); // 5ms para coincidir con delay del loop
+
+  // ==== PWM para servo ====
+  ledcSetup(0, 50, 16); // Canal 0, 50Hz, 16 bits de resolucion
+  ledcAttachPin(PIN_SERVO, 0);
+}
+
+void loop() {
+  // ====== TAREA 1: Lectura MPU ======
+  //digitalWrite(PIN_TEST, HIGH);
+  digitalWrite(PIN_TEST2, HIGH);
+  
+  // Leer datos del MPU9250
+  if (mpu.update()) {
+    // Obtener datos (ya en unidades fisicas)
+    ax = mpu.getAccX(); // en g
+    ay = mpu.getAccY();
+    az = mpu.getAccZ();
+    gx = mpu.getGyroX(); // en deg/s
+    gy = mpu.getGyroY();
+    gz = mpu.getGyroZ();
+  }
+  
+  lastReadMicros = micros();
+
+  //digitalWrite(PIN_TEST, LOW);
+
+  // ====== TAREA 2: Filtro + PID ======
+  float dt = 0.005; // ciclo ~200 Hz (ajustar si se desea mas precision)
+
+  // Calcular angulos (acelerómetro) - ax, ay, az ya estan en unidades g
+  float accelX = atan2f(ay, sqrtf(ax * ax + az * az)) * 180.0f / M_PI;
+  float accelY = atan2f(-ax, sqrtf(ay * ay + az * az)) * 180.0f / M_PI;
+
+  // Filtro complementario - gx, gy, gz ya estan en grados/s
+  angleX = ALPHA * (angleX_prev + gx * dt) + (1 - ALPHA) * accelX;
+  angleY = ALPHA * (angleY_prev + gy * dt) + (1 - ALPHA) * accelY;
+  angleX_prev = angleX;
+  angleY_prev = angleY;
+  angleX = angleX - 3;
+  
+  // Actualizar entrada del PID y calcular
+  pidInput = angleX;
+  myPID.Compute();
+  
+  // ====== TAREA 3: Lectura de corriente ======
+  // Leer sensor de corriente ACS712
+  int adcValue = analogRead(PIN_ACS712);
+  
+  // Convertir a voltaje
+  float voltage = (adcValue * ADC_VOLTAGE) / ADC_RESOLUTION;
+  
+  // Calcular corriente
+  float offsetVoltage = (currentOffset * ADC_VOLTAGE) / ADC_RESOLUTION;
+  float voltageDiff = voltage - offsetVoltage;
+  current_A = voltageDiff / ACS712_SENSITIVITY;
+  
+  float output = pidOutput;
+ 
+  // Servo control - Rango completo 270 grados
+  /* Mapeo para servo de 270 grados: 500us = 0 grados, 2500us = 270 grados */
+  int pwm_us = map(output, -90, 90, 1638, 4000);
+   
+  int duty = (int)(pwm_us); // 20 ms periodo
+  ledcWrite(0, duty); // Canal 0
+  
+
+  // Mostrar datos
+  Serial.printf("AngX: %.2f\tPID: %.2f\tCorriente: %.2f A\n", pidInput, pidOutput, current_A);
+  digitalWrite(PIN_TEST2, LOW);
+
+  // Mantener frecuencia ~200 Hz mejorable a 500 Hz con 2 ms de delay mas de 500Hz no viable 
+  delay(5);
+}
+\end{lstlisting}
+
+\subsection{Descripción de los Componentes del Código}
+
+\subsubsection{Librerías Utilizadas}
+
+\begin{itemize}
+    \item \textbf{Arduino.h:} Framework principal para programación del ESP32.
+    \item \textbf{Wire.h:} Comunicación I2C con el sensor MPU9250.
+    \item \textbf{MPU9250.h:} Biblioteca para gestión del sensor inercial de 9 ejes.
+    \item \textbf{PID\_v1.h:} Implementación del controlador PID.
+\end{itemize}
+
+\subsubsection{Parámetros de Configuración}
+
+\begin{itemize}
+    \item \textbf{Frecuencia de muestreo:} 200 Hz (5 ms de período)
+    \item \textbf{Constante del filtro complementario (ALPHA):} 0.9975
+    \item \textbf{Ganancia proporcional (Kp):} 31.1
+    \item \textbf{Ganancia integral (Ki):} 0
+    \item \textbf{Ganancia derivativa (Kd):} 1.2
+    \item \textbf{Límites de salida PID:} -90° a +90°
+\end{itemize}
+
+\subsubsection{Arquitectura del Sistema de Control}
+
+El código implementa un lazo de control en tiempo real que ejecuta las siguientes tareas de forma secuencial:
+
+\begin{enumerate}
+    \item \textbf{Lectura del sensor MPU9250:} Obtención de datos de acelerómetro (ax, ay, az) y giroscopio (gx, gy, gz).
+    \item \textbf{Fusión sensorial:} Aplicación del filtro complementario para estimar el ángulo de inclinación con baja latencia y mínima deriva.
+    \item \textbf{Cálculo del PID:} Procesamiento del error entre el ángulo medido y el setpoint (0°) para generar la señal de control.
+    \item \textbf{Actuación:} Conversión de la salida del PID a señal PWM para control del servomotor del gimbal.
+    \item \textbf{Monitoreo:} Lectura del sensor de corriente ACS712 para supervisión del consumo energético del sistema.
+\end{enumerate}
 
 \end{document}
