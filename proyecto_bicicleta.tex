@@ -388,15 +388,15 @@ En resumen, la justificación de esta investigación se fundamenta en la necesid
 
 \section{Objetivo General}
 
-Diseñar una plataforma mecánica capaz de estabilizar una bicicleta durante un corto periodo de tiempo, simulando condiciones de equilibrio en estado de reposo o baja velocidad. La estabilización se logrará mediante un volante de inercia que, por medio de un sistema de control, aprovechará el momento angular generado por su rotación, junto con el efecto giroscópico, para oponerse activamente a las perturbaciones que puedan afectar el balance del sistema. Este diseño permitirá analizar y validar el comportamiento dinámico de la bicicleta frente a pequeñas variaciones.
+Diseñar y construir una plataforma mecánica experimental, compuesta por una bicicleta equipada con un volante de inercia, sensores, actuadores e instrumentación asociada, que permita implementar, evaluar y validar estrategias de control orientadas a su estabilización.
 
 \section{Objetivos específicos}
 
 \begin{enumerate}
     \setlength\itemsep{6pt}
-    \item Diseñar y construir un modelo físico funcional de la planta, que permita la integración de un sistema de control para analizar el comportamiento dinámico de una bicicleta en condiciones de equilibrio inestables.
-    \item Diseñar e implementar un volante de inercia adecuado al sistema, realizando las modificaciones necesarias a la estructura de la bicicleta para mantener el centro de masa lo más centrado posible, optimizando así el control y la estabilidad.
-    \item Evaluar experimentalmente la respuesta del sistema bajo diferentes condiciones de funcionamiento, midiendo variables clave como el ángulo de inclinación, la velocidad de respuesta y la efectividad del sistema.
+    \item Diseñar y construir la estructura mecánica de la plataforma experimental, basada en una bicicleta inestable acoplada a un volante de inercia, garantizando condiciones adecuadas para su operación, instrumentación y realización de pruebas en laboratorio.
+    \item Integrar el sistema de sensado, actuación e instrumentación electrónica de la planta, mediante la selección e implementación de sensores, actuadores, sistemas de adquisición de datos y procesamiento, que permitan medir las variables dinámicas relevantes y aplicar acciones de control en tiempo real.
+    \item Implementar una estrategia básica de control en lazo cerrado, que permita validar experimentalmente la capacidad de la plataforma para capturar las variables dinámicas del sistema a través de los sensores integrados, así como verificar la respuesta del actuador frente a las señales de control aplicadas.
 \end{enumerate}
 
 % ============================================
@@ -512,7 +512,7 @@ Ecuación de la velocidad de precesión:
 
 \subsection{Estimación de Orientación mediante Filtros Complementarios}
 
-La estimación precisa del ángulo de inclinación u orientación es fundamental en el control de sistemas dinámicos, como el péndulo invertido. Para lograr esto, se emplean comúnmente sensores inerciales que incluyen acelerómetro y giroscopio. Sin embargo, cada uno de estos sensores presenta limitaciones inherentes que impiden su uso aislado de manera eficiente en sistemas de control de retroalimentación (Adams, s.f.).
+El calculo y la obtención del ángulo de inclinación u orientación es fundamental en el control de sistemas dinámicos, como el péndulo invertido. En los sistemas de control, se emplean comúnmente sensores que incluyen acelerómetros y giroscopios. Sin embargo, cada uno de estos sensores presenta limitaciones que impiden su uso de cada uno de ellos de manera independiente, lo cual reduce la eficiencia en un sistemas de control de retroalimentación. A continuación se desglosan cada uno de los componentes y como se tomaron sus respectivas mediadas.
 
 \subsubsection{El Acelerómetro y la Medición de Inclinación}
 
@@ -546,9 +546,9 @@ Donde $W$ es un peso (típicamente cercano a 0.99) que permite que el sistema ig
 
 De acuerdo con National Instruments (2025), el algoritmo PID es el controlador más utilizado en la industria debido a su robustez y simplicidad. Su funcionamiento se basa en un mecanismo de retroalimentación que calcula continuamente el valor de un ``error'' como la diferencia entre una variable de proceso medida y un punto de consigna deseado. El controlador intenta minimizar este error ajustando las entradas de control del sistema a través de la suma de tres parámetros: el proporcional, que determina la reacción al error actual; el integral, que permite eliminar el error de estado estacionario acumulado; y el derivativo, que actúa como un amortiguador al predecir el comportamiento futuro del error basado en su tasa de cambio.
 
-Asimismo, la implementación de este controlador requiere una sintonización precisa para equilibrar la velocidad de respuesta con la estabilidad del sistema. Un ajuste excesivo de la ganancia proporcional o integral puede provocar que el sistema se vuelva inestable y oscile, mientras que una acción derivativa muy alta puede hacer que el sistema sea excesivamente sensible al ruido de los sensores. Por ello, el uso de herramientas de simulación y métodos de ajuste es fundamental para garantizar que el controlador PID mantenga el sistema en su punto óptimo de operación, permitiendo que el proceso regrese a su estado deseado de forma rápida y eficiente tras una perturbación (National Instruments, 2025).
+Asimismo, la implementación del controlador requiere una sintonización para equilibrar la velocidad de respuesta con la estabilidad del sistema. Un ajuste excesivo de la ganancia proporcional o integral puede provocar que el sistema se vuelva inestable y oscile, mientras que un excezo en la variable derivativa puede hacer que el sistema sea sensible al ruido de los sensores. Por ello, para garantizar que el controlador PID mantenga el sistema estable, se usan herramientas de simulación y metodos de ajuste es fundamental, permitiendo que el la planta regrese a su estado deseado de forma rápida tras sufrir una perturbación.
 
-Para completar el marco teórico, se presenta la expresión matemática estándar de un controlador PID y la explicación detallada de cada uno de sus componentes, basándose en la literatura técnica de National Instruments.
+A continuación, se presenta la expresión matemática estándar de un controlador PID y la explicación de cada uno de sus componentes.
 
 \subsubsection{La Ecuación General del PID}
 
