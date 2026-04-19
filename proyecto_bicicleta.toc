@@ -98,14 +98,21 @@
 \contentsline {subsubsection}{Implementación del Lazo Cerrado en Simulink}{48}{subsubsection*.62}%
 \contentsline {subsubsection}{Resultados de la Simulación con PID}{48}{subsubsection*.64}%
 \contentsline {subsection}{\numberline {7.11.7}Validación del Modelo y Conclusiones de la Simulación}{49}{subsection.7.11.7}%
-\contentsline {chapter}{\numberline {8}Conclusiones y Recomendaciones}{51}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Conclusiones}{51}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Recomendaciones}{52}{section.8.2}%
-\contentsline {chapter}{\numberline {9}Referencias}{53}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Anexos}{55}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Anexo A: Código Fuente del Sistema de Control}{55}{section.10.1}%
-\contentsline {subsection}{\numberline {10.1.1}Código Principal del ESP32 - Control PID con MPU9250}{55}{subsection.10.1.1}%
-\contentsline {subsection}{\numberline {10.1.2}Descripción de los Componentes del Código}{58}{subsection.10.1.2}%
-\contentsline {subsubsection}{Librerías Utilizadas}{58}{subsubsection*.66}%
-\contentsline {subsubsection}{Parámetros de Configuración}{59}{subsubsection*.67}%
-\contentsline {subsubsection}{Arquitectura del Sistema de Control}{59}{subsubsection*.68}%
+\contentsline {section}{\numberline {7.12}Fase 6: Validación Experimental del Sistema en Condiciones Reales}{50}{section.7.12}%
+\contentsline {subsection}{\numberline {7.12.1}Adquisición y Procesamiento de Señales de los Sensores}{50}{subsection.7.12.1}%
+\contentsline {subsubsection}{Señales Individuales de Acelerómetro y Giroscopio}{50}{subsubsection*.66}%
+\contentsline {subsubsection}{Comparación entre Sensores y Filtro Complementario}{51}{subsubsection*.68}%
+\contentsline {subsection}{\numberline {7.12.2}Respuesta del Controlador PID en Operación Real}{53}{subsection.7.12.2}%
+\contentsline {subsubsection}{Salida del Filtro Complementario y Acción del PID}{53}{subsubsection*.71}%
+\contentsline {subsubsection}{Comparación Temporal entre Medición y Acción de Control}{54}{subsubsection*.73}%
+\contentsline {subsection}{\numberline {7.12.3}Análisis de Resultados Experimentales}{55}{subsection.7.12.3}%
+\contentsline {chapter}{\numberline {8}Conclusiones y Recomendaciones}{56}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Conclusiones}{56}{section.8.1}%
+\contentsline {chapter}{\numberline {9}Referencias}{58}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Anexos}{60}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Anexo A: Código Fuente del Sistema de Control}{60}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}Código Principal del ESP32 - Control PID con MPU9250}{60}{subsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.1.2}Descripción de los Componentes del Código}{63}{subsection.10.1.2}%
+\contentsline {subsubsection}{Librerías Utilizadas}{63}{subsubsection*.75}%
+\contentsline {subsubsection}{Parámetros de Configuración}{64}{subsubsection*.76}%
+\contentsline {subsubsection}{Arquitectura del Sistema de Control}{64}{subsubsection*.77}%

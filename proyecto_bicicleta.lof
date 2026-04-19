@@ -42,6 +42,10 @@
 \contentsline {figure}{\numberline {7.31}{\ignorespaces Respuesta del sistema a lazo abierto ante una entrada escalón de 0.5 rad}}{47}{figure.caption.59}%
 \contentsline {figure}{\numberline {7.32}{\ignorespaces Diagrama de bloques del sistema con controlador PID retroalimentado}}{48}{figure.caption.63}%
 \contentsline {figure}{\numberline {7.33}{\ignorespaces Respuesta del sistema con controlador PID ante perturbación inicial}}{49}{figure.caption.65}%
+\contentsline {figure}{\numberline {7.34}{\ignorespaces Señales de acelerómetro y giroscopio en función del tiempo (ms). Donde muestra cada sensor durante la operación del sistema.}}{51}{figure.caption.67}%
+\contentsline {figure}{\numberline {7.35}{\ignorespaces Comparación entre acelerómetro, giroscopio y filtro complementario.}}{52}{figure.caption.69}%
+\contentsline {figure}{\numberline {7.36}{\ignorespaces Señal del filtro complementario (arriba) y salida del controlador PID en ángulos para el servomotor (abajo). Se observa la acción de control del controlador ante las variaciones de inclinación.}}{54}{figure.caption.72}%
+\contentsline {figure}{\numberline {7.37}{\ignorespaces Comparación temporal entre el filtro complementario (medición del ángulo de inclinación) y la salida del controlador PID (comando al servomotor). Se observa la relación de fase y la capacidad del controlador para estabilizar el sistema.}}{55}{figure.caption.74}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1586,6 +1586,125 @@ Los resultados de la simulación confirman que:
     \item Los parámetros del PID son adecuados para su implementación en el ESP32 operando a 200 Hz.
 \end{itemize}
 
+\section{Fase 6: Validación Experimental del Sistema en Condiciones Reales}
+
+Una vez validado el comportamiento del sistema mediante simulación, se procedió a realizar pruebas reales con la planta física. Esto para verificar el comportamiento del sistema , la efectividad del filtro complementario y la respuesta del controlador PID ante perturbaciones reales.
+
+\subsection{Adquisición y Procesamiento de Señales de los Sensores}
+
+El sistema de medición se basa en la fusión de datos del acelerómetro y el giroscopio del sensor MPU9250. Cada sensor aporta información para estimar el ángulo de inclinación de la bicicleta:
+
+\begin{itemize}
+    \setlength\itemsep{6pt}
+    \item \textbf{Acelerómetro:} Proporciona una medición absoluta del ángulo basada en la detección de la componente gravitacional. Es preciso cuando no presenta mucho movimiento , pero sensible a vibraciones y aceleraciones.
+    \item \textbf{Giroscopio:} Mide la velocidad angular . Al integrarse en el tiempo, proporciona el ángulo relativo. Es inmune a vibraciones pero presenta deriva acumulativa.
+\end{itemize}
+
+\subsubsection{Señales Individuales de Acelerómetro y Giroscopio}
+
+La Figura \ref{fig:ace_giro_separado} muestra el comportamiento temporal de ambas señales durante una prueba de la bicicleta.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imagen80.png}
+\caption{Señales de acelerómetro y giroscopio en función del tiempo (ms). Donde muestra cada sensor durante la operación del sistema.}
+\label{fig:ace_giro_separado}
+\end{figure}
+
+Como se observa en la Figura \ref{fig:ace_giro_separado}, el acelerómetro presenta fluctuaciones de alta frecuencia causadas por vibraciones mecánicas del flywheel, mientras que el giroscopio muestra una curva más suave pero con deriva temporal.
+
+\subsubsection{Comparación entre Sensores y Filtro Complementario}
+
+Para obtener una medicion del ángulo de inclinación, se implementó un filtro complementario que combina las ventajas de ambos sensores. La Figura \ref{fig:ace_vs_giro_vs_filtro} muestra la comparación entre las tres señales.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imagen81.png}
+\caption{Comparación entre acelerómetro, giroscopio y filtro complementario.}
+\label{fig:ace_vs_giro_vs_filtro}
+\end{figure}
+
+La Figura \ref{fig:ace_vs_giro_vs_filtro} evidencia la efectividad del filtro complementario al ofrecer una señal estable que combina la del acelerómetro con la del giroscopio.
+
+Para cuantificar el desempeño de cada sensor y del filtro complementario, se realizó un análisis estadístico de 4344 muestras capturadas durante 21.72 segundos a una frecuencia de muestreo de 200 Hz. La Tabla \ref{tab:estadisticas_sensores} presenta las métricas obtenidas para cada señal.
+
+\begin{table}[H]
+\centering
+\caption{Análisis comparativo de ángulos medidos por acelerómetro, giroscopio y filtro complementario.}
+\label{tab:estadisticas_sensores}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Métrica} & \textbf{Acelerómetro} & \textbf{Giroscopio} & \textbf{Filtro Comp.} \\
+ & \textbf{(AccelX)} & \textbf{(GyroX)} & \textbf{(AngX)} \\
+\hline
+Ángulo inicial & 10.28° & 0.00° & -3.80° \\
+Ángulo final & 2.15° & -19.17° & -1.50° \\
+Promedio & 5.56° & -9.45° & -0.52° \\
+Mínimo & -40.18° & -19.17° & -4.74° \\
+Máximo & 54.29° & 0.74° & 4.22° \\
+Rango & 94.47° & 19.91° & 8.96° \\
+Desviación estándar & 11.96° & 6.06° & 1.41° \\
+Deriva total & -8.13° & -19.17° & 2.30° \\
+Deriva por segundo & -0.3743°/s & -0.8826°/s & 0.1059°/s \\
+\hline
+\end{tabular}
+\end{table}
+
+Los resultados de la Tabla \ref{tab:estadisticas_sensores} confirman las ventajas del filtro complementario:
+
+\begin{enumerate}
+    \setlength\itemsep{6pt}
+    \item \textbf{Menor desviación estándar:} El filtro complementario presenta una desviación de solo 1.41°, significativamente menor que la del acelerómetro (11.96°) y el giroscopio (6.06°), lo que indica una señal más estable.
+    
+    \item \textbf{Rango reducido:} Con un rango de 8.96°, el filtro complementario elimina las fluctuaciones extremas presentes en el acelerómetro (94.47°) causadas por vibraciones mecánicas.
+    
+    \item \textbf{Baja deriva:} La deriva por segundo del filtro (0.1059°/s) es considerablemente menor que la del giroscopio (-0.8826°/s), mitigando el problema de acumulación de error temporal característico de los giroscopios.
+    
+    \item \textbf{Precisión en estado estacionario:} El promedio cercano a cero (-0.52°) indica que el filtro mantiene una referencia estable cercana a la posición de equilibrio.
+\end{enumerate}
+
+\subsection{Respuesta del Controlador PID en Operación Real}
+
+\subsubsection{Salida del Filtro Complementario y Acción del PID}
+
+La Figura \ref{fig:filtro_pid} muestra la relación entre la señal de entrada al controlador (filtro complementario) y la salida del PID que comanda el servomotor del gimbal.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imagen82.png}
+\caption{Señal del filtro complementario (arriba) y salida del controlador PID en ángulos para el servomotor (abajo). Se observa la acción de control del controlador ante las variaciones de inclinación.}
+\label{fig:filtro_pid}
+\end{figure}
+
+La Figura \ref{fig:filtro_pid} muestra cómo el controlador PID procesa el error de inclinación y genera comandos de posición angular para el servomotor. La acción derivativa permite anticipar cambios bruscos, mientras que la acción proporcional proporciona la fuerza correctiva principal.
+
+\subsubsection{Comparación Temporal entre Medición y Acción de Control}
+
+Para analizar la respuesta del sistema en tiempo real, se compararon directamente las señales del filtro complementario y la salida del PID.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imagen83.png}
+\caption{Comparación temporal entre el filtro complementario (medición del ángulo de inclinación) y la salida del controlador PID (comando al servomotor). Se observa la relación de fase y la capacidad del controlador para estabilizar el sistema.}
+\label{fig:filtro_vs_pid}
+\end{figure}
+
+La Figura \ref{fig:filtro_vs_pid} permite observar la correlación inversa entre la inclinación detectada y la acción correctiva del PID, confirmando el funcionamiento del lazo de control en condiciones reales.
+
+\subsection{Análisis de Resultados Experimentales}
+
+Los resultados experimentales demuestran que:
+
+\begin{enumerate}
+    \setlength\itemsep{6pt}
+    \item \textbf{Fusión Efectiva de Sensores:} El filtro complementario logra combinar exitosamente las señales del acelerómetro y giroscopio, proporcionando una estimación robusta del ángulo de inclinación con baja latencia y mínima deriva.
+    
+    \item \textbf{Respuesta del PID:} El controlador PID responde de manera efectiva a las perturbaciones, generando comandos de control proporcionales al error detectado y anticipando cambios mediante la acción derivativa.
+    
+       
+    \item \textbf{Validación del Diseño:} Los resultados experimentales confirman la viabilidad del diseño mecánico , validando las predicciones obtenidas en la fase de simulación.
+\end{enumerate}
+
 
 % ============================================
 % CAPÍTULO 9: CONCLUSIONES Y RECOMENDACIONES
