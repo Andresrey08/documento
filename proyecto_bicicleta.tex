@@ -117,7 +117,7 @@
 
 {\fontsize{12}{14}\selectfont\bfseries UNIVERSIDAD DISTRITAL FRANCISCO JOSÉ DE CALDAS\par}
 {\fontsize{12}{14}\selectfont Facultad Tecnológica\par}
-{\fontsize{12}{14}\selectfont Ingeniería en Control\par}
+{\fontsize{12}{14}\selectfont Ingeniería en Control y Automatización\par}
 
 
 
@@ -133,11 +133,10 @@
 \centering
 
 {\fontsize{14}{16}\selectfont\bfseries DISEÑO E IMPLEMENTACIÓN DE UNA PLATAFORMA DE ESTABILIZACIÓN PARA UNA BICICLETA UTILIZANDO UN VOLANTE DE INERCIA\par}
-{\fontsize{12}{14}\selectfont Nombre\_Empresa\par}
 \centering
 \includegraphics[width=0.35\textwidth]{image1.jpeg}
 \vfill
-
+ 
 
 
 {\fontsize{12}{14}\selectfont\bfseries Autores\par}
@@ -305,7 +304,7 @@ A partir de lo anterior, el desarrollo profesional de un estudiante en automatiz
 
 Como solución a esta necesidad, se desarrolló el modelo de un volante el cual aprovecha la velocidad y momento angular para mantener estable cualquier tipo de bicicleta. El volante fue acoplado a una bicicleta y por medio de un controlador (PID) cuyo deber es mantener controlado un motor DC y permitir jugar con la posición de dicho volante, esto con la finalidad de guiar y aprovechar al máximo el torque generado a partir de momento angular a la dirección que necesita la bicicleta para mantenerse estable.
 
-\textbf{Palabras claves:} Control PID, Estabilización, Volante de Inercia, Giroscopio, Bicicleta, ESP32, MPU9250
+\noindent\textbf{Palabras claves:} Control PID, Estabilización, Volante de Inercia, Giroscopio, Bicicleta, ESP32, MPU9250
 
 % ============================================
 % INICIO DE NUMERACIÓN ARÁBIGA
@@ -711,7 +710,7 @@ Considerando la gravedad para un péndulo invertido:
     V = (m_b h_b + m_g h_g + m_f h_f) g \cos\theta
 \end{equation}
 
-\subsection{El Lagrangiano ($L$)}
+\subsection{El Lagrangiano \texorpdfstring{($L$)}{(L)}}
 \begin{equation}
     L = T - V
 \end{equation}
@@ -757,7 +756,7 @@ El modelo linealizado que se utiliza para programar el controlador es:
     \begin{bmatrix} 0 \\ 0 \\ 0 \\ \frac{1}{I_\alpha} \end{bmatrix} \tau_\alpha
 \end{equation}
 
-\subsection{Función de Transferencia $G(s)$ - Modelo Completo (Entrada: Torque)}
+\subsection{Función de Transferencia \texorpdfstring{$G(s)$}{G(s)} - Modelo Completo (Entrada: Torque)}
 
 Al aplicar la Transformada de Laplace y resolver para $\frac{\Theta(s)}{T_\alpha(s)}$, obtenemos una expresión de cuarto orden que relaciona la entrada de torque de precesión con el ángulo de inclinación. Dado que el sistema tiene un polo en el origen factorizable, la función se reduce a tercer orden:
 \begin{equation}
@@ -1181,7 +1180,7 @@ Sin embargo, tanto el sistema de transmisión por cadenilla como el sistema de p
 
 En contraste a esta limitaciones evidenciadas, se determinó la necesidad de reemplazar el motor reductor por un servomotor, el cual ofrecía una mejor respuesta dinámica, mayor precisión en el control de posición y una integración más adecuada con el sistema de control implementado.
 
-Para lograr implementar el servomotor, fue necesario diseñar un soporte para el servomotor, en forma de L con un ajuste de distancia con respecto al marco de la bicicleta, a su vez el soporte se asegura a la base del marco de la bicicleta. Además estar acoplado a un soporte en el cual se asegura el eje del servomotor al mismo tiempo alinea el centro del eje de la chumacera y el servomotor. A continuación, en las figuras \ref{fig:soporte_servo1}, \ref{fig:acople_servo} y \ref{fig:sistema_direccion} se ilustra el diseño y cada uno de los componentes los cuales hacen parte del sistema de dirección y acople del servomotor.
+Para lograr implementar el servomotor, fue necesario diseñar un soporte para el servomotor, en forma de L con un ajuste de distancia con respecto al marco de la bicicleta, a su vez el soporte se asegura a la base del marco de la bicicleta. Además estar acoplado a un soporte en el cual se asegura el eje del servomotor al mismo tiempo alinea el centro del eje de la chumacera y el servomotor. A continuación, en las figuras \ref{fig:soporte_servo1} y \ref{fig:acople_servo} se ilustra el diseño y cada uno de los componentes los cuales hacen parte del sistema de dirección y acople del servomotor.
 
 
 \begin{figure}[H]
@@ -1195,7 +1194,7 @@ Para lograr implementar el servomotor, fue necesario diseñar un soporte para el
 
 Inicialmente se implementó un servomotor con un ángulo de giro de 270° y una capacidad de carga aproximada de 10 kg, lo cual representaba una ventaja significativa debido al amplio rango de movimiento disponible y a que el actuador contaba con la fuerza suficiente para accionar el sistema de dirección de la planta. Estas características permitieron realizar las primeras pruebas de control del conjunto motor–volante de manera satisfactoria.
 
-No obstante, durante las pruebas realizadas con la señal de salida generada por el microcontrolador, se evidenció un desgaste prematuro en el sistema interno de engranajes del servomotor. Este fenómeno se presentó debido a los cambios bruscos en el sentido de giro, los cuales generaban esfuerzos mecánicos superiores a la capacidad de diseño del servomotor, tal como se ilustra en las Figuras \ref{fig:desgaste_servo} y \ref{fig:comparacion_desgaste}.
+No obstante, durante las pruebas realizadas con la señal de salida generada por el microcontrolador, se evidenció un desgaste prematuro en el sistema interno de engranajes del servomotor. Este fenómeno se presentó debido a los cambios bruscos en el sentido de giro, los cuales generaban esfuerzos mecánicos superiores a la capacidad de diseño del servomotor, tal como se ilustra en la Figura \ref{fig:desgaste_servo}.
 
 \begin{figure}[H]
 \centering
@@ -1297,9 +1296,9 @@ Como resultado de la primera fase, se logró una planta mecánica eficiente medi
     \item \textbf{Acondicionamiento para Electrónica:} Se retiró el sillín original para integrar una plataforma de soporte personalizada.
 \end{itemize}
 
-\subsection{Diseño del volante de inercia}
+\subsection{Diseño del volante de inercia y sistema de dirección vertical}
 
-El diseño del volante de inercia se centró en optimizar la distribución de masa para maximizar el efecto giroscópico:
+El diseño del volante de inercia se centró en optimizar la distribución de masa para maximizar el efecto giroscópico además del diseño del sistema de dirección, permite al volante de inercia genere el par de torsión necesario para equilibrar la bicicleta, el diseño del sistema de dirección vertical y volante se detallan a continuación:
 
 \begin{figure}[p]
     \centering
@@ -1309,7 +1308,7 @@ El diseño del volante de inercia se centró en optimizar la distribución de ma
         \caption{Vista del volante de inercia en SolidWorks}
         \label{fig:volante_solidworks_1}
     \end{minipage}
-    \\[12pt]
+    \\[6pt]
     \vfill
     \begin{minipage}{0.5\textwidth}
         \centering
@@ -1317,7 +1316,7 @@ El diseño del volante de inercia se centró en optimizar la distribución de ma
         \caption{Detalle del diseño del volante en SolidWorks}
         \label{fig:volante_solidworks_2}
     \end{minipage}
-    \\[12pt]
+    \\[6pt]
     \vfill
     \begin{minipage}{0.5\textwidth}
         \centering
@@ -1333,54 +1332,98 @@ El diseño del volante de inercia se centró en optimizar la distribución de ma
     \item \textbf{Proceso de Fabricación y Ajuste Mecánico:} Partiendo de un bloque sólido de acero, se utilizó un proceso de torneado de precisión.
 \end{itemize}
 
-\subsection{Sistema de dirección vertical}
-
-Para permitir que el volante de inercia genere el par de torsión necesario para equilibrar la bicicleta, se diseñó un sistema de dirección vertical basado en el principio de precesión giroscópica.
-
 \clearpage
-\section{Fase 2: Instrumentación y Procesamiento de Señales}
+\section{Fase 2: Diseño e Integración del Sistema Electrónico}
 
-Una vez consolidada la estructura mecánica, se procedió a la implementación del sistema de percepción.
+Una vez consolidada la estructura mecánica, se procedió al diseño e implementación del sistema electrónico de control, el cual integra todos los componentes de potencia, procesamiento y percepción necesarios para la estabilización activa de la plataforma.
 
-\subsection{Implementación de la Unidad de Medición Inercial (IMU)}
+\subsection{Arquitectura del Sistema de Estabilización Giroscópica}
 
-Para la captura del ángulo de inclinación se utilizó la IMU MPU9250, un dispositivo que integra acelerómetro, magnetómetro y giroscopio.
+El sistema de estabilización implementado se basa en una arquitectura de control de lazo cerrado que integra diversos subsistemas electrónicos y mecánicos. La Figura \ref{fig:arquitectura_sistema} presenta el diagrama de bloques completo del sistema, diferenciando claramente los flujos de potencia eléctrica y las señales de control/datos.
 
-\subsection{Estrategia de Fusión de Datos: Filtro Complementario}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{image72.png}
+\caption{Arquitectura completa del sistema de estabilización giroscópica, mostrando flujos de potencia (líneas gruesas) y señales de control (líneas delgadas)}
+\label{fig:arquitectura_sistema}
+\end{figure}
 
-Debido a las propiedades físicas de cada sensor, se implementó un algoritmo de fusión de datos que permite obtener una medida más precisa que si se usaran de forma aislada.
+La arquitectura se compone de los siguientes subsistemas principales:
 
-\subsection{Montaje e Integración del Microcontrolador}
+\subsubsection{Fuente de Energía (Power Stack)}
 
-Para la gestión de procesos y el control de la planta, se integró un microcontrolador ESP32 montado sobre una base central diseñada para aislar los componentes electrónicos de las vibraciones mecánicas.
+El sistema de alimentación está conformado por un pack de baterías LiFePO$_4$ de 6 celdas en serie, proporcionando un voltaje nominal de 20V-24V. Este pack está protegido por un Sistema de Gestión de Baterías (BMS) que supervisa el estado de cada celda, gestiona la carga balanceada y protege contra sobrecorriente, sobrecarga y descarga excesiva. Esta configuración garantiza la seguridad y prolonga la vida útil del sistema de almacenamiento energético.
 
-\subsection{Interfaz de Actuación y Acople de Potencia}
+\subsubsection{Unidad de Control (Cerebro del Sistema)}
 
-La interfaz de actuación constituye el vínculo físico entre las decisiones del microcontrolador y la respuesta dinámica de la planta.
+El núcleo de procesamiento está basado en un microcontrolador ESP32, que opera a 240 MHz en arquitectura dual-core. Este microcontrolador ejecuta el algoritmo de fusión sensorial (filtro complementario) y el controlador PID en tiempo real a una frecuencia de 200 Hz. La alimentación del ESP32 se realiza mediante un convertidor DC-DC Buck estabilizado a 5V, el cual también alimenta al sensor inercial, garantizando un voltaje libre de ruido y ripple para los componentes de lógica digital.
 
-\section{Fase 3: Construcción y Sintonización del Controlador PID}
+\subsubsection{Sistema de Percepción (Sensado Inercial)}
 
-Esta fase consistió en el desarrollo del algoritmo que permite el equilibrio autónomo:
+El sensado de la orientación de la bicicleta se realiza mediante una Unidad de Medición Inercial (IMU) MPU9250, ubicada estratégicamente en el eje de simetría de la estructura. Este sensor de 9 grados de libertad integra acelerómetro triaxial, giroscopio triaxial y magnetómetro, comunicándose con el ESP32 mediante protocolo I²C. Los datos crudos de aceleración lineal y velocidad angular son procesados por el microcontrolador para estimar el ángulo de inclinación mediante fusión sensorial.
+
+\subsubsection{Actuador de Dirección (Sistema de Precesión del Gimbal)}
+
+El control del ángulo de precesión del volante de inercia se realiza mediante un servomotor digital de alto torque modelo DS5180, capaz de generar 80 kg-cm de par motor. Este actuador cuenta con engranajes de acero reforzados para soportar las cargas dinámicas generadas por el efecto giroscópico. 
+
+La alimentación del servomotor se gestiona mediante un convertidor DC-DC Buck dedicado, regulado a 6V con capacidad de 10A. Para mitigar el ruido eléctrico generado por los picos de corriente del servomotor, se implementó un arreglo de condensadores electrolíticos de desacople en la línea de alimentación, filtrando las oscilaciones de alta frecuencia y protegiendo al resto del sistema.
+
+El ESP32 comanda la posición angular del servomotor mediante una señal PWM de 50 Hz, cuyo ciclo de trabajo determina el ángulo deseado del gimbal. Este control de posición permite variar el eje de momento angular del volante de inercia, generando el torque de reacción giroscópico necesario para estabilizar la bicicleta.
+
+\subsubsection{Sistema de Inercia (Flywheel y Motor de Tracción)}
+
+El volante de inercia, de geometría tipo anillo en acero, está acoplado mecánicamente a un motor de corriente continua (DC) que lo mantiene girando a velocidad constante de aproximadamente 3000 RPM. Esta alta velocidad angular genera un momento angular significativo ($H \approx 4.24$ kg·m²/s), fundamental para el efecto giroscópico de estabilización.
+
+La alimentación del motor del volante se realiza mediante conexión directa desde el BMS a través de un interruptor de alta corriente, permitiendo activación/desactivación manual del sistema de inercia. Esta alimentación sin regulación intermedia permite al motor alcanzar su máxima velocidad de operación sin pérdidas por conversión.
+
+\subsubsection{Flujo de Señales de Control}
+
+El flujo de información en el lazo de control sigue la siguiente secuencia:
+
+\begin{enumerate}
+    \setlength\itemsep{4pt}
+    \item \textbf{Adquisición:} El sensor MPU9250 transmite datos crudos de aceleración ($a_x, a_y, a_z$) y velocidad angular ($\omega_x, \omega_y, \omega_z$) al ESP32 mediante bus I²C.
+    
+    \item \textbf{Procesamiento:} El ESP32 ejecuta internamente el filtro complementario para estimar el ángulo de inclinación ($\theta$), combinando la referencia gravitacional del acelerómetro con la respuesta dinámica del giroscopio.
+    
+    \item \textbf{Cálculo de Error:} Se calcula la diferencia entre el ángulo medido y el setpoint (0°, posición vertical).
+    
+    \item \textbf{Acción de Control:} El algoritmo PID procesa el error y genera una señal de control proporcional, derivativa e integral.
+    
+    \item \textbf{Actuación:} El ESP32 convierte la salida del PID en una señal PWM de 50 Hz que comanda la posición angular del servomotor DS5180, ajustando la precesión del volante de inercia.
+\end{enumerate}
+
+\subsubsection{Flujo de Potencia Eléctrica}
+
+El sistema de distribución de energía está diseñado para optimizar la eficiencia y minimizar interferencias electromagnéticas:
 
 \begin{itemize}
-    \setlength\itemsep{6pt}
-    \item Fusión de Sensores
-    \item Cálculo del Error
-    \item Sintonización de Constantes
+    \setlength\itemsep{4pt}
+    \item \textbf{Línea de Lógica (5V):} Batería $\rightarrow$ BMS $\rightarrow$ DC-DC Buck 1 (5V) $\rightarrow$ ESP32 + MPU9250
+    
+    \item \textbf{Línea de Potencia Servo (6V):} Batería $\rightarrow$ BMS $\rightarrow$ DC-DC Buck 2 (6V/10A) $\rightarrow$ Condensadores de Desacople $\rightarrow$ Servomotor DS5180
+    
+    \item \textbf{Línea de Potencia Motor Inercia (20-24V):} Batería $\rightarrow$ BMS $\rightarrow$ Interruptor de Alta Corriente $\rightarrow$ DC Motor del Volante
 \end{itemize}
 
-\section{Fase 4: Adaptación y Construcción del Sistema de Alimentación}
+Esta arquitectura de alimentación segregada evita que los picos de corriente del servomotor y del motor de inercia afecten la estabilidad de la tensión de alimentación de los componentes de lógica digital, garantizando lecturas precisas del sensor y ejecución confiable del algoritmo de control.
 
-Para garantizar la portabilidad (operación unplugged), se desarrolló un sistema de energía independiente:
+\subsubsection{Interacciones Mecánicas}
+
+Finalmente, las interacciones mecánicas completan el lazo de control físico:
 
 \begin{itemize}
-    \setlength\itemsep{6pt}
-    \item Ensamblaje del Pack LiFePO4
-    \item Gestión de Carga (BMS)
-    \item Regulación de Voltaje
+    \setlength\itemsep{4pt}
+    \item El servomotor DS5180, mediante acople directo coaxial, rota el eje de precesión donde está montado el volante de inercia.
+    
+    \item El motor DC del volante, mediante transmisión solidaria, mantiene el volante girando a alta velocidad constante, generando el momento angular necesario.
+    
+    \item La combinación del eje de precesión inclinado y el momento angular del volante produce un torque giroscópico perpendicular que actúa sobre el marco de la bicicleta, contrarrestando la inclinación lateral y manteniendo el equilibrio vertical.
 \end{itemize}
 
-\section{Fase 5: Validación mediante Simulación del Modelo Dinámico}
+Esta arquitectura integral constituye un sistema embebido de tiempo real capaz de percibir, procesar y actuar sobre la dinámica de la bicicleta en menos de 5 milisegundos, cumpliendo con los requisitos de velocidad de respuesta para estabilización activa.
+
+\section{Fase 3: Validación mediante Simulación del Modelo Dinámico}
 
 Una vez obtenido el modelo matemático del sistema bicicleta-CMG, se procedió a realizar la validación mediante simulación en simulink. Esta fase es fundamental para verificar el comportamiento dinámico de la planta y comprender sus características de inestabilidad antes de implementar la estrategia de control en el microcontrolador.
 
@@ -1586,7 +1629,7 @@ Los resultados de la simulación confirman que:
     \item Los parámetros del PID son adecuados para su implementación en el ESP32 operando a 200 Hz.
 \end{itemize}
 
-\section{Fase 6: Validación Experimental del Sistema en Condiciones Reales}
+\section{Fase 4: Validación Experimental del Sistema en Condiciones Reales}
 
 Una vez validado el comportamiento del sistema mediante simulación, se procedió a realizar pruebas reales con la planta física. Esto para verificar el comportamiento del sistema , la efectividad del filtro complementario y la respuesta del controlador PID ante perturbaciones reales.
 
@@ -1896,7 +1939,7 @@ void loop() {
   // ====== TAREA 2: Filtro + PID ======
   float dt = 0.005; // ciclo ~200 Hz (ajustar si se desea mas precision)
 
-  // Calcular angulos (acelerómetro) - ax, ay, az ya estan en unidades g
+  // Calcular angulos (acelerometro) - ax, ay, az ya estan en unidades g
   float accelX = atan2f(ay, sqrtf(ax * ax + az * az)) * 180.0f / M_PI;
   float accelY = atan2f(-ax, sqrtf(ay * ay + az * az)) * 180.0f / M_PI;
 
