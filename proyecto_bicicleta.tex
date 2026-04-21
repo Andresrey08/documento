@@ -598,39 +598,9 @@ El desarrollo del presente proyecto de investigación se encuentra enmarcado baj
 % ============================================
 \chapter{Actividades realizadas durante la pasantía}
 
-\section{Investigación de sistemas similares para la obtención de criterios de diseño}
+\section{Obtención de criterios de diseño}
 
 Como parte fundamental del proceso de diseño, se realizó un análisis exhaustivo de los proyectos y desarrollos previos en el área de estabilización de bicicletas mediante sistemas giroscópicos, los cuales fueron presentados en el Capítulo 6 (Marco de Referencia). Este análisis permitió identificar las principales estrategias de control, configuraciones mecánicas y actuadores empleados en la literatura especializada, con el fin de establecer los criterios de diseño más adecuados para el presente proyecto.
-
-\subsection{Análisis de Proyectos Nacionales}
-
-En el contexto colombiano, destacan dos desarrollos fundamentales que sirvieron como referencia para este proyecto:
-
-\textbf{Universidad Nacional de Colombia (Baquero-Su et al., 2014):} Este trabajo propone una técnica avanzada de control basada en el Control por Rechazo Activo de Perturbaciones (ADRC) para estabilizar la inclinación de una bicicleta que se desplaza a velocidad constante mínima, siendo pionero a nivel nacional en la aplicación de técnicas avanzadas de control robusto para sistemas de movilidad.
-
-\textit{Ventajas:} Control robusto ante perturbaciones, desempeño superior a controladores PID convencionales, y validación experimental exitosa.
-
-\textit{Desventajas:} Requiere que la bicicleta esté en movimiento (velocidad mínima), no funciona en reposo, y la complejidad del control ADRC dificulta su implementación práctica.
-
-\textbf{Universidad de San Buenaventura Bogotá (Tamayo \& Programa, 2018):} Propone la estabilización de una bicicleta en reposo mediante un Giroscopio de Control de Momento (CMG) como actuador, utilizando un sistema de control ADR con observadores de estados extendidos (ESO) y sintonización LQR. Los resultados en simulación ADAMS mostraron capacidad para auto-estabilizar la bicicleta.
-
-\textit{Ventajas:} Estabilización a velocidad cero, uso de actuador CMG que genera torques de corrección sin necesidad de movimiento, y filosofía ADR que dota al sistema de robustez ante incertidumbres.
-
-\textit{Desventajas:} Desarrollo limitado al entorno de simulación, sin validación experimental física, y alta complejidad en la implementación del hardware.
-
-\subsection{Análisis de Proyectos Internacionales}
-
-\textbf{Ohio State University (Kalouche, 2014):} Esta tesis desarrolla una plataforma experimental de estabilización giroscópica mediante CMG de un solo eje. El trabajo demuestra la viabilidad de la tecnología CMG para equilibrar de forma autónoma una bicicleta estática no tripulada, e incluso logra inducir un movimiento de tipo ``caballito''.
-
-\textit{Ventajas:} Validación experimental completa, diseño mecánico robusto, y metodología clara para el dimensionamiento del hardware.
-
-\textit{Desventajas:} Sistema de gran tamaño y peso, limitado a aplicaciones de investigación.
-
-\textbf{American Control Conference (Yetkin et al., 2014):} Propone un controlador de modo deslizante (SMC) para controlar el CMG y estabilizar una bicicleta a velocidad de avance cero. El estudio compara el método SMC con un controlador PID, validando las ventajas del SMC en reducción de sobrepaso y tiempos de asentamiento.
-
-\textit{Ventajas:} Control no lineal robusto, respuesta rápida ante perturbaciones externas.
-
-\textit{Desventajas:} Fenómeno de chattering (oscilaciones de alta frecuencia) que puede afectar los actuadores.
 
 \subsection{Decisión de Diseño}
 
