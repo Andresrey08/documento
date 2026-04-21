@@ -602,7 +602,7 @@ El desarrollo del presente proyecto de investigación se encuentra enmarcado baj
 
 Como parte fundamental del proceso de diseño, se realizó un análisis exhaustivo de los proyectos y desarrollos previos en el área de estabilización de bicicletas mediante sistemas giroscópicos, los cuales fueron presentados en el Capítulo 6 (Marco de Referencia). Este análisis permitió identificar las principales estrategias de control, configuraciones mecánicas y actuadores empleados en la literatura especializada, con el fin de establecer los criterios de diseño más adecuados para el presente proyecto.
 
-\subsection{Decisión de Diseño}
+\subsection*{Decisión de Diseño}
 
 Con base en el análisis de los proyectos revisados, se decidió tomar como punto de partida la configuración de CMG (Giroscopio de Control de Momento) por las siguientes razones:
 
@@ -617,7 +617,7 @@ Esta decisión condujo al desarrollo de dos prototipos mecánicos iterativos, cu
 
 \section{Análisis del modelo matemático del sistema y Diseño tridimensional (3D)}
 
-\subsection{Definición de Parámetros y Nomenclatura}
+\subsection*{Definición de Parámetros y Nomenclatura}
 
 
 Definimos los componentes del sistema de la siguiente manera:
@@ -652,7 +652,7 @@ $H = I_{fy} \Omega$ & Momento angular neto del flywheel. \\ \hline
 \label{tab:parametros}
 \end{table}
 
-\subsection{Energías del Sistema}
+\subsection*{Energías del Sistema}
 
 \textbf{Energía Cinética Total ($T$):}
 Sumamos las contribuciones de rotación y traslación (usando el Teorema de Steiner para referenciar todo al suelo):
@@ -666,7 +666,7 @@ Considerando la gravedad para un péndulo invertido:
     V = (m_b h_b + m_g h_g + m_f h_f) g \cos\theta
 \end{equation}
 
-\subsection{El Lagrangiano \texorpdfstring{($L$)}{(L)}}
+\subsection*{El Lagrangiano \texorpdfstring{($L$)}{(L)}}
 \begin{equation}
     L = T - V
 \end{equation}
@@ -678,7 +678,7 @@ Para simplificar el análisis de control, definimos las constantes globales:
     \item $I_\alpha = I_{gz} + I_{fz}$ (Inercia total del eje de precesión).
 \end{itemize}
 
-\subsection{Ecuaciones de Movimiento (Euler-Lagrange)}
+\subsection*{Ecuaciones de Movimiento (Euler-Lagrange)}
 
 Aplicando $\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}_i}\right) - \frac{\partial L}{\partial q_i} = Q_i$:
 
@@ -702,7 +702,7 @@ Linealizando (donde el término dominante es el acoplamiento giroscópico):
     I_\alpha \ddot{\alpha} - H\dot{\theta} = \tau_\alpha
 \end{equation}
 
-\subsection{Representación en Espacio de Estados Final}
+\subsection*{Representación en Espacio de Estados Final}
 
 El modelo linealizado que se utiliza para programar el controlador es:
 \begin{equation}
@@ -712,14 +712,14 @@ El modelo linealizado que se utiliza para programar el controlador es:
     \begin{bmatrix} 0 \\ 0 \\ 0 \\ \frac{1}{I_\alpha} \end{bmatrix} \tau_\alpha
 \end{equation}
 
-\subsection{Función de Transferencia \texorpdfstring{$G(s)$}{G(s)} - Modelo Completo (Entrada: Torque)}
+\subsection*{Función de Transferencia \texorpdfstring{$G(s)$}{G(s)} - Modelo Completo (Entrada: Torque)}
 
 Al aplicar la Transformada de Laplace y resolver para $\frac{\Theta(s)}{T_\alpha(s)}$, obtenemos una expresión de cuarto orden que relaciona la entrada de torque de precesión con el ángulo de inclinación. Dado que el sistema tiene un polo en el origen factorizable, la función se reduce a tercer orden:
 \begin{equation}
     G(s) = \frac{-H}{J_{eq}I_\alpha s^3 + (H^2 - M_{eq}L_{eq}g I_\alpha)s}
 \end{equation}
 
-\subsection{Reducción por Control Cinemático (Actuador Servomotor)}
+\subsection*{Reducción por Control Cinemático (Actuador Servomotor)}
 
 El modelo completo de las ecuaciones de movimiento asume que la entrada de control es el torque directo aplicado al gimbal ($\tau_\alpha$). Sin embargo, la arquitectura de hardware de este sistema emplea un servomotor, el cual posee un lazo de control de posición interno que compensa su propia inercia ($I_\alpha$) y fricción para alcanzar un ángulo comandado.
 
@@ -729,7 +729,7 @@ Por lo tanto, se adopta un enfoque de \textbf{control cinemático} donde la vari
     J_{eq}\ddot{\theta} - (M_{eq}L_{eq}g)\theta + H\dot{\alpha} = 0
 \end{equation}
 
-\subsubsection{Representación en Espacio de Estados Reducida}
+\subsubsection*{Representación en Espacio de Estados Reducida}
 
 Bajo el enfoque cinemático, considerando $\dot{\alpha}$ como la entrada del sistema ($u = \dot{\alpha}$), los estados se reducen a la inclinación y su derivada ($x = [\theta, \dot{\theta}]^T$). El modelo linealizado en el espacio de estados es:
 
@@ -740,7 +740,7 @@ Bajo el enfoque cinemático, considerando $\dot{\alpha}$ como la entrada del sis
     \begin{bmatrix} 0 \\ -\frac{H}{J_{eq}} \end{bmatrix} \dot{\alpha}
 \end{equation}
 
-\subsubsection{Función de Transferencia Reducida $G(s)$ - Modelo Cinemático (Entrada: Posición)}
+\subsubsection*{Función de Transferencia Reducida $G(s)$ - Modelo Cinemático (Entrada: Posición)}
 
 Para el diseño del controlador clásico, es necesario relacionar el ángulo de precesión ordenado al servomotor ($\alpha$) con el ángulo de inclinación resultante ($\theta$). Reorganizando la ecuación de inclinación:
 
@@ -764,7 +764,7 @@ El término $s$ en el numerador refleja que el par giroscópico restaurador depe
 
 \section{Diseño y construcción del volante de inercia}
 
-\subsection{Prototipo Inicial - Volante de 2 kg}
+\subsection*{Prototipo Inicial - Volante de 2 kg}
 
 Para el primer prototipo se decidió usar una bicicleta tipo carreras, tomando en cuenta sus dimensiones originales. Se realizó un análisis preliminar y se determinó que como primera aproximación al comportamiento de la planta se podría adecuar un soporte vertical en el cual se montaría un motor encargado de mover un volante de inercia con un peso aproximado de 2 kilogramos.
 
@@ -787,13 +787,13 @@ Para este modelo inicial se lograron identificar varias falencias significativas
 
 Esta primera prueba fue indispensable para identificar los parámetros críticos del diseño y condujo a una reconfiguración completa del sistema.
 
-\subsection{Prototipo Mejorado - Volante tipo Anillo de Acero}
+\subsection*{Prototipo Mejorado - Volante tipo Anillo de Acero}
 
 A partir de los resultados obtenidos en la primera planta, se optó por construir un segundo modelo cuyo diseño se caracterizó por ubicar el volante en la parte superior de la bicicleta. Este diseño, a diferencia del anterior, acoplaba el movimiento de giro del volante a través de un motor DC que giraba en un solo sentido a velocidad constante.
 
 Como se observa en la figura \ref{fig:proceso_diseno}, el motor DC está acoplado directamente al volante de inercia a través de su eje. La intención en esta segunda etapa fue verificar el cambio del comportamiento de la estabilidad de la bicicleta al emplear un volante de mayor peso y momento de inercia. El nuevo volante, a diferencia del anterior, su diseño y material (acero) están optimizados para maximizar el momento de inercia.
 
-\subsubsection{Diseño Optimizado del Volante}
+\subsubsection*{Diseño Optimizado del Volante}
 
 Este nuevo diseño está pensado para que el sistema pueda aprovechar al máximo el momento de inercia generado. Su configuración se compone de un volante tipo anillo con las siguientes características:
 
@@ -817,7 +817,7 @@ Este nuevo diseño está pensado para que el sistema pueda aprovechar al máximo
 \label{fig:diseno_volante_cad2}
 \end{figure}
 
-\subsubsection{Ventajas del Diseño tipo Anillo}
+\subsubsection*{Ventajas del Diseño tipo Anillo}
 
 Este diseño permite:
 
@@ -827,7 +827,7 @@ Este diseño permite:
 \item \textbf{Mayor Almacenamiento de Energía Cinética:} Esto le da al sistema una mayor reserva de energía para mantener la velocidad durante los picos de demanda de torque de corrección.
 \end{itemize}
 
-\subsubsection{Cálculo del Momento de Inercia}
+\subsubsection*{Cálculo del Momento de Inercia}
 
 Con este nuevo diseño del volante de inercia es indispensable calcular con precisión el momento de inercia generado. Para ello, se realizó un análisis geométrico considerando el volante como un sistema de anillos concéntricos.
 
@@ -853,7 +853,7 @@ H = I_{fy} \times \Omega = 0.0135 \times 314.16 \approx 4.24 \text{ kg·m}^2\tex
 
 Este parámetro es fundamental ya que de él depende directamente la magnitud del torque giroscópico generado al aplicar la precesión (inclinación del eje de giro), lo cual constituye el principio de funcionamiento del sistema de control de estabilidad.
 
-\subsubsection{Cálculo de la masa del volante de inercia}
+\subsubsection*{Cálculo de la masa del volante de inercia}
 
 Para el dimensionamiento y construcción del volante de inercia, se realizaron los cálculos de masa basados en su geometría volumétrica y la densidad del material empleado (acero).
 
@@ -959,7 +959,7 @@ Para esta etapa tambien fue incluido un motor reductor, el cual cumple como func
 \end{figure}
 
 En esta etapa del proyecto se realizan varias modificaciones significativas ya que el mecanismo implementado para la dirección, carecía de las condiciones necesarias para poder ejercer el movimiento a todo el conjunto, a partir de ello se realizó el cambio del mecanismo por un mecanismo tipo polea en el cual se realizó el cambio de los piñones y se remplazó la cadena por una correa de arrastre.
-\subsection{Control sistema de dirección}
+\subsection*{Control sistema de dirección}
 
 A partir de esta, comenzaron los primeros pasos para controlar la dirección de la estructura motor-volante, para ello se realizó un control de dirección del motor por medio de un controlador PSoC y un driver BTS7960, en esta prueba el controlador de potencia en conjunto con micro controlador PSoC, tuvieron un comportamiento bastante aceptable de la misma manera que el conjunto piñón polea a través de la correa.
 
@@ -998,11 +998,11 @@ A continuación se logró poner a prueba el cambio de giro del motor de una mane
 
 \section{Implementación del sistema de comunicación}
 
-\subsection{Sensado de la posición de la bicicleta}
+\subsection*{Sensado de la posición de la bicicleta}
 
 Para verificar la posición de la bicicleta se pusieron a prueba dos sensores tipo acelerómetro:
 
-\subsubsection{MMA7361}
+\subsubsection*{MMA7361}
 
 Inicialmente, se incorporó a la planta el sensor MMA7361, con el cual se realizaron las primeras mediciones de la inclinación en el eje Z. Estas mediciones permitieron determinar la posición inicial del sistema y, a partir de dicha referencia, implementar el sistema de control encargado de mantener la estabilidad de la planta, estos datos a su vez fueron adquiridos e interpretados mediante el microcontrolador PSoC 5 LP. No obstante gracias a la incorporación de estos dos elementos, fue posible llevar a cabo las primeras pruebas del control de movimiento de la estructura volante–motor.
 
@@ -1021,7 +1021,7 @@ Como primera estrategia para mitigar este problema, se implementaron filtros dig
 
 Tras realizar un análisis más detallado del sistema y llevar a cabo nuevas pruebas experimentales, se concluyó que la principal fuente del problema era el uso de un sensor analógico. Por esta razón, se decidió reemplazarlo por un sensor digital, el cual transmite la información mediante comunicación I²C directamente al microcontrolador. Esta modificación permitió reducir significativamente la influencia del ruido y mejorar la confiabilidad de las mediciones, contribuyendo a un desempeño más estable del sistema de control.
 
-\subsubsection{MPU9250}
+\subsubsection*{MPU9250}
 
 Para esta etapa del proyecto se implementó el sensor digital MPU9250, el cual integra un acelerómetro y un giroscopio en los tres ejes (x,y,z), permitiendo la medición de aceleraciones lineales y velocidades angulares en los tres ejes. A través de la información proporcionada por estos sensores, es posible estimar la orientación y la inclinación de la bicicleta.
 
@@ -1057,7 +1057,7 @@ Con el fin de mitigar estos efectos, se implementó nuevamente un filtro digital
 
 Con base en los resultados obtenidos en el apartado 7.4, y ante la necesidad de implementar un sistema de control eficiente, se determinó en una primera instancia realizar diversas modificaciones en la planta física. Esto se debe a que el desempeño del sistema de control depende en gran medida de que la planta se encuentre en condiciones óptimas de operación. En consecuencia, a continuación, se describen las modificaciones necesarias implementadas, con el objetivo de garantizar un funcionamiento adecuado y estable del sistema.
 
-\subsection{Modificaciones estructurales}
+\subsection*{Modificaciones estructurales}
 
 Tal como se mencionó anteriormente en el apartado 7.3, se realizaron diversas modificaciones en el diseño mecánico de la planta. No obstante, durante la etapa de pruebas experimentales se identificó que, desde el punto de vista estructural, la planta presentaba una transmisión significativa de vibraciones mecánicas, las cuales afectaban directamente el desempeño del sistema de sensado y contribuían a un comportamiento inestable del sistema de control.
 
@@ -1092,7 +1092,7 @@ En la figura anteriror se presentan los resultados del nuevo diseño estructural
 
 Por otra parte, la nueva estructura fue diseñada considerando la facilidad de ensamble y desensamble, lo que permite un mantenimiento más eficiente tanto de los rodamientos del eje como del motor. En conjunto, estas modificaciones estructurales permiten reducir de manera significativa las vibraciones transmitidas a la planta, contribuyendo a un comportamiento más estable del sistema y a una mejora en la calidad de las señales adquiridas por los sensores.
 
-\subsection{Adquisición de datos y tratamiento de la señal}
+\subsection*{Adquisición de datos y tratamiento de la señal}
 
 Como se mencionó anteriormente, en una etapa inicial la adquisición de la señal de inclinación se realizaba mediante el sensor analógico MMA7361. Sin embargo, debido a limitaciones en la eficiencia y confiabilidad de la adquisición de la señal, se decidió migrar hacia el uso del sensor digital MPU9250. Este sensor proporciona la información en formato digital, lo que permitió mejorar la calidad de los datos adquiridos y facilitar su procesamiento por parte del microcontrolador PSoC 5 LP.
 
@@ -1120,7 +1120,7 @@ Una vez verificada la correcta adquisición e interpretación de la señal del s
 
 
 
-\subsection{Sistema de dirección y actuador}
+\subsection*{Sistema de dirección y actuador}
 
 El primer actuador incorporado en la planta fue un motor reductor, el cual se acoplaba en su eje un piñón, que a su vez transmitía el movimiento por medio de una cadenilla hacia un segundo piñón acoplado a una estructura tipo chumacera. Esta estructura hacía parte del conjunto del sistema de dirección que soporta el mecanismo motor–volante (ver Figura \ref{fig:pinon_cadena}).
 
@@ -1181,7 +1181,7 @@ Este nuevo diseño del sistema de dirección fue acoplado directamente a la plan
 
 Al iniciar las pruebas del sistema de control con las nuevas modificaciones implementadas en el actuador y en los soportes mecánicos, se evidenció una mejora significativa en la estabilidad de la planta, ya que su comportamiento fue más estable y permitió cumplir de manera adecuada con los objetivos de diseño establecidos para el sistema.
 
-\subsection{Integración de los componentes electrónicos en la planta}
+\subsection*{Integración de los componentes electrónicos en la planta}
 
 Una vez alcanzados los objetivos de diseño y confort de la planta, se procedió al montaje de todos los componentes electrónicos del sistema. Entre estos se encuentra el sensor de ángulo de dirección, el cual fue ubicado en la parte trasera de la bicicleta, tomando como punto de referencia la posición de la silla del operador, con el fin de garantizar una medición adecuada de la inclinación y orientación del sistema.
 
@@ -1191,7 +1191,7 @@ Adicionalmente, se diseñó una platina de soporte destinada a alojar los princi
 
 Una vez integrados todos los componentes electrónicos en la planta, se realizaron las adecuaciones necesarias para el diseño e implementación del controlador, considerando además la posibilidad de incorporar mejoras y ampliaciones en una segunda etapa del proyecto.
 
-\subsection{Diseño del sistema de baterías de alimentación}
+\subsection*{Diseño del sistema de baterías de alimentación}
 
 Como se mencionó anteriormente, durante las primeras pruebas todos los circuitos electrónicos eran alimentados mediante una fuente externa, lo cual generaba la presencia de ruido eléctrico y requería que el sistema permaneciera conectado de manera permanente a la red eléctrica. Debido a estas limitaciones, se procedió al diseño e implementación de un sistema de alimentación basado en baterías.
 
@@ -1215,7 +1215,7 @@ Además, el conjunto de baterías incorpora un sistema de gestión de baterías 
 \end{figure}
 
 
-\subsection{Implementación del control PID y verificación de la señal}
+\subsection*{Implementación del control PID y verificación de la señal}
 
 La incorporación del sistema de baterías proporcionó un mejor desempeño general de la planta, ya que permitió eliminar el exceso de cableado y hacer el sistema más compacto y portátil. A pesar de que la planta cumplía con el objetivo de diseño, aún carecía de un control óptimo y robusto, lo que motivó la implementación de un sistema de control adicional a los objetivos inicialmente propuestos, esto como para dar un valor agregado al proyecto.
 
@@ -1224,7 +1224,7 @@ En consecuencia, se iniciaron diferentes pruebas en el circuito de control, lo q
 
 A continuación, se describe el procedimiento utilizado para la sintonización de los parámetros P I D del controlador.
 
-\subsubsection{Verificación de la señal y control de corriente en la salida de control}
+\subsubsection*{Verificación de la señal y control de corriente en la salida de control}
 
 Una vez obtenidos los valores de la señal del sensor de ángulo dentro del microcontrolador, se procedió a implementar el control PID, con el cual se buscaba regular tanto la corriente aplicada al motor del sistema de dirección como la posición del motor del sistema de dirección.
 
@@ -1252,7 +1252,7 @@ Como resultado de la primera fase, se logró una planta mecánica eficiente medi
     \item \textbf{Acondicionamiento para Electrónica:} Se retiró el sillín original para integrar una plataforma de soporte personalizada.
 \end{itemize}
 
-\subsection{Diseño del volante de inercia y sistema de dirección vertical}
+\subsection*{Diseño del volante de inercia y sistema de dirección vertical}
 
 El diseño del volante de inercia se centró en optimizar la distribución de masa para maximizar el efecto giroscópico además del diseño del sistema de dirección, permite al volante de inercia genere el par de torsión necesario para equilibrar la bicicleta, el diseño del sistema de dirección vertical y volante se detallan a continuación:
 
@@ -1293,7 +1293,7 @@ El diseño del volante de inercia se centró en optimizar la distribución de ma
 
 Una vez consolidada la estructura mecánica, se procedió al diseño e implementación del sistema electrónico de control, el cual integra todos los componentes de potencia, procesamiento y percepción necesarios para la estabilización activa de la plataforma.
 
-\subsection{Arquitectura del Sistema de Estabilización Giroscópica}
+\subsection*{Arquitectura del Sistema de Estabilización Giroscópica}
 
 El sistema de estabilización implementado se basa en una arquitectura de control de lazo cerrado que integra diversos subsistemas electrónicos y mecánicos. La Figura \ref{fig:arquitectura_sistema} presenta el diagrama de bloques completo del sistema, diferenciando claramente los flujos de potencia eléctrica y las señales de control/datos.
 
@@ -1306,19 +1306,19 @@ El sistema de estabilización implementado se basa en una arquitectura de contro
 
 La arquitectura se compone de los siguientes subsistemas principales:
 
-\subsubsection{Fuente de Energía (Power Stack)}
+\subsubsection*{Fuente de Energía (Power Stack)}
 
 El sistema de alimentación está conformado por un pack de baterías LiFePO$_4$ de 6 celdas en serie, proporcionando un voltaje nominal de 20V-24V. Este pack está protegido por un Sistema de Gestión de Baterías (BMS) que supervisa el estado de cada celda, gestiona la carga balanceada y protege contra sobrecorriente, sobrecarga y descarga excesiva. Esta configuración garantiza la seguridad y prolonga la vida útil del sistema de almacenamiento energético.
 
-\subsubsection{Unidad de Control (Cerebro del Sistema)}
+\subsubsection*{Unidad de Control (Cerebro del Sistema)}
 
 El núcleo de procesamiento está basado en un microcontrolador ESP32, que opera a 240 MHz en arquitectura dual-core. Este microcontrolador ejecuta el algoritmo de fusión sensorial (filtro complementario) y el controlador PID en tiempo real a una frecuencia de 200 Hz. La alimentación del ESP32 se realiza mediante un convertidor DC-DC Buck estabilizado a 5V, el cual también alimenta al sensor inercial, garantizando un voltaje libre de ruido y ripple para los componentes de lógica digital.
 
-\subsubsection{Sistema de Percepción (Sensado Inercial)}
+\subsubsection*{Sistema de Percepción (Sensado Inercial)}
 
 El sensado de la orientación de la bicicleta se realiza mediante una Unidad de Medición Inercial (IMU) MPU9250, ubicada estratégicamente en el eje de simetría de la estructura. Este sensor de 9 grados de libertad integra acelerómetro triaxial, giroscopio triaxial y magnetómetro, comunicándose con el ESP32 mediante protocolo I²C. Los datos crudos de aceleración lineal y velocidad angular son procesados por el microcontrolador para estimar el ángulo de inclinación mediante fusión sensorial.
 
-\subsubsection{Actuador de Dirección (Sistema de Precesión del Gimbal)}
+\subsubsection*{Actuador de Dirección (Sistema de Precesión del Gimbal)}
 
 El control del ángulo de precesión del volante de inercia se realiza mediante un servomotor digital de alto torque modelo DS5180, capaz de generar 80 kg-cm de par motor. Este actuador cuenta con engranajes de acero reforzados para soportar las cargas dinámicas generadas por el efecto giroscópico. 
 
@@ -1326,13 +1326,13 @@ La alimentación del servomotor se gestiona mediante un convertidor DC-DC Buck d
 
 El ESP32 comanda la posición angular del servomotor mediante una señal PWM de 50 Hz, cuyo ciclo de trabajo determina el ángulo deseado del gimbal. Este control de posición permite variar el eje de momento angular del volante de inercia, generando el torque de reacción giroscópico necesario para estabilizar la bicicleta.
 
-\subsubsection{Sistema de Inercia (Flywheel y Motor de Tracción)}
+\subsubsection*{Sistema de Inercia (Flywheel y Motor de Tracción)}
 
 El volante de inercia, de geometría tipo anillo en acero, está acoplado mecánicamente a un motor de corriente continua (DC) que lo mantiene girando a velocidad constante de aproximadamente 3000 RPM. Esta alta velocidad angular genera un momento angular significativo ($H \approx 4.24$ kg·m²/s), fundamental para el efecto giroscópico de estabilización.
 
 La alimentación del motor del volante se realiza mediante conexión directa desde el BMS a través de un interruptor de alta corriente, permitiendo activación/desactivación manual del sistema de inercia. Esta alimentación sin regulación intermedia permite al motor alcanzar su máxima velocidad de operación sin pérdidas por conversión.
 
-\subsubsection{Flujo de Señales de Control}
+\subsubsection*{Flujo de Señales de Control}
 
 El flujo de información en el lazo de control sigue la siguiente secuencia:
 
@@ -1349,7 +1349,7 @@ El flujo de información en el lazo de control sigue la siguiente secuencia:
     \item \textbf{Actuación:} El ESP32 convierte la salida del PID en una señal PWM de 50 Hz que comanda la posición angular del servomotor DS5180, ajustando la precesión del volante de inercia.
 \end{enumerate}
 
-\subsubsection{Flujo de Potencia Eléctrica}
+\subsubsection*{Flujo de Potencia Eléctrica}
 
 El sistema de distribución de energía está diseñado para optimizar la eficiencia y minimizar interferencias electromagnéticas:
 
@@ -1364,7 +1364,7 @@ El sistema de distribución de energía está diseñado para optimizar la eficie
 
 Esta arquitectura de alimentación segregada evita que los picos de corriente del servomotor y del motor de inercia afecten la estabilidad de la tensión de alimentación de los componentes de lógica digital, garantizando lecturas precisas del sensor y ejecución confiable del algoritmo de control.
 
-\subsubsection{Interacciones Mecánicas}
+\subsubsection*{Interacciones Mecánicas}
 
 Finalmente, las interacciones mecánicas completan el lazo de control físico:
 
@@ -1383,7 +1383,7 @@ Esta arquitectura integral constituye un sistema embebido de tiempo real capaz d
 
 Una vez obtenido el modelo matemático del sistema bicicleta-CMG, se procedió a realizar la validación mediante simulación en simulink. Esta fase es fundamental para verificar el comportamiento dinámico de la planta y comprender sus características de inestabilidad antes de implementar la estrategia de control en el microcontrolador.
 
-\subsection{Enfoque de Control Cinemático y Modelo de Segundo Orden}
+\subsection*{Enfoque de Control Cinemático y Modelo de Segundo Orden}
 
 El hardware seleccionado para este prototipo emplea un servomotor como actuador para el eje del gimbal. Los servomotores tienen un lazo de control de posición en su propia electrónica, lo que les permite alcanzar la posición . 
 
@@ -1412,7 +1412,7 @@ La función de transferencia de segundo orden que relaciona el ángulo de preces
 
 Es de vital importancia notar la presencia del término $s$ en el numerador. En el dominio de Laplace, esto equivale a una derivada temporal, lo que confirma físicamente que el par giroscópico restaurador depende exclusivamente de la \textbf{velocidad de cambio} del ángulo de precesión ($\dot{\alpha}$), y no de una posición angular.
 
-\subsection{Parámetros Físicos del Sistema}
+\subsection*{Parámetros Físicos del Sistema}
 
 Para el cálculo numérico de la función de transferencia empírica, se utilizaron los valores extraídos del diseño mecánico y las mediciones del prototipo físico:
 
@@ -1437,7 +1437,7 @@ $H$ & 4.241 kg·m²/s & Momento angular neto ($3000$ RPM) \\
 \end{tabular}
 \end{table}
 
-\subsection{Función de Transferencia Numérica y Análisis de Polos}
+\subsection*{Función de Transferencia Numérica y Análisis de Polos}
 
 Sustituyendo los valores de la Tabla \ref{tab:parametros_sistema} en la Ecuación \ref{eq:tf_2nd_order}:
 
@@ -1459,7 +1459,7 @@ El análisis de la ecuación característica del denominador ($s^2 - 27.80 = 0$)
 
 La presencia del polo $p_2$ en el semiplano derecho confirma la inestabilidad del sistema. Una perturbación inicial provocará que el ángulo $\theta$ diverja. La constante de tiempo de esta divergencia es $\tau = 1/5.27 \approx 0.19$ segundos, lo que establece un límite temporal estricto para la respuesta del controlador y justifica la necesidad de una medición de alta velocidad mediante fusión de sensores (IMU).
 
-\subsection{Configuración del Modelo en Simulink}
+\subsection*{Configuración del Modelo en Simulink}
 
 Para evaluar el comportamiento, se implementó el modelo reducido en simulink utilizando un bloque de función de transferencia continuo configurado con los parámetros canónicos:
 
@@ -1472,9 +1472,9 @@ Para evaluar el comportamiento, se implementó el modelo reducido en simulink ut
     Representa la dinámica inestable $s^2 + 0s - 27.80$.
 \end{itemize}
 
-\subsection{Simulación del Sistema a Lazo Abierto (Sin Control)}
+\subsection*{Simulación del Sistema a Lazo Abierto (Sin Control)}
 
-\subsubsection{Implementación en Simulink}
+\subsubsection*{Implementación en Simulink}
 
 Para validar el comportamiento dinámico del sistema sin control, se implementó el modelo de segundo orden en simulink sin ningún lazo de retroalimentación. Esta configuración permite observar la respuesta natural de la planta.
 
@@ -1487,7 +1487,7 @@ Para validar el comportamiento dinámico del sistema sin control, se implementó
 
 El diagrama de bloques de la Figura \ref{fig:simulink_lazo_abierto} muestra la implementación del modelo sin retroalimentación. El bloque de función de transferencia recibe como entrada el ángulo de precesión del gimbal $\alpha$ y genera como salida el ángulo de inclinación de la bicicleta $\theta$.
 
-\subsubsection{Resultados de la Simulación a Lazo Abierto}
+\subsubsection*{Resultados de la Simulación a Lazo Abierto}
 
 Se aplicó una entrada escalón de magnitud 0.5 . Esta perturbación simula un cambio súbito en la posición del actuador y permite observar la respuesta del sistema.
 
@@ -1507,9 +1507,9 @@ La Figura \ref{fig:respuesta_lazo_abierto} muestra la respuesta temporal del án
     \item \textbf{Necesidad de Control Activo:} Sin un controlador que reubique los polos hacia el semiplano izquierdo, la bicicleta alcanzará rápidamente ángulos de inclinación críticos que superen los límites mecánicos del sistema.
 \end{enumerate}
 
-\subsection{Simulación del Sistema con Controlador PID}
+\subsection*{Simulación del Sistema con Controlador PID}
 
-\subsubsection{Diseño del Controlador PID}
+\subsubsection*{Diseño del Controlador PID}
 
 Una vez validada la inestabilidad del sistema, se procedió a implementar un controlador PID de forma experimental para estabilizar el comportamiento del sistema. Los parámetros del controlador fueron sintonizados mediante prueba y error y validación experimental, obteniéndose los siguientes valores óptimos:
 
@@ -1538,7 +1538,7 @@ Frecuencia de muestreo & 200 Hz & Período de muestreo: 5 ms \\
 
 Estos parámetros corresponden exactamente a los implementados en el código del ESP32 (ver Anexo A, líneas 43-45), garantizando consistencia entre la simulación y el sistema real.
 
-\subsubsection{Implementación del Lazo Cerrado en Simulink}
+\subsubsection*{Implementación del Lazo Cerrado en Simulink}
 
 \begin{figure}[H]
 \centering
@@ -1549,7 +1549,7 @@ Estos parámetros corresponden exactamente a los implementados en el código del
 
 El diagrama de la Figura \ref{fig:simulink_lazo_cerrado} muestra la arquitectura del sistema de control en lazo cerrado. El controlador PID procesa el error entre el ángulo medido $\theta$ y el setpoint (0°), generando la señal de control $\alpha$ que comanda el servomotor del gimbal.
 
-\subsubsection{Resultados de la Simulación con PID}
+\subsubsection*{Resultados de la Simulación con PID}
 
 Se aplicó una perturbación inicial al sistema para evaluar la capacidad del controlador para rechazar perturbaciones y mantener la estabilidad.
 
@@ -1573,7 +1573,7 @@ La Figura \ref{fig:respuesta_pid} muestra la respuesta del sistema controlado. S
     \item \textbf{Sin Sobrepaso Excesivo:} La acción derivativa ($K_d = 1.2$) proporciona amortiguamiento adecuado, evitando oscilaciones prolongadas.
 \end{enumerate}
 
-\subsection{Validación del Modelo y Conclusiones de la Simulación}
+\subsection*{Validación del Modelo y Conclusiones de la Simulación}
 
 Los resultados de la simulación confirman que:
 
@@ -1589,7 +1589,7 @@ Los resultados de la simulación confirman que:
 
 Una vez validado el comportamiento del sistema mediante simulación, se procedió a realizar pruebas reales con la planta física. Esto para verificar el comportamiento del sistema , la efectividad del filtro complementario y la respuesta del controlador PID ante perturbaciones reales.
 
-\subsection{Adquisición y Procesamiento de Señales de los Sensores}
+\subsection*{Adquisición y Procesamiento de Señales de los Sensores}
 
 El sistema de medición se basa en la fusión de datos del acelerómetro y el giroscopio del sensor MPU9250. Cada sensor aporta información para estimar el ángulo de inclinación de la bicicleta:
 
@@ -1599,7 +1599,7 @@ El sistema de medición se basa en la fusión de datos del acelerómetro y el gi
     \item \textbf{Giroscopio:} Mide la velocidad angular . Al integrarse en el tiempo, proporciona el ángulo relativo. Es inmune a vibraciones pero presenta deriva acumulativa.
 \end{itemize}
 
-\subsubsection{Señales Individuales de Acelerómetro y Giroscopio}
+\subsubsection*{Señales Individuales de Acelerómetro y Giroscopio}
 
 La Figura \ref{fig:ace_giro_separado} muestra el comportamiento temporal de ambas señales durante una prueba de la bicicleta.
 
@@ -1612,7 +1612,7 @@ La Figura \ref{fig:ace_giro_separado} muestra el comportamiento temporal de amba
 
 Como se observa en la Figura \ref{fig:ace_giro_separado}, el acelerómetro presenta fluctuaciones de alta frecuencia causadas por vibraciones mecánicas del flywheel, mientras que el giroscopio muestra una curva más suave pero con deriva temporal.
 
-\subsubsection{Comparación entre Sensores y Filtro Complementario}
+\subsubsection*{Comparación entre Sensores y Filtro Complementario}
 
 Para obtener una medicion del ángulo de inclinación, se implementó un filtro complementario que combina las ventajas de ambos sensores. La Figura \ref{fig:ace_vs_giro_vs_filtro} muestra la comparación entre las tres señales.
 
@@ -1662,9 +1662,9 @@ Los resultados de la Tabla \ref{tab:estadisticas_sensores} confirman las ventaja
     \item \textbf{Precisión en estado estacionario:} El promedio cercano a cero (-0.52°) indica que el filtro mantiene una referencia estable cercana a la posición de equilibrio.
 \end{enumerate}
 
-\subsection{Respuesta del Controlador PID en Operación Real}
+\subsection*{Respuesta del Controlador PID en Operación Real}
 
-\subsubsection{Salida del Filtro Complementario y Acción del PID}
+\subsubsection*{Salida del Filtro Complementario y Acción del PID}
 
 La Figura \ref{fig:filtro_pid} muestra la relación entre la señal de entrada al controlador (filtro complementario) y la salida del PID que comanda el servomotor del gimbal.
 
@@ -1677,7 +1677,7 @@ La Figura \ref{fig:filtro_pid} muestra la relación entre la señal de entrada a
 
 La Figura \ref{fig:filtro_pid} muestra cómo el controlador PID procesa el error de inclinación y genera comandos de posición angular para el servomotor. La acción derivativa permite anticipar cambios bruscos, mientras que la acción proporcional proporciona la fuerza correctiva principal.
 
-\subsubsection{Comparación Temporal entre Medición y Acción de Control}
+\subsubsection*{Comparación Temporal entre Medición y Acción de Control}
 
 Para analizar la respuesta del sistema en tiempo real, se compararon directamente las señales del filtro complementario y la salida del PID.
 
@@ -1690,7 +1690,7 @@ Para analizar la respuesta del sistema en tiempo real, se compararon directament
 
 La Figura \ref{fig:filtro_vs_pid} permite observar la correlación inversa entre la inclinación detectada y la acción correctiva del PID, confirmando el funcionamiento del lazo de control en condiciones reales.
 
-\subsection{Análisis de Resultados Experimentales}
+\subsection*{Análisis de Resultados Experimentales}
 
 Los resultados experimentales demuestran que:
 
@@ -1791,7 +1791,7 @@ InvenSense. (2016). MPU-9250 Product Specification Revision 1.1. TDK Corporation
 
 \section{Anexo A: Código Fuente del Sistema de Control}
 
-\subsection{Código Principal del ESP32 - Control PID con MPU9250}
+\subsection*{Código Principal del ESP32 - Control PID con MPU9250}
 
 A continuación se presenta el código completo implementado en el microcontrolador ESP32 para el sistema de estabilización. Este programa integra la lectura del sensor inercial MPU9250, el filtro complementario para estimación de ángulo, el controlador PID y el control del servomotor.
 
@@ -1941,9 +1941,9 @@ void loop() {
 }
 \end{lstlisting}
 
-\subsection{Descripción de los Componentes del Código}
+\subsection*{Descripción de los Componentes del Código}
 
-\subsubsection{Librerías Utilizadas}
+\subsubsection*{Librerías Utilizadas}
 
 \begin{itemize}
     \item \textbf{Arduino.h:} Framework principal para programación del ESP32.
@@ -1952,7 +1952,7 @@ void loop() {
     \item \textbf{PID\_v1.h:} Implementación del controlador PID.
 \end{itemize}
 
-\subsubsection{Parámetros de Configuración}
+\subsubsection*{Parámetros de Configuración}
 
 \begin{itemize}
     \item \textbf{Frecuencia de muestreo:} 200 Hz (5 ms de período)
@@ -1963,7 +1963,7 @@ void loop() {
     \item \textbf{Límites de salida PID:} -90° a +90°
 \end{itemize}
 
-\subsubsection{Arquitectura del Sistema de Control}
+\subsubsection*{Arquitectura del Sistema de Control}
 
 El código implementa un lazo de control en tiempo real que ejecuta las siguientes tareas de forma secuencial:
 
