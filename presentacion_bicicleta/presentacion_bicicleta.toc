@@ -1,0 +1,10 @@
+\babel@toc {spanish}{}\relax 
+\beamer@sectionintoc {1}{Introducción}{3}{0}{1}
+\beamer@sectionintoc {2}{Planteamiento del Problema}{4}{0}{2}
+\beamer@sectionintoc {3}{Justificación}{5}{0}{3}
+\beamer@sectionintoc {4}{Objetivos}{6}{0}{4}
+\beamer@sectionintoc {5}{Marco Teórico}{8}{0}{5}
+\beamer@sectionintoc {6}{Modelo Matemático}{13}{0}{6}
+\beamer@sectionintoc {7}{Diseño e Implementación}{16}{0}{7}
+\beamer@sectionintoc {8}{Resultados}{22}{0}{8}
+\beamer@sectionintoc {9}{Conclusiones}{27}{0}{9}

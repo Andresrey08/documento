@@ -1,0 +1,53 @@
+\babel@toc {spanish}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Primera bicicleta (Draisiana)}}{10}{figure.caption.9}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Bicicleta Penny Farthing}}{10}{figure.caption.10}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Ejemplo de un volante con eje horizontal}}{11}{figure.caption.11}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Diagrama de Cuerpo Libre para el análisis de inercia del sistema}}{17}{figure.caption.19}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Secuencia del proceso de diseño del primer prototipo de volante de inercia (Diseño 3D e implementación)}}{20}{figure.caption.21}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Diseño CAD del volante tipo anillo - Vista isométrica}}{22}{figure.caption.22}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Diseño CAD del volante tipo anillo - Corte transversal}}{22}{figure.caption.23}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Cálculo del momento de inercia del volante - Dimensiones y parámetros}}{23}{figure.caption.24}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Cálculo del momento de inercia del volante - Resultado numérico}}{23}{figure.caption.25}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Sistema de eje vertical con rodamientos tipo chumacera}}{26}{figure.caption.26}%
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Sistema de piñón y cadena para control de dirección}}{26}{figure.caption.26}%
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Mecanismo tipo polea con correa de arrastre}}{26}{figure.caption.27}%
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Mecanismo tipo polea con correa de arrastre}}{26}{figure.caption.27}%
+\contentsline {figure}{\numberline {7.11}{\ignorespaces Problemas identificados en el sistema de transmisión}}{27}{figure.caption.28}%
+\contentsline {figure}{\numberline {7.12}{\ignorespaces Bicicleta de tamaño reducido con nueva estructura}}{28}{figure.caption.29}%
+\contentsline {figure}{\numberline {7.13}{\ignorespaces Sensor analógico MMA7361}}{29}{figure.caption.30}%
+\contentsline {figure}{\numberline {7.14}{\ignorespaces Sensor digital MPU9250}}{30}{figure.caption.31}%
+\contentsline {figure}{\numberline {7.15}{\ignorespaces Comparación de señales MMA7361 vs MPU9250 - sin filtro}}{30}{figure.caption.32}%
+\contentsline {figure}{\numberline {7.16}{\ignorespaces Nuevo diseño estructural del soporte del conjunto motor-volante}}{32}{figure.caption.33}%
+\contentsline {figure}{\numberline {7.17}{\ignorespaces Nuevo diseño estructural del soporte del conjunto motor-volante}}{32}{figure.caption.33}%
+\contentsline {figure}{\numberline {7.18}{\ignorespaces Diagrama de bloques de comunicación I²C en PSoC}}{33}{figure.caption.34}%
+\contentsline {figure}{\numberline {7.19}{\ignorespaces Diagrama de bloques de comunicación RS-232}}{33}{figure.caption.35}%
+\contentsline {figure}{\numberline {7.20}{\ignorespaces Diseño del soporte en L para el servomotor}}{34}{figure.caption.36}%
+\contentsline {figure}{\numberline {7.21}{\ignorespaces Vista detallada del acople del servomotor al eje}}{35}{figure.caption.37}%
+\contentsline {figure}{\numberline {7.22}{\ignorespaces Servomotor de 10 kg instalado}}{35}{figure.caption.38}%
+\contentsline {figure}{\numberline {7.23}{\ignorespaces Servomotor de 80 kg-cm instalado en la planta final}}{36}{figure.caption.39}%
+\contentsline {figure}{\numberline {7.24}{\ignorespaces Pack de baterías LiFePO$_4$ de 6 celdas en serie}}{37}{figure.caption.40}%
+\contentsline {figure}{\numberline {7.25}{\ignorespaces Celdas LiFePO$_4$ individuales de 3.2V}}{38}{figure.caption.41}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Marco de la bicicleta}}{40}{figure.caption.42}%
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Vista del volante de inercia en SolidWorks}}{41}{figure.caption.43}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Detalle del diseño del volante en SolidWorks}}{41}{figure.caption.43}%
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Despiece y vista explosionada del volante}}{41}{figure.caption.43}%
+\contentsline {figure}{\numberline {8.5}{\ignorespaces Arquitectura completa del sistema de estabilización giroscópica, mostrando flujos de potencia (líneas gruesas) y señales de control (líneas delgadas)}}{42}{figure.caption.44}%
+\contentsline {figure}{\numberline {8.6}{\ignorespaces Diagrama de bloques del sistema a lazo abierto implementado en simulink}}{48}{figure.caption.46}%
+\contentsline {figure}{\numberline {8.7}{\ignorespaces Respuesta del sistema a lazo abierto ante una entrada escalón de 0.5 rad}}{49}{figure.caption.47}%
+\contentsline {figure}{\numberline {8.8}{\ignorespaces Diagrama de bloques del sistema con controlador PID retroalimentado}}{50}{figure.caption.49}%
+\contentsline {figure}{\numberline {8.9}{\ignorespaces Respuesta del sistema con controlador PID ante perturbación inicial}}{51}{figure.caption.50}%
+\contentsline {figure}{\numberline {8.10}{\ignorespaces Señales de acelerómetro y giroscopio en función del tiempo (ms). Donde muestra cada sensor durante la operación del sistema.}}{53}{figure.caption.51}%
+\contentsline {figure}{\numberline {8.11}{\ignorespaces Comparación entre acelerómetro, giroscopio y filtro complementario.}}{54}{figure.caption.52}%
+\contentsline {figure}{\numberline {8.12}{\ignorespaces Señal del filtro complementario (arriba) y salida del controlador PID en ángulos para el servomotor (abajo). Se observa la acción de control del controlador ante las variaciones de inclinación.}}{56}{figure.caption.54}%
+\contentsline {figure}{\numberline {8.13}{\ignorespaces Comparación temporal entre el filtro complementario (medición del ángulo de inclinación) y la salida del controlador PID (comando al servomotor). Se observa la relación de fase y la capacidad del controlador para estabilizar el sistema.}}{57}{figure.caption.55}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

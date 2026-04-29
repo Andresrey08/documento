@@ -1,0 +1,50 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{Dedicatoria}{\es@scroman {i}}{chapter*.1}%
+\contentsline {chapter}{Glosario}{\es@scroman {vii}}{chapter*.2}%
+\contentsline {chapter}{Lista de Abreviaturas y Siglas}{\es@scroman {viii}}{chapter*.3}%
+\contentsline {chapter}{Resumen}{\es@scroman {x}}{chapter*.4}%
+\contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Presentación del Grupo de Investigación}{2}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Planteamiento del problema}{3}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Justificación}{4}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Objetivos}{6}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Objetivo General}{6}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Objetivos específicos}{6}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Marco de referencia}{7}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Antecedentes}{7}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Desarrollos Nacionales}{7}{subsection.6.1.1}%
+\contentsline {subsubsection}{Diseño e implementación de una estrategia avanzada de control para estabilización de bicicleta sin conductor (Universidad Nacional de Colombia, 2014)}{7}{subsubsection*.5}%
+\contentsline {subsubsection}{Control por rechazo activo de perturbaciones para estabilizar una bicicleta empleando un giroscopio de control de momento (Universidad de San Buenaventura, 2018)}{7}{subsubsection*.6}%
+\contentsline {subsection}{\numberline {6.1.2}Desarrollos Internacionales}{8}{subsection.6.1.2}%
+\contentsline {subsubsection}{Control Moment Gyroscope Stabilization of Inherently Unstable Vehicles (The Ohio State University, 2014)}{8}{subsubsection*.7}%
+\contentsline {subsubsection}{Gyroscopic Stabilization of an Unmanned Bicycle (American Control Conference, 2014)}{9}{subsubsection*.8}%
+\contentsline {section}{\numberline {6.2}Marco teórico}{9}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}La Bicicleta}{9}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Estimación de Orientación mediante Filtros Complementarios}{12}{subsection.6.2.2}%
+\contentsline {subsubsection}{El Acelerómetro y la Medición de Inclinación}{12}{subsubsection*.12}%
+\contentsline {subsubsection}{El Giroscopio y la Velocidad Angular}{12}{subsubsection*.13}%
+\contentsline {subsubsection}{Filtro Complementario}{12}{subsubsection*.14}%
+\contentsline {subsection}{\numberline {6.2.3}Controlador PID}{13}{subsection.6.2.3}%
+\contentsline {subsubsection}{La Ecuación General del PID}{13}{subsubsection*.15}%
+\contentsline {subsubsection}{Análisis de los Componentes}{14}{subsubsection*.16}%
+\contentsline {subsection}{\numberline {6.2.4}Microcontrolador ESP32}{14}{subsection.6.2.4}%
+\contentsline {subsubsection}{Arquitectura Xtensa Dual-Core de 32 bits}{14}{subsubsection*.17}%
+\contentsline {subsubsection}{Sensor de Movimiento Integral (MPU9250)}{14}{subsubsection*.18}%
+\contentsline {section}{\numberline {6.3}Marco Legal}{15}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Actividades realizadas durante la pasantía}{16}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Obtención de criterios de diseño}{16}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Análisis del modelo matemático del sistema y Diseño tridimensional (3D)}{16}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Diseño y construcción del volante de inercia}{20}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Mecanizado y ensamble de la planta física}{25}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Implementación del sistema de comunicación}{28}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Implementación del sistema de control}{31}{section.7.6}%
+\contentsline {chapter}{\numberline {8}Resultados}{40}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Fase 1: Diseño y Construcción Mecánica de la Planta}{40}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Fase 2: Diseño e Integración del Sistema Electrónico}{42}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Fase 3: Validación mediante Simulación del Modelo Dinámico}{45}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Fase 4: Validación Experimental del Sistema en Condiciones Reales}{52}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Conclusiones y Recomendaciones}{58}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Conclusiones}{58}{section.9.1}%
+\contentsline {chapter}{\numberline {10}Referencias}{60}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Anexos}{62}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Anexo A: Código Fuente del Sistema de Control}{62}{section.11.1}%

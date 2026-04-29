@@ -1,0 +1,545 @@
+\documentclass[10pt,xcolor={dvipsnames}]{beamer}
+
+% Tema profesional estándar - NO requiere instalación adicional
+\usetheme{Copenhagen}
+\usecolortheme{seahorse}
+
+% Personalización de colores
+\setbeamercolor{structure}{fg=NavyBlue}
+\setbeamercolor{palette primary}{bg=NavyBlue,fg=white}
+\setbeamercolor{palette secondary}{bg=NavyBlue!80,fg=white}
+\setbeamercolor{palette tertiary}{bg=NavyBlue!60,fg=white}
+\setbeamercolor{frametitle}{bg=NavyBlue,fg=white}
+\setbeamercolor{block title}{bg=NavyBlue!80,fg=white}
+\setbeamercolor{block body}{bg=NavyBlue!10,fg=black}
+
+% Configuración adicional
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+%-------------------------------------------------------
+% INCLUDE PACKAGES
+%-------------------------------------------------------
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\graphicspath{{img/}}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%-------------------------------------------------------
+% DEFFINING AND REDEFINING COMMANDS
+%-------------------------------------------------------
+
+% colored hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=NavyBlue,
+    urlcolor=NavyBlue
+}
+
+%-------------------------------------------------------
+% INFORMATION IN THE TITLE PAGE
+%-------------------------------------------------------
+
+\title[]
+{
+      \textbf{Diseño e Implementación de una Plataforma de Estabilización para una Bicicleta Utilizando un Volante de Inercia}
+}
+
+\subtitle[Estabilización Giroscópica]
+{
+      \textbf{Sistema de Control CMG}
+}
+
+\author[Hernández \& Reyes]
+{      Jeferson Hernán Hernández Moreno \\
+      Fabián Andrés Reyes Romero\\[0.5em]
+      {\small Director: Dr. Alexander Jiménez Triana}
+}
+
+\institute[]
+{%
+      Universidad Distrital Francisco José de Caldas\\
+      Facultad Tecnológica\\
+      Ingeniería en Control y Automatización
+}
+
+\date{Enero 2026}
+
+%-------------------------------------------------------
+% THE BODY OF THE PRESENTATION
+%-------------------------------------------------------
+
+\begin{document}
+
+%-------------------------------------------------------
+% THE TITLEPAGE
+%-------------------------------------------------------
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+
+\begin{frame}{Contenido}{}
+\tableofcontents
+\end{frame}
+
+%-------------------------------------------------------
+\section{Introducción}
+%-------------------------------------------------------
+\begin{frame}{Introducción}{Contexto y Propósito}
+%-------------------------------------------------------
+
+\begin{block}{Problemática}
+\begin{itemize}
+    \item Movilidad sostenible en Bogotá: la bicicleta como alternativa
+    \item Inestabilidad crítica a bajas velocidades o en reposo
+    \item Riesgo de caídas y accidentes en ciclistas
+\end{itemize}
+\end{block}
+
+\begin{block}{Propósito del Proyecto}
+Desarrollar una plataforma experimental que aproveche el \textbf{efecto giroscópico} para estabilizar activamente una bicicleta en condiciones de reposo mediante un \textbf{volante de inercia} (CMG).
+\end{block}
+
+\begin{center}
+\fbox{\parbox{0.65\textwidth}{\centering \textit{[Imagen: Sistema CMG en bicicleta]}}}
+\end{center}
+\end{frame}
+
+%-------------------------------------------------------
+\section{Objetivos}
+%-------------------------------------------------------
+\begin{frame}{Objetivos del Proyecto}{}
+%-------------------------------------------------------
+
+\begin{block}{Objetivo General}
+Diseñar y construir una plataforma experimental con volante de inercia, sensores y actuadores que permita implementar y validar estrategias de control para la estabilización de una bicicleta.
+\end{block}
+
+\begin{block}{Objetivos Específicos}
+\begin{enumerate}
+    \item Diseñar y construir la estructura mecánica (bicicleta + CMG)
+    \item Integrar sistema de sensado (IMU), actuación y procesamiento
+    \item Implementar control PID en lazo cerrado y validar experimentalmente
+\end{enumerate}
+\end{block}
+
+\begin{center}
+\fbox{\parbox{0.6\textwidth}{\centering \textit{[Diagrama: Componentes del sistema]}}}
+\end{center}
+\end{frame}
+
+%-------------------------------------------------------
+\section{Marco Teórico}
+%-------------------------------------------------------
+\begin{frame}{Antecedentes}{Estado del Arte}
+%-------------------------------------------------------
+
+\begin{block}{Desarrollos Nacionales}
+\begin{itemize}
+    \item \textbf{U. Nacional (2014):} Control por dirección, requiere velocidad mínima
+    \item \textbf{U. San Buenaventura (2018):} CMG simulado, sin validación física
+\end{itemize}
+\end{block}
+
+\begin{block}{Desarrollos Internacionales}
+\begin{itemize}
+    \item \textbf{Ohio State U. (Kalouche, 2014):} CMG experimental, 30s de estabilización
+    \item \textbf{Yetkin et al. (2014):} Comparación PID vs SMC
+\end{itemize}
+\end{block}
+
+\begin{alertblock}{Contribución de este Proyecto}
+\textbf{Primera implementación física nacional} de un CMG para estabilización de bicicletas en reposo con validación experimental completa.
+\end{alertblock}
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Principio Físico}{Efecto Giroscópico}
+%-------------------------------------------------------
+
+\begin{columns}
+\column{0.5\textwidth}
+\begin{block}{Momento Angular}
+\begin{equation*}
+L = I\omega
+\end{equation*}
+\end{block}
+
+\begin{block}{Precesión}
+\begin{equation*}
+\Omega_p = \frac{\tau}{L} = \frac{mgr}{I\omega}
+\end{equation*}
+\end{block}
+
+\textbf{Principio:} Al inclinar el volante, se genera un torque perpendicular que estabiliza la bicicleta.
+
+\column{0.5\textwidth}
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Diagrama: Efecto giroscópico]}}}
+
+\vspace{0.3cm}
+
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Imagen: Volante girando]}}}
+\end{center}
+\end{columns}
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Componentes}{Sensores y Microcontrolador}
+%-------------------------------------------------------
+
+\begin{columns}
+\column{0.5\textwidth}
+\begin{block}{MPU9250 - IMU}
+\begin{itemize}
+    \item Acelerómetro 3 ejes
+    \item Giroscopio 3 ejes
+    \item Magnetómetro 3 ejes
+    \item Comunicación I²C
+\end{itemize}
+\end{block}
+
+\begin{center}
+\fbox{\parbox{0.8\textwidth}{\centering \textit{[Imagen: MPU9250]}}}
+\end{center}
+
+\column{0.5\textwidth}
+\begin{block}{ESP32}
+\begin{itemize}
+    \item Dual-core 32 bits
+    \item Hasta 240 MHz
+    \item Procesamiento en tiempo real
+    \item Control PWM para actuadores
+\end{itemize}
+\end{block}
+
+\begin{center}
+\fbox{\parbox{0.8\textwidth}{\centering \textit{[Imagen: ESP32]}}}
+\end{center}
+\end{columns}
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Controlador PID}{Estrategia de Control}
+%-------------------------------------------------------
+
+\begin{block}{Ecuación del Controlador}
+\begin{equation*}
+u(t) = K_p e(t) + K_i \int_{0}^{t} e(\tau)d\tau + K_d \frac{de(t)}{dt}
+\end{equation*}
+\end{block}
+
+\begin{columns}
+\column{0.5\textwidth}
+\begin{itemize}
+    \item $K_p$: Acción proporcional (respuesta inmediata)
+    \item $K_i$: Acción integral (elimina error residual)
+    \item $K_d$: Acción derivativa (amortiguamiento)
+\end{itemize}
+
+\column{0.5\textwidth}
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Diagrama de bloques PID]}}}
+\end{center}
+\end{columns}
+
+\vspace{0.3cm}
+\begin{block}{Filtro Complementario}
+\begin{equation*}
+\theta = 0.99 \cdot (\theta_{prev} + \omega \cdot \Delta t) + 0.01 \cdot \theta_{accel}
+\end{equation*}
+Combina precisión del giroscopio con estabilidad del acelerómetro.
+\end{block}
+\end{frame}
+
+%-------------------------------------------------------
+\section{Modelo Matemático}
+%-------------------------------------------------------
+\begin{frame}{Modelo Dinámico}{Sistema Bicicleta-CMG}
+%-------------------------------------------------------
+
+\begin{block}{Componentes del Sistema}
+\begin{itemize}
+    \item \textbf{Bicicleta ($b$):} Estructura principal - ángulo $\theta$
+    \item \textbf{Gimbal ($g$):} Marco motorizado - ángulo $\alpha$
+    \item \textbf{Flywheel ($f$):} Disco rotando a velocidad $\Omega$
+\end{itemize}
+\end{block}
+
+\begin{center}
+\fbox{\parbox{0.7\textwidth}{\centering \textit{[Diagrama de cuerpo libre]}}}
+\end{center}
+
+\begin{block}{Ecuaciones de Movimiento (linealizadas)}
+\begin{equation*}
+J_{eq}\ddot{\theta} - (M_{eq}L_{eq}g)\theta + H\dot{\alpha} = 0
+\end{equation*}
+\begin{equation*}
+I_\alpha \ddot{\alpha} - H\dot{\theta} = \tau_\alpha
+\end{equation*}
+donde $H = I_{fy} \Omega$ es el momento angular del volante.
+\end{block}
+\end{frame}
+
+%-------------------------------------------------------
+\section{Diseño e Implementación}
+%-------------------------------------------------------
+\begin{frame}{Diseño Mecánico}{Prototipo CAD}
+%-------------------------------------------------------
+
+\begin{center}
+\fbox{\parbox{0.8\textwidth}{\centering \textit{[Imagen: Diseño CAD completo]}}}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{columns}
+\column{0.5\textwidth}
+\begin{block}{Sistema CMG}
+\begin{itemize}
+    \item Volante de inercia
+    \item Motor DC alta velocidad
+    \item Gimbal motorizado
+\end{itemize}
+\end{block}
+
+\column{0.5\textwidth}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Imagen: Detalle CMG]}}}
+\end{columns}
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Arquitectura del Sistema}{Integración Completa}
+%-------------------------------------------------------
+
+\begin{center}
+\fbox{\parbox{0.85\textwidth}{\centering \textit{[Diagrama: Arquitectura completa]}}}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{block}{Flujo de Control}
+\begin{enumerate}
+    \item IMU mide inclinación $\theta$ y velocidad angular
+    \item Filtro complementario procesa señales
+    \item Controlador PID calcula acción de control
+    \item Actuador ajusta gimbal (ángulo $\alpha$)
+    \item Torque giroscópico estabiliza la bicicleta
+\end{enumerate}
+\end{block}
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Sistema Electrónico}{Componentes}
+%-------------------------------------------------------
+
+\begin{columns}
+\column{0.5\textwidth}
+\begin{block}{Hardware}
+\begin{itemize}
+    \item ESP32 (controlador principal)
+    \item MPU9250 (IMU 9-DOF)
+    \item BTS7960 (driver motor DC)
+    \item Batería LiFePO4
+    \item BMS
+\end{itemize}
+\end{block}
+
+\column{0.5\textwidth}
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Diagrama circuito]}}}
+\end{center}
+\end{columns}
+
+\vspace{0.3cm}
+
+\begin{center}
+\fbox{\parbox{0.7\textwidth}{\centering \textit{[Imagen: Implementación electrónica]}}}
+\end{center}
+\end{frame}
+
+%-------------------------------------------------------
+\section{Resultados}
+%-------------------------------------------------------
+\begin{frame}{Prototipo Final}{Sistema Completo}
+%-------------------------------------------------------
+
+\begin{center}
+\fbox{\parbox{0.8\textwidth}{\centering \textit{[Imagen: Prototipo ensamblado completo]}}}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{columns}
+\column{0.5\textwidth}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Imagen: Vista lateral]}}}
+
+\column{0.5\textwidth}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Imagen: Detalle gimbal]}}}
+\end{columns}
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Resultados Experimentales}{Desempeño del Sistema}
+%-------------------------------------------------------
+
+\begin{center}
+\fbox{\parbox{0.85\textwidth}{\centering \textit{[Gráfica: Ángulo de inclinación vs Tiempo]}}}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{columns}
+\column{0.5\textwidth}
+\begin{block}{Métricas}
+\begin{itemize}
+    \item Error en estado estacionario: $< 2°$
+    \item Tiempo de asentamiento: [X] s
+    \item Compensación de perturbaciones
+\end{itemize}
+\end{block}
+
+\column{0.5\textwidth}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Gráfica: Señal de control]}}}
+\end{columns}
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Validación}{Logros Alcanzados}
+%-------------------------------------------------------
+
+\begin{block}{Resultados Técnicos}
+\begin{itemize}
+    \item[$\checkmark$] Estabilización activa en reposo validada experimentalmente
+    \item[$\checkmark$] Compensación efectiva de perturbaciones laterales
+    \item[$\checkmark$] Control PID robusto y eficiente
+    \item[$\checkmark$] Modelo matemático validado
+\end{itemize}
+\end{block}
+
+\begin{center}
+\fbox{\parbox{0.7\textwidth}{\centering \textit{[Imagen/Video: Demostración funcionamiento]}}}
+\end{center}
+
+\begin{alertblock}{Comparación con Estado del Arte}
+Desempeño comparable a desarrollos internacionales, con plataforma de bajo costo implementada localmente.
+\end{alertblock}
+\end{frame}
+
+%-------------------------------------------------------
+\section{Conclusiones}
+%-------------------------------------------------------
+\begin{frame}{Conclusiones}{Técnicas y Académicas}
+%-------------------------------------------------------
+
+\begin{block}{Conclusiones Técnicas}
+\begin{itemize}
+    \item Se validó experimentalmente el principio de estabilización giroscópica mediante CMG
+    \item El controlador PID demostró ser efectivo para el objetivo planteado
+    \item El modelo matemático captura adecuadamente la dinámica del sistema
+    \item Primera implementación física nacional exitosa
+\end{itemize}
+\end{block}
+
+\begin{block}{Conclusiones Académicas}
+\begin{itemize}
+    \item Integración exitosa de teoría de control con implementación práctica
+    \item Contribución al desarrollo tecnológico nacional
+    \item Generación de conocimiento aplicado a movilidad sostenible
+\end{itemize}
+\end{block}
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Recomendaciones}{Trabajo Futuro}
+%-------------------------------------------------------
+
+\begin{block}{Mejoras al Sistema}
+\begin{itemize}
+    \item Implementar controladores avanzados (ADRC, LQR, SMC)
+    \item Optimizar diseño mecánico para reducir peso total
+    \item Mejorar eficiencia energética del sistema
+\end{itemize}
+\end{block}
+
+\begin{block}{Extensiones del Proyecto}
+\begin{itemize}
+    \item Integrar sistema de control de dirección para navegación
+    \item Evaluar desempeño en condiciones de movimiento
+    \item Desarrollar sistema de navegación autónoma
+\end{itemize}
+\end{block}
+
+\begin{block}{Aplicaciones Potenciales}
+\begin{itemize}
+    \item Sistema de asistencia para ciclistas urbanos
+    \item Plataformas de movilidad personal inteligente
+    \item Herramienta educativa en control de sistemas
+\end{itemize}
+\end{block}
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Impacto}{Social, Ambiental y Tecnológico}
+%-------------------------------------------------------
+
+\begin{columns}
+\column{0.5\textwidth}
+\begin{block}{Impacto Social}
+\begin{itemize}
+    \item Mayor seguridad para ciclistas
+    \item Inclusión de usuarios con menor destreza
+    \item Promoción de movilidad activa
+\end{itemize}
+\end{block}
+
+\begin{block}{Impacto Ambiental}
+\begin{itemize}
+    \item Reducción de emisiones
+    \item Transporte limpio
+    \item Calidad del aire
+\end{itemize}
+\end{block}
+
+\column{0.5\textwidth}
+\begin{block}{Impacto Tecnológico}
+\begin{itemize}
+    \item Avance en control de sistemas dinámicos
+    \item Desarrollo de prototipos funcionales
+    \item Base para futuras investigaciones
+\end{itemize}
+\end{block}
+
+\vspace{0.3cm}
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Imagen: Movilidad sostenible]}}}
+\end{center}
+\end{columns}
+\end{frame}
+
+%-------------------------------------------------------
+% FINAL PAGE
+%-------------------------------------------------------
+
+\begin{frame}[plain]
+  \begin{center}
+  \Large \textbf{¡Gracias por su atención!}\\[1em]
+  \normalsize
+  \textbf{Contacto:}\\
+  jhhernandezm@udistrital.edu.co\\
+  fareyesr@udistrital.edu.co\\[1em]
+  \textbf{Director:} Dr. Alexander Jiménez Triana\\
+  Grupo de Investigación ORCA\\
+  Universidad Distrital Francisco José de Caldas
+  \end{center}
+\end{frame}
+
+\end{document}

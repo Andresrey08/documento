@@ -1,0 +1,872 @@
+\documentclass[10pt,xcolor={dvipsnames}]{beamer}
+
+% Tema profesional estándar
+\usetheme{Copenhagen}
+\usecolortheme{seahorse}
+
+% Personalización de colores
+\setbeamercolor{structure}{fg=NavyBlue}
+\setbeamercolor{palette primary}{bg=NavyBlue,fg=white}
+\setbeamercolor{palette secondary}{bg=NavyBlue!80,fg=white}
+\setbeamercolor{palette tertiary}{bg=NavyBlue!60,fg=white}
+\setbeamercolor{frametitle}{bg=NavyBlue,fg=white}
+\setbeamercolor{block title}{bg=NavyBlue!80,fg=white}
+\setbeamercolor{block body}{bg=NavyBlue!10,fg=black}
+
+% Configuración adicional
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number] 
+
+%-------------------------------------------------------
+% INCLUDE PACKAGES
+%-------------------------------------------------------
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\graphicspath{{img/}}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%-------------------------------------------------------
+% DEFFINING AND REDEFINING COMMANDS
+%-------------------------------------------------------
+
+% colored hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=NavyBlue,
+    urlcolor=NavyBlue
+}
+
+%-------------------------------------------------------
+% INFORMATION IN THE TITLE PAGE
+%-------------------------------------------------------
+
+\title[] % [] is optional - is placed on the bottom of the sidebar on every slide
+{ % is placed on the title page
+      \textbf{Diseño e Implementación de una Plataforma de Estabilización para una Bicicleta Utilizando un Volante de Inercia}
+}
+
+\subtitle[Estabilización con Volante de Inercia]
+{
+      \textbf{Control Giroscópico CMG}
+}
+
+\author[Hernández \& Reyes]
+{      Jeferson Hernán Hernández Moreno \\
+      Fabián Andrés Reyes Romero\\[0.5em]
+      {\small Director: Dr. Alexander Jiménez Triana}
+}
+
+\institute[]
+{%
+      Universidad Distrital Francisco José de Caldas\\
+      Facultad Tecnológica\\
+      Ingeniería en Control y Automatización
+}
+
+\date{Enero 2026}
+
+%-------------------------------------------------------
+% THE BODY OF THE PRESENTATION
+%-------------------------------------------------------
+
+\begin{document}
+
+% ============================================
+% PORTADA
+% ============================================
+\begin{frame}
+\titlepage
+\end{frame}
+
+% ============================================
+% TABLA DE CONTENIDOS
+% ============================================
+\begin{frame}{Contenido}
+\tableofcontents
+\end{frame}
+
+% ============================================
+% SECCIÓN 1: INTRODUCCIÓN
+% ============================================
+\section{Introducción}
+
+\begin{frame}{Introducción}
+\begin{block}{Contexto}
+\begin{itemize}
+    \item Búsqueda de soluciones tecnológicas aplicadas a la movilidad
+    \item Control de vehículos de dos ruedas en condiciones de baja velocidad
+    \item La estabilidad pasiva desaparece a bajas velocidades
+\end{itemize}
+\end{block}
+
+\begin{block}{Propósito del Proyecto}
+Desarrollar una plataforma que aproveche principios físicos de conservación del momento angular para gestionar el equilibrio de la bicicleta en estado de reposo o bajas velocidades.
+\end{block}
+
+\vspace{0.3cm}
+\begin{center}
+\fbox{\parbox{0.8\textwidth}{\centering \textit{[Espacio para imagen: Bicicleta con sistema CMG]}}}
+\end{center}
+\end{frame}
+
+% ============================================
+% SECCIÓN 2: PLANTEAMIENTO DEL PROBLEMA
+% ============================================
+\section{Planteamiento del Problema}
+
+\begin{frame}{Planteamiento del Problema}
+\begin{block}{Problemática en Bogotá}
+\begin{itemize}
+    \item Congestión del tráfico y movilidad urbana
+    \item La bicicleta como alternativa sostenible
+    \item Inestabilidad en condiciones de baja velocidad
+\end{itemize}
+\end{block}
+
+\begin{columns}
+\column{0.5\textwidth}
+\begin{alertblock}{Riesgos}
+\begin{itemize}
+    \item Pérdida de equilibrio
+    \item Caídas y accidentes
+    \item Factor disuasivo para usuarios
+\end{itemize}
+\end{alertblock}
+
+\column{0.5\textwidth}
+\vspace{0.2cm}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para gráfica: Estadísticas de accidentes]}}}
+\end{columns}
+
+\vspace{0.3cm}
+\begin{block}{Vacío Tecnológico}
+Ausencia de soluciones locales que proporcionen auto-equilibrio activo a estructuras de dos ruedas.
+\end{block}
+\end{frame}
+
+% ============================================
+% SECCIÓN 3: JUSTIFICACIÓN
+% ============================================
+\section{Justificación}
+
+\begin{frame}{Justificación}
+\begin{block}{Impacto Social}
+\begin{itemize}
+    \item Reducción de accidentes en biciusuarios
+    \item Promoción de movilidad sostenible
+    \item Mejora en la calidad del aire en Bogotá
+\end{itemize}
+\end{block}
+
+\begin{block}{Impacto Tecnológico}
+\begin{itemize}
+    \item Desarrollo académico y tecnológico nacional
+    \item Contribución al estado del arte en sistemas de control
+    \item Aplicación práctica de teorías de control avanzado
+\end{itemize}
+\end{block}
+
+\vspace{0.3cm}
+\begin{center}
+\fbox{\parbox{0.8\textwidth}{\centering \textit{[Espacio para imagen: Movilidad sostenible]}}}
+\end{center}
+\end{frame}
+
+% ============================================
+% SECCIÓN 4: OBJETIVOS
+% ============================================
+\section{Objetivos}
+
+\begin{frame}{Objetivo General}
+\begin{block}{Objetivo General}
+Diseñar y construir una plataforma mecánica experimental, compuesta por una bicicleta equipada con un volante de inercia, sensores, actuadores e instrumentación asociada, que permita implementar, evaluar y validar estrategias de control orientadas a su estabilización.
+\end{block}
+
+\vspace{0.3cm}
+\begin{center}
+\fbox{\parbox{0.8\textwidth}{\centering \textit{[Espacio para diagrama: Sistema completo]}}}
+\end{center}
+\end{frame}
+
+\begin{frame}{Objetivos Específicos}
+\begin{enumerate}
+    \item \textbf{Diseño Mecánico}
+    \begin{itemize}
+        \item Diseñar y construir la estructura mecánica de la plataforma experimental
+        \item Acoplar volante de inercia a la bicicleta
+    \end{itemize}
+    
+    \vspace{0.2cm}
+    \item \textbf{Integración Electrónica}
+    \begin{itemize}
+        \item Integrar sensores (IMU), actuadores y sistema de adquisición de datos
+        \item Implementar procesamiento en tiempo real
+    \end{itemize}
+    
+    \vspace{0.2cm}
+    \item \textbf{Control}
+    \begin{itemize}
+        \item Implementar estrategia de control PID en lazo cerrado
+        \item Validar respuesta del sistema ante perturbaciones
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+% ============================================
+% SECCIÓN 5: MARCO TEÓRICO
+% ============================================
+\section{Marco Teórico}
+
+\begin{frame}{Antecedentes - Desarrollos Nacionales}
+\begin{block}{Universidad Nacional de Colombia (Baquero Suárez, 2014)}
+\begin{itemize}
+    \item Control por dirección (manubrio)
+    \item Control ADRC-GPI
+    \item Limitación: Requiere velocidad mínima de avance
+\end{itemize}
+\end{block}
+
+\begin{block}{Universidad de San Buenaventura (Tamayo, 2018)}
+\begin{itemize}
+    \item Primer CMG nacional para estabilización en reposo
+    \item Simulación en ADAMS
+    \item Limitación: Sin validación experimental
+\end{itemize}
+\end{block}
+
+\vspace{0.3cm}
+\begin{center}
+\fbox{\parbox{0.75\textwidth}{\centering \textit{[Espacio para tabla comparativa]}}}
+\end{center}
+\end{frame}
+
+\begin{frame}{Antecedentes - Desarrollos Internacionales}
+\begin{block}{The Ohio State University (Kalouche, 2014)}
+\begin{itemize}
+    \item CMG experimental completo
+    \item Volante de 4.5 kg a 4000 RPM
+    \item Control LQR, estabilización por 30 segundos
+\end{itemize}
+\end{block}
+
+\begin{block}{American Control Conference (Yetkin et al., 2014)}
+\begin{itemize}
+    \item Comparación PID vs SMC
+    \item PID mejor balance desempeño/eficiencia
+    \item SMC mejor respuesta ante perturbaciones
+\end{itemize}
+\end{block}
+
+\vspace{0.3cm}
+\begin{center}
+\fbox{\parbox{0.75\textwidth}{\centering \textit{[Espacio para imágenes de prototipos]}}}
+\end{center}
+\end{frame}
+
+\begin{frame}{Efecto Giroscópico}
+\begin{block}{Principio Fundamental}
+Cuando un objeto gira rápidamente alrededor de su eje de simetría, posee momento angular $\mathbf{L}$.
+\end{block}
+
+\begin{columns}
+\column{0.5\textwidth}
+\textbf{Momento Angular:}
+\begin{equation*}
+L = I\omega
+\end{equation*}
+
+\textbf{Precesión:}
+\begin{equation*}
+\Omega_p = \frac{\tau}{L} = \frac{mgr}{I\omega}
+\end{equation*}
+
+\column{0.5\textwidth}
+\vspace{0.2cm}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para diagrama: Efecto giroscópico]}}}
+\end{columns}
+
+\vspace{0.3cm}
+\begin{alertblock}{Clave del Sistema}
+El volante de inercia genera torques de reacción perpendiculares al torque aplicado, compensando la inclinación de la bicicleta.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Controlador PID}
+\begin{block}{Ecuación General}
+\begin{equation*}
+u(t) = K_p e(t) + K_i \int_{0}^{t} e(\tau)d\tau + K_d \frac{de(t)}{dt}
+\end{equation*}
+\end{block}
+
+\begin{columns}
+\column{0.5\textwidth}
+\textbf{Componentes:}
+\begin{itemize}
+    \item $K_p$: Proporcional
+    \item $K_i$: Integral
+    \item $K_d$: Derivativo
+\end{itemize}
+
+\column{0.5\textwidth}
+\vspace{0.2cm}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para diagrama de bloques PID]}}}
+\end{columns}
+
+\vspace{0.3cm}
+\begin{block}{Ventajas}
+\begin{itemize}
+    \item Robustez y simplicidad
+    \item Facilidad de sintonización
+    \item Bajo costo computacional
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Sensores y Microcontrolador}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{block}{MPU9250 (IMU 9-DOF)}
+\begin{itemize}
+    \item Acelerómetro 3 ejes
+    \item Giroscopio 3 ejes
+    \item Magnetómetro 3 ejes
+    \item Sistema MARG
+\end{itemize}
+\end{block}
+
+\vspace{0.2cm}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para imagen: Sensor MPU9250]}}}
+
+\column{0.5\textwidth}
+\begin{block}{ESP32}
+\begin{itemize}
+    \item Dual-core Xtensa 32 bits
+    \item Hasta 240 MHz
+    \item Procesamiento paralelo
+    \item Comunicación I²C
+\end{itemize}
+\end{block}
+
+\vspace{0.2cm}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para imagen: ESP32]}}}
+\end{columns}
+
+\vspace{0.3cm}
+\begin{alertblock}{Filtro Complementario}
+\begin{equation*}
+\text{Ángulo} = W \cdot (\text{Ángulo}_{prev} + \omega \cdot \Delta t) + (1-W) \cdot \text{Ángulo}_{accel}
+\end{equation*}
+\end{alertblock}
+\end{frame}
+
+% ============================================
+% SECCIÓN 6: MODELO MATEMÁTICO
+% ============================================
+\section{Modelo Matemático}
+
+\begin{frame}{Modelo Dinámico del Sistema}
+\begin{block}{Componentes del Sistema}
+\begin{itemize}
+    \item \textbf{Bicicleta ($b$):} Estructura principal
+    \item \textbf{Gimbal ($g$):} Marco motorizado (eje de precesión)
+    \item \textbf{Flywheel ($f$):} Disco de inercia a alta velocidad $\Omega$
+\end{itemize}
+\end{block}
+
+\vspace{0.2cm}
+\begin{center}
+\fbox{\parbox{0.8\textwidth}{\centering \textit{[Espacio para diagrama de cuerpo libre]}}}
+\end{center}
+
+\begin{block}{Variables de Estado}
+\begin{itemize}
+    \item $\theta$: Ángulo de inclinación de la bicicleta
+    \item $\alpha$: Ángulo de precesión del gimbal
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Ecuaciones de Movimiento}
+\begin{block}{Energía Cinética Total}
+\begin{equation*}
+T = T_{Bike} + T_{Gimbal} + T_{Flywheel}
+\end{equation*}
+\end{block}
+
+\begin{block}{Energía Potencial}
+\begin{equation*}
+V = (m_b h_b + m_g h_g + m_f h_f) g \cos\theta
+\end{equation*}
+\end{block}
+
+\begin{block}{Ecuación de Inclinación (Linealizada)}
+\begin{equation*}
+J_{eq}\ddot{\theta} - (M_{eq}L_{eq}g)\theta + H\dot{\alpha} = 0
+\end{equation*}
+\end{block}
+
+\begin{block}{Ecuación de Precesión}
+\begin{equation*}
+I_\alpha \ddot{\alpha} - H\dot{\theta} = \tau_\alpha
+\end{equation*}
+\end{block}
+\end{frame}
+
+\begin{frame}{Parámetros del Sistema}
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para tabla de parámetros]}}}
+\end{center}
+
+\vspace{0.3cm}
+\begin{block}{Constantes Importantes}
+\begin{itemize}
+    \item $J_{eq}$: Inercia efectiva de balanceo
+    \item $M_{eq}L_{eq}$: Momento estático total
+    \item $I_\alpha$: Inercia total del eje de precesión
+    \item $H = I_{fy} \Omega$: Momento angular del flywheel
+\end{itemize}
+\end{block}
+\end{frame}
+
+% ============================================
+% SECCIÓN 7: DISEÑO E IMPLEMENTACIÓN
+% ============================================
+\section{Diseño e Implementación}
+
+\begin{frame}{Criterios de Diseño}
+\begin{block}{Decisión de Diseño: Sistema CMG}
+\textbf{Razones:}
+\begin{enumerate}
+    \item Operación a velocidad cero
+    \item Validación experimental documentada
+    \item Simplicidad conceptual
+    \item Control mediante PID
+\end{enumerate}
+\end{block}
+
+\begin{columns}
+\column{0.5\textwidth}
+\textbf{Ventajas:}
+\begin{itemize}
+    \item Estabilización en reposo
+    \item Modelado matemático claro
+    \item Facilidad de sintonización
+\end{itemize}
+
+\column{0.5\textwidth}
+\vspace{0.2cm}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para esquema CMG]}}}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Diseño 3D - Prototipo}
+\begin{center}
+\fbox{\parbox{0.85\textwidth}{\centering \textit{[Espacio para imagen: Diseño CAD completo]}}}
+\end{center}
+
+\vspace{0.3cm}
+\begin{columns}
+\column{0.5\textwidth}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para imagen: Vista lateral]}}}
+
+\column{0.5\textwidth}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para imagen: Vista frontal]}}}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Componentes Mecánicos}
+\begin{block}{Sistema de Volante de Inercia}
+\begin{itemize}
+    \item Disco de inercia (flywheel)
+    \item Motor DC de alta velocidad
+    \item Sistema de transmisión
+\end{itemize}
+\end{block}
+
+\begin{block}{Sistema Gimbal}
+\begin{itemize}
+    \item Marco pivotante motorizado
+    \item Servomotor de precesión
+    \item Rodamientos de baja fricción
+\end{itemize}
+\end{block}
+
+\vspace{0.3cm}
+\begin{center}
+\fbox{\parbox{0.8\textwidth}{\centering \textit{[Espacio para imagen: Componentes mecánicos]}}}
+\end{center}
+\end{frame}
+
+\begin{frame}{Arquitectura del Sistema de Control}
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para diagrama: Arquitectura completa]}}}
+\end{center}
+
+\vspace{0.3cm}
+\begin{block}{Flujo de Control}
+\begin{enumerate}
+    \item IMU mide inclinación ($\theta$) y velocidad angular
+    \item Filtro complementario procesa señales
+    \item Controlador PID calcula señal de control
+    \item Actuador ajusta ángulo del gimbal ($\alpha$)
+    \item Torque giroscópico estabiliza la bicicleta
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}{Sistema Electrónico}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{block}{Componentes}
+\begin{itemize}
+    \item ESP32 (controlador)
+    \item MPU9250 (IMU)
+    \item BTS7960 (driver motor)
+    \item Batería LiFePO4
+    \item BMS (gestión baterías)
+\end{itemize}
+\end{block}
+
+\column{0.5\textwidth}
+\vspace{0.2cm}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para diagrama electrónico]}}}
+\end{columns}
+
+\vspace{0.3cm}
+\begin{center}
+\fbox{\parbox{0.8\textwidth}{\centering \textit{[Espacio para imagen: Circuito implementado]}}}
+\end{center}
+\end{frame}
+
+\begin{frame}{Implementación del Controlador PID}
+\begin{block}{Algoritmo de Control}
+\begin{itemize}
+    \item Frecuencia de muestreo: 100 Hz
+    \item Filtro complementario (W = 0.99)
+    \item Sintonización de ganancias $K_p$, $K_i$, $K_d$
+\end{itemize}
+\end{block}
+
+\begin{center}
+\fbox{\parbox{0.8\textwidth}{\centering \textit{[Espacio para código: Fragmento algoritmo PID]}}}
+\end{center}
+
+\vspace{0.3cm}
+\begin{alertblock}{Parámetros Finales}
+\begin{itemize}
+    \item $K_p$: [valor]
+    \item $K_i$: [valor]
+    \item $K_d$: [valor]
+\end{itemize}
+\end{alertblock}
+\end{frame}
+
+% ============================================
+% SECCIÓN 8: RESULTADOS
+% ============================================
+\section{Resultados}
+
+\begin{frame}{Prototipo Final}
+\begin{center}
+\fbox{\parbox{0.85\textwidth}{\centering \textit{[Espacio para imagen: Prototipo completo ensamblado]}}}
+\end{center}
+
+\vspace{0.3cm}
+\begin{columns}
+\column{0.5\textwidth}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para imagen: Detalle volante]}}}
+
+\column{0.5\textwidth}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para imagen: Detalle gimbal]}}}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Pruebas de Estabilización}
+\begin{block}{Condiciones de Prueba}
+\begin{itemize}
+    \item Estabilización en reposo
+    \item Perturbaciones laterales controladas
+    \item Tiempo de estabilización
+    \item Ángulo de recuperación
+\end{itemize}
+\end{block}
+
+\vspace{0.3cm}
+\begin{center}
+\fbox{\parbox{0.85\textwidth}{\centering \textit{[Espacio para gráfica: Respuesta temporal del sistema]}}}
+\end{center}
+\end{frame}
+
+\begin{frame}{Resultados Experimentales}
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para tabla: Resultados cuantitativos]}}}
+\end{center}
+
+\vspace{0.3cm}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{block}{Métricas}
+\begin{itemize}
+    \item Error en estado estacionario
+    \item Tiempo de asentamiento
+    \item Sobrepaso máximo
+    \item Perturbación máxima
+\end{itemize}
+\end{block}
+
+\column{0.5\textwidth}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para gráfica comparativa]}}}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Análisis de Desempeño}
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para gráfica: Ángulo vs Tiempo]}}}
+\end{center}
+
+\vspace{0.3cm}
+\begin{columns}
+\column{0.5\textwidth}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para gráfica: Señal de control]}}}
+
+\column{0.5\textwidth}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para gráfica: Error vs Tiempo]}}}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Validación del Sistema}
+\begin{block}{Logros Alcanzados}
+\begin{itemize}
+    \item \checkmark Estabilización activa en reposo
+    \item \checkmark Compensación de perturbaciones
+    \item \checkmark Validación del modelo matemático
+    \item \checkmark Implementación exitosa del controlador PID
+\end{itemize}
+\end{block}
+
+\vspace{0.3cm}
+\begin{center}
+\fbox{\parbox{0.8\textwidth}{\centering \textit{[Espacio para video/secuencia: Demostración funcionamiento]}}}
+\end{center}
+\end{frame}
+
+% ============================================
+% SECCIÓN 9: CONCLUSIONES
+% ============================================
+\section{Conclusiones}
+
+\begin{frame}{Conclusiones}
+\begin{block}{Técnicas}
+\begin{itemize}
+    \item Se validó experimentalmente el principio de estabilización giroscópica mediante CMG
+    \item El controlador PID demostró ser efectivo y eficiente para el objetivo planteado
+    \item El modelo matemático captura adecuadamente la dinámica del sistema
+\end{itemize}
+\end{block}
+
+\begin{block}{Académicas}
+\begin{itemize}
+    \item Integración exitosa de teoría de control con implementación práctica
+    \item Contribución al desarrollo tecnológico nacional en sistemas de control
+    \item Generación de conocimiento aplicado a movilidad sostenible
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Recomendaciones}
+\begin{block}{Trabajo Futuro}
+\begin{itemize}
+    \item Implementar controladores avanzados (ADRC, SMC, LQR)
+    \item Optimizar el diseño mecánico para reducir peso
+    \item Integrar sistema de control de dirección
+    \item Evaluar desempeño en condiciones de movimiento
+    \item Desarrollar sistema de navegación autónoma
+\end{itemize}
+\end{block}
+
+\begin{alertblock}{Aplicaciones Potenciales}
+\begin{itemize}
+    \item Sistema de asistencia para ciclistas
+    \item Plataformas de movilidad personal
+    \item Educación en sistemas de control
+\end{itemize}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Impacto del Proyecto}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{block}{Social}
+\begin{itemize}
+    \item Mayor seguridad para ciclistas
+    \item Promoción de movilidad sostenible
+    \item Inclusión de usuarios con menor destreza
+\end{itemize}
+\end{block}
+
+\column{0.5\textwidth}
+\begin{block}{Ambiental}
+\begin{itemize}
+    \item Reducción de emisiones
+    \item Alternativa de transporte limpio
+    \item Contribución a calidad del aire
+\end{itemize}
+\end{block}
+\end{columns}
+
+\vspace{0.5cm}
+\begin{block}{Tecnológico}
+\begin{itemize}
+    \item Avance en control de sistemas dinámicos
+    \item Desarrollo de prototipos funcionales
+    \item Base para futuras investigaciones
+\end{itemize}
+\end{block}
+\end{frame}
+
+% ============================================
+% AGRADECIMIENTOS
+% ============================================
+\begin{frame}{Agradecimientos}
+\begin{center}
+\Large
+\textbf{Agradecimientos}
+
+\vspace{1cm}
+\normalsize
+
+\textbf{Director:} Dr. Alexander Jiménez Triana
+
+\vspace{0.5cm}
+
+\textbf{Grupo de Investigación ORCA}\\
+Universidad Distrital Francisco José de Caldas
+
+\vspace{0.5cm}
+
+\textbf{Facultad Tecnológica}\\
+Ingeniería en Control y Automatización
+
+\vspace{1cm}
+
+\fbox{\parbox{0.6\textwidth}{\centering \textit{[Espacio para logo Universidad]}}}
+\end{center}
+\end{frame}
+
+% ============================================
+% PREGUNTAS
+% ============================================
+\begin{frame}
+\begin{center}
+\Huge
+\textbf{¿Preguntas?}
+
+\vspace{2cm}
+\normalsize
+
+\textbf{Contacto:}\\
+\vspace{0.3cm}
+jhhernandezm@udistrital.edu.co\\
+fareyesr@udistrital.edu.co
+
+\vspace{1.5cm}
+
+\Large
+\textbf{Gracias por su atención}
+\end{center}
+\end{frame}
+
+% ============================================
+% DIAPOSITIVAS DE RESPALDO
+% ============================================
+\appendix
+
+\begin{frame}{Respaldo: Especificaciones Técnicas}
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para tabla: Especificaciones detalladas]}}}
+\end{center}
+
+\vspace{0.3cm}
+\begin{columns}
+\column{0.5\textwidth}
+\textbf{Volante de Inercia:}
+\begin{itemize}
+    \item Masa: [valor]
+    \item Momento de inercia: [valor]
+    \item Velocidad: [valor] RPM
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{Actuador Gimbal:}
+\begin{itemize}
+    \item Torque: [valor] N·m
+    \item Rango: [valor]°
+    \item Velocidad: [valor] rad/s
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Respaldo: Diagrama de Bloques Detallado}
+\begin{center}
+\fbox{\parbox{0.95\textwidth}{\centering \textit{[Espacio para diagrama de bloques completo del sistema de control]}}}
+\end{center}
+\end{frame}
+
+\begin{frame}{Respaldo: Análisis de Estabilidad}
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para lugar de raíces o diagrama de Bode]}}}
+\end{center}
+
+\vspace{0.3cm}
+\begin{block}{Criterios de Estabilidad}
+\begin{itemize}
+    \item Márgenes de ganancia y fase
+    \item Ubicación de polos en el plano complejo
+    \item Análisis de robustez
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Respaldo: Código del Controlador}
+\begin{center}
+\fbox{\parbox{0.95\textwidth}{\centering \textit{[Espacio para fragmentos de código del controlador PID y filtro complementario]}}}
+\end{center}
+\end{frame}
+
+\begin{frame}{Respaldo: Proceso de Construcción}
+\begin{columns}
+\column{0.5\textwidth}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para foto: Fase 1 construcción]}}}
+
+\vspace{0.3cm}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para foto: Fase 2 construcción]}}}
+
+\column{0.5\textwidth}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para foto: Fase 3 construcción]}}}
+
+\vspace{0.3cm}
+\fbox{\parbox{0.9\textwidth}{\centering \textit{[Espacio para foto: Prototipo final]}}}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Respaldo: Comparación con Estado del Arte}
+\begin{center}
+\fbox{\parbox{0.95\textwidth}{\centering \textit{[Espacio para tabla comparativa con otros proyectos]}}}
+\end{center}
+
+\vspace{0.3cm}
+\begin{block}{Contribuciones Propias}
+\begin{itemize}
+    \item Primera implementación física nacional de CMG
+    \item Validación experimental completa
+    \item Plataforma de bajo costo
+\end{itemize}
+\end{block}
+\end{frame}
+
+\end{document}
